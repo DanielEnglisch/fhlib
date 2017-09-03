@@ -3,25 +3,27 @@
 
 using namespace std;
 
+template <typename T>
 class LinkedList {
 private:
+
 	struct Node {
-		int data;
+		T data;
 		Node* next;
 	};
+
 	Node* top = nullptr;
+	int length = 0;
+
 	void deleteNode(Node*& n) {
 		if (n->next != nullptr) {
 			deleteNode(n->next);
 		}
-		
-
-			delete n;
-			n = nullptr;
-		
+		delete n;
+		n = nullptr;
 	}
 public:
-	void add(int i) {
+	void add(T i) {
 
 		Node* newNode = new Node();
 		newNode->data = i;
@@ -34,6 +36,7 @@ public:
 			newNode->next = top;
 			top = newNode;
 		}
+		length++;
 	}
 
 	void list() {
@@ -45,6 +48,10 @@ public:
 			i++;
 			scanner = scanner->next;
 		}
+	}
+
+	const int getLength() {
+		return length;
 	}
 
 	LinkedList() {
@@ -61,13 +68,16 @@ public:
 
 int main() {
 
-	LinkedList* myList = new LinkedList();
-	myList->add(1);
-	myList->add(2);
-	myList->add(3);
-	myList->add(4);
+	LinkedList<string>* myList = new LinkedList<string>();
+	myList->add("str1");
+	myList->add("str2");
+	cout << "LEN: " << myList->getLength() << endl;
+	myList->add("str3");
+	myList->add("str4");
 	myList->list();
+
 	delete myList;
+	myList = nullptr;
 
 	return  0;
 }
