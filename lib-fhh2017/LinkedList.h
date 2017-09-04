@@ -11,7 +11,6 @@ public:
 		Node* next;
 	};
 private:
-	
 	Node* top = nullptr;
 	int length = 0;
 	void deleteNode(Node*& n) {
@@ -21,10 +20,9 @@ private:
 		delete n;
 		n = nullptr;
 	}
-
 public:
-	const Node*  add(T i) {
-
+	const Node* add(T i) {
+		
 		Node* newNode = new Node();
 		newNode->data = i;
 		newNode->next = nullptr;
@@ -38,17 +36,6 @@ public:
 		}
 		length++;
 		return newNode;
-	}
-
-	void list() {
-		Node* scanner = nullptr;
-		scanner = top;
-		int i = 0;
-		while (scanner != nullptr) {
-			cout << i << " Data:" << scanner->data << endl;
-			i++;
-			scanner = scanner->next;
-		}
 	}
 
 	const int getLength() {
