@@ -2,16 +2,17 @@
 #include <string>
 
 using namespace std;
+using StringLinkedList = LinkedList<string>;
+using StringNode = StringLinkedList::Node;
 
 int main() {
 
-	LinkedList<string>* myList = new LinkedList<string>();
+	StringLinkedList* myList = new StringLinkedList();
 	myList->add("str1");
-	myList->add("str2");
+	const StringNode* nodePtr = myList->add("str2");
 	myList->add("str3");
 	myList->add("str4");
 	myList->list();
-
 	delete myList;
 	myList = nullptr;
 
