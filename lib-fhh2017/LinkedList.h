@@ -5,11 +5,13 @@ using namespace std;
 
 template<class T>
 class LinkedList {
-private:
+public:
 	struct Node {
 		T data;
 		Node* next;
 	};
+private:
+	
 	Node* top = nullptr;
 	int length = 0;
 	void deleteNode(Node*& n) {
@@ -19,8 +21,9 @@ private:
 		delete n;
 		n = nullptr;
 	}
+
 public:
-	void add(T i) {
+	const Node*  add(T i) {
 
 		Node* newNode = new Node();
 		newNode->data = i;
@@ -34,6 +37,7 @@ public:
 			top = newNode;
 		}
 		length++;
+		return newNode;
 	}
 
 	void list() {
