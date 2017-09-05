@@ -2,36 +2,46 @@
 #include <string>
 
 using namespace std;
-using StringLinkedList = LinkedList<string>;
-using StringNode = StringLinkedList::Node;
 
-struct Vec3 {
+struct Vec3i {
 	int x, y, z;
-	Vec3() {}
-	Vec3(int x, int y, int z)
-	: x(x), y(y), z(z)
-	{
 
-	}
+	Vec3i()
+		: x(-1), y(-1), z(-1)
+	{}
+
+	Vec3i(int x, int y, int z)
+	: x(x), y(y), z(z)
+	{}
+
 };
+
+//Overloading of << for class Vec3
+std::ostream& operator<<(ostream& stream, const Vec3i& other) {
+	stream << "[" << other.x << ", " << other.y << ", " << other.z << "]";
+	return stream;
+}
+
+void addVectorsTo(LinkedList<Vec3i>*& vecs) {
+	vecs->add(Vec3i(1,2,3));
+	vecs->add(Vec3i(4, 5, 6));
+	vecs->add(Vec3i(7, 8, 9));
+}
 
 int main() {
 
-	StringLinkedList* myList = new StringLinkedList();
-	myList->add("str1");
-	const StringNode* nodePtr = myList->add("str2");
-	myList->add("str3");
-	myList->add("str3");
-	myList->add("str4");
-	delete myList;
-	myList = nullptr;
+	LinkedList<Vec3i>* vectors = new LinkedList<Vec3i>();
+	addVectorsTo(vectors);
 
-	LinkedList<Vec3>* vectors = new LinkedList<Vec3>();
-	Vec3 v1(1, 2, 3);
-	Vec3 v2(4, 5, 6);
+	LinkedList<Vec3i>::Node* obj = 0;
 
-	vectors->add(v1);
-	vectors->add(v2);
+	for (obj = vectors->Begin(); obj != nullptr; vectors->Next(obj)) {
+		obj->data.x += 1;
+		obj->data.y += 1;
+		obj->data.z += 1;
+		cout << "Vec: " << obj->data << endl;
+	}
+	cin.get();
 
 	return  0;
 }

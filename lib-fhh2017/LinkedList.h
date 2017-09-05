@@ -12,6 +12,7 @@ public:
 	};
 private:
 	Node* top = nullptr;
+
 	int length = 0;
 	void deleteNode(Node*& n) {
 		if (n->next != nullptr) {
@@ -21,7 +22,17 @@ private:
 		n = nullptr;
 	}
 public:
-	const Node* add(T i) {
+
+	Node* Begin() const {
+		return top;
+	}
+
+
+	void Next(Node*& obj) {
+		obj = obj->next;
+	}
+
+	const Node* add(const T& i)  {
 		
 		Node* newNode = new Node();
 		newNode->data = i;
@@ -38,7 +49,7 @@ public:
 		return newNode;
 	}
 
-	const int getLength() {
+	const int getLength() const {
 		return length;
 	}
 
