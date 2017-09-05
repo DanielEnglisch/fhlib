@@ -23,7 +23,7 @@
     <ClInclude Include="lib-fhh2017.h">
       <Filter>Quelldateien</Filter>
     </ClInclude>
-    <ClInclude Include="LinkedList.h">
+    <ClInclude Include="LinkedList.cpp">
       <Filter>Quelldateien</Filter>
     </ClInclude>
   </ItemGroup>

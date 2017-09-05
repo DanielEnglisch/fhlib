@@ -115,7 +115,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib-fhh2017.h" />
-    <ClInclude Include="LinkedList.h" />
+    <ClInclude Include="LinkedList.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
