@@ -14,16 +14,30 @@ struct Vec3i {
 	: x(x), y(y), z(z)
 	{}
 
+
+	void operator+=(Vec3i& other) {
+		x += other.x;
+		y += other.y;
+		z += other.z;
+	}
+
+	void operator+=(int other) {
+		x += other;
+		y += other;
+		z += other;
+	}
+
+
 };
 
 //Overloading of << for class Vec3
-std::ostream& operator<<(ostream& stream, const Vec3i& other) {
+ostream& operator<<(ostream& stream, const Vec3i& other) {
 	stream << "[" << other.x << ", " << other.y << ", " << other.z << "]";
 	return stream;
 }
 
 void addVectorsTo(LinkedList<Vec3i>*& vecs) {
-	vecs->add(Vec3i(1,2,3));
+	vecs->add(Vec3i(1, 2, 3));
 	vecs->add(Vec3i(4, 5, 6));
 	vecs->add(Vec3i(7, 8, 9));
 }
@@ -34,11 +48,10 @@ int main() {
 	addVectorsTo(vectors);
 
 	LinkedList<Vec3i>::Node* obj = 0;
+	cin.get();
 
 	for (obj = vectors->Begin(); obj != nullptr; vectors->Next(obj)) {
-		obj->data.x += 1;
-		obj->data.y += 1;
-		obj->data.z += 1;
+		obj->data += 1;
 		cout << "Vec: " << obj->data << endl;
 	}
 	cin.get();
