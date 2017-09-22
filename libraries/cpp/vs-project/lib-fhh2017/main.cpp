@@ -37,9 +37,9 @@ ostream& operator<<(ostream& stream, const Vec3i& other) {
 }
 
 void addVectorsTo(LinkedList<Vec3i>*& vecs) {
-	vecs->add(Vec3i(1, 2, 3));
-	vecs->add(Vec3i(4, 5, 6));
-	vecs->add(Vec3i(7, 8, 9));
+	vecs->add({ 1, 2, 3 });
+	vecs->add({ 4, 5, 6 });
+	vecs->add({ 7, 8, 9 });
 }
 
 int main() {
