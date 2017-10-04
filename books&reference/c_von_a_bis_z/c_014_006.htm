@@ -1,0 +1,541 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: C von A bis Z – 14.7 Array und Zeiger</title>
+<meta name="title" content="Galileo Computing :: C von A bis Z">
+<meta name="author" content="J&uuml;rgen Wolf">
+<meta name="publisher" content="Galileo Press 2006">
+<meta name="copyright" content="Galileo Press 2006">
+<meta name="description" content="C von A bis Z - Das umfassende Handbuch f&uuml;r Linux, Unix und Windows – 2., aktualisierte und erweiterte Auflage 2006, geb., mit CD und Referenzkarte – ISBN 3-89842-643-2">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="c_014_005.htm">
+<link rel="next" href="c_014_007.htm"><script type="text/javascript" language="JavaScript"><!--
+function OpenWin(url,name,height,width)
+{
+  var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+  InfoWin.focus();
+}
+//--></script></head>
+<body vlink="#000099" link="#000099" alink="#000099">
+    <table width="100%" height="74" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+        <tr>
+            <td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+            <td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opc"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger." title="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger."></a></td>
+        </tr>
+    </table>
+    <div align="right"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger.</a></div>
+    <br />
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td width="156" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
+        <tr>
+            <td colspan="2" class="nav1" align="left" valign="top" height="150">
+                <table class="tbl1" width="150" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td class="tbl2" height="25"><a class="nav" href="./index.htm">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000Vorwort_000.htm#Xxx999266">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000VorwortGutachter_000.htm#Xxx999275">Vorwort des Gutachters</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_001_000.htm#Xxx999328">1 Einstieg in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_002_000.htm#Xxx999328">2 Das erste Programm</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_003_000.htm#Xxx999328">3 Zeichens&auml;tze</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_004_000.htm#Xxx999329">4 Kommentare in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_005_000.htm#Xxx999330">5 Formatierte Eingabe mit scanf()</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_006_000.htm#Xxx999330">6 Formatierte Ausgabe mit printf</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_007_000.htm#Xxx999329">7 Elementare Datentypen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_008_000.htm#Xxx999328">8 Operatoren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_009_000.htm#Xxx999328">9 Typenumwandlung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_010_000.htm#Xxx999328">10 Kontrollstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_011_000.htm#Xxx999328">11 Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_012_000.htm#Xxx999328">12 Pr&auml;prozessor-Direktiven</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_013_000.htm#Xxx999328">13 Arrays</A></td>
+</tr>
+<tr>
+<td><A class="navh" href="./c_014_000.htm#Xxx999328">14 Zeiger (Pointer)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_015_000.htm#Xxx999328">15 Kommandozeilenargumente</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_016_000.htm#Xxx999328">16 Dynamische Speicherverwaltung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_017_000.htm#Xxx999328">17 Strukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_018_000.htm#Xxx999328">18 Ein-/Ausgabe-Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_019_000.htm#Xxx999328">19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_020_000.htm#Xxx999328">20 Arbeiten mit variablen langen Argumentlisten – &lt;stdarg.h&gt;</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_021_000.htm#Xxx999328">21 Zeitroutinen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_022_000.htm#Xxx999328">22 Weitere Headerdateien und ihre Funktionen (ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_023_000.htm#Xxx999328">23 Dynamische Datenstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_024_000.htm#Xxx999328">24 Algorithmen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_025_000.htm#Xxx999328">25 Sicheres Programmieren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_026_000.htm#Xxx999328">26 CGI mit C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_027_000.htm#Xxx999328">27 MySQL und C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_028_000.htm#Xxx999328">28 Netzwerkprogrammierung und Cross-Plattform-Entwicklung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_029_000.htm#Xxx999328">29 Wie geht’s jetzt weiter?</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_030Anhang_000.htm#Xxx999266">A Anhang</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./stichwort.htm#Xxx512322">Index</a></td>
+</tr>
+<tr><td><br /><a class="navnav" href="http://download.galileo-press.de/openbook/c_von_a_bis_z/galileocomputing_c_von_a_bis_z.zip"><strong>Download:</strong><br />- ZIP, ca. 8,5 MB</a></td></tr>
+<tr><td><a class="navnav" href="http://www.galileocomputing.de/899?GPP=opc">Buch bestellen</a></td></tr>
+<tr><td><a class="navnav" href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)">Ihre Meinung?</a><br /><br /></td></tr>
+</table></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10"></td>
+<td width="85%" valign="top" align="center">
+    <div align="center">
+        <table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+            <tr>
+                <td width="100%" class="start" colspan="1" height="22" align="center">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_014_005.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Galileo Computing /</a><a class="navnav" href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"> &lt;openbook&gt; /</a><a href="./index.htm" class="navnav"> C von A bis Z</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_014_007.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" valign="top">
+    <table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+        <tr>
+            <td colspan="2"><a href="http://www.galileocomputing.de/899?GPP=opc" class="buchtitel">C von A bis Z</a><span class="autor"> von J&uuml;rgen Wolf</span><br><span class="untertitel">Das umfassende Handbuch f&uuml;r Linux, Unix und Windows <br />– 2., aktualisierte und erweiterte Auflage 2006</span></td>
+        </tr>
+        <tr>
+            <td valign="top" width="90"><a href="http://www.galileocomputing.de/899?GPP=opc"><img src="common/643.gif" border="0" alt="Buch: C von A bis Z" title="Buch: C von A bis Z" align="left"><br /><br /><span class="autor"><strong>C von A bis Z</strong><br />1.116 S., mit CD, Referenzkarte, 39,90 Euro<br />Galileo Computing<br />ISBN 3-89842-643-2</span></a></a></td>
+            <td width="80%">
+<table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="3" class="kap"><b>Kapitel <a href="./c_014_000.htm#RxxobKap014000040028A01F03F18C">14 Zeiger (Pointer)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_014_000.htm#RxxobKap014000040028A01F03F196">14.1 Zeiger deklarieren</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_014_001.htm#RxxobKap014001040028BB1F02E18C">14.2 Zeiger initialisieren</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_014_001.htm#RxxobKap014001040028BB1F02E1ED">14.2.1 Speichergr&ouml;&szlig;e von Zeigern</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_014_002.htm#RxxobKap014002040028BC1F01F18C">14.3 Zeigerarithmetik</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_014_003.htm#RxxobKap014003040028BD1F02718C">14.4 Zeiger, die auf andere Zeiger verweisen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_014_003.htm#RxxobKap014003040028BD1F027199">14.4.1 Subtraktion zweier Zeiger</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_014_004.htm#RxxobKap014004040028BE1F04B18C">14.5 Typensicherung bei der Dereferenzierung</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_014_005.htm#RxxobKap014005040028BF1F03318C">14.6 Zeiger als Funktionsparameter (call–by–reference)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_014_005.htm#RxxobKap014005040028BF1F0331A3">14.6.1 Zeiger als R&uuml;ckgabewert</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a class="navh" href="#RxxobKap014006040028C01F04118C">14.7 Array und Zeiger</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_014_007.htm#RxxobKap014007040028C11F01F18C">14.8 Zeiger auf Strings</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_014_007.htm#RxxobKap014007040028C11F01F192">14.8.1 Zeiger auf konstante Objekte (Read-only-Zeiger)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_014_008.htm#RxxobKap014008040028C21F04A18C">14.9 Zeiger auf Zeiger und Stringtabellen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_014_008.htm#RxxobKap014008040028C21F04A198">14.9.1 Stringtabellen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_014_009.htm#RxxobKap014009040028C31F02918C">14.10 Zeiger auf Funktionen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_014_010.htm#RxxobKap014010040028C41F03A18C">14.11 void-Zeiger</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_014_011.htm#RxxobKap014011040028C51F02418C">14.12 &Auml;quivalenz zwischen Zeigern und Arrays</a></b></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td>
+<a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2">14.7 Array und Zeiger<a id="RxxobKap014006040028C01F04118C" name="RxxobKap014006040028C01F04118C"></a> 
+      <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"></h2>
+<p><a id="Xxx999329" name="Xxx999329"></a><a id="Xxx999330" name="Xxx999330"></a>Um Irrt&uuml;mer gleich zu vermeiden: Arrays und Zeiger sind nicht das Gleiche. Auch wenn dies im Verlauf dieses Kapitels den Anschein hat. Ein Zeiger ist die Adresse einer Adresse, w&auml;hrend ein Arrayname nur eine Adresse darstellt. Dieser Irrtum, dass Array und Zeiger dasselbe sind, beruht h&auml;ufig darauf, dass Array- und Zeigerdeklarationen als formale Parameter einer Funktion austauschbar sind (dies wurde ja in Kapitel 13 behandelt), weil hierbei (und nur hier) ein Array zu einem Zeiger zerf&auml;llt. Diese automatische »Vereinfachung« stellt somit f&uuml;r einen Anf&auml;nger eher eine »Verkomplizierung« in Bezug auf das Verst&auml;ndnis dar. Weiterhin verst&auml;rkt wird dieses Missverst&auml;ndnis, wenn ein Zeiger auf einem Speicherblock, der mit <span class="listing">malloc()</span> dynamisch Speicher reserviert, wie ein Array verwendet wird (da der Speicherblock auch mit <span class="listing">[]</span> verwendet werden kann).</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" rowspan="2" bgcolor="#000000">
+<p class="BStandard"><b>Internes   </b>Ein Array belegt zum Programmstart automatisch einen Speicher, der nicht mehr verschoben oder in der Gr&ouml;&szlig;e ver&auml;ndert werden kann. Einem Zeiger hingegen muss man einen Wert zuweisen, damit dieser auch auf einen belegten Speicher zeigt. Au&szlig;erdem kann der »Wert« eines Zeigers sp&auml;ter nach belieben einem anderen »Wert« (Speicherobjekt) zugewiesen werden. Ein Zeiger muss au&szlig;erdem nicht nur auf den Anfang eines Speicherblocks zeigen.</p>
+</td>
+</tr>
+<tr>
+</tr>
+</table><br>
+<p>Zuerst folgt ein Beispiel, wie mit Zeigern auf ein Array zugegriffen werden kann:</p>
+<pre>/* arr_ptr1.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main(void) {
+   int element[8]= { 1, 2, 4, 8, 16, 32, 64, 128 };
+   int *ptr;
+   int i;
+   ptr = element;
+   printf("Der Wert auf den *ptr zeigt ist %d\n", *ptr);
+   printf("Durch *ptr+1 zeigt er jetzt auf %d\n", *(ptr+1));
+   printf("*(ptr+3) = %d\n", *(ptr+3));
+   printf("\nJetzt alle zusammen : \n");
+   for(i=0; i&lt;8; i++)
+      printf("element[%d]=%d \n", i, *(ptr+i));
+   return EXIT_SUCCESS;
+}</pre>
+<p>Durch die Anweisung</p>
+<pre>ptr = element;</pre>
+<p>wird dem Zeiger <span class="listing">ptr</span> die Adresse des Arrays <span class="listing">element</span> &uuml;bergeben. Dies funktioniert ohne den Adressoperator, da laut ANSI C-Standard der Arrayname immer als Zeiger auf das erste Array-Element angesehen wird. Hier der Beweis und das Beispiel dazu:</p>
+<pre>/* arr_ptr2.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main(void) {
+   int element[8] = { 1, 2, 4, 8, 16, 32, 64, 128 };
+   int i;
+   printf("*element     = %d\n", *element);
+   printf("*(element+1) = %d\n", *(element+1));
+   printf("*(element+3) = %d\n", *(element+3));
+   printf("\nJetzt alle zusammen : \n");
+   for(i=0; i&lt;8; i++)
+      printf("*(element+%d) = %d \n", i, *(element+i));
+   return EXIT_SUCCESS;
+}</pre>
+<p>Leider sind es aber exakt solche Programmbeispiele, durch die der Eindruck entsteht, Arrays und Zeiger seien gleichwertig. Warum dies nicht so ist, wurde bereits am Anfang erkl&auml;rt.</p>
+<p>Wenn Sie in dem eben gezeigten Beispiel unbedingt einen Adressoperator verwenden wollen, kann dies auch so geschrieben werden:</p>
+<pre>ptr =&amp; element[0]; /* identisch zu ptr=element */</pre>
+<p>Auf beide Arten wird dem Zeiger die Anfangsadresse des ersten Elements vom Array mit dem Index <span class="listing">[0]</span> &uuml;bergeben. Der Verlauf des Programms soll jetzt genauer analysiert werden.</p>
+<pre>*(ptr+1);</pre>
+<p>Mit dieser Anweisung wird aus dem Array element der Wert 2 ausgegeben, also <span class="listing">element[1]</span>. Wieso dies so ist, m&ouml;chte ich Ihnen wieder anhand einiger Grafiken veranschaulichen.</p>
+<pre>int *ptr;
+...
+int element[8] = { 1, 2, 4, 8, 16, 32, 64, 128 };</pre>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/14_14.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein14_14.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 14.14   
+    </b>Visuelle Darstellung des Zeigers und des Arrays im Speicher</p>
+<p>Das Array hat die Speicheradresse 0022FF60 bis 0022FF7C und eine Gesamtgr&ouml;&szlig;e von 32 Byte (auf 16-Bit-Systemen: 16 Byte). Ein Element hat die Gr&ouml;&szlig;e von vier Byte, da <span class="listing">int</span> vier Bytes gro&szlig; ist (auf 32-Bit-Rechnern). Daher erfolgt auch die Adressierung immer in Vierer-Schritten. Durch die Anweisung</p>
+<pre>ptr = element /* oder */ ptr =&amp; element[0]</pre>
+<p>sieht es im Speicher folgenderma&szlig;en aus:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/14_15.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein14_15.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 14.15   
+    </b>Zeiger ptr verweist auf das erste Array-Element</p>
+<p>Damit verweist der Zeiger auf das erste Element im Array (oder genauer: auf die Speicheradresse des ersten Elements). Danach wird mit</p>
+<pre>*(ptr+1);</pre>
+<p>die Adresse 0022FF60 um vier Bytes erh&ouml;ht. Genauso l&auml;uft dies auch mit den Arrays intern ab, wenn der Indexz&auml;hler erh&ouml;ht wird.</p>
+<p>Damit der Zeiger tats&auml;chlich auf die n&auml;chste Adresse zeigt, muss <span class="listing">ptr+1</span> zwischen Klammern stehen, weil Klammern eine h&ouml;here Bindungskraft als der Dereferenzierungsoperator haben und somit zuerst ausgewertet werden. Sollten Sie die Klammern vergessen, w&uuml;rde nicht auf die n&auml;chste Adresse verwiesen, sondern auf den Wert, auf den der Zeiger <span class="listing">ptr</span> zeigt, und dieser wird um eins erh&ouml;ht.</p>
+<p>Jetzt zeigt der Zeiger <span class="listing">ptr</span> durch <span class="listing">*(ptr+1)</span> auf:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/14_16.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein14_16.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 14.16   
+    </b>Die Adresse des Zeigers wurde erh&ouml;ht</p>
+<p>Somit w&auml;re die Ausgabe 2. Jetzt zur n&auml;chsten Anweisung:</p>
+<pre>*(ptr+3);</pre>
+<p>Hiermit wird der Wert der Adresse auf 0022FF6C erh&ouml;ht. Deshalb wird auch der Wert 8 ausgegeben:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/14_17.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein14_17.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 14.17   
+    </b>Nach einer weiteren Erh&ouml;hung der Adresse des Zeigers</p>
+<p>Um also auf das n-te Element eines Arrays zuzugreifen, haben Sie die folgenden M&ouml;glichkeiten:</p>
+<pre>int array[10];          // Deklaration
+int *pointer1, *pointer2;
+pointer1 = array;       // pointer1 auf Anfangsadresse von array
+pointer2 = array + 3;   // pointer2 auf 4.Element von array
+array[0]      = 99;    // array[0]
+pointer1[1]   = 88;    // array[1]
+*(pointer1+2) = 77;    // array[2]
+*pointer2     = 66;    // array[3]</pre>
+<p>Dasselbe gilt auch f&uuml;r Funktionsaufrufe von Arraynamen. Einen Array-Parameter in Funktionen k&ouml;nnen Sie auf zwei Arten deklarieren (siehe auch Kapitel 13):</p>
+<pre>int funktion(int elemente[])
+// Gleichwertig mit ...
+int funktion(int *elemente)</pre>
+<p>Also kann eine Funktion mit folgenden Argumenten aufgerufen werden:</p>
+<pre>int werte[] = { 1, 2, 3, 5, 8 };
+int *pointer;
+pointer = werte;
+funktion(werte);       // 1. M&ouml;glichkeit
+funktion(&amp;werte[0]);   // 2. M&ouml;glichkeit
+funktion(pointer);     // 3. M&ouml;glichkeit</pre>
+<p>Nat&uuml;rlich ist es auch m&ouml;glich, die Adresse des n-ten Elements an eine Funktion zu &uuml;bergeben:</p>
+<pre>funktion(&amp;werte[2]);   // Adresse vom 3.Element an funktion</pre>
+<p>Hierzu ein kleines Beispiel:</p>
+<pre>/* arr_ptr3.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+void funktion(int *array, int n_array) {
+   int i;
+   for(i=0; i &lt; n_array; i++)
+      printf("%d ",array[i]);
+   printf("\n");
+}
+int main(void) {
+   int werte[] = { 1, 2, 3, 5, 8, 13, 21 };
+   funktion(werte, sizeof(werte) / sizeof(int));
+   return EXIT_SUCCESS;
+}</pre>
+<p>Wie sieht es aber mit dem Laufzeitverhalten aus? Was passiert, wenn die Funktion mit Feldindex verwendet wird?</p>
+<pre>void funktion(int array[], int n_array)</pre>
+<p>Compiler optimieren den Code bei der &Uuml;bersetzung in der Regel selbst. Die Umwandlung eines Feldindexes in einem Zeiger macht dem Compiler heutzutage keine Probleme mehr. Somit d&uuml;rfte es keine bemerkbaren Laufzeitverluste bei der Verwendung des Indizierungsoperators geben.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_014_005.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_014_007.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td width="10" valign="top">&nbsp;&nbsp;</td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/899?GPP=opc">
+                                        <img src="common/643_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C von A bis Z" title="Zum Katalog: C von A bis Z">
+                                        <br /><strong>C von A bis Z</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Ihre Meinung?</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1007?GPP=opc">
+                        <img src="common/683_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Shell-Programmierung" title="Zum Katalog: Shell-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Shell-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1137?GPP=opc">
+                        <img src="common/749_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux-UNIX-Programmierung" title="Zum Katalog: Linux-UNIX-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux-UNIX-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1004?GPP=opc">
+                        <img src="common/644_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C/C++" title="Zum Katalog: C/C++"><br /><br /><br /><br /><br /><br /><br />&nbsp;C/C++</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/880?GPP=opc">
+                        <img src="common/573_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/967?GPP=opc">
+                        <img src="common/626_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Reguläre Ausdrücke" title="Zum Katalog: Reguläre Ausdrücke"><br /><br /><br /><br /><br /><br /><br />&nbsp;Reguläre Ausdrücke</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/941?GPP=opc">
+                        <img src="common/677_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Shopping</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opc"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table>
+<br /><br />
+<hr width="70%" align="center"><br />
+<div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2006</b><br>F&uuml;r Ihren privaten Gebrauch d&uuml;rfen Sie die Online-Version nat&uuml;rlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschlie&szlig;lich aller seiner Teile ist urheberrechtlich gesch&uuml;tzt. Alle Rechte vorbehalten einschlie&szlig;lich der Vervielf&auml;ltigung, &Uuml;bersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

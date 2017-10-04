@@ -1,0 +1,769 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: C von A bis Z – 11.20 Rekursive Funktionen</title>
+<meta name="title" content="Galileo Computing :: C von A bis Z">
+<meta name="author" content="J&uuml;rgen Wolf">
+<meta name="publisher" content="Galileo Press 2006">
+<meta name="copyright" content="Galileo Press 2006">
+<meta name="description" content="C von A bis Z - Das umfassende Handbuch f&uuml;r Linux, Unix und Windows – 2., aktualisierte und erweiterte Auflage 2006, geb., mit CD und Referenzkarte – ISBN 3-89842-643-2">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="c_011_018.htm">
+<link rel="next" href="c_012_000.htm"><script type="text/javascript" language="JavaScript"><!--
+function OpenWin(url,name,height,width)
+{
+  var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+  InfoWin.focus();
+}
+//--></script></head>
+<body vlink="#000099" link="#000099" alink="#000099">
+    <table width="100%" height="74" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+        <tr>
+            <td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+            <td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opc"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger." title="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger."></a></td>
+        </tr>
+    </table>
+    <div align="right"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger.</a></div>
+    <br />
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td width="156" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
+        <tr>
+            <td colspan="2" class="nav1" align="left" valign="top" height="150">
+                <table class="tbl1" width="150" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td class="tbl2" height="25"><a class="nav" href="./index.htm">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000Vorwort_000.htm#Xxx999266">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000VorwortGutachter_000.htm#Xxx999275">Vorwort des Gutachters</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_001_000.htm#Xxx999328">1 Einstieg in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_002_000.htm#Xxx999328">2 Das erste Programm</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_003_000.htm#Xxx999328">3 Zeichens&auml;tze</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_004_000.htm#Xxx999329">4 Kommentare in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_005_000.htm#Xxx999330">5 Formatierte Eingabe mit scanf()</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_006_000.htm#Xxx999330">6 Formatierte Ausgabe mit printf</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_007_000.htm#Xxx999329">7 Elementare Datentypen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_008_000.htm#Xxx999328">8 Operatoren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_009_000.htm#Xxx999328">9 Typenumwandlung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_010_000.htm#Xxx999328">10 Kontrollstrukturen</A></td>
+</tr>
+<tr>
+<td><A class="navh" href="./c_011_000.htm#Xxx999328">11 Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_012_000.htm#Xxx999328">12 Pr&auml;prozessor-Direktiven</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_013_000.htm#Xxx999328">13 Arrays</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_014_000.htm#Xxx999328">14 Zeiger (Pointer)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_015_000.htm#Xxx999328">15 Kommandozeilenargumente</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_016_000.htm#Xxx999328">16 Dynamische Speicherverwaltung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_017_000.htm#Xxx999328">17 Strukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_018_000.htm#Xxx999328">18 Ein-/Ausgabe-Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_019_000.htm#Xxx999328">19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_020_000.htm#Xxx999328">20 Arbeiten mit variablen langen Argumentlisten – &lt;stdarg.h&gt;</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_021_000.htm#Xxx999328">21 Zeitroutinen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_022_000.htm#Xxx999328">22 Weitere Headerdateien und ihre Funktionen (ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_023_000.htm#Xxx999328">23 Dynamische Datenstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_024_000.htm#Xxx999328">24 Algorithmen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_025_000.htm#Xxx999328">25 Sicheres Programmieren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_026_000.htm#Xxx999328">26 CGI mit C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_027_000.htm#Xxx999328">27 MySQL und C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_028_000.htm#Xxx999328">28 Netzwerkprogrammierung und Cross-Plattform-Entwicklung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_029_000.htm#Xxx999328">29 Wie geht’s jetzt weiter?</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_030Anhang_000.htm#Xxx999266">A Anhang</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./stichwort.htm#Xxx512322">Index</a></td>
+</tr>
+<tr><td><br /><a class="navnav" href="http://download.galileo-press.de/openbook/c_von_a_bis_z/galileocomputing_c_von_a_bis_z.zip"><strong>Download:</strong><br />- ZIP, ca. 8,5 MB</a></td></tr>
+<tr><td><a class="navnav" href="http://www.galileocomputing.de/899?GPP=opc">Buch bestellen</a></td></tr>
+<tr><td><a class="navnav" href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)">Ihre Meinung?</a><br /><br /></td></tr>
+</table></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10"></td>
+<td width="85%" valign="top" align="center">
+    <div align="center">
+        <table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+            <tr>
+                <td width="100%" class="start" colspan="1" height="22" align="center">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_011_018.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Galileo Computing /</a><a class="navnav" href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"> &lt;openbook&gt; /</a><a href="./index.htm" class="navnav"> C von A bis Z</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_012_000.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" valign="top">
+    <table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+        <tr>
+            <td colspan="2"><a href="http://www.galileocomputing.de/899?GPP=opc" class="buchtitel">C von A bis Z</a><span class="autor"> von J&uuml;rgen Wolf</span><br><span class="untertitel">Das umfassende Handbuch f&uuml;r Linux, Unix und Windows <br />– 2., aktualisierte und erweiterte Auflage 2006</span></td>
+        </tr>
+        <tr>
+            <td valign="top" width="90"><a href="http://www.galileocomputing.de/899?GPP=opc"><img src="common/643.gif" border="0" alt="Buch: C von A bis Z" title="Buch: C von A bis Z" align="left"><br /><br /><span class="autor"><strong>C von A bis Z</strong><br />1.116 S., mit CD, Referenzkarte, 39,90 Euro<br />Galileo Computing<br />ISBN 3-89842-643-2</span></a></a></td>
+            <td width="80%">
+<table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="3" class="kap"><b>Kapitel <a href="./c_011_000.htm#RxxobKap0110000400274D1F01F18C">11 Funktionen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_011_000.htm#RxxobKap0110000400274D1F01F18E">11.1 Was sind Funktionen?</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_011_001.htm#RxxobKap011001040027681F04C18C">11.2 Wozu Funktionen?</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_011_002.htm#RxxobKap011002040027691F03218C">11.3 Definition von Funktionen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_011_003.htm#RxxobKap0110030400276A1F03618C">11.4 Funktionsaufruf</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_011_004.htm#RxxobKap0110040400276B1F03F18C">11.5 Funktionsdeklaration</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_011_005.htm#RxxobKap0110050400276C1F04618C">11.6 Lokale Variablen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_011_006.htm#RxxobKap0110060400276D1F02F18C">11.7 Globale Variablen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_011_007.htm#RxxobKap0110070400276E1F03D18C">11.8 Statische Variablen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_011_008.htm#RxxobKap0110080400276F1F01F18C">11.9 Schl&uuml;sselworte f&uuml;r Variablen – Speicherklassen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_011_008.htm#RxxobKap0110080400276F1F01F191">11.9.1 auto</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_011_008.htm#RxxobKap0110080400276F1F01F197">11.9.2 extern</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_011_008.htm#RxxobKap0110080400276F1F01F199">11.9.3 register</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_011_008.htm#RxxobKap0110080400276F1F01F19B">11.9.4 static</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_011_009.htm#RxxobKap011009040027701F02618C">11.10 Typ-Qualifizierer</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_011_009.htm#RxxobKap011009040027701F02618E">11.10.1 volatile</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_011_009.htm#RxxobKap011009040027701F026193">11.10.2 const</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_011_010.htm#RxxobKap011010040027711F04418C">11.11 Geltungsbereich von Variablen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_011_011.htm#RxxobKap011011040027721F03518C">11.12 Speicherklassen-Spezifizierer f&uuml;r Funktionen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_011_011.htm#RxxobKap011011040027721F03518E">11.12.1 extern</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_011_011.htm#RxxobKap011011040027721F035190">11.12.2 static</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_011_011.htm#RxxobKap011011040027721F035192">11.12.3 volatile</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_011_012.htm#RxxobKap011012040027731F03218C">11.13 Datenaustausch zwischen Funktionen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_011_013.htm#RxxobKap011013040027741F04218C">11.14 Wert&uuml;bergabe an Funktionen (call-by-value)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_011_014.htm#RxxobKap011014040027751F02318C">11.15 R&uuml;ckgabewert von Funktionen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_011_015.htm#RxxobKap011015040027761F01318C">11.16 Die Hauptfunktion main()</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_011_016.htm#RxxobKap011016040027771F03B18C">11.17 R&uuml;ckgabewert beim Beenden eines Programms</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_011_017.htm#RxxobKap011017040027781F03818C">11.18 Funktionen der Laufzeitbibliothek</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_011_018.htm#RxxobKap011018040027791F04018C">11.19 Getrenntes Compilieren von Quelldateien</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a class="navh" href="#RxxobKap0110190400277A1F04618C">11.20 Rekursive Funktionen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap0110190400277A1F04618E">11.20.1 Exkurs: Stack</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap0110190400277A1F046193">11.20.2 Rekursionen und der Stack</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap0110190400277A1F0461BE">11.20.3 Fakult&auml;t</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap0110190400277A1F0461C4">11.20.4 Fibonacci-Zahlen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap0110190400277A1F0461CA">11.20.5 Gr&ouml;&szlig;ter gemeinsamer Teiler (GGT)</a></b></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td>
+<a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2">11.20 Rekursive Funktionen<a id="RxxobKap0110190400277A1F04618C" name="RxxobKap0110190400277A1F04618C"></a> 
+      <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"></h2>
+<p><a id="Xxx999329" name="Xxx999329"></a><a id="Xxx999330" name="Xxx999330"></a>Kurz gesagt ist eine Rekursion eine Funktion, die sich selbst aufruft und sich selbst immer wieder neu definiert. Damit sich aber eine Rekursion nicht unendlich oft selbst aufruft, sondern irgendwann auch zu einem Ergebnis kommt, ben&ouml;tigen Sie unbedingt eine so genannte Abbruchbedingung. Sonst kann es irgendwann passieren, dass Ihr Computer abst&uuml;rzt, da eine Funktion, die sich immer wieder selbst aufruft, eine R&uuml;cksprungadresse, den Wert der Variablen und – falls noch nicht freigegeben – den R&uuml;ckgabewert speichert. Der daf&uuml;r zur Verf&uuml;gung stehende Speicher (Stack) wird so aber unweigerlich irgendwann voll sein beziehungsweise &uuml;berlaufen (Stack&uuml;berlauf oder Stack Overflow).</p>
+<a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3">11.20.1 Exkurs: Stack<a id="RxxobKap0110190400277A1F04618E" name="RxxobKap0110190400277A1F04618E"></a> 
+      <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999333" name="Xxx999333"></a>Der Stack wurde bereits &ouml;fters erw&auml;hnt. Er soll deshalb im Folgenden n&auml;her betrachtet werden.</p>
+<p>Der Stack dient dazu, den Speicherbereich f&uuml;r Funktionsaufrufe zu verwalten. Dieser Speicherbereich ist dynamisch, was bedeutet, dass der Speicher bei Bedarf automatisch anw&auml;chst und wieder schrumpft. Der Compiler, der diesen Stack verwaltet, legt hier alle Daten ab, die er zur Verwaltung von Funktionsaufrufen ben&ouml;tigt.</p>
+<p>Wenn eine Funktion aufgerufen wird, erweitert der Compiler den Stack um einen Datenblock. In diesem Datenblock werden die Parameter, die lokalen Variablen und die R&uuml;cksprungadresse zur aufrufenden Funktion angelegt. Dieser Datenblock wird als Stack-Frame oder Stackrahmen bezeichnet.</p>
+<p>Der Datenblock bleibt so lange bestehen, bis diese Funktion wieder endet. Wird in ihm aber eine weitere Funktion aufgerufen, wird ein weiterer Datenblock auf den (richtig w&auml;re: unter den) aktuellen gepackt. Der Stack w&auml;chst nach unten an. Am Anfang des Stacks befindet sich der Startup-Code, der die <span class="listing">main()</span>-Funktion aufruft, welche eine Position unter dem Startup-Code liegt. An unterster Stelle befindet sich immer die aktuelle Funktion, die gerade ausgef&uuml;hrt wird. Eine Position – oder besser: einen Datenblock – dar&uuml;ber liegt die aufrufende Funktion in der Wartestellung. Sie wartet auf die Beendigung der n&auml;chsten aufgerufenen Funktion. Mit diesem Wissen &uuml;ber den Stack k&ouml;nnen Sie sich wieder den Rekursionen widmen.</p>
+<a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3">11.20.2 Rekursionen und der Stack<a id="RxxobKap0110190400277A1F046193" name="RxxobKap0110190400277A1F046193"></a> 
+      <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Mit Rekursionen haben Sie die M&ouml;glichkeit, den Computer zu etwas zu bewegen, was ihn intelligenter erscheinen l&auml;sst. Ein Beispiel w&auml;re etwa Schach. Wenn Sie einen Zug machen, gehen Sie zuerst alle M&ouml;glichkeiten durch, um den Gegner in Bedr&auml;ngnis bzw. den gegnerischen K&ouml;nig in Gefahr zu bringen oder gar schachmatt zu setzen. Das ist eine logische Denkweise des Menschen. Mit einer Rekursion ist es ebenfalls m&ouml;glich, den Computer eine Situation sooft durchgehen zu lassen, bis er auf eine L&ouml;sung kommt oder auch nicht. Man spricht dabei vom »Trial and Error-Verfahren« (Versuch und Irrtum). Ein Beispiel: Sie bedrohen den K&ouml;nig des Computers. Der Computer geht dann alle Z&uuml;ge durch, um den K&ouml;nig aus dieser Bedrohung zu befreien, und dann, in einem zweiten Schritt, geht er nochmals alle Z&uuml;ge durch, die Sie als N&auml;chstes theoretisch machen k&ouml;nnten. Je nachdem, wie tief die Rekursion gehen soll. Zum besseren Verst&auml;ndnis folgt ein konkretes Beispiel.</p>
+<p>Eine Funktion soll zwei Zahlen dividieren. Der ganzzahlige Rest der Division soll angegeben werden. Zum Beispiel: 10/2=5 oder 10/3=3 Rest 1. Das Programm darf aber nicht die Operatoren <span class="listing">/</span> und <span class="listing">%</span> verwenden. Die L&ouml;sung soll die Form einer rekursiven Funktion haben:</p>
+<pre>int divide(int x, int y) {
+   if(x &gt;= y)
+      return (1 + divide(x – y, y));
+   if(x)
+      printf("Zahl nicht teilbar -&gt; Rest: %d -&gt; ", x);
+   return 0;
+}</pre>
+<p>Hier ein Fall, in dem der Funktion beispielsweise die Werte <span class="listing">x=8</span> und <span class="listing">y=2</span> &uuml;bergeben werden:</p>
+<pre>/* Funktionsaufruf */
+printf("8/2 = Ergebnis : %d\n", divide(8, 2));</pre>
+<p>Innerhalb der Funktion wird zun&auml;chst die Abbruchbedingung &uuml;berpr&uuml;ft:</p>
+<pre>if(x &gt;= y)</pre>
+<p>Da die Bedingung f&uuml;r <span class="listing">x=8</span> und <span class="listing">y=2</span> wahr ist, wird die n&auml;chste Anweisung ausgef&uuml;hrt:</p>
+<pre>return 1 + divide(x – y, y);</pre>
+<p>Die Funktion gibt mittels <span class="listing">return</span> die Summe <span class="listing">1+divide(x-y,x)</span> zur&uuml;ck. Damit wird, bevor das Ergebnis endg&uuml;ltig zur&uuml;ckgegeben wird, die Funktion <span class="listing">divide</span> erneut aufgerufen. Die Funktion ruft sich also selbst auf. Hiermit beginnt die Rekursion. Aber was passiert jetzt mit dem R&uuml;ckgabewert 1? Sehen Sie sich das Beispiel zum besseren Verst&auml;ndnis in der Abbildung an:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/11_05.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein11_05.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 11.5   
+    </b>Erster Rekursiver Aufruf</p>
+<p>Auf den Stack wurde zuerst die <span class="listing">main()</span>-Funktion gelegt, da diese zuerst die Funktion <span class="listing">divide()</span> aufgerufen hat. Hier ist quasi gespeichert, wie Ihr Programm wieder zur <span class="listing">main()</span>-Funktion zur&uuml;ckkommt. Sie k&ouml;nnen sich das etwa so vorstellen: Bei jedem Funktionsaufruf in einem Programm, unabh&auml;ngig davon, ob rekursiv oder nicht, wird der aktuelle Zustand der <span class="listing">main()</span>-Funktion eingefroren und auf dem Stack abgelegt. Damit das Programm wei&szlig;, wo die Adresse der <span class="listing">main()</span>-Funktion ist, wird auf dem Stack eine R&uuml;cksprungadresse mit abgelegt. Zur&uuml;ck zur Programmausf&uuml;hrung des konkreten Beispiels. Die Funktion hat sich also selbst aufgerufen mit der Anweisung:</p>
+<pre>return 1 + divide(x – y, y);</pre>
+<p>In Zahlen also <span class="listing">divide(8–2,2)</span> mit den Werten <span class="listing">x=8</span> und <span class="listing">y=2</span>. Im abermaligen Funktionsaufruf wird erneut &uuml;berpr&uuml;ft:</p>
+<pre>if(x &gt;= y)</pre>
+<p>Da <span class="listing">x=6</span> und <span class="listing">y=2</span> und somit die <span class="listing">if</span>-Abfrage wieder wahr ist, geht die Programmausf&uuml;hrung wieder in der n&auml;chsten Zeile weiter. Es folgt ein erneuter Selbstaufruf der Funktion <span class="listing">divide()</span>:</p>
+<pre>return 1 + divide(x – y, y);</pre>
+<p>Also wird Folgendes auf dem Stack abgelegt (siehe Abbildung).</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/11_06.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein11_06.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 11.6   
+    </b>Zweiter Rekursiver Aufruf</p>
+<p>Nun liegt auf dem Stack zweimal der R&uuml;ckgabewert 1, inklusive der R&uuml;cksprungadressen (diese sind hier nicht mit abgebildet). Jetzt wiederholt sich das ganze Spiel noch zweimal, bis es auf dem Stack folgenderma&szlig;en aussieht (siehe Abbildung 11.7).</p>
+<p>Der Funktionswert f&uuml;r <span class="listing">x</span> im Aufruf der Funktion ist mittlerweile auf 2 reduziert worden. Danach wird erneut die Funktion <span class="listing">divide()</span> aufgerufen und zwar mit den Werten:</p>
+<pre>divide(2–2,2)</pre>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/11_07.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein11_07.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 11.7   
+    </b>Stack nach vier rekursiven Aufrufen</p>
+<p>Jetzt wird die Abbruchbedingung aktiv:</p>
+<pre>if(x &gt;= y)</pre>
+<p>Denn jetzt ist <span class="listing">x=0</span> und <span class="listing">y=2</span> und somit wird die Programmausf&uuml;hrung nicht mehr in der n&auml;chsten Zeile ausgef&uuml;hrt. Die n&auml;chste Abfrage</p>
+<pre>if(x)</pre>
+<p>dient dazu, den Rest auszugeben, falls <span class="listing">x</span> ungleich 0 sein sollte. In unserem Beispiel gibt es keinen Rest. Es wird also der Wert 0 (<span class="listing">return</span> <span class="listing">0</span>) zur&uuml;ckgegeben. Das Programm muss nun zur n&auml;chsten R&uuml;cksprungadresse gehen, da sich die Funktion ja beendet hat. Nochmals ein Blick zum Stack:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/11_08.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein11_08.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 11.8   
+    </b>Die Abbruchbedingung greift jetzt ein</p>
+<p>Der R&uuml;ckgabewert 0 wurde von dem Funktionsaufruf <span class="listing">divide(2–2,2)</span> erzeugt. Dorthin f&uuml;hrt auch die R&uuml;cksprungadresse, also <span class="listing">return</span> <span class="listing">0+1</span>. Die n&auml;chste R&uuml;cksprungadresse wurde von <span class="listing">divide(4–2,2)</span> erzeugt, also folgt <span class="listing">return</span> <span class="listing">0+1+1</span>; anschlie&szlig;end <span class="listing">return</span> <span class="listing">0+1+1+1</span> und zuletzt <span class="listing">return</span> <span class="listing">0+1+1+1+1</span>. Die <span class="listing">main</span>-Funktion bekommt dann den R&uuml;ckgabewert 0+1+1+1+1, also 4, und das ist auch korrekt, denn 8/2 ist 4.</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/11_09.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein11_09.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 11.9   
+    </b>Addieren der einzelnen R&uuml;ckgabewerte auf dem Stack</p>
+<p>Sie werden sich m&ouml;glicherweise fragen, welche Vorteile ein solches Programm gegen&uuml;ber einem Programm der folgenden Form hat:</p>
+<pre>/* divide.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main(void) {
+   int x = 8, y = 2;
+   printf("%d ", x/y);
+   if(x % y)
+      printf("Rest = %d\n",x%y);
+   return EXIT_SUCCESS;
+}</pre>
+<p>Dieses Programm erf&uuml;llt doch denselben Zweck und ist einfacher! Sie haben Recht, das rekursive Programm ist zum einen schwieriger und zum anderen langsamer, da st&auml;ndig etwas auf dem Stack gepusht und wieder gepopt werden muss.</p>
+<p>Kurz gesagt: Die rekursive L&ouml;sung ist die schlechtere in diesem Beispiel. Schlimmer noch, die rekursive L&ouml;sung verbraucht viel Speicherplatz zum Anlegen von Parametern, lokalen Variablen, R&uuml;ckgabewerten und R&uuml;cksprungadressen. Ein Beispiel: Sie wollen die Zahl 1.000.000 durch 2 teilen. F&uuml;r die zwei Parameter <span class="listing">x</span> und <span class="listing">y</span> ben&ouml;tigen Sie schon acht Byte pro Aufruf. F&uuml;r den R&uuml;ckgabewert (<span class="listing">return</span> <span class="listing">1</span>) werden weitere vier Bytes ben&ouml;tigt, genauso wie f&uuml;r die R&uuml;cksprungadresse. Das hei&szlig;t, Sie verwenden f&uuml;r eine Ablage auf dem Stack 16 Byte. Wenn Sie die Zahl 1.000.000 durch 2 teilen, bedeutet dies, dass auf dem Stack 500.000 Werte zu je 16 Bytes liegen. Das sind ca.7,6 Megabytes Arbeitsspeicher, die Sie durch eine rekursive L&ouml;sung eines solch einfachen Problems verschwenden.</p>
+<p>Warum also Rekursionen anwenden, wenn die direkte L&ouml;sung oftmals die bessere ist? In sp&auml;teren Programmen werden Sie einige Beispiele kennen lernen (so genannte bin&auml;re B&auml;ume), die ohne Rekursion nicht so einfach realisierbar w&auml;ren.</p>
+<p>Die Rekursion will ich Ihnen anhand von einigen Beispielen noch n&auml;her erl&auml;utern. Die verwendeten Programme sollen nur die Rekursion verdeutlichen. Es ist einleuchtend, dass die Programme ansonsten auch einfacher und meistens besser l&ouml;sbar sind. Es sind typische, klassische Beispiele.</p>
+<a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3">11.20.3 Fakult&auml;t<a id="RxxobKap0110190400277A1F0461BE" name="RxxobKap0110190400277A1F0461BE"></a> 
+      <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999397" name="Xxx999397"></a>Es soll eine Funktion geschrieben werden zum Berechnen der Fakult&auml;t der Zahl n. Die Fakult&auml;t der Zahl 6 ist zum Beispiel: <span class="listing">1*2*3*4*5*6=720</span>. Die Fakult&auml;t von 10 ist <span class="listing">1*2*3*4*5*6*7*8*9*10=3.628.800</span>.</p>
+<p>Wie schreiben Sie die Funktion am besten? Zuerst ben&ouml;tigen Sie eine Abbruchbedingung. Es muss lediglich &uuml;berpr&uuml;ft werden, ob die Zahl, von der Sie die Fakult&auml;t berechnen wollen, ungleich 0 ist:</p>
+<pre>/* fakul.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+long fakul(long n) {
+   if(n)
+      return n * fakul(n-1);
+   return 1;
+}
+int main(void) {
+   printf("Fakult&auml;t von 5 = %ld\n",fakul(5));
+   printf("Fakult&auml;t von 9 = %ld\n",fakul(9));
+   return EXIT_SUCCESS;
+}</pre>
+<p>Die Funktion rechnet so lange <span class="listing">n*n-1</span>, bis <span class="listing">n</span> den Wert 0 hat. Denn <span class="listing">n*0</span> w&uuml;rde sonst das Ergebnis 0 ergeben. Bei <span class="listing">fakul(5)</span> w&auml;ren dies dann 5*4*3*2*1=120, wobei <span class="listing">n*1</span> eigentlich auch eingespart werden kann, denn mit <span class="listing">n*1</span> wird sich der Wert nicht &auml;ndern. Nat&uuml;rlich will ich Ihnen die alternative direkte L&ouml;sung des Problems nicht vorenthalten:</p>
+<pre>long fakul(int n) {
+   int x = n;
+   while(--x)
+      n *= x;
+   return n;
+}</pre>
+<a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3">11.20.4 Fibonacci-Zahlen<a id="RxxobKap0110190400277A1F0461C4" name="RxxobKap0110190400277A1F0461C4"></a> 
+      <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999404" name="Xxx999404"></a>Die Fibonacci-Zahlen sollen rekursiv berechnet werden. Fibonacci-Zahlen sind z.B. 1, 2, 3, 5, 8, 13, 21, ...</p>
+<p>Errechnet werden k&ouml;nnen sie mittels ... <span class="listing">1+2=3,</span> <span class="listing">2+3=5,</span> <span class="listing">3+5=8,</span> <span class="listing">5+8=13</span>. Nach Formel also:</p>
+F(n+2)=F(n+1) +F(n)
+<p>Hierzu der Code:</p>
+<pre>/* fibo.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+long fibo(long n) {
+   if(n)
+      return (n &lt;= 2) ? n : fibo(n-2) + fibo(n-1);
+}
+int main(void) {
+   long f;
+   long i=0;
+   printf("Wie viele Fibonacci-Zahlen wollen Sie ausgeben:");
+   scanf("%ld",&amp;f);
+   while(i++ &lt; f)
+      printf("F(%ld) = %ld\n", i, fibo(i));
+   return EXIT_SUCCESS;
+}</pre>
+<a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3">11.20.5 Gr&ouml;&szlig;ter gemeinsamer Teiler (GGT)<a id="RxxobKap0110190400277A1F0461CA" name="RxxobKap0110190400277A1F0461CA"></a> 
+      <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999411" name="Xxx999411"></a>Es folgt ein Listing zum Ermitteln des gr&ouml;&szlig;ten gemeinsamen Teilers zweier Zahlen. Nat&uuml;rlich wird daf&uuml;r der rekursive Weg eingeschlagen. Auch hier muss zuerst eine Abbruchbedingung gefunden werden. Sie haben drei M&ouml;glichkeiten zum Errechnen des GGT zweier Zahlen:</p>
+<pre>ist Zahl1 == Zahl2 dann Ergebnis = Zahl1
+ist Zahl1  &gt; Zahl2 dann Ergebnis = ggT(Zahl1-Zahl2, Zahl2)
+ist Zahl1  &lt; Zahl2 dann Ergebnis = ggT(Zahl1, Zahl2-Zahl1)</pre>
+<p>Das Programm sieht folgenderma&szlig;en aus:</p>
+<pre>/* ggt1.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+unsigned long ggt(unsigned long a, unsigned long b) {
+   if(a==b)
+      return a;
+   else if(a &lt; b)
+      return ggt(a, b-a);
+   else
+      return ggt(a-b, b);
+}
+int main(void) {
+   unsigned long a, b;
+   printf("ggt = gr&ouml;&szlig;ter gemeinsamer Teiler\n");
+   printf("Zahl 1: ");
+   scanf("%lu",&amp;a);
+   printf("Zahl 2: ");
+   scanf("%lu",&amp;b);
+   printf("Der ggT von %lu und %lu ist %lu\n", a, b, ggt(a,b));
+   return EXIT_SUCCESS;
+}</pre>
+<p>Beispiel: Sie geben f&uuml;r <span class="listing">a=10</span> und <span class="listing">b=3</span> ein. Folgende Wertepaare werden auf den Stack gelegt, bis das Programm den GGT von 1 zur&uuml;ckgibt:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/11_10.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein11_10.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 11.10   
+    </b>Rekursive Ermittlung des gr&ouml;&szlig;ten gemeinsamen Teilers</p>
+<p>Eine alternative direkte L&ouml;sung w&auml;re gewesen:</p>
+<pre>/* ggt2.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+unsigned long ggt(unsigned long a, unsigned long b) {
+   unsigned long count;
+   if(a==b)
+      return a;
+   else if( (a % b) == 0)
+      return b;
+   else
+      for(count = b; count &gt; 0; count--) {
+         if( ( (a % count) + (b % count) ) == 0)
+            return count;
+      }
+}
+int main(void) {
+   unsigned long a, b, c;
+   printf("ggt = gr&ouml;&szlig;ter gemeinsamer Teiler\n");
+   printf("Zahl 1: ");
+   scanf("%lu",&amp;a);
+   printf("Zahl 2: ");
+   scanf("%lu",&amp;b);
+   if(a&lt;b) { /* a und b vertauschen */
+      c=a; a=b; b=c;
+   }
+   printf("Der ggT von %lu und %lu ist %lu\n", a, b, ggt(a,b));
+   return EXIT_SUCCESS;
+}</pre>
+<p>Nun soll der gr&ouml;&szlig;te gemeinsame Teiler von beliebig vielen Zahlen ermittelt werden. Die Schwierigkeit liegt bei diesem Beispiel aber nicht in der rekursiven Funktion, sondern in der <span class="listing">main()</span>-Funktion. Sie k&ouml;nnten die Funktion GGT, wie diese eben geschrieben wurde, benutzen, ohne sie zu ver&auml;ndern. Zuvor m&ouml;chte ich Ihnen aber noch eine zweite M&ouml;glichkeit demonstrieren, wie Sie den GGT ermitteln k&ouml;nnen. Hier die Funktion:</p>
+<pre>unsigned long ggt(unsigned long a, unsigned long b) {
+   if(b==0)
+      return a;
+   return ggt(b, a % b);
+}</pre>
+<p>Jetzt lassen sich wom&ouml;glich die Vorteile einer Rekursion erkennen. Die rekursive Funktion erf&uuml;llt den gleichen Zweck wie die beiden Funktionen GGT zuvor. Mit <span class="listing">return</span> <span class="listing">ggt(b,</span> <span class="listing">a%b)</span> rufen Sie die Funktion erneut auf. Wenn <span class="listing">a%b==0</span> ergibt, haben Sie ja den GGT durch <span class="listing">b</span> an <span class="listing">a</span> &uuml;bergeben. Hier die <span class="listing">main()</span>-Funktion zum Ermitteln des GGT mehrerer Zahlen:</p>
+<pre>/* ggt3.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+unsigned long ggt(unsigned long a, unsigned long b) {
+   if(b == 0)
+      return a;
+   return ggt(b, a % b);
+}
+int main(void) {
+   unsigned long a, b;
+   printf("ggt = gr&ouml;&szlig;ter gemeinsamer Teiler(mit 0 beenden)\n");
+   printf("Zahl&gt; ");
+   scanf("%lu", &amp;a);
+   printf("Zahl&gt; ");
+   scanf("%lu", &amp;b);
+   a=ggt(a, b);
+   while(1) {
+      printf("Zahl&gt; ");
+      scanf("%lu", &amp;b);
+      if(b==0)
+         break;
+      a=ggt(a, b);
+   }
+   printf("--------&gt;ggt = %lu\n", a);
+   return EXIT_SUCCESS;
+}</pre>
+<p>An dem Programm wurde nicht viel ver&auml;ndert. Es kam lediglich die <span class="listing">while</span>-Schleife hinzu, die Sie mit der Eingabe 0 beenden k&ouml;nnen.</p>
+<p>Wichtig ist, dass Sie bei jedem Schleifendurchlauf den gr&ouml;&szlig;ten gemeinsamen Teiler an <span class="listing">a</span> und die neue Zahl an <span class="listing">b</span> &uuml;bergeben. Somit wird immer der GGT aller Zahlen aktualisiert.</p>
+<p>Als letztes Beispiel will ich Ihnen zeigen wie Sie eine rekursive Funktion zum Umwandeln von Dezimalzahlen nach Dualzahlen verwenden k&ouml;nnen. Um bspw. aus der Zahl 10 die entsprechende Dualzahl 1010 zu machen, ist folgender Vorgang n&ouml;tig:</p>
+<pre>-&gt; Solange die Zahl ungleich Null -&gt;
+-&gt; Zahl % 2 = kein Rest dann 0 oder = Rest dann 1 -&gt;
+-&gt; Zahl = Zahl / 2</pre>
+<p>Auf die Zahl 10 angewendet sieht dieser Vorgang wie folgt aus:</p>
+<pre>10/2 = 5 kein Rest -&gt; 0
+5/2  = 2 Rest 1    -&gt; 1
+2/2  = 1 kein Rest -&gt; 0
+1/2  = 0 Rest 1    -&gt; 1</pre>
+<p>Damit liegen auf dem Stack (umgekehrte Reihenfolge):</p>
+<pre>1
+0
+1
+0</pre>
+<p>Hier das Beispiel dazu:</p>
+<pre>/* dez2bin.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#define ulong unsigned long
+void dez2bin(ulong dez) {
+   if(dez) {
+      dez2bin(dez / 2);
+      printf("%lu", dez % 2);
+   }
+}
+int main(void) {
+   ulong dezimal;
+   printf("Dezimalzahl in Dualzahl konvertieren\n");
+   printf("Welche Zahl : ");
+   scanf("%lu",&amp;dezimal);
+   printf("Dezimal = %lu Dual = ",dezimal);
+   dez2bin(dezimal);
+   printf("\n");
+   return EXIT_SUCCESS;
+}</pre>
+<p>Dies gen&uuml;gt nun zum Thema Funktionen. In einem sp&auml;teren Kapitel wird es wieder aufgegriffen, wenn es darum geht, Funktionen mit beliebig vielen Parametern zu erstellen. Daf&uuml;r m&uuml;ssen jedoch zuerst die Zeiger besprochen werden.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_011_018.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_012_000.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td width="10" valign="top">&nbsp;&nbsp;</td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/899?GPP=opc">
+                                        <img src="common/643_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C von A bis Z" title="Zum Katalog: C von A bis Z">
+                                        <br /><strong>C von A bis Z</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Ihre Meinung?</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1007?GPP=opc">
+                        <img src="common/683_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Shell-Programmierung" title="Zum Katalog: Shell-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Shell-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1137?GPP=opc">
+                        <img src="common/749_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux-UNIX-Programmierung" title="Zum Katalog: Linux-UNIX-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux-UNIX-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1004?GPP=opc">
+                        <img src="common/644_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C/C++" title="Zum Katalog: C/C++"><br /><br /><br /><br /><br /><br /><br />&nbsp;C/C++</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/880?GPP=opc">
+                        <img src="common/573_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/967?GPP=opc">
+                        <img src="common/626_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Reguläre Ausdrücke" title="Zum Katalog: Reguläre Ausdrücke"><br /><br /><br /><br /><br /><br /><br />&nbsp;Reguläre Ausdrücke</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/941?GPP=opc">
+                        <img src="common/677_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Shopping</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opc"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table>
+<br /><br />
+<hr width="70%" align="center"><br />
+<div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2006</b><br>F&uuml;r Ihren privaten Gebrauch d&uuml;rfen Sie die Online-Version nat&uuml;rlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschlie&szlig;lich aller seiner Teile ist urheberrechtlich gesch&uuml;tzt. Alle Rechte vorbehalten einschlie&szlig;lich der Vervielf&auml;ltigung, &Uuml;bersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

@@ -1,0 +1,640 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: C von A bis Z – 10.10 Die for-Schleife</title>
+<meta name="title" content="Galileo Computing :: C von A bis Z">
+<meta name="author" content="J&uuml;rgen Wolf">
+<meta name="publisher" content="Galileo Press 2006">
+<meta name="copyright" content="Galileo Press 2006">
+<meta name="description" content="C von A bis Z - Das umfassende Handbuch f&uuml;r Linux, Unix und Windows – 2., aktualisierte und erweiterte Auflage 2006, geb., mit CD und Referenzkarte – ISBN 3-89842-643-2">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="c_010_008.htm">
+<link rel="next" href="c_010_010.htm"><script type="text/javascript" language="JavaScript"><!--
+function OpenWin(url,name,height,width)
+{
+  var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+  InfoWin.focus();
+}
+//--></script></head>
+<body vlink="#000099" link="#000099" alink="#000099">
+    <table width="100%" height="74" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+        <tr>
+            <td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+            <td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opc"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger." title="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger."></a></td>
+        </tr>
+    </table>
+    <div align="right"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger.</a></div>
+    <br />
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td width="156" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
+        <tr>
+            <td colspan="2" class="nav1" align="left" valign="top" height="150">
+                <table class="tbl1" width="150" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td class="tbl2" height="25"><a class="nav" href="./index.htm">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000Vorwort_000.htm#Xxx999266">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000VorwortGutachter_000.htm#Xxx999275">Vorwort des Gutachters</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_001_000.htm#Xxx999328">1 Einstieg in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_002_000.htm#Xxx999328">2 Das erste Programm</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_003_000.htm#Xxx999328">3 Zeichens&auml;tze</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_004_000.htm#Xxx999329">4 Kommentare in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_005_000.htm#Xxx999330">5 Formatierte Eingabe mit scanf()</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_006_000.htm#Xxx999330">6 Formatierte Ausgabe mit printf</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_007_000.htm#Xxx999329">7 Elementare Datentypen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_008_000.htm#Xxx999328">8 Operatoren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_009_000.htm#Xxx999328">9 Typenumwandlung</A></td>
+</tr>
+<tr>
+<td><A class="navh" href="./c_010_000.htm#Xxx999328">10 Kontrollstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_011_000.htm#Xxx999328">11 Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_012_000.htm#Xxx999328">12 Pr&auml;prozessor-Direktiven</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_013_000.htm#Xxx999328">13 Arrays</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_014_000.htm#Xxx999328">14 Zeiger (Pointer)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_015_000.htm#Xxx999328">15 Kommandozeilenargumente</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_016_000.htm#Xxx999328">16 Dynamische Speicherverwaltung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_017_000.htm#Xxx999328">17 Strukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_018_000.htm#Xxx999328">18 Ein-/Ausgabe-Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_019_000.htm#Xxx999328">19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_020_000.htm#Xxx999328">20 Arbeiten mit variablen langen Argumentlisten – &lt;stdarg.h&gt;</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_021_000.htm#Xxx999328">21 Zeitroutinen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_022_000.htm#Xxx999328">22 Weitere Headerdateien und ihre Funktionen (ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_023_000.htm#Xxx999328">23 Dynamische Datenstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_024_000.htm#Xxx999328">24 Algorithmen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_025_000.htm#Xxx999328">25 Sicheres Programmieren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_026_000.htm#Xxx999328">26 CGI mit C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_027_000.htm#Xxx999328">27 MySQL und C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_028_000.htm#Xxx999328">28 Netzwerkprogrammierung und Cross-Plattform-Entwicklung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_029_000.htm#Xxx999328">29 Wie geht’s jetzt weiter?</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_030Anhang_000.htm#Xxx999266">A Anhang</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./stichwort.htm#Xxx512322">Index</a></td>
+</tr>
+<tr><td><br /><a class="navnav" href="http://download.galileo-press.de/openbook/c_von_a_bis_z/galileocomputing_c_von_a_bis_z.zip"><strong>Download:</strong><br />- ZIP, ca. 8,5 MB</a></td></tr>
+<tr><td><a class="navnav" href="http://www.galileocomputing.de/899?GPP=opc">Buch bestellen</a></td></tr>
+<tr><td><a class="navnav" href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)">Ihre Meinung?</a><br /><br /></td></tr>
+</table></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10"></td>
+<td width="85%" valign="top" align="center">
+    <div align="center">
+        <table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+            <tr>
+                <td width="100%" class="start" colspan="1" height="22" align="center">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_010_008.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Galileo Computing /</a><a class="navnav" href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"> &lt;openbook&gt; /</a><a href="./index.htm" class="navnav"> C von A bis Z</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_010_010.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" valign="top">
+    <table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+        <tr>
+            <td colspan="2"><a href="http://www.galileocomputing.de/899?GPP=opc" class="buchtitel">C von A bis Z</a><span class="autor"> von J&uuml;rgen Wolf</span><br><span class="untertitel">Das umfassende Handbuch f&uuml;r Linux, Unix und Windows <br />– 2., aktualisierte und erweiterte Auflage 2006</span></td>
+        </tr>
+        <tr>
+            <td valign="top" width="90"><a href="http://www.galileocomputing.de/899?GPP=opc"><img src="common/643.gif" border="0" alt="Buch: C von A bis Z" title="Buch: C von A bis Z" align="left"><br /><br /><span class="autor"><strong>C von A bis Z</strong><br />1.116 S., mit CD, Referenzkarte, 39,90 Euro<br />Galileo Computing<br />ISBN 3-89842-643-2</span></a></a></td>
+            <td width="80%">
+<table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="3" class="kap"><b>Kapitel <a href="./c_010_000.htm#RxxobKap010000040026E41F02918C">10 Kontrollstrukturen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_010_000.htm#RxxobKap010000040026E41F029192">10.1 Verzweigungen mit der if-Bedingung</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_010_000.htm#RxxobKap010000040026E41F029196">10.1.1 Anweisungsblock</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_010_001.htm#RxxobKap010001040026FF1F03A18C">10.2 Die Verzweigung mit else if</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_010_002.htm#RxxobKap010002040027001F02518C">10.3 Die Verzweigung mit else</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_010_003.htm#RxxobKap010003040027011F01918C">10.4 Der !-Operator (logischer Operator)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_010_004.htm#RxxobKap010004040027021F02B18C">10.5 Logisches UND (&amp;&amp;) – Logisches ODER (||)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_010_005.htm#RxxobKap010005040027031F01118C">10.6 Bedingungsoperator ?:</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_010_006.htm#RxxobKap010006040027041F02A18C">10.7 Fallunterscheidung: die switch-Verzweigung</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_010_006.htm#RxxobKap010006040027041F02A19D">10.7.1 default</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_010_007.htm#RxxobKap010007040027051F02D18C">10.8 Die while-Schleife</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_010_007.htm#RxxobKap010007040027051F02D19D">10.8.1 Endlosschleife (while)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_010_007.htm#RxxobKap010007040027051F02D1A6">10.8.2 Fehlervermeidung bei while-Schleifen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_010_008.htm#RxxobKap010008040027061F03618C">10.9 Die do while-Schleife</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a class="navh" href="#RxxobKap010009040027071F04518C">10.10 Die for-Schleife</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap010009040027071F04519F">10.10.1 Beispiele f&uuml;r eine for-Schleife</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_010_010.htm#RxxobKap010010040027081F04618C">10.11 Kontrollierte Spr&uuml;nge</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_010_010.htm#RxxobKap010010040027081F046193">10.11.1 continue</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_010_010.htm#RxxobKap010010040027081F04619C">10.11.2 break</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_010_011.htm#RxxobKap010011040027091F04318C">10.12 Direkte Spr&uuml;nge mit goto</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_010_012.htm#RxxobKap0100120400270A1F04218C">10.13 Notationsstil</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_010_012.htm#RxxobKap0100120400270A1F04218E">10.13.1 K&amp;R-Stil</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_010_012.htm#RxxobKap0100120400270A1F042190">10.13.2 Whitesmith-Stil</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_010_012.htm#RxxobKap0100120400270A1F042192">10.13.3 Allman-Stil</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_010_012.htm#RxxobKap0100120400270A1F042194">10.13.4 GNU EMACS-Stil</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_010_012.htm#RxxobKap0100120400270A1F042196">10.13.5 Der Stil des Autors ;) (K&amp;R-like)</a></b></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td>
+<a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2">10.10<a id="Xxx999328" name="Xxx999328"></a> Die for-Schleif<a id="Xxx999329" name="Xxx999329"></a><a id="RxxobKap010009040027071F04518C" name="RxxobKap010009040027071F04518C"></a>e 
+      <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"></h2>
+<p>Mit der <span class="listing">for</span>-Schleife k&ouml;nnen Sie – wie schon mit der <span class="listing">while</span>-Schleife – Anweisungsbl&ouml;cke mehrfach hintereinander ausf&uuml;hren. Der Unterschied ist jedoch, dass bei der <span class="listing">for</span>-Schleife die Initialisierung, die Bedingung und die Reinitialisierung der Schleifenvariable schon in der <span class="listing">for</span>-Anweisung erfolgt. Die Syntax zur <span class="listing">for</span>-Schleife:</p>
+<pre>for(Initialisierung; Bedingung; Reinitialisierung) {
+   /* Anweisungen */
+}</pre>
+<p>Beim Ablauf der <span class="listing">for</span>-Schleife wird in der Regel zuerst die Schleifenvariable initialisiert. Dies geschieht aber nur einmal, unabh&auml;ngig davon, wie oft sich die Schleife wiederholt. Danach findet typischerweise eine Bedingungs&uuml;berpr&uuml;fung statt. Ergibt diese »wahr«, geht die Ausf&uuml;hrung im Anweisungsblock mit weiteren Anweisungen weiter. </p>
+<p>Hat der Anweisungsblock alle Anweisungen ausgef&uuml;hrt, wird die Reinitialisierung der Schleifenvariable ausgef&uuml;hrt. Dann wird erneut die Schleifen-Bedingung &uuml;berpr&uuml;ft, und alles beginnt von vorne. Die <span class="listing">for</span>-Schleife wird beendet, wenn die Schleifen-Bedingung nicht mehr wahr ist.</p>
+<p>Die Arbeitsweise einer <span class="listing">for</span>-Schleife l&auml;sst sich gut anhand des folgenden Beispiels demonstrieren:</p>
+<pre>/* for1.c */
+#include &lt;stdio.h&gt;
+int main(void) {
+   int i;
+   for(i=1; i &lt;= 5; i++)
+      printf("for(i=1; %d &lt;= 5; %d++) \n", i, i);
+   return 0;
+}</pre>
+<p>Das Programm zeigt jeweils den aktuellen Variableninhalt von <span class="listing">i</span> in der <span class="listing">for</span>–Schleife. Wie in diesem Beispiel gesehen, kann auch bei den Schleifen der Anweisungsblock mit den geschweiften Klammern weggelassen werden, wenn dieser nur aus einer Anweisung besteht. Der Programmablaufplan der <span class="listing">for</span>-Schleife ist in Abbildung 10.11 dargestellt.</p>
+<p>Mit <span class="listing">for</span>-Schleifen lassen sich aber nicht nur Schleifen zum Dekrementieren (<span class="listing">––</span>) bzw. Inkrementieren (<span class="listing">++</span>) realisieren. Sie k&ouml;nnen in der <span class="listing">for</span>-Schleife auch weitere Rechenoperationen vornehmen. Hier ein Programm, dass immer die letzte Dezimalstelle eines Werts abschneidet. Die Ergebniszahl soll danach spiegelverkehrt ausgegeben werden:</p>
+<pre>/* for2.c */
+#include &lt;stdio.h&gt;
+int main(void) {
+   int zahl;
+   for(zahl=1234; zahl &gt;= 1; zahl/=10)
+      printf("%d", zahl%10);
+   printf("\n");
+   return 0;
+}</pre>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/10_11.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein10_11.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 10.11   
+    </b>Programmablaufplan der for-Schleife</p>
+<h4 class="t4">Typische Fehler bei der Verwendung einer for-Schleife</h4>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Ein h&auml;ufiger Fehler ist das Vergessen des Semikolons zwischen der Initialisierung, Bedingung und der Reinitialisierung der Schleifenvariable.</td>
+</tr>
+</table>
+<blockquote>
+<pre>for(i=1 i&lt;=5 i++)   /* korrekt-&gt; */     for(i=1; i&lt;=5; i++)</pre>
+</blockquote>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Nat&uuml;rlich sollten Sie auch nicht den Fehler machen, am Ende der Schleife ein Semikolon zu setzen; au&szlig;er es ist gewollt.</td>
+</tr>
+</table>
+<blockquote>
+<pre>for(i=1; i&lt;=5; i++);  /* korrekt-&gt; */  for(i=1; i&lt;=5; i++){  }</pre>
+</blockquote>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Und das Wichtigste ist, f&uuml;r die richtige Abbruchbedingung zu sorgen, da sonst das Programm die <span class="listing">for</span>-Schleife nicht mehr verl&auml;sst. Man spricht dann von einer Endlosschleife.</td>
+</tr>
+</table>
+<blockquote>
+<pre>for(i=2; i!=5; i+=2)   /* korrekt-&gt; */   for(i=2; i&lt;=5; i+=2)</pre>
+</blockquote>
+<a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3">10.10.1 Beispiele f&uuml;r eine for-Schleife<a id="RxxobKap010009040027071F04519F" name="RxxobKap010009040027071F04519F"></a> 
+      <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Als Anregung und &Uuml;bung sollen im Anschluss 10 verschiedene M&ouml;glichkeiten der Verwendung einer <span class="listing">for</span>-Schleife gezeigt werden.</p>
+<h4 class="t4">1. M&ouml;glichkeit</h4>
+<pre>/* for3.c */
+#include &lt;stdio.h&gt;
+int main(void) {
+   int sek;
+   for(sek = 5; sek &gt; 0; sek--)
+      printf("%d Sekunden!\n", sek);
+   printf("Die Zeit ist abgelaufen! \n");
+   return 0;
+}</pre>
+<p>Hier benutzen Sie den Dekrement-Operator zum R&uuml;ckw&auml;rtsz&auml;hlen. Die Schleife z&auml;hlt so lange r&uuml;ckw&auml;rts, bis der Wert <span class="listing">sek</span> gleich 0 ist.</p>
+<h4 class="t4">2. M&ouml;glichkeit</h4>
+<pre>/* for4.c */
+#include &lt;stdio.h&gt;
+int main(void) {
+   int n;
+   for(n = 0; n &lt;= 60; n = n + 10)
+      printf("%d\n",n);
+   return 0;
+}</pre>
+<p>Sie k&ouml;nnen innerhalb der Schleife nicht nur inkrementieren und dekrementieren, sondern auch rechnen. In diesem Fall werden die Zahlen in 10er-Schritten ausgegeben – von 0 bis 60.</p>
+<h4 class="t4">3. M&ouml;glichkeit</h4>
+<pre>/* for5.c */
+#include &lt;stdio.h&gt;
+int main(void) {
+   char ch;
+   for(ch = 'A'; ch &lt;= 'Z'; ch++)
+      printf("%c, ", ch);
+   printf("\n");
+   return 0;
+}</pre>
+<p>Diese M&ouml;glichkeit funktioniert auch sehr gut mit dem Datentyp <span class="listing">char</span>. Dann wird das Alphabet in Gro&szlig;buchstaben ausgegeben.</p>
+<h4 class="t4">4. M&ouml;glichkeit</h4>
+<pre>/* for6.c */
+#include &lt;stdio.h&gt;
+int main(void) {
+   int cube;
+   for(cube = 1; cube * cube * cube &lt;= 216; cube++)
+      printf("n=%d Volumen : %d \n", cube, cube*cube*cube);
+   return 0;
+}</pre>
+<p>Als Abbruchbedingung k&ouml;nnen Sie ebenso eine Berechnung verwenden. In diesem Fall soll das Volumen eines W&uuml;rfels bis zur Gr&ouml;&szlig;e von maximal 216 berechnet werden. Die Abbruchbedingung ist also erreicht, wenn <span class="listing">cube</span> bis 7 hochgez&auml;hlt wurde, da 7*7*7 gr&ouml;&szlig;er ist als 216.</p>
+<h4 class="t4">5. M&ouml;glichkeit</h4>
+<pre>/* for7.c */
+#include &lt;stdio.h&gt;
+int main(void) {
+   double zs;
+   for(zs = 100.0; zs &lt; 150.0; zs = zs * 1.1)
+      printf("%.2f\n", zs);
+   return 0;
+}</pre>
+<p>Bei dieser M&ouml;glichkeit werden immer 10% vom jeweiligen Gesamtwert berechnet. Sie haben zum Beispiel 100 i auf der Bank und bekommen darauf 10% Zinsen im Jahr. Sie wollen wissen, nach wie vielen Jahren der Betrag in die N&auml;he von 150 i kommt.</p>
+<h4 class="t4">6. M&ouml;glichkeit</h4>
+<pre>/* for8.c */
+#include &lt;stdio.h&gt;
+int main(void) {
+   int x,y=50;
+   for(x = 0; y &lt;= 75; y = (++x*5) + 50)
+      printf("%d\n", y);
+   return 0;
+}</pre>
+<p>Diese etwas komplex anmutende Schleife nimmt nichts anderes vor, als einen Wert in 5er-Schritten von 50–75 auszugeben. Zuerst wird in den Klammern (<span class="listing">x*5</span>) berechnet und anschlie&szlig;end 50 addiert. Da <span class="listing">x</span> sich bei jedem Durchlauf um den Wert 1 erh&ouml;ht und mit 5 multipliziert wird, ergeben sich Werte in 5er-Spr&uuml;ngen.</p>
+<h4 class="t4">7. M&ouml;glichkeit</h4>
+<pre>/* for9.c */
+#include &lt;stdio.h&gt;
+int main(void) {
+   int x = 2, y;
+   for(y=2; x&lt;20;) {
+         x = x * y;
+         printf("%d\n", x++);
+   }
+   return 0;
+}</pre>
+<p>Sie sehen hier, dass nicht unbedingt alle Variablen einer <span class="listing">for</span>-Schleife deklariert werden m&uuml;ssen. Lediglich die beiden Semikolons m&uuml;ssen immer in der <span class="listing">for</span>-Schleife stehen.</p>
+<h4 class="t4">8. M&ouml;glichkeit</h4>
+<pre>/* for10.c */
+#include &lt;stdio.h&gt;
+int main(void) {
+   for(;;)
+      printf("Endlosschleife!!\n");
+   return 0;
+}</pre>
+<p>Hier ein Beispiel, bei dem &uuml;berhaupt nichts in der <span class="listing">for</span>-Schleife steht. Wenn Sie dieses Programm ausf&uuml;hren, wird so lange auf dem Bildschirm der String <span class="listing">"Endlosschleife"</span> ausgegeben, bis Sie das Programm selbst gewaltsam abbrechen. Die Schreibweise <span class="listing">for(;;)</span> ist gleichwertig mit <span class="listing">while(1)</span>. Beides sind Formen von Endlosschleifen.</p>
+<h4 class="t4">9. M&ouml;glichkeit</h4>
+<pre>/* for11.c */
+#include &lt;stdio.h&gt;
+int main(void) {
+   int n;
+   for( printf("Bitte eine Zahl eingeben: "); n!=5; )
+      scanf("%d", &amp;n);
+   printf("Diese Zahl wollte ich\n");
+   return 0;
+}</pre>
+<p>Hier benutzen Sie die <span class="listing">for</span>-Schleife zur Abfrage einer Zahl. Die Schleife wird beendet, wenn Sie die Zahl 5 eingeben.</p>
+<h4 class="t4">10. M&ouml;glichkeit</h4>
+<pre>/* for12.c */
+#include &lt;stdio.h&gt;
+int main(void) {
+   int n1, n2;
+   for(n1 = 1, n2 = 2; n1 &lt;= 10; n1++)
+      printf("%d\n",n1*n2);
+   return 0;
+}</pre>
+<p>Es ist auch m&ouml;glich, mehrere Werte innerhalb einer <span class="listing">for</span>-Schleife zu initialisieren.</p>
+<p>Nat&uuml;rlich war dies nur eine Auswahl von Verwendungsm&ouml;glichkeiten einer <span class="listing">for</span>-Schleife. Der Abschnitt sollte jedoch zeigen, wie flexibel sich <span class="listing">for</span>-Schleifen verwenden lassen.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_010_008.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_010_010.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td width="10" valign="top">&nbsp;&nbsp;</td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/899?GPP=opc">
+                                        <img src="common/643_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C von A bis Z" title="Zum Katalog: C von A bis Z">
+                                        <br /><strong>C von A bis Z</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Ihre Meinung?</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1007?GPP=opc">
+                        <img src="common/683_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Shell-Programmierung" title="Zum Katalog: Shell-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Shell-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1137?GPP=opc">
+                        <img src="common/749_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux-UNIX-Programmierung" title="Zum Katalog: Linux-UNIX-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux-UNIX-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1004?GPP=opc">
+                        <img src="common/644_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C/C++" title="Zum Katalog: C/C++"><br /><br /><br /><br /><br /><br /><br />&nbsp;C/C++</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/880?GPP=opc">
+                        <img src="common/573_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/967?GPP=opc">
+                        <img src="common/626_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Reguläre Ausdrücke" title="Zum Katalog: Reguläre Ausdrücke"><br /><br /><br /><br /><br /><br /><br />&nbsp;Reguläre Ausdrücke</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/941?GPP=opc">
+                        <img src="common/677_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Shopping</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opc"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table>
+<br /><br />
+<hr width="70%" align="center"><br />
+<div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2006</b><br>F&uuml;r Ihren privaten Gebrauch d&uuml;rfen Sie die Online-Version nat&uuml;rlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschlie&szlig;lich aller seiner Teile ist urheberrechtlich gesch&uuml;tzt. Alle Rechte vorbehalten einschlie&szlig;lich der Vervielf&auml;ltigung, &Uuml;bersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

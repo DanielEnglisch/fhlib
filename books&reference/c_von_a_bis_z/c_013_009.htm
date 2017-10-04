@@ -1,0 +1,901 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: C von A bis Z – 13.10 Mehrdimensionale Arrays initialisieren</title>
+<meta name="title" content="Galileo Computing :: C von A bis Z">
+<meta name="author" content="J&uuml;rgen Wolf">
+<meta name="publisher" content="Galileo Press 2006">
+<meta name="copyright" content="Galileo Press 2006">
+<meta name="description" content="C von A bis Z - Das umfassende Handbuch f&uuml;r Linux, Unix und Windows – 2., aktualisierte und erweiterte Auflage 2006, geb., mit CD und Referenzkarte – ISBN 3-89842-643-2">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="c_013_008.htm">
+<link rel="next" href="c_013_010.htm"><script type="text/javascript" language="JavaScript"><!--
+function OpenWin(url,name,height,width)
+{
+  var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+  InfoWin.focus();
+}
+//--></script></head>
+<body vlink="#000099" link="#000099" alink="#000099">
+    <table width="100%" height="74" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+        <tr>
+            <td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+            <td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opc"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger." title="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger."></a></td>
+        </tr>
+    </table>
+    <div align="right"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger.</a></div>
+    <br />
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td width="156" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
+        <tr>
+            <td colspan="2" class="nav1" align="left" valign="top" height="150">
+                <table class="tbl1" width="150" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td class="tbl2" height="25"><a class="nav" href="./index.htm">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000Vorwort_000.htm#Xxx999266">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000VorwortGutachter_000.htm#Xxx999275">Vorwort des Gutachters</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_001_000.htm#Xxx999328">1 Einstieg in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_002_000.htm#Xxx999328">2 Das erste Programm</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_003_000.htm#Xxx999328">3 Zeichens&auml;tze</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_004_000.htm#Xxx999329">4 Kommentare in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_005_000.htm#Xxx999330">5 Formatierte Eingabe mit scanf()</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_006_000.htm#Xxx999330">6 Formatierte Ausgabe mit printf</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_007_000.htm#Xxx999329">7 Elementare Datentypen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_008_000.htm#Xxx999328">8 Operatoren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_009_000.htm#Xxx999328">9 Typenumwandlung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_010_000.htm#Xxx999328">10 Kontrollstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_011_000.htm#Xxx999328">11 Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_012_000.htm#Xxx999328">12 Pr&auml;prozessor-Direktiven</A></td>
+</tr>
+<tr>
+<td><A class="navh" href="./c_013_000.htm#Xxx999328">13 Arrays</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_014_000.htm#Xxx999328">14 Zeiger (Pointer)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_015_000.htm#Xxx999328">15 Kommandozeilenargumente</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_016_000.htm#Xxx999328">16 Dynamische Speicherverwaltung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_017_000.htm#Xxx999328">17 Strukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_018_000.htm#Xxx999328">18 Ein-/Ausgabe-Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_019_000.htm#Xxx999328">19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_020_000.htm#Xxx999328">20 Arbeiten mit variablen langen Argumentlisten – &lt;stdarg.h&gt;</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_021_000.htm#Xxx999328">21 Zeitroutinen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_022_000.htm#Xxx999328">22 Weitere Headerdateien und ihre Funktionen (ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_023_000.htm#Xxx999328">23 Dynamische Datenstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_024_000.htm#Xxx999328">24 Algorithmen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_025_000.htm#Xxx999328">25 Sicheres Programmieren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_026_000.htm#Xxx999328">26 CGI mit C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_027_000.htm#Xxx999328">27 MySQL und C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_028_000.htm#Xxx999328">28 Netzwerkprogrammierung und Cross-Plattform-Entwicklung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_029_000.htm#Xxx999328">29 Wie geht’s jetzt weiter?</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_030Anhang_000.htm#Xxx999266">A Anhang</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./stichwort.htm#Xxx512322">Index</a></td>
+</tr>
+<tr><td><br /><a class="navnav" href="http://download.galileo-press.de/openbook/c_von_a_bis_z/galileocomputing_c_von_a_bis_z.zip"><strong>Download:</strong><br />- ZIP, ca. 8,5 MB</a></td></tr>
+<tr><td><a class="navnav" href="http://www.galileocomputing.de/899?GPP=opc">Buch bestellen</a></td></tr>
+<tr><td><a class="navnav" href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)">Ihre Meinung?</a><br /><br /></td></tr>
+</table></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10"></td>
+<td width="85%" valign="top" align="center">
+    <div align="center">
+        <table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+            <tr>
+                <td width="100%" class="start" colspan="1" height="22" align="center">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_013_008.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Galileo Computing /</a><a class="navnav" href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"> &lt;openbook&gt; /</a><a href="./index.htm" class="navnav"> C von A bis Z</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_013_010.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" valign="top">
+    <table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+        <tr>
+            <td colspan="2"><a href="http://www.galileocomputing.de/899?GPP=opc" class="buchtitel">C von A bis Z</a><span class="autor"> von J&uuml;rgen Wolf</span><br><span class="untertitel">Das umfassende Handbuch f&uuml;r Linux, Unix und Windows <br />– 2., aktualisierte und erweiterte Auflage 2006</span></td>
+        </tr>
+        <tr>
+            <td valign="top" width="90"><a href="http://www.galileocomputing.de/899?GPP=opc"><img src="common/643.gif" border="0" alt="Buch: C von A bis Z" title="Buch: C von A bis Z" align="left"><br /><br /><span class="autor"><strong>C von A bis Z</strong><br />1.116 S., mit CD, Referenzkarte, 39,90 Euro<br />Galileo Computing<br />ISBN 3-89842-643-2</span></a></a></td>
+            <td width="80%">
+<table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="3" class="kap"><b>Kapitel <a href="./c_013_000.htm#RxxobKap0130000400282B1F04118C">13 Arrays</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_000.htm#RxxobKap0130000400282B1F04118F">13.1 Arrays deklarieren</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_001.htm#RxxobKap013001040028461F01018C">13.2 Initialisierung und Zugriff auf Arrays</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_001.htm#RxxobKap013001040028461F0101BD">13.2.1 G&uuml;ltigkeitsbereich von Arrays</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_002.htm#RxxobKap013002040028471F02818C">13.3 Arrays vergleichen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_003.htm#RxxobKap013003040028481F03D18C">13.4 Anzahl der Elemente eines Arrays ermitteln</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_004.htm#RxxobKap013004040028491F03A18C">13.5 &Uuml;bergabe von Arrays an Funktionen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_005.htm#RxxobKap0130050400284A1F02618C">13.6 Arrays aus Funktionen zur&uuml;ckgeben</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_006.htm#RxxobKap0130060400284B1F03318C">13.7 Programmbeispiel zu den Arrays</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_007.htm#RxxobKap0130070400284C1F03C18C">13.8 Einlesen von Array-Werten</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_008.htm#RxxobKap0130080400284D1F03A18C">13.9 Mehrdimensionale Arrays</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a class="navh" href="#RxxobKap0130090400284E1F01E18C">13.10 Mehrdimensionale Arrays initialisieren</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap0130090400284E1F01E1AB">13.10.1 Tic Tac Toe</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap0130090400284E1F01E1B5">13.10.2 Dreidimensionale Arrays</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_010.htm#RxxobKap0130100400284F1F03A18C">13.11 &Uuml;bergabe von zwei- bzw. mehrdimensionalen Arrays an Funktionen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_011.htm#RxxobKap013011040028501F02F18C">13.12 Arrays in Tabellenkalkulation einlesen (*.CSV–Dateien)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_012.htm#RxxobKap013012040028511F03818C">13.13 Strings/Zeichenketten (char Array)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_012.htm#RxxobKap013012040028511F0381AC">13.13.1 Vom String zur Bin&auml;rzahl</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_013.htm#RxxobKap013013040028521F01018C">13.14 Einlesen von Strings</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_014.htm#RxxobKap013014040028531F04018C">13.15 Standard-Bibliothek &lt;string.h&gt;</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_014.htm#RxxobKap013014040028531F040190">13.15.1 strcat() – Strings aneinander h&auml;ngen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_014.htm#RxxobKap013014040028531F04019A">13.15.2 strchr() – ein Zeichen im String suchen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_014.htm#RxxobKap013014040028531F0401A0">13.15.3 strcmp() – Strings vergleichen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_014.htm#RxxobKap013014040028531F0401A5">13.15.4 strcpy() – einen String kopieren</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_014.htm#RxxobKap013014040028531F0401AD">13.15.5 strcspn() – einen Teilstring ermitteln</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_014.htm#RxxobKap013014040028531F0401B2">13.15.6 strlen() – L&auml;nge eines Strings ermitteln</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_014.htm#RxxobKap013014040028531F0401B9">13.15.7 strncat() – String mit n Zeichen aneinander h&auml;ngen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_014.htm#RxxobKap013014040028531F0401C1">13.15.8 strncmp() – n Zeichen von zwei Strings miteinander vergleichen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_014.htm#RxxobKap013014040028531F0401C6">13.15.9 strncpy() – String mit n Zeichen kopieren</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_014.htm#RxxobKap013014040028531F0401CB">13.15.10 strpbrk() – Auftreten bestimmter Zeichen suchen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_014.htm#RxxobKap013014040028531F0401D0">13.15.11 strrchr() – das letzte Auftreten eines bestimmten Zeichens im String suchen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_014.htm#RxxobKap013014040028531F0401D5">13.15.12 strspn() – erstes Auftreten eines Zeichens, das nicht vorkommt</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_014.htm#RxxobKap013014040028531F0401DB">13.15.13 strstr() – String nach Auftreten eines Teilstrings durchsuchen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_014.htm#RxxobKap013014040028531F0401E0">13.15.14 strtok() – String anhand bestimmter Zeichen zerlegen</a></b></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td>
+<a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2">13.10 Mehrdimensionale Arrays initialisieren<a id="RxxobKap0130090400284E1F01E18C" name="RxxobKap0130090400284E1F01E18C"></a> 
+      <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"></h2>
+<p>Werte bei mehrdimensionalen Arrays werden &auml;hnlich &uuml;bergeben wie bei einem eindimensionalen Array. Hier zum Beispiel eine Deklaration mit sofortiger Initialisierung von Werten:</p>
+<pre>/* 4 Zeilen 5 Spalten */
+int Matrix[4][5] = { {10,20,30,40,50},
+                     {15,25,35,45,55},
+                     {20,30,40,50,60},
+                     {25,35,45,55,65}};</pre>
+<p>Dadurch ergibt sich folgende Belegung des Feldes:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/13_07.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein13_07.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 13.7   
+    </b>Ein zweidimensionales Array, mit Werten initialisiert</p>
+<p>Wie bei den normalen Arrays lassen sich die einzelnen Elemente mithilfe des Feldindex initialisieren. Wollen Sie beispielsweise das Element mit dem Wert 60 &auml;ndern in 100, dann geht das wie folgt:</p>
+<pre>Matrix[2][4] = 100;</pre>
+<p>Hier wurde zum Beispiel der Inhalt von <span class="listing">Matrix[2][4]</span> ver&auml;ndert. Wollen Sie das Element mit dem Wert 65 um&auml;ndern in 66, dann wird folgender Feldindex verwendet:</p>
+<pre>Matrix[3][4] = 66;</pre>
+<p>Eine weitere M&ouml;glichkeit zur Initialisierung von mehrdimensionalen Arrays ist folgende:</p>
+<pre>int Matrix[4][4] = { {0},
+                     {1},
+                     {0,1},
+                     {0,0,1} };</pre>
+<p>Hiermit besitzen alle Feldelemente, die nicht ausdr&uuml;cklich initialisiert wurden, automatisch den Wert 0. Die Belegung des Feldes sieht also folgenderma&szlig;en aus:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/13_08.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein13_08.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 13.8   
+    </b>Ein zweidimensionales Array (4 x 4)</p>
+<p>In der Praxis werden mehrdimensionale Arrays bei verschiedensten Arten von Berechnungen ben&ouml;tigt oder bei 2-D-Darstellungen von Grafiken. Das folgende Programm demonstriert die Anwendung eines mehrdimensionalen Arrays:</p>
+<pre>/* md_array1.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#define VOL1 3   /* Anzahl Felder erste Dimension – Zeilen   */
+#define VOL2 4   /* Anzahl Felder zweite Dimension – Spalten */
+int main(void) {
+   int i,j;
+   int myarray[VOL1][VOL2];     /* [3][4] */
+   /* Eingabe der Array-Elemente */
+   for(i=0; i &lt; VOL1; i++) {
+      for(j=0; j &lt; VOL2; j++) {
+         printf("Wert f&uuml;r myarray[%d][%d]:", i, j);
+         scanf("%d", &amp;myarray[i][j]);
+      }
+   }
+   printf("\nAusgabe von myarray[%d][%d]...\n\n", VOL1, VOL2);
+   for(i=0; i &lt; VOL1; i++) {
+      for(j=0; j &lt; VOL2; j++) {
+         printf("\t%4d ",myarray[i][j]);
+      }
+      printf("\n\n");
+   }
+   return EXIT_SUCCESS;
+}</pre>
+<p>Das Programm nimmt nichts anderes vor, als den Anwender nach Ganzzahlen abzufragen, um diese Werte im zweidimensionalen Array zu speichern und wieder auszugeben. Um dies zu realisieren, wird eine &auml;u&szlig;ere und innere <span class="listing">for</span>-Schleife verwendet. Die &auml;u&szlig;ere <span class="listing">for</span>-Schleife dient dabei der Inkrementierung der Variablen im linken Indizierungsoperator (oder, aus der Sicht einer Tabellenkalkulation, der Zeile). Die innere <span class="listing">for</span>-Schleife inkrementiert den Wert im rechten Indizierungsoperator (und somit der Spalte).</p>
+<p>Im n&auml;chsten Beispielprogramm soll ein kleines Zeitkonto f&uuml;r einen Arbeitgeber verwaltet werden. Damit sollen einige Arbeitszeitberechnungen durchgef&uuml;hrt werden.</p>
+<pre>/* md_array2.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#define ARBEITER 3
+#define TAGE     5
+int zeitkonto[ARBEITER][TAGE];
+/* Fehlerausgabe */
+void error(int n) {
+   printf("%d (?) Falsche Eingabe!!\n",n);
+}
+/* –1- Ausgabe der Wochenarbeitszeit je Arbeiter */
+void ArbeiterWochenStunden(void) {
+   int i,j,tmp;
+   for(i=0; i &lt; ARBEITER; i++) {
+      tmp=0;
+      printf("Wochenarbeitszeit von Arbeiter Nr. %d\n", i+1);
+      printf("-------------------------------------\n");
+      for(j=0; j &lt; TAGE; j++) {
+         printf("|%d Std.", zeitkonto[i][j]);
+         tmp += zeitkonto[i][j];
+      }
+      printf("| = Ges. %d Std.\n\n",tmp);
+   }
+}
+/* –2- Durchschnittszeiten pro Tag in der Woche je Arbeiter */
+void ArbeiterTagesDurchschnitt(void) {
+   int i,j,tmp;
+   for(i=0; i &lt; ARBEITER; i++) {
+      tmp=0;
+      printf("Durchschn. pro Tag/Woche Arbeiter: %d\n",i+1);
+      printf("-------------------------------------------\n");
+      for(j=0; j &lt; TAGE; j++) {
+         tmp+=zeitkonto[i][j];
+      }
+      printf("Durchschn. v. Arbeiter %d p. Tag: %.1f "
+             "Std/Tag\n\n" , i+1, (float)tmp / TAGE);
+   }
+}
+/* –3- Durchschnittszeit aller Arbeiter pro Tag */
+void TeamTagesDurchschnitt(void) {
+   int i,j,tmp;
+   for(i=0; i &lt; TAGE; i++) {
+      tmp=0;
+      printf("Durchschn. Arbeitszeit aller Mitarbeiter pro "
+             "Tag %d = ", i+1);
+      for(j=0; j &lt; ARBEITER; j++) {
+         tmp += zeitkonto[j][i];
+      }
+      printf("%.1f Std.\n\n",(float)tmp/ARBEITER);
+   }
+}
+/* –4- Gesamtstunden aller Arbeiter in der Woche */
+void TeamWochenStunden(void) {
+   int i, j, tmp=0;
+   printf("Gesamtstunden aller Arbeiter in der Woche\n");
+   printf("-----------------------------------------\n");
+   for(i=0; i &lt; ARBEITER; i++) {
+      for(j=0; j &lt; TAGE; j++) {
+         tmp+=zeitkonto[i][j];
+      }
+   }
+   printf("Gesamtstunden aller Arbeiter i. d. Woche: "
+          " %d Std.\n" , tmp);
+}
+/* Stunden&uuml;bersicht eines einzelnen Arbeiters */
+void ArbeiterStundenUebersicht(void) {
+   int arb,tag;
+   printf("Welcher Arbeiter: ");
+   scanf("%d", &amp;arb);
+   printf("Welcher Tag: ");
+   scanf("%d", &amp;tag);
+   if(arb &gt; ARBEITER) {
+      printf("Die Firma hat nur %d Arbeiter\n", ARBEITER);
+      return;
+   }
+   else if(tag &gt; TAGE) {
+      printf("Es werden nur %d Tage gespeichert\n", TAGE);
+      return;
+   }
+   printf("Arbeiter Nr.%d hat am Tag %d : ", arb, tag);
+   printf("%d Stunden gearbeitet!\n\n", zeitkonto[arb-1][tag-1]);
+}
+int main(void) {
+   int abfrage, i, j;
+   for(i=0; i &lt; TAGE; i++) {
+      printf("\n\tTag %d in der Woche\n",i+1);
+      printf("\t-------------------\n\n");
+      for(j=0; j &lt; ARBEITER; j++) {
+         printf("Arbeiter Nr.%d in Std.: ",j+1);
+         scanf("%d",&amp;zeitkonto[j][i]);
+         if(zeitkonto[j][i] &gt; 24)
+            printf("Ein Tag hat nur 24 Stunden?\n");
+      }
+   }
+   do {
+      printf("\n\n");
+      printf("\t-1- Stundenwoche\n");
+      printf("\t-2- Durchschnitt/Tag\n");
+      printf("\t-3- Durchschnitt aller Arbeiter/Tag\n");
+      printf("\t-4- Stunden aller Arbeiter/Woche\n");
+      printf("\t-5- Einzelauswahl eines Arbeiters\n");
+      printf("\t-6- ENDE\n");
+      printf("\n\tIhre Wahl : ");
+      scanf("%1d",&amp;abfrage);
+      printf("\n");
+      switch(abfrage) {
+         case 1  : ArbeiterWochenStunden();
+                   break;
+         case 2  : ArbeiterTagesDurchschnitt();
+                   break;
+         case 3  : TeamTagesDurchschnitt();
+                   break;
+         case 4  : TeamWochenStunden();
+                   break;
+         case 5  : ArbeiterStundenUebersicht();
+                   break;
+         case 6  : break;
+         default : error(abfrage);
+      }
+   } while(abfrage != 6);
+   return EXIT_SUCCESS;
+}</pre>
+<p>Die Bildschirmausgabe des Programms k&ouml;nnte zum Beispiel folgenderma&szlig;en aussehen (siehe Abbildung 13.9).</p>
+<p>Es f&auml;llt auf, dass die Funktionen immer in etwa gleich aufgebaut sind. Auf entsprechende korrekte Feldindexierung muss nat&uuml;rlich geachtet werden. In der Funktion <span class="listing">ArbeiterStundenUebersicht()</span> wird demonstriert, wie gezielt auf ein Element eines Arrays zugegriffen werden kann. Das Programm ist nat&uuml;rlich noch verbesserungsw&uuml;rdig. Warnungen, dass ein Arbeiter zu viel oder zu wenig arbeitet, ob ein Arbeiter krank war oder die Stunden als Gleitkommazahlen angegeben werden sollen, sind nur einige Vorschl&auml;ge dazu.</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/13_09.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein13_09.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 13.9   
+    </b>Stundenverwaltung des Personals in Aktion</p>
+<p>Tats&auml;chlich sind Arrays zwar sehr komfortabel in der Anwendung, sie sind jedoch sehr unflexibel, was die Anzahl der Elemente angeht. Die Anzahl der Elemente muss zum Zeitpunkt der Implementierung schon festgelegt werden, da sich ein Feld nicht ohne Mehraufwand dynamisch zur Laufzeit des Programms vergr&ouml;&szlig;ern oder verkleinern l&auml;sst.</p>
+<p>Das bedeutet, dass die Menge der im Array zu speichernden Daten schon vor Ablauf des Programms bekannt sein oder zumindest &uuml;berdimensioniert werden muss.</p>
+<p>Wenn das Array im vorgestellten Beispiel f&uuml;r 1000 Mitarbeiter dimensioniert w&uuml;rde, w&auml;re das Programm nicht mehr benutzbar, sobald mehr als 1000 Mitarbeiter verwaltet werden sollen.</p>
+<p>Eine L&ouml;sungsm&ouml;glichkeit besteht darin, das Array sehr gro&szlig; zu dimensionieren, um von vorneherein sehr gro&szlig;e Grenzen vorzugeben, etwa <span class="listing">MitarbeiterArray[100000]</span>.</p>
+<p>Dieser Ansatz kostet aber sehr viel (m&ouml;glicherweise) ungenutzten Arbeitsspeicher, der das Programm unter Umst&auml;nden stark verlangsamt.</p>
+<p>Da aus Performance-Gr&uuml;nden generell stets m&ouml;glichst wenig Arbeitsspeicher von Programmen belegt werden soll, gelten Arrays bei gro&szlig;en Datenmengen oder stark wechselnder Anzahl der Daten als nicht so effizient wie etwa verkettete Listen.</p>
+<p>In Kapitel 23, Dynamische Datenstrukturen, wird auf die Datenverwaltung mit verketteten Listen n&auml;her eingegangen.</p>
+<a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3">13.10.1 Tic Tac Toe<a id="RxxobKap0130090400284E1F01E1AB" name="RxxobKap0130090400284E1F01E1AB"></a> 
+      <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999369" name="Xxx999369"></a>Ein weiteres interessantes Beispiel zur Demonstration von zweidimensionalen Arrays ist das wohl allseits bekannte Spiel »Tic Tac Toe«. Sie ben&ouml;tigen dabei lediglich ein K&auml;stchen von 3 x 3 Feldern. Dies l&auml;sst sich prima mit einem zweidimensionalen Array darstellen: eine Dimension f&uuml;r die Reihe und eine weitere f&uuml;r die Spalte.</p>
+<pre>char TicTacToe[3][3] = { {' ',' ',' '},
+                         {' ',' ',' '},
+                         {' ',' ',' '} };</pre>
+<p>Ein kurze Beschreibung des Spiels: Ein Spieler hat das Zeichen <span class="listing">X</span> und ein anderer das Zeichen <span class="listing">O</span>. Nach einem Zug ist der andere Spieler an der Reihe. Gewonnen hat der Spieler, der zuerst drei gleiche Zeichen (<span class="listing">X</span> oder <span class="listing">O</span>) in der Waagerechten, in der Senkrechten oder in der Diagonalen hat. Es gibt insgesamt acht Stellungsm&ouml;glichkeiten, um das Spiel zu gewinnen. Diese gilt es zu &uuml;berpr&uuml;fen. Es gibt au&szlig;erdem noch eine neunte M&ouml;glichkeit, n&auml;mlich die, dass alle Felder besetzt sind, und keiner der beiden Spieler hat gewonnen. Hier der vollst&auml;ndige Quellcode dazu:</p>
+<pre>/* tictactoe.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#ifdef __unix__
+    #define clrscr() printf("\x1B[2J")
+#elif __BORLANDC__ &amp;&amp; __MSDOS__
+    #include &lt;conio.h&gt;
+#elif __WIN32__ || _MSC_VER
+    #define clrscr() system("cls")
+#else
+    #define clrscr() printf("clrscr() – Fehler!!\n")
+#endif
+#define X 'X'
+#define O 'O'
+#define LEER ' '
+#define GAME_OVER 0
+#define A_WINNER 1
+#define CONTINUE 2
+/* Inhalt des 3 x 3 grossen Felds */
+char TicTacToe[3][3] = { {' ',' ',' '},
+                         {' ',' ',' '},
+                         {' ',' ',' '} };
+/* Spieler1 hat das Zeichen 'X' */
+char Spieler1 = X;
+/* Spieler2 hat das Zeichen 'O' */
+char Spieler2 = O;
+/* Anzahl der Felder, die besetzt werden k&ouml;nnen */
+unsigned int felder = 9;
+/* Funktionsprototypen */
+void print_spielfeld(void);
+char neuer_zug(char);
+int if_win(void);
+/* Gibt den aktuellen Zustand des Spielfelds aus */
+void print_spielfeld(void) {
+   int i;
+   clrscr();
+   printf("       1   2   3  \n     +---+---+---+\n");
+   for(i = 0; i &lt; 3; i++) {
+      printf("  %d  | ",i+1);
+      printf("%c",TicTacToe[i][0]);
+      printf(" | ");
+      printf("%c",TicTacToe[i][1]);
+      printf(" | ");
+      printf("%c",TicTacToe[i][2]);
+      printf(" | \n");
+      if(i != 2) {
+         printf("     +---+---+---+\n");
+      }
+      else {
+         printf("     +---+---+---+\n");
+      }
+   }
+}
+/* F&uuml;hrt einen neuen Zug aus.
+ * char ch: Zeichen des Spielers, der an der Reihe ist, 'X'
+ * oder 'O'
+ * R&uuml;ckgabewert: Zeichen des Spielers, der eben an der Reihe war
+ * falls ein Feld besetzt ist, wird der R&uuml;ckgabewert vertauscht,
+ * damit der aktuelle Spieler nochmals seinen Zug machen kann.
+ * Hat ein Spieler gewonnen, gibt die Funktion die
+ * symb. Konstante GAME_OVER zur&uuml;ck
+ */
+char neuer_zug(char ch) {
+   unsigned int row, colum;
+   printf("\nSpieler \"%c\" ist an der Reihe\n\n",ch);
+   printf("Zeile  (1–3): ");
+   scanf("%d",&amp;row);
+   printf("Spalte (1–3): ");
+   scanf("%d",&amp;colum);
+   if(TicTacToe[row-1][colum-1] == LEER) {
+      /* Zeichen in das mehrdim. Array */
+      TicTacToe[row-1][colum-1] = ch;
+      print_spielfeld();
+      /* Haben wir schon einen Gewinner? */
+      if(if_win() == A_WINNER)
+         return GAME_OVER;
+   }
+   else { /* Ein bereits besetztes Feld */
+      print_spielfeld();
+      printf("\n!!! Feld ist bereits gesetzt !!!\n");
+      return (ch == X) ?O :X;
+   }
+   /* Sind bereits alle Felder besetzt? */
+   if(--felder &gt; 0)
+      return ch;
+   else {
+      printf("\nAlle Felder sind besetzt – Unentschieden\n");
+      return GAME_OVER;
+   }
+}
+/* Auswertung aller M&ouml;glichkeiten, um einen Gewinner zu ermitteln
+ * R&uuml;ckgabewert: symb. Konstante A_WINNER falls ein Gewinner
+ * ermittelt wurde oder die symb. Konstante CONTINUE zum
+ * Weiterspielen.
+ */
+int if_win(void) {
+  /* Zuerst Spieler1 'X' */
+  if(TicTacToe[0][0] == Spieler1 &amp;&amp;
+     TicTacToe[0][1] == Spieler1 &amp;&amp;
+     TicTacToe[0][2] == Spieler1 ||
+     TicTacToe[1][0] == Spieler1 &amp;&amp;
+     TicTacToe[1][1] == Spieler1 &amp;&amp;
+     TicTacToe[1][2] == Spieler1 ||
+     TicTacToe[2][0] == Spieler1 &amp;&amp;
+     TicTacToe[2][1] == Spieler1 &amp;&amp;
+     TicTacToe[2][2] == Spieler1 ||
+     TicTacToe[0][0] == Spieler1 &amp;&amp;
+     TicTacToe[1][0] == Spieler1 &amp;&amp;
+     TicTacToe[2][0] == Spieler1 ||
+     TicTacToe[0][1] == Spieler1 &amp;&amp;
+     TicTacToe[1][1] == Spieler1 &amp;&amp;
+     TicTacToe[2][1] == Spieler1 ||
+     TicTacToe[0][2] == Spieler1 &amp;&amp;
+     TicTacToe[1][2] == Spieler1 &amp;&amp;
+     TicTacToe[2][2] == Spieler1 ||
+     TicTacToe[0][0] == Spieler1 &amp;&amp;
+     TicTacToe[1][1] == Spieler1 &amp;&amp;
+     TicTacToe[2][2] == Spieler1 ||
+     TicTacToe[0][2] == Spieler1 &amp;&amp;
+     TicTacToe[1][1] == Spieler1 &amp;&amp;
+     TicTacToe[2][0] == Spieler1) {
+        printf("Spieler1 hat gewonnen\n");
+        return A_WINNER;
+  }
+  /* Jetzt Spieler2 'O' */
+  else if( TicTacToe[0][0] == Spieler2 &amp;&amp;
+           TicTacToe[0][1] == Spieler2 &amp;&amp;
+           TicTacToe[0][2] == Spieler2 ||
+           TicTacToe[1][0] == Spieler2 &amp;&amp;
+           TicTacToe[1][1] == Spieler2 &amp;&amp;
+           TicTacToe[1][2] == Spieler2 ||
+           TicTacToe[2][0] == Spieler2 &amp;&amp;
+           TicTacToe[2][1] == Spieler2 &amp;&amp;
+           TicTacToe[2][2] == Spieler2 ||
+           TicTacToe[0][0] == Spieler2 &amp;&amp;
+           TicTacToe[1][0] == Spieler2 &amp;&amp;
+           TicTacToe[2][0] == Spieler2 ||
+           TicTacToe[0][1] == Spieler2 &amp;&amp;
+           TicTacToe[1][1] == Spieler2 &amp;&amp;
+           TicTacToe[2][1] == Spieler2 ||
+           TicTacToe[0][2] == Spieler2 &amp;&amp;
+           TicTacToe[1][2] == Spieler2 &amp;&amp;
+           TicTacToe[2][2] == Spieler2 ||
+           TicTacToe[0][0] == Spieler2 &amp;&amp;
+           TicTacToe[1][1] == Spieler2 &amp;&amp;
+           TicTacToe[2][2] == Spieler2 ||
+           TicTacToe[0][2] == Spieler2 &amp;&amp;
+           TicTacToe[1][1] == Spieler2 &amp;&amp;
+           TicTacToe[2][0] == Spieler2)  {
+              printf("Spieler2 hat gewonnen\n");
+              return A_WINNER;
+   }
+   return CONTINUE;
+}
+int main(void) {
+   char check = X;
+   /* Leeres Spielfeld ausgeben */
+   print_spielfeld();
+   do { /* War Spieler mit dem Zeichen 'X' gerade dran ... */
+      /* ... dann ist jetzt Spieler mit dem Zeichen 'O' dran */
+      if(check==X) {
+            check=neuer_zug(O);
+      }
+      else { /* ... ansonsten der Spieler mit dem Zeichen 'X' */
+        check=neuer_zug(X);
+      }
+   } while( check != GAME_OVER );
+   return EXIT_SUCCESS;
+}</pre>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/13_10.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein13_10.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 13.10   
+    </b>Das Spiel Tic Tac Toe f&uuml;r die Konsole</p>
+<p>Wenn Sie jetzt noch Lust und viel Zeit haben, k&ouml;nnen Sie sich ja hinsetzen und eine Funktion basteln, um gegen den Computer antreten zu k&ouml;nnen, also eine eigene KI programmieren. Dabei k&ouml;nnen Sie so &auml;hnlich vorgehen wie bei der Funktion <span class="listing">if_win()</span>, nur dass Sie auch handeln m&uuml;ssen. Sie sollten aber dabei beachten, dass Sie die KI so programmieren, dass der menschliche User auch noch gewinnen kann.</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard"><b>Hinweis   </b>KI steht f&uuml;r k&uuml;nstliche Intelligenz. Gemeint ist damit die M&ouml;glichkeit einer Maschine, sich Funktionen des Menschen, wie Denken oder Bewegungsabl&auml;ufe, mithilfe von Programmen anzueignen (simulieren).</p>
+</td>
+</tr>
+</table><br>
+<a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3">13.10.2 Dreidimensionale Arrays<a id="RxxobKap0130090400284E1F01E1B5" name="RxxobKap0130090400284E1F01E1B5"></a> 
+      <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Zur Veranschaulichung ein weiteres Beispiel, wie ein dreidimensionales Array direkt mit Werten initialisiert werden kann:</p>
+<pre>int dreid[2][3][4]={{{6,7,4,3},{6,4,6,9},{3,4,6,7}},
+                    {{7,8,6,4},{5,99,3,5},{4,6,7,8}}};</pre>
+<p>Hier ist eine geschweifte Klammer hinzugekommen:</p>
+<pre>int dreid[][][]= {1.Feldindex{2.Feldindex{3.Feldindex}}};</pre>
+<p>Wenn zum Beispiel auf die erste Zahl zugegriffen werden soll, geschieht das folgenderma&szlig;en:</p>
+<pre>dreid[0][0][0]    /* erste Zahl 6 */</pre>
+<p>Oder auf die Zahl 99:</p>
+<pre>dreid[1][1][1]    /* die Zahl 99 */</pre>
+<p>Ein Beispiel dazu erspare ich mir, da Sie in der Regel selten mit einem solchen Array zu tun haben. Au&szlig;erdem l&auml;sst sich so etwas nur recht schwer vorstellen.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_013_008.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_013_010.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td width="10" valign="top">&nbsp;&nbsp;</td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/899?GPP=opc">
+                                        <img src="common/643_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C von A bis Z" title="Zum Katalog: C von A bis Z">
+                                        <br /><strong>C von A bis Z</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Ihre Meinung?</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1007?GPP=opc">
+                        <img src="common/683_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Shell-Programmierung" title="Zum Katalog: Shell-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Shell-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1137?GPP=opc">
+                        <img src="common/749_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux-UNIX-Programmierung" title="Zum Katalog: Linux-UNIX-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux-UNIX-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1004?GPP=opc">
+                        <img src="common/644_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C/C++" title="Zum Katalog: C/C++"><br /><br /><br /><br /><br /><br /><br />&nbsp;C/C++</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/880?GPP=opc">
+                        <img src="common/573_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/967?GPP=opc">
+                        <img src="common/626_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Reguläre Ausdrücke" title="Zum Katalog: Reguläre Ausdrücke"><br /><br /><br /><br /><br /><br /><br />&nbsp;Reguläre Ausdrücke</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/941?GPP=opc">
+                        <img src="common/677_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Shopping</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opc"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table>
+<br /><br />
+<hr width="70%" align="center"><br />
+<div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2006</b><br>F&uuml;r Ihren privaten Gebrauch d&uuml;rfen Sie die Online-Version nat&uuml;rlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschlie&szlig;lich aller seiner Teile ist urheberrechtlich gesch&uuml;tzt. Alle Rechte vorbehalten einschlie&szlig;lich der Vervielf&auml;ltigung, &Uuml;bersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

@@ -1,0 +1,1085 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: C von A bis Z – 26.8 Das HTTP-Protokoll</title>
+<meta name="title" content="Galileo Computing :: C von A bis Z">
+<meta name="author" content="J&uuml;rgen Wolf">
+<meta name="publisher" content="Galileo Press 2006">
+<meta name="copyright" content="Galileo Press 2006">
+<meta name="description" content="C von A bis Z - Das umfassende Handbuch f&uuml;r Linux, Unix und Windows – 2., aktualisierte und erweiterte Auflage 2006, geb., mit CD und Referenzkarte – ISBN 3-89842-643-2">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="c_026_006.htm">
+<link rel="next" href="c_026_008.htm"><script type="text/javascript" language="JavaScript"><!--
+function OpenWin(url,name,height,width)
+{
+  var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+  InfoWin.focus();
+}
+//--></script></head>
+<body vlink="#000099" link="#000099" alink="#000099">
+    <table width="100%" height="74" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+        <tr>
+            <td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+            <td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opc"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger." title="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger."></a></td>
+        </tr>
+    </table>
+    <div align="right"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger.</a></div>
+    <br />
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td width="156" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
+        <tr>
+            <td colspan="2" class="nav1" align="left" valign="top" height="150">
+                <table class="tbl1" width="150" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td class="tbl2" height="25"><a class="nav" href="./index.htm">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000Vorwort_000.htm#Xxx999266">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000VorwortGutachter_000.htm#Xxx999275">Vorwort des Gutachters</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_001_000.htm#Xxx999328">1 Einstieg in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_002_000.htm#Xxx999328">2 Das erste Programm</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_003_000.htm#Xxx999328">3 Zeichens&auml;tze</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_004_000.htm#Xxx999329">4 Kommentare in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_005_000.htm#Xxx999330">5 Formatierte Eingabe mit scanf()</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_006_000.htm#Xxx999330">6 Formatierte Ausgabe mit printf</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_007_000.htm#Xxx999329">7 Elementare Datentypen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_008_000.htm#Xxx999328">8 Operatoren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_009_000.htm#Xxx999328">9 Typenumwandlung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_010_000.htm#Xxx999328">10 Kontrollstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_011_000.htm#Xxx999328">11 Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_012_000.htm#Xxx999328">12 Pr&auml;prozessor-Direktiven</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_013_000.htm#Xxx999328">13 Arrays</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_014_000.htm#Xxx999328">14 Zeiger (Pointer)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_015_000.htm#Xxx999328">15 Kommandozeilenargumente</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_016_000.htm#Xxx999328">16 Dynamische Speicherverwaltung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_017_000.htm#Xxx999328">17 Strukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_018_000.htm#Xxx999328">18 Ein-/Ausgabe-Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_019_000.htm#Xxx999328">19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_020_000.htm#Xxx999328">20 Arbeiten mit variablen langen Argumentlisten – &lt;stdarg.h&gt;</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_021_000.htm#Xxx999328">21 Zeitroutinen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_022_000.htm#Xxx999328">22 Weitere Headerdateien und ihre Funktionen (ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_023_000.htm#Xxx999328">23 Dynamische Datenstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_024_000.htm#Xxx999328">24 Algorithmen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_025_000.htm#Xxx999328">25 Sicheres Programmieren</A></td>
+</tr>
+<tr>
+<td><A class="navh" href="./c_026_000.htm#Xxx999328">26 CGI mit C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_027_000.htm#Xxx999328">27 MySQL und C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_028_000.htm#Xxx999328">28 Netzwerkprogrammierung und Cross-Plattform-Entwicklung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_029_000.htm#Xxx999328">29 Wie geht’s jetzt weiter?</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_030Anhang_000.htm#Xxx999266">A Anhang</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./stichwort.htm#Xxx512322">Index</a></td>
+</tr>
+<tr><td><br /><a class="navnav" href="http://download.galileo-press.de/openbook/c_von_a_bis_z/galileocomputing_c_von_a_bis_z.zip"><strong>Download:</strong><br />- ZIP, ca. 8,5 MB</a></td></tr>
+<tr><td><a class="navnav" href="http://www.galileocomputing.de/899?GPP=opc">Buch bestellen</a></td></tr>
+<tr><td><a class="navnav" href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)">Ihre Meinung?</a><br /><br /></td></tr>
+</table></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10"></td>
+<td width="85%" valign="top" align="center">
+    <div align="center">
+        <table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+            <tr>
+                <td width="100%" class="start" colspan="1" height="22" align="center">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_026_006.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Galileo Computing /</a><a class="navnav" href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"> &lt;openbook&gt; /</a><a href="./index.htm" class="navnav"> C von A bis Z</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_026_008.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" valign="top">
+    <table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+        <tr>
+            <td colspan="2"><a href="http://www.galileocomputing.de/899?GPP=opc" class="buchtitel">C von A bis Z</a><span class="autor"> von J&uuml;rgen Wolf</span><br><span class="untertitel">Das umfassende Handbuch f&uuml;r Linux, Unix und Windows <br />– 2., aktualisierte und erweiterte Auflage 2006</span></td>
+        </tr>
+        <tr>
+            <td valign="top" width="90"><a href="http://www.galileocomputing.de/899?GPP=opc"><img src="common/643.gif" border="0" alt="Buch: C von A bis Z" title="Buch: C von A bis Z" align="left"><br /><br /><span class="autor"><strong>C von A bis Z</strong><br />1.116 S., mit CD, Referenzkarte, 39,90 Euro<br />Galileo Computing<br />ISBN 3-89842-643-2</span></a></a></td>
+            <td width="80%">
+<table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="3" class="kap"><b>Kapitel <a href="./c_026_000.htm#RxxobKap02600004002C541F02318C">26 CGI mit C</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_026_000.htm#RxxobKap02600004002C541F02318E">26.1 Was ist CGI?</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_026_001.htm#RxxobKap02600104002C6F1F02418C">26.2 Vorteile von CGIs in C</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_026_002.htm#RxxobKap02600204002C701F02E18C">26.3 Andere Techniken der Webprogrammierung</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_026_003.htm#RxxobKap02600304002C711F02F18C">26.4 Das dreistufige Webanwendungsdesign</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_003.htm#RxxobKap02600304002C711F02F18D">26.4.1 Darstellungsschicht</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_003.htm#RxxobKap02600304002C711F02F194">26.4.2 Verarbeitungsschicht</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_003.htm#RxxobKap02600304002C711F02F196">26.4.3 Speicherschicht</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_026_004.htm#RxxobKap02600404002C721F04C18C">26.5 Clientseitige Programmierung</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_004.htm#RxxobKap02600404002C721F04C18E">26.5.1 JavaScript</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_004.htm#RxxobKap02600404002C721F04C191">26.5.2 Java-Applets</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_026_005.htm#RxxobKap02600504002C731F04218C">26.6 Serverseitige Programmierung</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_026_006.htm#RxxobKap02600604002C741F02818C">26.7 Der Webserver</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_006.htm#RxxobKap02600604002C741F02818D">26.7.1 Das Client/Server-Modell des Internets</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_006.htm#RxxobKap02600604002C741F028193">26.7.2 Serverimplementierung</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_006.htm#RxxobKap02600604002C741F028198">26.7.3 Hosting-Services</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_006.htm#RxxobKap02600604002C741F02819C">26.7.4 Schl&uuml;sselfertige L&ouml;sung</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_006.htm#RxxobKap02600604002C741F02819E">26.7.5 Weitere M&ouml;glichkeiten</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_006.htm#RxxobKap02600604002C741F0281A5">26.7.6 Apache</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a class="navh" href="#RxxobKap02600704002C751F02818C">26.8 Das HTTP-Protokoll</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02600704002C751F02818E">26.8.1 Web-Protokolle</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02600704002C751F028190">26.8.2 Wozu Protokolle?</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02600704002C751F028192">26.8.3 Was ist ein Protokoll?</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02600704002C751F028195">26.8.4 Normen f&uuml;r die Netzwerktechnik</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02600704002C751F028198">26.8.5 Das OSI-Schichtenmodell</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02600704002C751F02819E">26.8.6 Die Elemente einer URL</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02600704002C751F0281CA">26.8.7 Client-Anfrage – HTTP Request (Browser-Request)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02600704002C751F028208">26.8.8 Serverantwort (Server-Response)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02600704002C751F028260">26.8.9 Zusammenfassung</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_026_008.htm#RxxobKap02600804002C761F01718C">26.9 Das Common Gateway Interface (CGI)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_008.htm#RxxobKap02600804002C761F01718E">26.9.1 Filehandles</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_008.htm#RxxobKap02600804002C761F017194">26.9.2 CGI-Umgebungsvariablen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_008.htm#RxxobKap02600804002C761F0171E4">26.9.3 CGI-Ausgabe</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_026_009.htm#RxxobKap02600904002C771F03518C">26.10 HTML-Formulare</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_009.htm#RxxobKap02600904002C771F03518E">26.10.1 Die Tags und ihre Bedeutung</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_026_010.htm#RxxobKap02601004002C781F03F18C">26.11 CGI-Eingabe</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_010.htm#RxxobKap02601004002C781F03F18D">26.11.1 Die Anfrage des Clients an den Server</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_010.htm#RxxobKap02601004002C781F03F1A9">26.11.2 Eingabe parsen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_026_011.htm#RxxobKap02601104002C791F03018C">26.12 Ein G&auml;stebuch</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_011.htm#RxxobKap02601104002C791F030192">26.12.1 Das HTML-Formular (guestbook.html)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_011.htm#RxxobKap02601104002C791F030198">26.12.2 Das CGI-Programm (auswert.cgi)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_011.htm#RxxobKap02601104002C791F0301A3">26.12.3 Das HTML-G&auml;stebuch (gaeste.html)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_011.htm#RxxobKap02601104002C791F0301A6">26.12.4 Das Beispiel ausf&uuml;hren</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_026_012.htm#RxxobKap02601204002C7A1F02818C">26.13 Ausblick</a></b></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td>
+<a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2">26.8 Das HTTP-Protokoll<a id="RxxobKap02600704002C751F02818C" name="RxxobKap02600704002C751F02818C"></a> 
+      <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"></h2>
+<p><a id="Xxx999329" name="Xxx999329"></a><a id="Xxx999330" name="Xxx999330"></a>Das Hypertext Transfer Protocol (kurz HTTP) ist das Protokoll, mit dem sich der Webbrowser und der Webserver &uuml;ber das Internet miteinander unterhalten. Und da CGI auf dem HTTP-Protokoll aufbaut, ist es recht sinnvoll, sich auch ein wenig damit auszukennen. Nat&uuml;rlich ist es nicht die Absicht, Ihnen alles &uuml;ber das Thema mitzuteilen, sondern nur das Wichtigste. Sollten Sie mehr Informationen ben&ouml;tigen, kann ich Ihnen die Webseite <a href="http://www.w3.org/Protocols/" target="_blank">www.w3.org/Protocols/</a> empfehlen.</p>
+<a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3">26.8.1 Web-Protokolle<a id="RxxobKap02600704002C751F02818E" name="RxxobKap02600704002C751F02818E"></a> 
+      <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Der Sinn dieses Abschnitts ist es, zu erkl&auml;ren, wo das HTTP-Protokoll seinen Platz in der Netzwerktechnik hat. Es gibt nat&uuml;rlich weitaus mehr Protokolle f&uuml;r das Web als nur das HTTP. Beispielsweise das File-Transfer-Protokoll (besser bekannt unter FTP), das TELNET-Protokoll, das Simple-Mail-Transfer-Protokoll (SMTP) und noch eine Menge mehr. F&uuml;r Sie als CGI-Programmierer ist das HTTP-Protokoll am meisten von Interesse.</p>
+<a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3">26.8.2 Wozu Protokolle?<a id="RxxobKap02600704002C751F028190" name="RxxobKap02600704002C751F028190"></a> 
+      <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Im Prinzip k&ouml;nnen Sie die Protokolle der Netzwerktechnik mit Sprachen vergleichen. In aller Welt sprechen die Menschen gut tausend verschiedene Sprachen. Wenn Sie sich mit jedem Menschen auf der Welt unterhalten wollten, m&uuml;ssten Sie all deren Sprachen beherrschen. Ein schwieriges Unterfangen. W&uuml;rde dasselbe auf Computer angewendet, lie&szlig;e sich wohl kaum noch eine Webseite darstellen. Sie w&uuml;rden dann wahrscheinlich eine Fehlermeldung erhalten wie: Diese Webseite kann nicht angezeigt werden, da Ihr System das Protokoll nicht versteht.</p>
+<a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3">26.8.3 Was ist ein Protokoll?<a id="RxxobKap02600704002C751F028192" name="RxxobKap02600704002C751F028192"></a> 
+      <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Protokolle sind eine Mischung aus Kommunikationsregeln und Nachrichtenformaten, deren Regeln vernetzte Computer befolgen m&uuml;ssen, sollten diese Daten miteinander austauschen wollen. Werden z.B. Daten von Computer Ernie zum Computer Bert versendet, so werden diese zun&auml;chst in eine Nachricht verpackt. Diese Nachricht wird in einer bestimmten Kommunikationsregel des Protokolls definiert. In der Kommunikationsregel wird z.B. beschrieben, wie die Nachricht beim Zielrechner Bert behandelt werden soll, wenn ein Fehler bei der &Uuml;bertragung auftritt. Zur &Uuml;bertragung von Daten wird das IP-Protokoll (Internet Protocol) verwendet.</p>
+<p>Die Sprache der Computer ist nicht ganz so komplex wie die des Menschen. Dieser verst&auml;ndigt sich mit anderen Gleichgesinnten durch die Bin&auml;rzahlen 0 und 1. Trotz dieser universellen Sprache sind nicht alle Computer vom gleichen Typ. Angefangen bei unterschiedlicher Hardware bis hin zu einem anderen Betriebssystem kann es dabei ziemliche Verst&auml;ndigungsprobleme geben. Und Protokolle sind sozusagen die Dolmetscher, welche die Probleme der Kommunikation l&ouml;sen. Damit ist es erst m&ouml;glich, dass sich unterschiedliche Computertypen mit unterschiedlichen Betriebssystemen verst&auml;ndigen k&ouml;nnen.</p>
+<a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3">26.8.4 Normen f&uuml;r die Netzwerktechnik<a id="RxxobKap02600704002C751F028195" name="RxxobKap02600704002C751F028195"></a> 
+      <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999340" name="Xxx999340"></a>Damit jetzt die vernetzten Computer mit einheitlichen Protokollen miteinander kommunizieren k&ouml;nnen, bedurfte es zuvor einer einheitlichen Netzwerktechnik im Allgemeinen. Eine Normung war auch allm&auml;hlich notwendig, denn durch die fortschreitende Entwicklung von Netzwerkkomponenten kamen im Laufe der Zeit immer mehr herstellerspezifische Netzwerke und Protokolle zu Stande. Das dabei mit zunehmender Vernetzung immer mehr Probleme aufgetreten sind, liegt auf der Hand.</p>
+<p>1978 hat sich dann ein Gremium mit dem Namen ISO (International Standardization Organization) zusammengefunden, mit dem Ziel, eine Schnittstelle zu standardisieren, welche f&uuml;r die Vernetzung von PCs in Betracht kommen k&ouml;nnte. Es dauerte danach weitere sechs Jahre, bis das ISO-Komitee einen Standard bekanntgab. Der Standard wurde Open System Interconnection (kurz OSI) genannt. Mit OSI wurde jetzt festgelegt, wie die Kommunikation der unterschiedlichen Rechner mit diversen Protokollen stattzufinden hat.</p>
+<a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3">26.8.5 Das OSI-Schichtenmodell<a id="RxxobKap02600704002C751F028198" name="RxxobKap02600704002C751F028198"></a> 
+      <a href="#t2t37"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Mit Einf&uuml;hrung des OSI-Modells wurden endlich einheitliche Produkte f&uuml;r den Netzwerkeinsatz hergestellt, da die Hersteller gezwungen waren, sich an diesen Vorgaben zu orientieren. Es muss aber hinzugef&uuml;gt werden, dass dies allein noch lange keine Realisierung aller Standards bedeutet. Beim OSI-Referenzmodell handelt es sich um ein gepr&uuml;ftes und bew&auml;hrtes Modell f&uuml;r die Hard- und Softwareentwicklung. Ob und wie die Hersteller dieses Modell anwenden, bleibt immer noch deren Angelegenheit.</p>
+<p>Das genormte OSI-Schichtenmodell wurde auf sieben Schichten verteilt. Jede Schicht hat dabei ihre eigene Aufgabe. Hier ein kurzer &Uuml;berblick zu diesen sieben Schichten und den Protokollen, welche die einzelnen Schichten nutzen k&ouml;nnen:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/26_11.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein26_11.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 26.11   
+    </b>Das OSI-Schichtenmodell und die Protokolle</p>
+<p>Nicht abgebildet sind hier die UDP-Protokolle. Das HTTP-Protokoll (in der Abbildung grau eingef&auml;rbt), das Sie zur CGI-Programmierung verwenden, ist &uuml;ber dem TCP-Protokoll angesiedelt. Der gesamte Webverkehr verl&auml;uft &uuml;ber das TCP/IP-Protokoll.</p>
+<a name="t36"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t37"></a><h3 class="t3">26.8.6 Die Elemente einer URL<a id="RxxobKap02600704002C751F02819E" name="RxxobKap02600704002C751F02819E"></a> 
+      <a href="#t2t38"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t36"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999353" name="Xxx999353"></a>H&auml;ufig begegnen Sie einer URL (Uniform Resource Locator), deren Bedeutung einem fremd erscheint. Betrachten Sie folgende URL:</p>
+<pre>http://www.pronix.de:80/cgi/name.cgi?vorname=Clint&amp;nachname=East</pre>
+<p>Diese URL soll jetzt in ihre Einzelteile zerlegt werden.</p>
+<h4 class="t4">http (Schema)</h4>
+<p>Dies ist das verwendete Protokoll, womit der Webbrowser mit dem Webserver kommuniziert. Es gibt nat&uuml;rlich noch mehr Protokolle au&szlig;er dem HTTP. Mehr dazu gleich bei den Ports. Danach folgt der Rechnername.</p>
+<h4 class="t4">www.pronix.de (Rechnername)</h4>
+<p>Dabei handelt es sich um den Rechnernamen, auf dem sich die Webseite oder das Dokument befindet. Dies kann aber auch eine IP-Adresse (beispielsweise <span class="listing">http://127.0.0.1</span>) und muss nicht immer ein Domainname (http://www.pronix.de) sein.</p>
+<h4 class="t4">80 (Portnummer)</h4>
+<p>Der Webserver nimmt hier &uuml;ber Port 80 einen Auftrag entgegen. Dass dieser Port bei der URL nicht angegeben werden muss, liegt daran, dass Port 80 der voreingestellte Port des HTTP-Protokolls ist.</p>
+<p>Die Daten m&uuml;ssen aber nicht immer &uuml;ber Port 80 &uuml;bertragen werden. Sie k&ouml;nnen genauso gut einen Server konfigurieren, mit dem Sie Daten &uuml;ber den Port 85 empfangen k&ouml;nnen. Folgende Ports und ihre Protokolle sind in der Regel voreingestellt:</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 26.4   
+    </b>G&auml;ngige Protokolle und deren Ports</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>Protokoll</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Port</b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">FTP (Datenverbindung)
+</td>
+<td class="tabellentext" bgcolor="#000000">20
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">FTP (Steuerverbindung)
+</td>
+<td class="tabellentext" bgcolor="#000000">21
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">Telnet
+</td>
+<td class="tabellentext" bgcolor="#000000">23
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">SMTP
+</td>
+<td class="tabellentext" bgcolor="#000000">25
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">DNS
+</td>
+<td class="tabellentext" bgcolor="#000000">53
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">http
+</td>
+<td class="tabellentext" bgcolor="#000000">80
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">HTTPS (SSL-verschl&uuml;sselt)
+</td>
+<td class="tabellentext" bgcolor="#000000">443
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">POP3
+</td>
+<td class="tabellentext" bgcolor="#000000">110
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">NNTP
+</td>
+<td class="tabellentext" bgcolor="#000000">119
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">LDAP (Standard)
+</td>
+<td class="tabellentext" bgcolor="#000000">389
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">LDAP (SSL-verschl&uuml;sselt)
+</td>
+<td class="tabellentext" bgcolor="#000000">636
+</td>
+</tr>
+</table><br>
+<h4 class="t4">/cgi/name.cgi (Pfadangabe)</h4>
+<p>Damit wird der Ort des gespeicherten Dokuments auf dem Webserver bezeichnet.</p>
+<h4 class="t4">?vorname=Clint&amp;nachname=East (Query-String)</h4>
+<p>Der <a id="Xxx999424" name="Xxx999424"></a>Query-String kann aus mehreren Paaren von Namen und den dazugeh&ouml;renden Werten bestehen. Die einzelnen Paare werden mit dem Zeichen <span class="listing">&amp;</span> voneinander getrennt. Die Variable und der Wert werden mit einem <span class="listing">=</span> getrennt. In diesem Beispiel haben Sie folgende zwei Paare:</p>
+<pre>Variable des ersten Paars: vorname; Wert des ersten Paars: Clint
+Variable des zweiten Paars: nachname;Wert des zweiten Paars: East</pre>
+<p>Der Query-String wird noch ausf&uuml;hrlicher behandelt.</p>
+<a name="t37"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t38"></a><h3 class="t3">26.8.7 Client-Anfrage – HTTP Request (Browser-Request)<a id="RxxobKap02600704002C751F0281CA" name="RxxobKap02600704002C751F0281CA"></a> 
+      <a href="#t2t39"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t37"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999429" name="Xxx999429"></a>Das Erste bei einer HTTP-Verbindung ist immer die Anfrage (HTTP-Request) des Webbrowsers an den Webserver. Geben Sie beispielsweise in Ihrem Browser folgende URL ein</p>
+<pre>http://www.pronix.de/</pre>
+<p>und dr&uuml;cken <b>(¢)</b>, schickt der Browser eine Anfrage an den Webserver, die aus zwei Teilen besteht. Zum einen Teil aus der Anforderungszeile und zum anderen aus den Header-Feldern:</p>
+<pre>GET /index.html HTTP/1.1
+Host: www.pronix.de
+Accept: image/gif, image/jpeg, image/pjpeg, */*
+Accept-Language: de
+Connection: Keep-Alive
+User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)
+Referer: ...
+...</pre>
+<p>Die erste Zeile ist die so genannte Request-Zeile:</p>
+<pre>GET /index.html HTTP/1.1</pre>
+<p><span class="listing">GET</span> ist dabei die Request-Methode, mit der eine Ressource vom Server angefordert wird, ohne dass dabei irgendwelche Daten auf dem Server ver&auml;ndert werden. <span class="listing">GET</span> ist die Standard-Methode, wenn ein Browser per HTTP ein Dokument anfordert. In diesem Beispiel wird die Datei index.html angefordert. Das Protokoll, durch das der Webbrowser und der Webserver sich unterhalten sollen, ist hier HTTP mit der Versionsnummer 1.1.</p>
+<p>Eine andere h&auml;ufig verwendete Request-Methode ist <span class="listing">POST</span>. Im Wesentlichen unterscheiden sich diese beiden Methoden zur Daten&uuml;bermittlung in der Art, wie die Daten an den Webserver &uuml;bergeben werden.</p>
+<p>Um Ihnen den Unterschied zwischen den beiden Request-Methoden <span class="listing">GET</span> und <span class="listing">POST</span> etwas deutlicher zu machen, folgt hier eine kurze theoretische Beschreibung.</p>
+<h4 class="t4">GET</h4>
+<p>Hier<a id="Xxx999440" name="Xxx999440"></a> soll bei einem HTML-Formular einfach die Eingabe eines Textfeldes ausgewertet werden. Ich verwende hierf&uuml;r folgenden HTML-Code:</p>
+<pre>&lt;form action="http://localhost/cgi-bin/auswert.cgi" method=get&gt;
+  &lt;b&gt;Bitte geben Sie Ihren Namen ein : &lt;/b&gt;
+  &lt;input value="hallo" name="Textfeld" size="20"&gt;
+  &lt;input type=submit value="abschicken"&gt;
+&lt;/form&gt;</pre>
+<p>Dadurch entsteht das folgende Textfeld mit einem Button:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/26_12.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein26_12.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 26.12   
+    </b>Eingabefeld mit Button</p>
+<p>Mit der Zeile</p>
+<pre>&lt;form action="http://localhost/cgi-bin/auswert.cgi" method=get&gt;</pre>
+<p>fordern Sie das CGI-Programm auswert.cgi mit der Methode <span class="listing">GET</span> (<span class="listing">method=get</span>) an. Dabei k&ouml;nnen Sie auch gleich sehen, wie Sie die Methode des HTTP-Requests bestimmen k&ouml;nnen. Beim Dr&uuml;cken des Buttons wird die CGI-Anwendung auf dem Server aufgerufen. Ein Blick auf die URL des Webbrowsers zeigt Folgendes:</p>
+<pre>http://localhost/cgi-bin/auswert.cgi?Textfeld=hallo</pre>
+<p>Den Query-String k&ouml;nnen Sie jetzt auf dem Webserver mit der CGI-Anwendung auswert.cgi aus der gleichnamigen Umgebungsvariablen <span class="listing">QUERY_STRING</span> <span class="listing">auslesen</span>. In dieser Variablen befindet sich jetzt folgender String:</p>
+<pre>QUERY_STRING= Textfeld=hallo</pre>
+<h4 class="t4">POST</h4>
+<p><a id="Xxx999456" name="Xxx999456"></a>Wollen Sie das Gleiche mit der <span class="listing">POST</span>-Methode machen, m&uuml;ssen Sie nur Folgendes im HTML-Code um&auml;ndern:</p>
+<pre>&lt;form action="http://localhost/cgi-bin/auswert.cgi" method=post&gt;</pre>
+<p>Jetzt befindet sich in der URL, bei Klicken des Buttons, kein Query-String mehr. In diesem Beispiel m&uuml;ssen Sie die Umgebungsvariable <span class="listing">CONTENT_LENGTH</span> nach der Anzahl der Bytes, die diese Nachricht enth&auml;lt, abfragen. Anschlie&szlig;end k&ouml;nnen Sie <span class="listing">CONTENT_LENGTH</span> Bytes von der Standardeingabe (<span class="listing">stdin</span>) einlesen. Zum Beispiel mit <span class="listing">fgets()</span>:</p>
+<pre>fgets(puffer, CONTENT_LENGTH, stdin);</pre>
+<p>Danach befindet sich die komplette Eingabe (<span class="listing">Textfeld=IhrName</span>) vom HTML-Formular im String <span class="listing">puffer</span>.</p>
+<p>Sowohl bei der Methode <span class="listing">GET</span> als auch bei der <span class="listing">POST</span>-Methode liegen die Daten kodiert vor und m&uuml;ssen noch dekodiert werden. Wie das geht, erfahren Sie in K&uuml;rze.</p>
+<h4 class="t4">Weitere Methoden</h4>
+<p>Es gibt noch einige weitere Methoden, auf die hier aber nicht eingegangen wird. Diese Methoden werden in der Praxis kaum eingesetzt. Hier nur ein schneller &Uuml;berblick zu den weiteren m&ouml;glichen Anforderungen, die Sie an den Webserver stellen k&ouml;nnten:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> HEAD – holt nur die HTTP-Header und keinen Inhalt vom Webserver.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> PUT – erzeugt Ressource auf dem Server.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> DELETE – l&ouml;scht Ressource auf dem Server.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> OPTIONS – Abfrage der m&ouml;glichen Request-Methoden des Servers.</td>
+</tr>
+</table>
+<h4 class="t4">Request Header</h4>
+<p><a id="Xxx999470" name="Xxx999470"></a>Au&szlig;er der Request-Zeile schickt der Browser dem Webserver noch einige Informationen, den so genannten Request-Header mit. Diese Informationen bestehen aus dem Feldnamen, vom Wert mit einem Doppelpunkt getrennt. Dazu nochmals zur Erinnerung das Beispiel eines HTTP-Request, welches Sie weiter oben schon gesehen haben:</p>
+<pre>GET /index.html HTTP/1.1
+Host: www.pronix.de
+Accept: image/gif, image/jpeg, image/pjpeg, */*
+Accept-Language: de
+Connection: Keep-Alive
+User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)
+Referer: …</pre>
+<p>In diesem Beispiel ist das Fettgedruckte der Request-Header.</p>
+<p>In der folgenden Tabelle finden Sie einen &Uuml;berblick zu einigen HTTP-Request-Headern. Diese Informationen schicken Sie praktisch immer mit, wenn Sie mit einem Webbrowser unterwegs sind und eine neue Webseite vom Webserver anfordern.</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 26.5   
+    </b>Einige Request-Header und deren Bedeutung</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>Request-Header</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Bedeutung</b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">Host
+</td>
+<td class="tabellentext" bgcolor="#000000">Der Host ist der Zielrechner, auf dem sich das angeforderte Dokument befindet.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">Content-Length
+</td>
+<td class="tabellentext" bgcolor="#000000">Damit der Server wei&szlig;, wie viele Daten er aus dem Nachrichten-Body des HTTP-Requests lesen soll, wird dieser Header verwendet. Nat&uuml;rlich gilt dies nur f&uuml;r den POST-Request (siehe POST). Bei einer Anforderung mit der Methode GET wird dieses Feld nicht mit angegeben.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">Content-Type
+</td>
+<td class="tabellentext" bgcolor="#000000">Besitzt ein Request einen Nachrichten-Body, muss der Content-Type-Header mitgeschickt werden. Damit wird der Medientyp des Nachrichten-Body angegeben.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">User-Agent
+</td>
+<td class="tabellentext" bgcolor="#000000">Darin befinden sich Angaben dar&uuml;ber, mit welchem Webbrowser und Betriebssystem die Anfrage vorgenommen wurde. Wobei diese Angaben nicht immer stimmen m&uuml;ssen. Viele Programme und auch Webbrowser bieten eine Option an, diesen Header zu manipulieren.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">Referer
+</td>
+<td class="tabellentext" bgcolor="#000000">Darin befindet sich in der Regel die URL, welche der Anwender zuletzt besucht hat. Wenn der User aber eine URL direkt in den Webbrowser oder ein Bookmark verwendet, befindet sich nichts in diesem Header.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">Accept
+</td>
+<td class="tabellentext" bgcolor="#000000">Es gibt mehrere Accept-Header. Darin schickt der Browser dem Server Daten, welche Arten von Response (Antworten vom Server) er verstehen kann. Zum Beispiel:
+Accept: Liste der Medientypen, die der Browser (Client) akzeptiert.
+Accept-Charset: Liste der Zeichens&auml;tze, die der Browser akzeptiert.
+Accept-Language: Sprachen, die der Browser akzeptiert.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">Cookies
+</td>
+<td class="tabellentext" bgcolor="#000000">Damit teilt der Browser dem Server mit, ob dieser Cookies akzeptiert. Deaktivieren Sie zum Beispiel in Ihrem Browser die Cookies, so wird dieser Header nicht mitgeschickt. Der Server kann, falls Cookies akzeptiert werden, ein Cookie setzen.
+</td>
+</tr>
+</table><br>
+<a name="t38"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t39"></a><h3 class="t3">26.8.8 Serverantwort (Server-Response)<a id="RxxobKap02600704002C751F028208" name="RxxobKap02600704002C751F028208"></a> 
+      <a href="#t2t310"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t38"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999520" name="Xxx999520"></a>Nachdem Sie einen HTTP-Request des Webbrowsers ausf&uuml;hrlich durchgearbeitet haben, wird Ihnen der Webserver auch irgendwann mit einer HTTP-Response antworten. Die Antwort besteht aus einer Statuszeile, ebenfalls aus einigen Header-Feldern und h&auml;ufig auch aus einem Nachrichten-Body. Hierzu ein Antwort-Beispiel des Webservers:</p>
+<pre>HTTP/1.1 200 OK
+Date: Wed, 30 Oct 2002 01:21:22 GMT
+Server: Apache/1.3.14
+Last Modified: Tue, 29 Oct 2002 22:21:19 GMT
+Content-Length: 2232
+Content-Type: text/html
+&lt;html&gt;
+...
+&lt;/html&gt;</pre>
+<h4 class="t4">Der Statuscode</h4>
+<p><a id="Xxx999524" name="Xxx999524"></a>In der ersten Zeile, der Statuszeile, wird au&szlig;er dem Protokoll mit der Versionsnummer ein dreistelliger Statuscode angegeben.</p>
+<pre>HTTP/1.1 200 OK</pre>
+<p>Anhand dieses Statuscodes bekommt der Webbrowser die Antwort auf seine Anforderung. In diesem Beispiel wird der Statuscode 200 zur&uuml;ckgegeben, was einem erfolgreichen Request vorangeht. Recht h&auml;ufig d&uuml;rfte Ihnen der Statuscode 404 im Internet begegnet sein. Dieser wird zur&uuml;ckgegeben, wenn das angeforderte Dokument nicht gefunden wurde.</p>
+<p>Hierzu folgt ein &Uuml;berblick der m&ouml;glichen Statuscodes. Zuerst eine Tabelle der f&uuml;nf Gruppen von Codes, die anhand der ersten Ziffer unterschieden werden:</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 26.6   
+    </b>Einzelne Bereiche von Statuscodes</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>Statusbereich</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Bedeutung</b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">200–299
+</td>
+<td class="tabellentext" bgcolor="#000000">Alles in Ordnung.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">300–399
+</td>
+<td class="tabellentext" bgcolor="#000000">Ver&auml;nderungsstatus, Verlagerungen, weitere Ma&szlig;namen m&uuml;ssen getroffen werden.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">400–499
+</td>
+<td class="tabellentext" bgcolor="#000000">Fehlermeldung vom Client (meistens Webbrowser).
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">500–599
+</td>
+<td class="tabellentext" bgcolor="#000000">Fehlermeldung vom Server.
+</td>
+</tr>
+</table><br>
+<p>Dazu noch eine Tabelle, mit denen in der Praxis etwas h&auml;ufiger auftretenden Statuscodes und ihren Bedeutungen:</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 26.7   
+    </b>H&auml;ufige Statuscodes und deren Bedeutung</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>Statuscode</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Bedeutung </b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">200 
+</td>
+<td class="tabellentext" bgcolor="#000000">Alles OK.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">201
+</td>
+<td class="tabellentext" bgcolor="#000000">POST-Befehl erfolgreich.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">202
+</td>
+<td class="tabellentext" bgcolor="#000000">Anforderung akzeptiert.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">203
+</td>
+<td class="tabellentext" bgcolor="#000000">GET-Anforderung erf&uuml;llt.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">204
+</td>
+<td class="tabellentext" bgcolor="#000000">Anforderung erf&uuml;llt, aber R&uuml;cksendung nicht verstanden.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">300
+</td>
+<td class="tabellentext" bgcolor="#000000">Datenquelle an mehreren Stellen gefunden.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">301
+</td>
+<td class="tabellentext" bgcolor="#000000">Datenquelle war dauernd in Bewegung.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">302
+</td>
+<td class="tabellentext" bgcolor="#000000">Datenquelle war zeitweise in Bewegung.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">304
+</td>
+<td class="tabellentext" bgcolor="#000000">Datenquelle konnte nicht n&auml;her bestimmt werden.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">400
+</td>
+<td class="tabellentext" bgcolor="#000000">Unverst&auml;ndliche Anforderung vom Client.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">401
+</td>
+<td class="tabellentext" bgcolor="#000000">Ein File wurde angefragt, f&uuml;r den sich der User ausweisen muss.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">403
+</td>
+<td class="tabellentext" bgcolor="#000000">Anfrage war verst&auml;ndlich, der Server weigert sich jedoch, das Dokument zu senden, da dieser oder der Client keine Berechtigung haben. Beispiel: keine Leserechte der Datei.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">404
+</td>
+<td class="tabellentext" bgcolor="#000000">Datenquelle nicht gefunden.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">405
+</td>
+<td class="tabellentext" bgcolor="#000000">Verfahren an Datenquelle nicht erlaubt. Z.B. die Abfrage-Methode POST ist explizit gesperrt.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">406
+</td>
+<td class="tabellentext" bgcolor="#000000">Art der Datenquelle nicht erw&uuml;nscht.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">408
+</td>
+<td class="tabellentext" bgcolor="#000000">Anfrage Timeout -&gt; Server &uuml;berlastet? Fehlkonfiguriert?
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">500
+</td>
+<td class="tabellentext" bgcolor="#000000">Fehler im CGI-Skript, falsche Zugriffsrechte, Server falsch konfiguriert.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">501
+</td>
+<td class="tabellentext" bgcolor="#000000">Anfrage wird vom Server nicht unterst&uuml;tzt, da notwendige Module nicht implementiert.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">502
+</td>
+<td class="tabellentext" bgcolor="#000000">Schlechte Netzverbindung oder Server &uuml;berladen.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">503
+</td>
+<td class="tabellentext" bgcolor="#000000">Dienst steht nicht zur Verf&uuml;gung – Timeout, wenn z.B. ein Datenbankserver nicht reagiert.
+</td>
+</tr>
+</table><br>
+<h4 class="t4">Server-Header</h4>
+<p>Es folgt eine kurze Beschreibung der g&auml;ngigsten HTTP-Server-Header, die der Webserver dem Webbrowser sendet.</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 26.8   
+    </b>Einige Server-Header und deren Bedeutung</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>Server-Header</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Bedeutung</b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">Date
+</td>
+<td class="tabellentext" bgcolor="#000000">Datum und Uhrzeit, wann die Antwort geschickt wurde.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">Server
+</td>
+<td class="tabellentext" bgcolor="#000000">Name und Versionsnummer des Webservers.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">Content-Length
+</td>
+<td class="tabellentext" bgcolor="#000000">L&auml;nge des Nachrichten-Body in Bytes.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">Content-Type
+</td>
+<td class="tabellentext" bgcolor="#000000">Art des Dokuments im Nachrichten-Body. text/html steht beispielsweise f&uuml;r eine HTML-Datei. Geben Sie daf&uuml;r hingegen text/plain an, dann handelt es sich um eine reine Textdatei. Dieser Header wird bei fast allen CGI-Anwendungen ben&ouml;tigt, die einen Nachrichten-Body besitzen.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">Last Modified
+</td>
+<td class="tabellentext" bgcolor="#000000">Datum der letzen &Auml;nderung des angeforderten Dokuments.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">Set-Cookie
+</td>
+<td class="tabellentext" bgcolor="#000000">Damit k&ouml;nnen Sie ein Cookie setzen.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">Location
+</td>
+<td class="tabellentext" bgcolor="#000000">Speicherort des Dokuments.
+</td>
+</tr>
+</table><br>
+<a name="t39"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t310"></a><h3 class="t3">26.8.9 Zusammenfassung<a id="RxxobKap02600704002C751F028260" name="RxxobKap02600704002C751F028260"></a> 
+      <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t39"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Jetzt haben Sie mit dem HTTP-Protokoll das schwierigste und wahrscheinlich auch langweiligste Kapitel hinter sich. Im Laufe der n&auml;chsten Seiten wird Ihnen einiges, was Ihnen vielleicht noch nicht so klar ist, in einem anderen Licht erscheinen. Speziell in den n&auml;chsten Abschnitten werden Sie sehen, wie Sie mit CGI-Anwendungen und dem HTTP-Webserver zusammenarbeiten k&ouml;nnen, um dynamische Webseiten zu erstellen.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_026_006.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_026_008.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td width="10" valign="top">&nbsp;&nbsp;</td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/899?GPP=opc">
+                                        <img src="common/643_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C von A bis Z" title="Zum Katalog: C von A bis Z">
+                                        <br /><strong>C von A bis Z</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Ihre Meinung?</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1007?GPP=opc">
+                        <img src="common/683_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Shell-Programmierung" title="Zum Katalog: Shell-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Shell-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1137?GPP=opc">
+                        <img src="common/749_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux-UNIX-Programmierung" title="Zum Katalog: Linux-UNIX-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux-UNIX-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1004?GPP=opc">
+                        <img src="common/644_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C/C++" title="Zum Katalog: C/C++"><br /><br /><br /><br /><br /><br /><br />&nbsp;C/C++</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/880?GPP=opc">
+                        <img src="common/573_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/967?GPP=opc">
+                        <img src="common/626_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Reguläre Ausdrücke" title="Zum Katalog: Reguläre Ausdrücke"><br /><br /><br /><br /><br /><br /><br />&nbsp;Reguläre Ausdrücke</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/941?GPP=opc">
+                        <img src="common/677_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Shopping</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opc"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table>
+<br /><br />
+<hr width="70%" align="center"><br />
+<div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2006</b><br>F&uuml;r Ihren privaten Gebrauch d&uuml;rfen Sie die Online-Version nat&uuml;rlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschlie&szlig;lich aller seiner Teile ist urheberrechtlich gesch&uuml;tzt. Alle Rechte vorbehalten einschlie&szlig;lich der Vervielf&auml;ltigung, &Uuml;bersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

@@ -1,0 +1,1093 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: C von A bis Z – 24.8 Backtracking</title>
+<meta name="title" content="Galileo Computing :: C von A bis Z">
+<meta name="author" content="J&uuml;rgen Wolf">
+<meta name="publisher" content="Galileo Press 2006">
+<meta name="copyright" content="Galileo Press 2006">
+<meta name="description" content="C von A bis Z - Das umfassende Handbuch f&uuml;r Linux, Unix und Windows – 2., aktualisierte und erweiterte Auflage 2006, geb., mit CD und Referenzkarte – ISBN 3-89842-643-2">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="c_024_006.htm">
+<link rel="next" href="c_025_000.htm"><script type="text/javascript" language="JavaScript"><!--
+function OpenWin(url,name,height,width)
+{
+  var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+  InfoWin.focus();
+}
+//--></script></head>
+<body vlink="#000099" link="#000099" alink="#000099">
+    <table width="100%" height="74" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+        <tr>
+            <td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+            <td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opc"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger." title="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger."></a></td>
+        </tr>
+    </table>
+    <div align="right"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger.</a></div>
+    <br />
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td width="156" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
+        <tr>
+            <td colspan="2" class="nav1" align="left" valign="top" height="150">
+                <table class="tbl1" width="150" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td class="tbl2" height="25"><a class="nav" href="./index.htm">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000Vorwort_000.htm#Xxx999266">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000VorwortGutachter_000.htm#Xxx999275">Vorwort des Gutachters</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_001_000.htm#Xxx999328">1 Einstieg in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_002_000.htm#Xxx999328">2 Das erste Programm</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_003_000.htm#Xxx999328">3 Zeichens&auml;tze</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_004_000.htm#Xxx999329">4 Kommentare in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_005_000.htm#Xxx999330">5 Formatierte Eingabe mit scanf()</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_006_000.htm#Xxx999330">6 Formatierte Ausgabe mit printf</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_007_000.htm#Xxx999329">7 Elementare Datentypen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_008_000.htm#Xxx999328">8 Operatoren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_009_000.htm#Xxx999328">9 Typenumwandlung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_010_000.htm#Xxx999328">10 Kontrollstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_011_000.htm#Xxx999328">11 Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_012_000.htm#Xxx999328">12 Pr&auml;prozessor-Direktiven</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_013_000.htm#Xxx999328">13 Arrays</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_014_000.htm#Xxx999328">14 Zeiger (Pointer)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_015_000.htm#Xxx999328">15 Kommandozeilenargumente</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_016_000.htm#Xxx999328">16 Dynamische Speicherverwaltung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_017_000.htm#Xxx999328">17 Strukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_018_000.htm#Xxx999328">18 Ein-/Ausgabe-Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_019_000.htm#Xxx999328">19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_020_000.htm#Xxx999328">20 Arbeiten mit variablen langen Argumentlisten – &lt;stdarg.h&gt;</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_021_000.htm#Xxx999328">21 Zeitroutinen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_022_000.htm#Xxx999328">22 Weitere Headerdateien und ihre Funktionen (ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_023_000.htm#Xxx999328">23 Dynamische Datenstrukturen</A></td>
+</tr>
+<tr>
+<td><A class="navh" href="./c_024_000.htm#Xxx999328">24 Algorithmen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_025_000.htm#Xxx999328">25 Sicheres Programmieren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_026_000.htm#Xxx999328">26 CGI mit C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_027_000.htm#Xxx999328">27 MySQL und C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_028_000.htm#Xxx999328">28 Netzwerkprogrammierung und Cross-Plattform-Entwicklung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_029_000.htm#Xxx999328">29 Wie geht’s jetzt weiter?</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_030Anhang_000.htm#Xxx999266">A Anhang</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./stichwort.htm#Xxx512322">Index</a></td>
+</tr>
+<tr><td><br /><a class="navnav" href="http://download.galileo-press.de/openbook/c_von_a_bis_z/galileocomputing_c_von_a_bis_z.zip"><strong>Download:</strong><br />- ZIP, ca. 8,5 MB</a></td></tr>
+<tr><td><a class="navnav" href="http://www.galileocomputing.de/899?GPP=opc">Buch bestellen</a></td></tr>
+<tr><td><a class="navnav" href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)">Ihre Meinung?</a><br /><br /></td></tr>
+</table></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10"></td>
+<td width="85%" valign="top" align="center">
+    <div align="center">
+        <table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+            <tr>
+                <td width="100%" class="start" colspan="1" height="22" align="center">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_024_006.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Galileo Computing /</a><a class="navnav" href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"> &lt;openbook&gt; /</a><a href="./index.htm" class="navnav"> C von A bis Z</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_025_000.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" valign="top">
+    <table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+        <tr>
+            <td colspan="2"><a href="http://www.galileocomputing.de/899?GPP=opc" class="buchtitel">C von A bis Z</a><span class="autor"> von J&uuml;rgen Wolf</span><br><span class="untertitel">Das umfassende Handbuch f&uuml;r Linux, Unix und Windows <br />– 2., aktualisierte und erweiterte Auflage 2006</span></td>
+        </tr>
+        <tr>
+            <td valign="top" width="90"><a href="http://www.galileocomputing.de/899?GPP=opc"><img src="common/643.gif" border="0" alt="Buch: C von A bis Z" title="Buch: C von A bis Z" align="left"><br /><br /><span class="autor"><strong>C von A bis Z</strong><br />1.116 S., mit CD, Referenzkarte, 39,90 Euro<br />Galileo Computing<br />ISBN 3-89842-643-2</span></a></a></td>
+            <td width="80%">
+<table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="3" class="kap"><b>Kapitel <a href="./c_024_000.htm#RxxobKap02400004002BDC1F04A18C">24 Algorithmen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_024_000.htm#RxxobKap02400004002BDC1F04A18F">24.1 Was sind Algorithmen?</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_024_001.htm#RxxobKap02400104002BF71F03D18C">24.2 Wie setze ich Algorithmen ein?</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_024_002.htm#RxxobKap02400204002BF81F01518C">24.3 Sortieralgorithmen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_002.htm#RxxobKap02400204002BF81F015193">24.3.1 Selektion Sort – Sortieren durch Ausw&auml;hlen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_002.htm#RxxobKap02400204002BF81F01519D">24.3.2 Insertion Sort</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_002.htm#RxxobKap02400204002BF81F0151A8">24.3.3 Bubble Sort</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_002.htm#RxxobKap02400204002BF81F0151B2">24.3.4 Shellsort</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_002.htm#RxxobKap02400204002BF81F0151BF">24.3.5 Quicksort</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_002.htm#RxxobKap02400204002BF81F0151F5">24.3.6 qsort()</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_002.htm#RxxobKap02400204002BF81F0151FA">24.3.7 Zusammenfassung der Sortieralgorithmen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C18C">24.4 Suchalgorithmen – Grundlage zur Suche</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C197">24.4.1 Lineare Suche</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C1A1">24.4.2 Bin&auml;re Suche</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C1A8">24.4.3 Bin&auml;re (Such-)B&auml;ume</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C1C0">24.4.4 Elemente im bin&auml;ren Baum einordnen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C1EA">24.4.5 Bin&auml;re B&auml;ume travesieren</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C1F6">24.4.6 L&ouml;schen eines Elements im bin&auml;ren Baum</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C20A">24.4.7 Ein bin&auml;rer Suchbaum in der Praxis</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C220">24.4.8 Bin&auml;re Suchb&auml;ume mit Eltern-Zeiger und Threads</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C228">24.4.9 Ausgeglichene Bin&auml;rb&auml;ume</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C22F">24.4.10 Algorithmen f&uuml;r ausgeglichene B&auml;ume – eine &Uuml;bersicht</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_024_004.htm#RxxobKap02400404002BFA1F03918C">24.5 Hashing (Zerhacken)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_004.htm#RxxobKap02400404002BFA1F03918E">24.5.1 Wann wird Hashing verwendet?</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_004.htm#RxxobKap02400404002BFA1F039191">24.5.2 Was ist f&uuml;r das Hashing erforderlich?</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_004.htm#RxxobKap02400404002BFA1F0391BB">24.5.3 Hash-Funktion</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_004.htm#RxxobKap02400404002BFA1F0391D9">24.5.4 Hashing mit direkter Adressierung</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_004.htm#RxxobKap02400404002BFA1F0391DD">24.5.5 Vergleich von Hashing mit bin&auml;ren B&auml;umen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_024_005.htm#RxxobKap02400504002BFB1F04418C">24.6 String-Matching</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_005.htm#RxxobKap02400504002BFB1F044197">24.6.1 Brute-Force-Algorithmus</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_005.htm#RxxobKap02400504002BFB1F04419E">24.6.2 Der Algorithmus von Knuth/Morris/Pratt (KMP)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_005.htm#RxxobKap02400504002BFB1F0441C0">24.6.3 Weitere String-Matching-Algorithmen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_024_006.htm#RxxobKap02400604002BFC1F02118C">24.7 Pattern Matching (regul&auml;re Ausdr&uuml;cke)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a class="navh" href="#RxxobKap02400704002BFD1F02618C">24.8 Backtracking</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02400704002BFD1F02618E">24.8.1 Der Weg durch den Irrgarten</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02400704002BFD1F0261CD">24.8.2 Das 8-Dame-Problem</a></b></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td>
+<a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2">24.8 Backtracking<a id="RxxobKap02400704002BFD1F02618C" name="RxxobKap02400704002BFD1F02618C"></a> 
+      <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"></h2>
+<p>Backtracking<a id="Xxx999329" name="Xxx999329"></a> ist ein Verfahren, welches nach dem Trial-and-Error-Prinzip<a id="Xxx999330" name="Xxx999330"></a> (Versuch und Irrtum) ausgef&uuml;hrt wird. Damit wird versucht, aus Teill&ouml;sungen systematisch zu einer Komplettl&ouml;sung zu kommen. Steht man bspw. bei einer Teill&ouml;sung vor einer Sackgasse, werden einzelne bzw. mehrere Schritte wieder r&uuml;ckg&auml;ngig gemacht. Ger&auml;t man wieder in eine Sackgasse, werden eben nochmals entsprechend viele Schritte zur&uuml;ck gemacht. Dieser Vorgang wird so lange wiederholt, bis man zu einer L&ouml;sung des Problems kommt, oder feststellen muss, dass es zu diesem Problem keine L&ouml;sung gibt.</p>
+<a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3">24.8.1 Der Weg durch den Irrgarten<a id="RxxobKap02400704002BFD1F02618E" name="RxxobKap02400704002BFD1F02618E"></a> 
+      <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Das Prinzip soll anhand eines simplen Beispiels demonstriert werden. Wir erstellen ein Spielfeld mit Hindernissen (»<span class="listing">*</span>«). An der einen Ecke des Spielfeldes befindet sich Mister <span class="listing">C,</span> der Hunger hat. Auf der anderen Ecke befindet sich etwas zum Essen (»<span class="listing">o</span>«). Sie sollen nun mittels Backtracking Mister »C« &uuml;ber die Hindernisse »*« zum Essen »o« f&uuml;hren. Das Ganze sieht folgenderma&szlig;en aus:</p>
+<pre>#################################################
+#C *                                            #
+#  *                    *                       #
+#                                               #
+#     *        *   *                        *   #
+#            *         *                        #
+# *        *   *                 *              #
+#                                               #
+#   *   *    *       *             *            #
+# *                                             #
+#           * *                      *          #
+#                  *                      *  *  #
+#        *       *        *                    o#
+#################################################</pre>
+<p>Das Spielfeld soll mit einem zweidimensionalen <span class="listing">char</span>-Array mit 15 Zeilen und 50 Spalten dargestellt werden:</p>
+<pre>// 15 Zeilen; 50 Spalten
+char spielfeld[15][50];</pre>
+<p>Mister C selbst soll sich erst mal in vier verschiedene Richtungen bewegen k&ouml;nnen:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/24_37.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein24_37.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 24.37   
+    </b>Koordinatensystem f&uuml;r Mister 'C'</p>
+<p>Somit ben&ouml;tigen Sie vier verschiedene Funktionsaufrufe. Jeweils eine f&uuml;r die Richtung <span class="listing">+x</span> (eine Zeile nach unten), <span class="listing">-x</span> (eine Zeile nach oben), <span class="listing">+y</span> (eine Spalte nach rechts) und <span class="listing">-y</span> (eine Spalte nach links). In der Praxis sehen diese Aufrufe folgenderma&szlig;en aus:</p>
+<pre>step(x, y+1);
+step(x+1, y);
+step(x-1, y);
+step(x, y-1);</pre>
+<p>Nat&uuml;rlich handelt es sich hierbei um Funktionsselbstaufrufe (Rekursionen). F&uuml;r die optische Darstellung (Ausgabe des Spielfeldes) sollten Sie hierbei auch noch die alten Positionen von <span class="listing">x</span> und <span class="listing">y</span> als Argumente bzw. Parameter verwenden:</p>
+<pre>step(x, y+1, xalt=x, yalt=y);
+step(x+1, y, xalt=x, yalt=y);
+step(x-1, y, xalt=x, yalt=y);
+step(x, y-1, xalt=x, yalt=y);</pre>
+<p>Als N&auml;chstes m&uuml;ssen Sie bestimmen, in welche Richtung Mister C zuerst gehen soll. Im zweidimensionalen Array gesehen befindet sich Mister C an Position <span class="listing">[1][1]</span> und das Essen an Position <span class="listing">[13][48]</span>. Somit k&ouml;nnen Sie selbst entscheiden, ob Sie zuerst nach rechts (<span class="listing">y+1</span>) oder nach unten (<span class="listing">x+1</span>) gehen wollen. Im Beispiel wurde die »verst&auml;rkt-nach-rechts-gehen«-Strategie verwendet.</p>
+<p>Bevor wir Mister C also nach rechts schicken (<span class="listing">y+1</span>), m&uuml;ssen Sie zuerst &uuml;berpr&uuml;fen, ob sich in dieser Richtung ein Hindernis (»*«) befindet und ob Sie diese Spalte nicht schon einen Funktionsaufruf zuvor besucht haben (<span class="listing">yalt!=y+1</span>). Sind diese beiden Bedingungen erf&uuml;llt, k&ouml;nnen Sie den ersten rekursiven Funktionsaufruf starten (<span class="listing">step(x,y+1,x,y)</span>).</p>
+<p>Entscheidend f&uuml;r das Backtracking ist nun der R&uuml;ckgabewert des rekursiven Funktionsaufrufes. Wird 1 zur&uuml;ckgegeben, wird der eben aufgerufene Zug ausgef&uuml;hrt. Hier der eben beschriebene Weg »nach rechts«:</p>
+<pre>if( y+1&lt;49 &amp;&amp; spielfeld[x][y+1] !='*' &amp;&amp;
+    yalt!=y+1 &amp;&amp; step(x,y+1,x,y) )
+   return 1;</pre>
+<p>Die n&auml;chsten drei Funktionsaufrufe mitsamt den &Uuml;berpr&uuml;fungen sehen recht &auml;hnlich aus, nur dass diese eben f&uuml;r eine andere Richtung bestimmt sind:</p>
+<pre>else if( x+1&lt;14 &amp;&amp; spielfeld[x+1][y] !='*' &amp;&amp;
+         xalt!=x+1 &amp;&amp; step(x+1,y,x,y))
+   return 1;
+else if( x-1&gt;0 &amp;&amp; spielfeld[x-1][y] !='*' &amp;&amp;
+         xalt!=x-1 &amp;&amp; step(x-1,y,x,y) )
+   return 1;
+else if( y-1&gt;0 &amp;&amp; spielfeld[x][y-1] !='*' &amp;&amp;
+         yalt!=y-1 &amp;&amp; step(x,y-1,x,y) )
+   return 1;</pre>
+<p>Falls keiner dieser vier Aufrufe erfolgreich war, wird an den vorangegangenen Funktionsaufruf der Wert 0 (<span class="listing">return</span> <span class="listing">0</span>) zur&uuml;ckgegeben, womit eben dieser Zug nicht ausgef&uuml;hrt wird.</p>
+<p>Die Abbruchbedingung ist erreicht, wenn sich Mister C an der Position des Essens (»o«) befindet. »Abgebrochen« wird aber auch, wenn das Labyrinth zu komplex ist und unser Mister C partou nicht ans Ziel finden will oder er in einer Sackgasse feststeckt, wo es kein zur&uuml;ck mehr gibt. Leider bedeutet dieser Abbruch auch einen Stack&uuml;berlauf. Hierzu die komplette Funktion <span class="listing">step()</span>:</p>
+<pre>int step(int x, int y, int xalt, int yalt) {
+   printf("&lt;ENTER&gt;");  getchar();
+   if(spielfeld[x][y] == 'O') { /* sind wir am Ziel? */
+      spielfeld[x][y] = 'C';
+      spielfeld[xalt][yalt] = ' ';
+      showspielfeld();
+      printf("Mister C ist zuhause!\n");
+      exit (EXIT_SUCCESS);
+   }
+   else if(spielfeld[x][y] == ' ') {
+      spielfeld[x][y] = 'C';
+      spielfeld[xalt][yalt] = ' ';
+      showspielfeld();
+      // ... nach rechts
+      if( y+1&lt;49 &amp;&amp; spielfeld[x][y+1] !='*' &amp;&amp;
+          yalt!=y+1 &amp;&amp; step(x,y+1,x,y) )
+         return 1;
+      // ... nach unten
+      else if( x+1&lt;14 &amp;&amp; spielfeld[x+1][y] !='*' &amp;&amp;
+               xalt!=x+1 &amp;&amp; step(x+1,y,x,y) )
+         return 1;
+      // ... nach oben
+      else if( x-1&gt;0 &amp;&amp; spielfeld[x-1][y] !='*' &amp;&amp;
+               xalt!=x-1 &amp;&amp; step(x-1,y,x,y) )
+         return 1;
+      // ... nach links
+      else if( y-1&gt;0 &amp;&amp; spielfeld[x][y-1] !='*' &amp;&amp;
+               yalt!=y-1 &amp;&amp; step(x,y-1,x,y) )
+         return 1;
+   }
+ return 0;
+}</pre>
+<p>Zum besseren Verst&auml;ndnis sollen hier ein paar Durchl&auml;ufe gemacht werden. Aufgerufen wird die Funktion in <span class="listing">main()</span> mit:</p>
+<pre>step(1,1,1,1);</pre>
+<p>Somit sieht es auf dem Spielfeld bspw. wie folgt aus:</p>
+<pre>#####################
+#C  *
+#        *      *
+#  *       *       *
+#*    *         *</pre>
+<p>Mister C befindet sich an Position <span class="listing">[1][1]</span> im Spielfeld. Zuerst wird in der Funktion <span class="listing">step()</span> &uuml;berpr&uuml;ft, ob er bereits sein Ziel erreicht hat (was im Moment nicht der Fall ist):</p>
+<pre>if(spielfeld[x][y] == 'O')</pre>
+<p>Als N&auml;chstes m&uuml;ssen Sie &uuml;berpr&uuml;fen, ob die Position [1][1] &uuml;berhaupt frei ist:</p>
+<pre>else if(spielfeld[x][y] == ' ' )</pre>
+<p>Ist diese Position frei, dann kann Mister C dort hingesetzt werden und es sieht aus wie in der eben gezeigten Position. Jetzt wird &uuml;berpr&uuml;ft, in welche Richtung Mister C gehen kann:</p>
+<pre>// ... nach rechts
+if( y+1&lt;49 &amp;&amp; spielfeld[x][y+1] !='*' &amp;&amp;
+    yalt!=y+1 &amp;&amp; step(x,y+1,x,y) )</pre>
+<p>Im Beispiel ist die Richtung <span class="listing">y+1</span> frei und wurde zuvor auch nicht besucht. Somit befindet sich auf dem Stack nun folgender Funktionsaufruf:</p>
+<pre>step(1, 1+1, 1, 1)</pre>
+<p>Um ausgef&uuml;hrt zu werden, ben&ouml;tigt dieser Funktionsaufruf ja den R&uuml;ckgabewert 1. Gehen wir mal ein paar Schritte nach vorne, wo Mister C zum ersten Mal auf ein Hindernis prallt. Folgende Funktionsaufrufe wurden bis dahin bet&auml;tigt (auf dem Stack von oben nach unten):</p>
+<pre>step(1,3+1,1,1)
+step(1,2+1,1,1)
+step(1,1+1,1,1)</pre>
+<p>Nun sieht das Ganze bildlich folgenderma&szlig;en aus:</p>
+<pre>#####################
+#  C*
+#        *      *
+#  *       *       *
+#*    *         *</pre>
+<p>Hier kommt zum ersten Mal nicht mehr die erste if-Anweisung zum Zuge, da <span class="listing">spielfeld[x+1][y]</span> <span class="listing">!=</span> <span class="listing">'*'</span> nicht mehr zutrifft. Die n&auml;chste &Uuml;berpr&uuml;fung:</p>
+<pre>// ... nach unten
+else if( x+1&lt;14 &amp;&amp; spielfeld[x+1][y] != '*' &amp;&amp;
+         xalt != x+1 &amp;&amp; step(x+1,y,x,y) )</pre>
+<p>Hier scheint es wieder weiter zu gehen. Somit wird als N&auml;chstes eine Zeile nach unten gesprungen, womit sich Mister C an Position <span class="listing">[2][3]</span> befindet:</p>
+<pre>#####################
+#   *
+# C      *      *
+#  *       *       *
+#*    *         *</pre>
+<p>Sie k&ouml;nnen das Beispiel gerne noch ein paar Schritte weiter durchgehen. Mit dem folgenden Beispiel k&ouml;nnen Sie sich den Weg von Mister C im echten Leben betrachten.</p>
+<pre>/* mister_c1.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+#ifdef __unix__
+   #define clrscr() printf("\x1B[2J")
+#elif __BORLANDC__ &amp;&amp; __MSDOS__
+   #include &lt;conio.h&gt;
+#elif __WIN32__ || _MSC_VER
+#define clrscr() system("cls")
+#else
+   #define clrscr() printf("clrscr() – Fehler!!\n")
+#endif
+#define HINDERNISSE 100
+char spielfeld[15][50];
+void createspielfeld(void) {
+   int i, j, x, y;
+   for(i=0, j=0; j &lt; 50; j++)
+      spielfeld[i][j] = '#';
+   for(i=1 ;i &lt; 15; i++)
+      for(j=0;j&lt;50;j++) {
+         if(j==0 || j==49)
+            spielfeld[i][j] = '#';
+         else
+            spielfeld[i][j] = ' ';
+         if(i==13 &amp;&amp; j==48)
+            spielfeld[i][j] = 'O';
+      }
+      for(i=14,j=0;j&lt;50;j++)
+         spielfeld[i][j] = '#';
+      for(i=0;i&lt;=HINDERNISSE;i++) {
+         x=rand()%14;
+         y=rand()%48;
+         if(x&lt;15&amp;&amp;y&lt;50 &amp;&amp; x&gt;0&amp;&amp;y&gt;0)
+            spielfeld[x][y] = '*';
+      }
+   spielfeld[1][1]=' ';
+}
+void showspielfeld(void) {
+   int i, j;
+   clrscr();
+   for(i=0; i &lt; 15; i++)
+      for(j=0;j&lt;50;j++) {
+         printf("%c",spielfeld[i][j]);
+         if(j==49)
+            printf("\n");
+      }
+}
+int step(int x, int y, int xalt, int yalt) {
+   printf("&lt;ENTER&gt;");  getchar();
+   if(spielfeld[x][y] == 'O') { /* sind wir am Ziel? */
+      spielfeld[x][y] = 'C';
+      spielfeld[xalt][yalt] = ' ';
+      showspielfeld();
+      printf("Mister C ist zuhause!\n");
+      exit (EXIT_SUCCESS);
+   }
+   else if(spielfeld[x][y] == ' ') {
+      spielfeld[x][y] = 'C';
+      spielfeld[xalt][yalt] = ' ';
+      showspielfeld();
+      /* ... nach rechts */
+      if( y+1&lt;49 &amp;&amp; spielfeld[x][y+1] !='*' &amp;&amp;
+          yalt!=y+1 &amp;&amp; step(x,y+1,x,y) )
+         return 1;
+      /* ... nach unten */
+      else if( x+1&lt;14 &amp;&amp; spielfeld[x+1][y] !='*' &amp;&amp;
+               xalt!=x+1 &amp;&amp; step(x+1,y,x,y) )
+         return 1;
+      /* ... nach oben */
+      else if( x-1&gt;0 &amp;&amp; spielfeld[x-1][y] !='*' &amp;&amp;
+               xalt!=x-1 &amp;&amp; step(x-1,y,x,y) )
+         return 1;
+      /* ... nach links */
+      else if( y-1&gt;0 &amp;&amp; spielfeld[x][y-1] !='*' &amp;&amp;
+               yalt!=y-1 &amp;&amp; step(x,y-1,x,y) )
+         return 1;
+   }
+ return 0;
+}
+int main(void) {
+   createspielfeld();
+   step(1,1,1,1);
+   return EXIT_SUCCESS;
+}</pre>
+<p>Das Programm bei der Ausf&uuml;hrung:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/24_38.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein24_38.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 24.38   
+    </b>Mister 'C' auf der Suche  nach dem Essen</p>
+<p>Dieser Code ist sehr stark auf Rechtsdrang ausgerichtet. Befindet sich Mister C an einer anderen Position, m&uuml;ssen Sie eben das Backtracking den Umst&auml;nden anpassen.</p>
+<p>Wenn Sie im Beispiel die Anzahl der Hindernisse erh&ouml;hen, werden Sie merken, dass Mister C irgendwann keinen Ausweg mehr findet, obwohl es rein theoretisch noch welche gibt – sprich, Mister C dreht sich im Kreise. Um dieses Problem zu umgehen, k&ouml;nnen Sie entweder den Quellcode noch etwas verkomplizieren oder Sie statten Mister C mit weiteren F&auml;higkeiten aus. Hierf&uuml;r w&uuml;rde sich bspw. eignen, dass sich Mister C auch in die diagonalen Richtungen bewegen kann.</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/24_39.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein24_39.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 24.39   
+    </b>Mehr Bewegungsfreiheit f&uuml;r Mister C</p>
+<p>Somit h&auml;tten Sie jetzt folgende vier neue Bewegungen, welche Sie im Code einbauen m&uuml;ssten:</p>
+<pre>rechtshoch(x-1,y+1)
+rechtsrunter(x+1,y+1)
+linksrunter(x+1,y-1)
+linkshoch(x-1,y-1)</pre>
+<p>Als N&auml;chstes gilt es auch hier wieder festzulegen, in welcher Reihenfolge diese (jetzt acht) Bewegungen &uuml;berpr&uuml;ft und ausgef&uuml;hrt werden sollen, um ans Ziel zu kommen. Da sich das Ziel rechts unten befindet, sollten Sie auch wieder diese Richtung als erste Priorit&auml;t benutzen. Hierf&uuml;r schlage ich folgenden Weg vor:</p>
+<pre>if(rechts=frei)
+else if(rechtsrunter=frei)
+else if(rechtsoben=frei)
+else if(nachunten=frei)
+else if(linksrunter=frei)
+else if(oben=frei)
+else if(links=frei)
+else if(linksoben=frei)
+else return 0</pre>
+<p>Umgeschrieben auf die Funktion <span class="listing">step()</span> sieht dies wie folgt aus:</p>
+<pre>int step(int x, int y, int xalt, int yalt) {
+   printf("&lt;ENTER&gt;");
+   getchar();
+   if(spielfeld[x][y] == 'O') { /*sind wir am Ziel?*/
+      spielfeld[x][y] = 'C';
+      spielfeld[xalt][yalt] = ' ';
+      showspielfeld();
+      printf("Mister 'C' ist zuhause!\n");
+      exit (EXIT_SUCCESS);
+   }
+   else if(spielfeld[x][y]==' ') {
+      spielfeld[x][y]='C';
+      spielfeld[xalt][yalt]=' ';
+      showspielfeld();
+      /* rechts */
+      if( y+1&lt;49 &amp;&amp; spielfeld[x][y+1] != '*'
+          &amp;&amp; yalt!=y+1 &amp;&amp; step(x,y+1,x,y) )
+         return 1;
+      /* rechts unten */
+      else if( y+1&lt;49 &amp;&amp; x+1&lt;14 &amp;&amp; spielfeld[x+1][y+1] !='*'
+               &amp;&amp; xalt!=x+1 &amp;&amp; yalt!=y+1 &amp;&amp; step(x+1,y+1,x,y) )
+         return 1;
+      /*rechts oben*/
+      else if( x-1&gt;0 &amp;&amp; y+1&lt;49 &amp;&amp; spielfeld[x-1][y+1]!='*'
+               &amp;&amp; xalt!=x-1 &amp;&amp; yalt!=y+1 &amp;&amp; step(x-1,y+1,x,y))
+         return 1;
+      /* nach unten */
+      else if( x+1&lt;14 &amp;&amp; spielfeld[x+1][y] !='*'
+               &amp;&amp; xalt!=x+1 &amp;&amp; step(x+1,y,x,y) )
+         return 1;
+      /* links runter */
+      else if(x+1&lt;14 &amp;&amp; y-1&gt;0 &amp;&amp; spielfeld[x+1][y-1]!='*'
+           &amp;&amp; xalt!=x+1 &amp;&amp; yalt!=y-1 &amp;&amp; step(x+1,y-1,x,y))
+         return 1;
+      /* nach oben */
+      else if( x-1&gt;0 &amp;&amp; spielfeld[x-1][y] !='*'
+               &amp;&amp; xalt!=x-1 &amp;&amp; step(x-1,y,x,y))
+         return 1;
+      /* nach links */
+      else if( y-1&gt;0 &amp;&amp; spielfeld[x][y-1] !='*'
+               &amp;&amp; yalt!=y-1 &amp;&amp; step(x,y-1,x,y))
+         return 1;
+      /*links oben*/
+      else if( x-1&gt;0 &amp;&amp; y-1&gt;0 &amp;&amp; spielfeld[x-1][y-1] !='*'
+              &amp;&amp; xalt!=x-1 &amp;&amp; yalt!=y-1 &amp;&amp; step(x-1,y-1,x,y))
+         return 1;
+  }
+  spielfeld[x][y] = ' ';
+ return 0;
+}</pre>
+<p>Wenn Sie diese Funktion im Beispiel zuvor einbauen, werden Sie merken, dass es Mister C nun schon mit mehreren Hindernissen aufnehmen kann. Aber ab einer gewissen Anzahl von Hindernisse scheitert Mister C auch hier wieder. Und dies, obwohl wir noch nicht in eine Sackgasse gekommen sind.</p>
+<p>Also ben&ouml;tigen Sie noch eine Funktion, die sich merkt, ob ein Feld bereits besucht wurde oder nicht. Dies stellt sich als einfaches Unterfangen da, indem man einfach ein weiteres zweidimensionales Array verwendet:</p>
+<pre>int besucht[15][50];</pre>
+<p>Alle Felder werden erst mal mit dem Wert 0 initialisiert. Im Programmverlauf m&uuml;ssen Sie anschlie&szlig;end nur noch die Position, die bereits besucht wurde, mit dem Wert 1 versehen. Allerdings bedeutet dies auch, dass Sie in jeder Richtung eine weitere Bedingung in der Funktion <span class="listing">step()</span> &uuml;berpr&uuml;fen m&uuml;ssen.</p>
+<p>Hier der komplette Quellcode, mit einem »intelligenten« Mister C:</p>
+<pre>/* mister_c2.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+#ifdef __unix__
+   #define clrscr() printf("\x1B[2J")
+#elif __BORLANDC__ &amp;&amp; __MSDOS__
+   #include &lt;conio.h&gt;
+#elif __WIN32__ || _MSC_VER
+#define clrscr() system("cls")
+#else
+   #define clrscr() printf("clrscr() – Fehler!!\n")
+#endif
+#define HINDERNISSE 200
+char spielfeld[15][50];
+/* 1=besucht,0=nicht besucht */
+int besucht[15][50];
+void createspielfeld(void) {
+   int i, j, x, y;
+   for(i=0, j=0; j &lt; 50; j++)
+      spielfeld[i][j] = '#';
+   for(i=1 ;i &lt; 15; i++)
+      for(j=0;j&lt;50;j++) {
+         if(j==0 || j==49)
+            spielfeld[i][j] = '#';
+         else
+            spielfeld[i][j] = ' ';
+         if(i==13 &amp;&amp; j==48)
+            spielfeld[i][j] = 'O';
+      }
+      for(i=14,j=0;j&lt;50;j++)
+         spielfeld[i][j] = '#';
+      for(i=0;i&lt;=HINDERNISSE;i++) {
+         x=rand()%14;
+         y=rand()%48;
+         if(x&lt;15&amp;&amp;y&lt;50 &amp;&amp; x&gt;0&amp;&amp;y&gt;0)
+            spielfeld[x][y] = '*';
+      }
+   spielfeld[1][1] = ' ';
+   for(i=0; i&lt;15; i++)
+      for(j=0; j&lt;50; j++)
+      besucht[i][j] = 0;
+}
+void showspielfeld(void) {
+   int i, j;
+   clrscr();
+   for(i=0; i &lt; 15; i++)
+      for(j=0;j&lt;50;j++) {
+         printf("%c",spielfeld[i][j]);
+         if(j==49)
+            printf("\n");
+      }
+}
+int step(int x, int y, int xalt, int yalt) {
+   printf("&lt;ENTER&gt;");
+   getchar();
+   if(spielfeld[x][y] == 'O') { /* sind wir am Ziel? */
+      spielfeld[x][y] = 'C';
+      spielfeld[xalt][yalt] = ' ';
+      showspielfeld();
+      printf("Mister 'C' ist zuhause!\n");
+      exit (EXIT_SUCCESS);
+   }
+   else if(spielfeld[x][y] == ' ') {
+      besucht[x][y] = 1;
+      spielfeld[x][y]='C';
+      spielfeld[xalt][yalt]=' ';
+      showspielfeld();
+      /* rechts */
+      if( y+1&lt;49 &amp;&amp; spielfeld[x][y+1] !='*' &amp;&amp;
+          yalt!=y+1 &amp;&amp;besucht[x][y+1]!=1 &amp;&amp;
+          step(x,y+1,x,y))
+         return 1;
+      /* rechts unten */
+      else if( y+1&lt;49 &amp;&amp; x+1&lt;14 &amp;&amp; spielfeld[x+1][y+1] !='*'
+               &amp;&amp; xalt!=x+1 &amp;&amp; yalt!=y+1 &amp;&amp; besucht[x+1][y+1]!=1
+               &amp;&amp; step(x+1,y+1,x,y))
+         return 1;
+      /* rechts oben */
+      else if( x-1&gt;0 &amp;&amp; y+1&lt;49 &amp;&amp; spielfeld[x-1][y+1]!='*'
+              &amp;&amp; xalt!=x-1 &amp;&amp; yalt!=y+1 &amp;&amp; besucht[x-1][y+1]!=1
+              &amp;&amp; step(x-1,y+1,x,y) )
+         return 1;
+      /* nach unten */
+      else if( x+1&lt;14 &amp;&amp; spielfeld[x+1][y] !='*'
+               &amp;&amp; xalt!=x+1 &amp;&amp; besucht[x+1][y]!=1
+               &amp;&amp; step(x+1,y,x,y) )
+         return 1;
+      /* links unten */
+      else if( x+1&lt;14 &amp;&amp; y-1&gt;0 &amp;&amp; spielfeld[x+1][y-1]!='*'
+               &amp;&amp; xalt!=x+1 &amp;&amp; yalt!=y-1 &amp;&amp; besucht[x+1][y-1]!=1
+               &amp;&amp; step(x+1,y-1,x,y) )
+         return 1;
+      /* nach oben */
+      else if( x-1&gt;0 &amp;&amp; spielfeld[x-1][y] !='*'
+               &amp;&amp; xalt!=x-1 &amp;&amp; besucht[x-1][y]!=1
+               &amp;&amp; step(x-1,y,x,y) )
+         return 1;
+      /* nach links */
+      else if( y-1&gt;0 &amp;&amp; spielfeld[x][y-1] !='*'
+               &amp;&amp; yalt!=y-1 &amp;&amp; besucht[x][y-1]!=1
+               &amp;&amp; step(x,y-1,x,y) )
+         return 1;
+      /* links oben */
+      else if( x-1&gt;0 &amp;&amp; y-1&gt;0 &amp;&amp; spielfeld[x-1][y-1] !='*'
+               &amp;&amp; xalt!=x-1 &amp;&amp; yalt!=y-1 &amp;&amp; besucht[x-1][y-1]!=1
+               &amp;&amp; step(x-1,y-1,x,y) )
+         return 1;
+   }
+   spielfeld[x][y]=' ';
+   return 0;
+}
+int main(void) {
+   createspielfeld();
+   step(1,1,1,1);
+   return EXIT_SUCCESS;
+}</pre>
+<p>Auch wenn Ihnen das ganze Thema recht komplex erscheinen mag, so entspricht dies doch einem logischen Ablauf. Man muss eben 1 zur&uuml;ckgeben, wenn der Weg, den man probiert hat, ans Ziel f&uuml;hrt. Befindet man sich in einer Sackgasse, muss man einen anderen Wert zur&uuml;ckgeben (in diesem Beispiel 0). Au&szlig;erdem sollte man einen Weg, den man schon mal gegangen ist, nicht nochmals zur&uuml;ckgehen (da dieser bekanntlich nicht zum Ziel f&uuml;hrt). Mit dieser Strategie kommen Sie durch einen beliebig komplexen Irrgarten immer ans Ziel (sofern ein Weg zum Ziel existiert und der Irrgarten nicht so komplex ist, dass es einen Stack-&Uuml;berlauf gibt).</p>
+<a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3">24.8.2 Das 8-Dame-Problem<a id="RxxobKap02400704002BFD1F0261CD" name="RxxobKap02400704002BFD1F0261CD"></a> 
+      <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Ein etwas weiter verbreitetes Beispiel f&uuml;r das Backtracking ist das 8-Dame-Problem. Die Aufgabe lautet, positionieren Sie 8 Damen auf einem Schachbrett so, ohne das diese sich gef&auml;hrden. F&uuml;r diejenigen, die es nicht wissen: Die Dame kann von ihrer aktuellen Position aus beliebig viele Felder in der gleichen  Spalte, in der gleichen Reihe oder in den Diagonalen r&uuml;cken – was bedeutet, dass in diesen Richtungen keine andere Dame stehen darf. Versuchen Sie es mal auf dem Schachbrett nachzuahmen. Es gibt exakt 92 M&ouml;glichkeiten.</p>
+<p>Sie haben hierbei die M&ouml;glichkeit, ein zweidimensionales Array f&uuml;r das Schachbrett zu verwenden, aber da sich zwei Damen in der gleichen Reihe oder Spalte sowieso bedrohen w&uuml;rden, k&ouml;nnen Sie sich das ersparen. Da die erste Dame, die Sie setzen, keine Bedrohung zu bef&uuml;rchten hat, setzen wir diese gleich an die rechte obere Ecke. Somit k&ouml;nnte der Funktionsaufruf wie folgt aussehen:</p>
+<pre>int schachbrett[8];
+int i;
+for(i = 0; i &lt; 8; i++)
+   schachbrett[i] = 0;
+/* Dame an die linke obere Ecke */
+dame(schachbrett, 7);</pre>
+<p>Hierzu nun ein Teil der Funktion <span class="listing">dame()</span>:</p>
+<pre>int dame(int *schachbrett, int position) {
+    int x = 1;
+    static int counter = 1;
+    while(x&lt;=8) {
+       schachbrett[position] = x;</pre>
+<p>Der Wert <span class="listing">x</span> dient zur Identifizierung der einzelnen Damen. Jede Dame bekommt eine Nummer. Des Weiteren dient dieser Wert auch noch zur &Uuml;berpr&uuml;fung, ob eine Dame in der Diagonalen gef&auml;hrdet wird. Aber dazu sp&auml;ter mehr. Mit der Zeile</p>
+<pre>schachbrett[position] = x;</pre>
+<p>bekommt das Feld 7 (genauer Feld 8,  aber da hier 0 ebenfalls als erstes Feld pr&auml;sent ist, eben 0 bis 7 anstatt 1 bis 8) rechts oben den Wert 1:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/24_40.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein24_40.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 24.40   
+    </b>Erste Dame rechts oben gesetzt (‚1’)</p>
+<p>Als N&auml;chstes ben&ouml;tigen Sie eine Funktion, um zu testen, ob die Dame mit der Nummer 1 auf der Reihe, Spalte und Diagonalen mit einer anderen Dame kollidiert:</p>
+<pre>if(!dame_in_gefahr(schachbrett))</pre>
+<p>Der Funktion &uuml;bergeben Sie lediglich die Daten vom Schachbrett. Im ersten Durchlauf wird die Bedingung logischerweise wahr sein – also die Dame ist nicht in Gefahr.</p>
+<p>Jetzt m&uuml;ssen Sie &uuml;berpr&uuml;fen, ob Sie nicht schon an Position 0 angekommen sind (bildlich w&auml;re das, in einer Spalte ganz unten angekommen zu sein):</p>
+<pre>if(position)</pre>
+<p>Falls Sie noch nicht die ganze Spalte durch haben, beginnt ab hier der erste rekursive Aufruf (und eine Erh&ouml;hung des Stacks):</p>
+<pre>// die n&auml;chste Dame setzen
+if(dame(schachbrett,position-1))
+   return 1;</pre>
+<p>Nochmals die Funktion bis hierher im &Uuml;berblick:</p>
+<pre>int dame(int *schachbrett, int position) {
+   int x = 1;
+   static int counter = 1;
+   while(x &lt;= 8) {
+      schachbrett[position]=x;
+      if(!dame_in_gefahr(schachbrett)) {
+         if(position) {
+            /* die n&auml;chste Dame ... */
+            if(dame(schachbrett,position-1))
+               return 1;   /* Dame in dieser Position setzten */
+         }
+         else
+            return 1;</pre>
+<p>Mit dem erneuten Funktionsaufruf sieht die Situation folgenderma&szlig;en auf dem Schachbrett aus:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/24_41.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein24_41.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 24.41   
+    </b>Erster rekursiver Funktionsaufruf – eine weitere Dame</p>
+<p>Jetzt ist eine Dame an Position 7 in Gefahr und folgende Bedingung trifft nicht zu:</p>
+<pre>if(!dame_in_gefahr(schachbrett))</pre>
+<p>Folglich wird der Z&auml;hler <span class="listing">x</span> um 1 inkrementiert:</p>
+<pre>x++;</pre>
+<p>Bildlich dargestellt ergibt sich nun durch folgende Code-Zeile folgender Zustand auf dem Schachbrett:</p>
+<pre>schachbrett[position]=x;</pre>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/24_42.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein24_42.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 24.42   
+    </b>Ein weiterer Zug der zweiten Dame</p>
+<p>Auch in dieser Stellung liegt eine Kollision vor. Also wird <span class="listing">x</span> nochmals inkrementiert, womit Sie folgenden Zustand vorfinden (siehe Abbildung 24.43).</p>
+<p>Jetzt gef&auml;hrden sich beide Damen nicht mehr und somit wird wieder ein erneuter rekursiver Funktionsaufruf ausgef&uuml;hrt. Der Stand der aktuellen Funktion wird wieder auf dem Stack getan (zweite Funktion auf dem Stack) und wartet wiederum auf ihren Einsatz. Jetzt geht das Spiel von Neuem los. Der n&auml;chste Schritt sieht bildlich so aus (siehe Abbildung 24.44).</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/24_43.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein24_43.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 24.43   
+    </b>Ein weiterer Zug und keine Kollision mehr vorhanden</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/24_44.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein24_44.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 24.44   
+    </b>Der zweite rekursive Funktionsaufruf von dame()</p>
+<p>Da die »Dame« in den n&auml;chsten drei Reihen sowieso kollidiert, &uuml;berspringen wir diese drei Schritte, wo jeweils der Wert von x dreimal inkrementiert wird, bis folgende Stellung erreicht wurde:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/24_45.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein24_45.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 24.45   
+    </b>Keine Kollision mehr vorhanden</p>
+<p>Wohl gemerkt hei&szlig;t das noch lange nicht, dass dies die endg&uuml;ltige Stellung darstellt, da alle diese Funktionsaufrufe noch auf dem Stack liegen und darauf warten, was mit ihnen passieren soll (1 = bleibt so; 0 = weiter suchen). Nach weiteren rekursiven Funktionsaufrufen passiert endlich was:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/24_46.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein24_46.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 24.46   
+    </b>Noch gibt es keine Kollision</p>
+<p>Der n&auml;chste Funktionsaufruf (f&uuml;r die erste Spalte) wird nun den Wert 0 zur&uuml;ckgeben, da sich in der ersten Spalte keine Dame platzieren l&auml;sst, ohne dass diese sich mit einer anderen gef&auml;hrdet. Jetzt »trackt« unsere Funktion zur zweiten Spalte »back«.</p>
+<p>Der Wert von <span class="listing">x,</span> der auf dem Stack gespeichert wurde, betrug in der zweiten Spalte 6, somit wird dieser wieder inkrementiert und es geht in Zeile 7 (zweite Spalte) weiter. Dort findet eine weitere Kollision statt, ebenso wie in der Zeile 8 (zweite Spalte). Somit bekommt auch der Aufrufer der zweiten Spalte den Wert 0 zur&uuml;ck, und unser Programm nimmt seine Ausf&uuml;hrung in der dritten Spalte (von links) und der vierten Zeile (Wert von <span class="listing">x</span> ist hier 4) wieder auf. Weitere Inkrementationen in dieser Spalte bringen auch keinen Erfolg, sondern nur weiter Kollisionen.</p>
+<p>Dies geht solange weiter zur&uuml;ck, bis entweder keine Kollision mehr stattfindet (dann geht es wieder »nach vorne« weiter) oder die Bedingung</p>
+<pre>if(position)</pre>
+<p>unwahr wird. Das hei&szlig;t, wir sind am Ende angekommen. Dies wird mit einem <span class="listing">return</span> <span class="listing">1</span> best&auml;tigt</p>
+<pre>if(position) {
+   if(dame(schachbrett,position-1))
+      return 1; //Dame in dieser Position setzten
+}
+else
+   return 1;  //Wir sind fertig wir haben 1 L&ouml;sung</pre>
+<p>... oder aber auch, wenn Sie alle 92 M&ouml;glichkeiten ausgeben wollen. Wir benutzten Letzteres. Ich empfehle Ihnen, um das ganze Programm besser zu verstehen, Schritt f&uuml;r Schritt auf einem Schachbrett nachzuspielen.</p>
+<p>Hierzu noch das komplette Listing, welches das 8-Dame-Problem programmtechnisch aufl&ouml;st:</p>
+<pre>/* 8dame.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int dame_in_gefahr(int *schachbrett) {
+   /* x==nach unten; y==nach rechts */
+   int x,y;
+   for(x=0; x&lt;7; x++)
+      /* Ist auf feld[x] eine Dame? */
+      if(schachbrett[x])
+      for(y=x+1; y&lt;=7; y++)
+         /* Ist auf feld[y] eine Dame? */
+         if(schachbrett[y])  {
+            /* Wir &uuml;berpr&uuml;fen, ob die beiden
+             * Damen kollidieren. */
+            /* beide Damen in der selben Zeile? */
+            if(schachbrett[x]==schachbrett[y])
+               return 1; /* Kollision in gleicher Zeile */
+            /* diagonal? */
+            if(abs(x-y)==abs(schachbrett[x]-schachbrett[y]))
+              return 2; /* Kollision in der Diagonalen */
+         }
+   return 0; /* keine Kollision! */
+}
+int dame(int *schachbrett, int position) {
+   int x = 1, i;
+   static int counter = 1;
+   while(x &lt;= 8) {
+      /* Wir setzten die Dame mit der
+       * Nummer x an feld[position] */
+      schachbrett[position]=x;
+      if(!dame_in_gefahr(schachbrett)) {
+         if(position) {
+            /* die n&auml;chste Dame */
+            if(dame(schachbrett,position-1))
+               return 1; /* Dame in dieser Position setzen */
+         }
+         else {
+            printf("Loesungs-Nr.%2d : ", counter++);
+            for(i=0; i&lt;8; i++)
+               printf("(%d,%d)", i+1, schachbrett[i]);
+            printf("\n");
+         }
+      }
+      x++;
+   }
+   schachbrett[position] = 0;
+   return 0;
+}
+int main(void) {
+   int schachbrett[8], x;
+   for(x=0; x &lt; 8; x++)
+      schachbrett[x] = 0;
+   dame(schachbrett,7);
+   return EXIT_SUCCESS;
+}</pre>
+<p>In der Zeile</p>
+<pre>if(abs(x-y)==abs(schachbrett[x]-schachbrett[y]))</pre>
+<p>wird eine absolute Zahl berechnet, das hei&szlig;t bspw., der absolute Wert von 2–6 ist 4 und nicht –4. Diese Berechnung und Bedingung dient dazu, zu &uuml;berpr&uuml;fen, ob in der Diagonalen eine Kollision mit einer Dame stattfindet.</p>
+<p>Hier noch eine von den 92 m&ouml;glichen L&ouml;sungen:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/24_47.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein24_47.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 24.47   
+    </b>Keine Dame ist gef&auml;hrdet</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_024_006.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_025_000.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td width="10" valign="top">&nbsp;&nbsp;</td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/899?GPP=opc">
+                                        <img src="common/643_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C von A bis Z" title="Zum Katalog: C von A bis Z">
+                                        <br /><strong>C von A bis Z</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Ihre Meinung?</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1007?GPP=opc">
+                        <img src="common/683_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Shell-Programmierung" title="Zum Katalog: Shell-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Shell-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1137?GPP=opc">
+                        <img src="common/749_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux-UNIX-Programmierung" title="Zum Katalog: Linux-UNIX-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux-UNIX-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1004?GPP=opc">
+                        <img src="common/644_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C/C++" title="Zum Katalog: C/C++"><br /><br /><br /><br /><br /><br /><br />&nbsp;C/C++</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/880?GPP=opc">
+                        <img src="common/573_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/967?GPP=opc">
+                        <img src="common/626_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Reguläre Ausdrücke" title="Zum Katalog: Reguläre Ausdrücke"><br /><br /><br /><br /><br /><br /><br />&nbsp;Reguläre Ausdrücke</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/941?GPP=opc">
+                        <img src="common/677_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Shopping</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opc"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table>
+<br /><br />
+<hr width="70%" align="center"><br />
+<div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2006</b><br>F&uuml;r Ihren privaten Gebrauch d&uuml;rfen Sie die Online-Version nat&uuml;rlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschlie&szlig;lich aller seiner Teile ist urheberrechtlich gesch&uuml;tzt. Alle Rechte vorbehalten einschlie&szlig;lich der Vervielf&auml;ltigung, &Uuml;bersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

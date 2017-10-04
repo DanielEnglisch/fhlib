@@ -1,0 +1,1036 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: C von A bis Z – 26.11 CGI-Eingabe</title>
+<meta name="title" content="Galileo Computing :: C von A bis Z">
+<meta name="author" content="J&uuml;rgen Wolf">
+<meta name="publisher" content="Galileo Press 2006">
+<meta name="copyright" content="Galileo Press 2006">
+<meta name="description" content="C von A bis Z - Das umfassende Handbuch f&uuml;r Linux, Unix und Windows – 2., aktualisierte und erweiterte Auflage 2006, geb., mit CD und Referenzkarte – ISBN 3-89842-643-2">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="c_026_009.htm">
+<link rel="next" href="c_026_011.htm"><script type="text/javascript" language="JavaScript"><!--
+function OpenWin(url,name,height,width)
+{
+  var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+  InfoWin.focus();
+}
+//--></script></head>
+<body vlink="#000099" link="#000099" alink="#000099">
+    <table width="100%" height="74" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+        <tr>
+            <td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+            <td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opc"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger." title="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger."></a></td>
+        </tr>
+    </table>
+    <div align="right"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger.</a></div>
+    <br />
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td width="156" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
+        <tr>
+            <td colspan="2" class="nav1" align="left" valign="top" height="150">
+                <table class="tbl1" width="150" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td class="tbl2" height="25"><a class="nav" href="./index.htm">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000Vorwort_000.htm#Xxx999266">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000VorwortGutachter_000.htm#Xxx999275">Vorwort des Gutachters</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_001_000.htm#Xxx999328">1 Einstieg in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_002_000.htm#Xxx999328">2 Das erste Programm</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_003_000.htm#Xxx999328">3 Zeichens&auml;tze</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_004_000.htm#Xxx999329">4 Kommentare in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_005_000.htm#Xxx999330">5 Formatierte Eingabe mit scanf()</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_006_000.htm#Xxx999330">6 Formatierte Ausgabe mit printf</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_007_000.htm#Xxx999329">7 Elementare Datentypen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_008_000.htm#Xxx999328">8 Operatoren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_009_000.htm#Xxx999328">9 Typenumwandlung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_010_000.htm#Xxx999328">10 Kontrollstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_011_000.htm#Xxx999328">11 Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_012_000.htm#Xxx999328">12 Pr&auml;prozessor-Direktiven</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_013_000.htm#Xxx999328">13 Arrays</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_014_000.htm#Xxx999328">14 Zeiger (Pointer)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_015_000.htm#Xxx999328">15 Kommandozeilenargumente</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_016_000.htm#Xxx999328">16 Dynamische Speicherverwaltung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_017_000.htm#Xxx999328">17 Strukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_018_000.htm#Xxx999328">18 Ein-/Ausgabe-Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_019_000.htm#Xxx999328">19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_020_000.htm#Xxx999328">20 Arbeiten mit variablen langen Argumentlisten – &lt;stdarg.h&gt;</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_021_000.htm#Xxx999328">21 Zeitroutinen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_022_000.htm#Xxx999328">22 Weitere Headerdateien und ihre Funktionen (ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_023_000.htm#Xxx999328">23 Dynamische Datenstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_024_000.htm#Xxx999328">24 Algorithmen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_025_000.htm#Xxx999328">25 Sicheres Programmieren</A></td>
+</tr>
+<tr>
+<td><A class="navh" href="./c_026_000.htm#Xxx999328">26 CGI mit C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_027_000.htm#Xxx999328">27 MySQL und C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_028_000.htm#Xxx999328">28 Netzwerkprogrammierung und Cross-Plattform-Entwicklung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_029_000.htm#Xxx999328">29 Wie geht’s jetzt weiter?</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_030Anhang_000.htm#Xxx999266">A Anhang</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./stichwort.htm#Xxx512322">Index</a></td>
+</tr>
+<tr><td><br /><a class="navnav" href="http://download.galileo-press.de/openbook/c_von_a_bis_z/galileocomputing_c_von_a_bis_z.zip"><strong>Download:</strong><br />- ZIP, ca. 8,5 MB</a></td></tr>
+<tr><td><a class="navnav" href="http://www.galileocomputing.de/899?GPP=opc">Buch bestellen</a></td></tr>
+<tr><td><a class="navnav" href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)">Ihre Meinung?</a><br /><br /></td></tr>
+</table></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10"></td>
+<td width="85%" valign="top" align="center">
+    <div align="center">
+        <table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+            <tr>
+                <td width="100%" class="start" colspan="1" height="22" align="center">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_026_009.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Galileo Computing /</a><a class="navnav" href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"> &lt;openbook&gt; /</a><a href="./index.htm" class="navnav"> C von A bis Z</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_026_011.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" valign="top">
+    <table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+        <tr>
+            <td colspan="2"><a href="http://www.galileocomputing.de/899?GPP=opc" class="buchtitel">C von A bis Z</a><span class="autor"> von J&uuml;rgen Wolf</span><br><span class="untertitel">Das umfassende Handbuch f&uuml;r Linux, Unix und Windows <br />– 2., aktualisierte und erweiterte Auflage 2006</span></td>
+        </tr>
+        <tr>
+            <td valign="top" width="90"><a href="http://www.galileocomputing.de/899?GPP=opc"><img src="common/643.gif" border="0" alt="Buch: C von A bis Z" title="Buch: C von A bis Z" align="left"><br /><br /><span class="autor"><strong>C von A bis Z</strong><br />1.116 S., mit CD, Referenzkarte, 39,90 Euro<br />Galileo Computing<br />ISBN 3-89842-643-2</span></a></a></td>
+            <td width="80%">
+<table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="3" class="kap"><b>Kapitel <a href="./c_026_000.htm#RxxobKap02600004002C541F02318C">26 CGI mit C</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_026_000.htm#RxxobKap02600004002C541F02318E">26.1 Was ist CGI?</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_026_001.htm#RxxobKap02600104002C6F1F02418C">26.2 Vorteile von CGIs in C</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_026_002.htm#RxxobKap02600204002C701F02E18C">26.3 Andere Techniken der Webprogrammierung</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_026_003.htm#RxxobKap02600304002C711F02F18C">26.4 Das dreistufige Webanwendungsdesign</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_003.htm#RxxobKap02600304002C711F02F18D">26.4.1 Darstellungsschicht</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_003.htm#RxxobKap02600304002C711F02F194">26.4.2 Verarbeitungsschicht</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_003.htm#RxxobKap02600304002C711F02F196">26.4.3 Speicherschicht</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_026_004.htm#RxxobKap02600404002C721F04C18C">26.5 Clientseitige Programmierung</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_004.htm#RxxobKap02600404002C721F04C18E">26.5.1 JavaScript</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_004.htm#RxxobKap02600404002C721F04C191">26.5.2 Java-Applets</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_026_005.htm#RxxobKap02600504002C731F04218C">26.6 Serverseitige Programmierung</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_026_006.htm#RxxobKap02600604002C741F02818C">26.7 Der Webserver</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_006.htm#RxxobKap02600604002C741F02818D">26.7.1 Das Client/Server-Modell des Internets</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_006.htm#RxxobKap02600604002C741F028193">26.7.2 Serverimplementierung</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_006.htm#RxxobKap02600604002C741F028198">26.7.3 Hosting-Services</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_006.htm#RxxobKap02600604002C741F02819C">26.7.4 Schl&uuml;sselfertige L&ouml;sung</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_006.htm#RxxobKap02600604002C741F02819E">26.7.5 Weitere M&ouml;glichkeiten</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_006.htm#RxxobKap02600604002C741F0281A5">26.7.6 Apache</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_026_007.htm#RxxobKap02600704002C751F02818C">26.8 Das HTTP-Protokoll</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_007.htm#RxxobKap02600704002C751F02818E">26.8.1 Web-Protokolle</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_007.htm#RxxobKap02600704002C751F028190">26.8.2 Wozu Protokolle?</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_007.htm#RxxobKap02600704002C751F028192">26.8.3 Was ist ein Protokoll?</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_007.htm#RxxobKap02600704002C751F028195">26.8.4 Normen f&uuml;r die Netzwerktechnik</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_007.htm#RxxobKap02600704002C751F028198">26.8.5 Das OSI-Schichtenmodell</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_007.htm#RxxobKap02600704002C751F02819E">26.8.6 Die Elemente einer URL</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_007.htm#RxxobKap02600704002C751F0281CA">26.8.7 Client-Anfrage – HTTP Request (Browser-Request)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_007.htm#RxxobKap02600704002C751F028208">26.8.8 Serverantwort (Server-Response)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_007.htm#RxxobKap02600704002C751F028260">26.8.9 Zusammenfassung</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_026_008.htm#RxxobKap02600804002C761F01718C">26.9 Das Common Gateway Interface (CGI)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_008.htm#RxxobKap02600804002C761F01718E">26.9.1 Filehandles</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_008.htm#RxxobKap02600804002C761F017194">26.9.2 CGI-Umgebungsvariablen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_008.htm#RxxobKap02600804002C761F0171E4">26.9.3 CGI-Ausgabe</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_026_009.htm#RxxobKap02600904002C771F03518C">26.10 HTML-Formulare</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_009.htm#RxxobKap02600904002C771F03518E">26.10.1 Die Tags und ihre Bedeutung</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a class="navh" href="#RxxobKap02601004002C781F03F18C">26.11 CGI-Eingabe</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02601004002C781F03F18D">26.11.1 Die Anfrage des Clients an den Server</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02601004002C781F03F1A9">26.11.2 Eingabe parsen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_026_011.htm#RxxobKap02601104002C791F03018C">26.12 Ein G&auml;stebuch</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_011.htm#RxxobKap02601104002C791F030192">26.12.1 Das HTML-Formular (guestbook.html)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_011.htm#RxxobKap02601104002C791F030198">26.12.2 Das CGI-Programm (auswert.cgi)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_011.htm#RxxobKap02601104002C791F0301A3">26.12.3 Das HTML-G&auml;stebuch (gaeste.html)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_026_011.htm#RxxobKap02601104002C791F0301A6">26.12.4 Das Beispiel ausf&uuml;hren</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_026_012.htm#RxxobKap02601204002C7A1F02818C">26.13 Ausblick</a></b></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td>
+<a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2">26.11 CGI-Eingabe<a id="RxxobKap02601004002C781F03F18C" name="RxxobKap02601004002C781F03F18C"></a> 
+      <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"></h2>
+<a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3">26.11.1 Die Anfrage des Clients an den Server<a id="RxxobKap02601004002C781F03F18D" name="RxxobKap02601004002C781F03F18D"></a> 
+      <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999330" name="Xxx999330"></a>In den Abschnitten zur Client-Anfrage und den Formular-Tags wurden die zwei vorwiegend in der Praxis eingesetzten Methoden zum Empfangen von Daten schon erw&auml;hnt (<span class="listing">POST</span>, <span class="listing">GET</span>). Diese Methoden werden jetzt anhand des folgenden HTML-Formulars genauer erl&auml;utert:</p>
+<pre>&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Eine einfache Auswertung&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;&lt;center&gt;
+&lt;b&gt;&lt;u&gt;Formular&lt;/u&gt;&lt;/b&gt;&lt;/center&gt;&lt;/h1&gt;&lt;br&gt;&lt;br&gt;
+&lt;form action=http://localhost/cgi-bin/auswert.cgi method=get&gt;
+   &lt;center&gt;&lt;b&gt;Bitte geben Sie Ihren Namen ein :&lt;/b&gt;&lt;br&gt;
+   &lt;input name="Textfeld" size="20"&gt; &lt;/input&gt;
+   &lt;input type=submit value="abschicken"&gt;&lt;/center&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<p>So sieht es aus:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/26_22.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein26_22.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 26.22   
+    </b>Eingabeformular</p>
+<p>Von ganz besonderem Interesse ist hier der <span class="listing">&lt;form&gt;</span>-Tag. Sobald Sie den Button »Abschicken« dr&uuml;cken, wird mit dem Attribut <span class="listing">action</span> ein Prozess, n&auml;mlich die CGI-Anwendung auswert.cgi, auf dem Webserver gestartet. Darin unterscheiden sich beide Methoden nicht. Da im HTML-Beispiel hier die Methode <span class="listing">GET</span> (<span class="listing">method=get</span>) verwendet wurde, soll diese auch gleich als erste behandelt werden.</p>
+<h4 class="t4">Vorgang von GET</h4>
+<p><a id="Xxx999341" name="Xxx999341"></a>Bei der <span class="listing">GET</span>-Methode h&auml;ngt der Browser die Zeichenkette am Ende der URL an. Bei einer Eingabe der Zeichenkette <span class="listing">"hallo"</span> hat die URL folgendes Aussehen:</p>
+<pre>http://localhost/cgi-bin/auswert.cgi?Textfeld=hallo</pre>
+<p>Der Webserver ist jetzt daf&uuml;r verantwortlich, diese Zeichenkette wieder zu entfernen und &uuml;bergibt diese an die Umgebungsvariable <span class="listing">QUERY_STRING</span>:<a id="Xxx999345" name="Xxx999345"></a></p>
+<pre>QUERY_STRING = Textfeld=hallo</pre>
+<p>Jetzt sind Sie an der Reihe, mit dem CGI-Programm die Umgebungsvariable <span class="listing">QUERY_STRING</span> auszuwerten. Die <span class="listing">GET</span>-M&ouml;glichkeit stellt dabei die einfachste Art dar. Es herrscht hierbei immer noch der Irrglaube, dass mit der <span class="listing">GET</span>-Methode nur 255 bzw. 1024 Bytes verarbeitet werden k&ouml;nnen. Dies wird aber vom Webserver vorgegeben und betr&auml;gt mindestens 255 Bytes bis zu 8192 Bytes.</p>
+<h4 class="t4">Vorgang von POST</h4>
+<p><a id="Xxx999349" name="Xxx999349"></a>Wollen Sie statt der Methode <span class="listing">GET</span> die Methode <span class="listing">POST</span> verwenden, m&uuml;ssen Sie nur im HTML-Formular die Zeile</p>
+<pre>&lt;form action="http://... /cgi-bin/auswert.cgi" method=get&gt;</pre>
+<p>um&auml;ndern in:</p>
+<pre>&lt;form action="http://.. /cgi-bin/auswert.cgi" method=post &gt;</pre>
+<p>Bei der <span class="listing">POST</span>-Methode werden die Daten nicht in einer der Umgebungsvariablen abgelegt, sondern in die Standardeingabe (<span class="listing">stdin</span>). Sie k&ouml;nnen somit die CGI-Anwendung so schreiben, als w&uuml;rde die Eingabe von der Tastatur gemacht. Die L&auml;nge des kodierten Strings befindet sich in der Umgebungsvariablen <a id="Xxx999355" name="Xxx999355"></a><span class="listing">CONTENT_LENGTH</span>.</p>
+<p>Au&szlig;erdem wird noch die Umgebungsvariable <span class="listing">CONTENT_TYPE</span> verwendet, damit die CGI-Anwendung wei&szlig;, um was f&uuml;r eine Art Dokument es sich handelt.</p>
+<h4 class="t4">POST- oder GET-Methode programmtechnisch auswerten</h4>
+<p><a id="Xxx999358" name="Xxx999358"></a>Damit die CGI-Anwendung jetzt wei&szlig;, ob die Daten mit der Methode <span class="listing">GET</span> oder <span class="listing">POST</span> gesendet wurden, ben&ouml;tigen Sie eine Funktion, welche die Umgebungsvariable <span class="listing">REQUEST_METHOD</span> auswertet und den Inhalt (String), sei es nun vom <span class="listing">QUERY_STRING</span> oder von der Standardeingabe, an den Aufrufer zur&uuml;ckgibt.</p>
+<pre>/*  Funktion liest Daten in der POST- oder GET-Methode ein.
+ *  R&uuml;ckgabewert: String puffer mit den Daten
+ *  bei Fehler  : NULL
+*/
+char *getdata(void) {
+   unsigned long size;
+   char *puffer = NULL;
+   char *request = getenv("REQUEST_METHOD");
+   char *cont_len;
+   char *cgi_string;
+   /* Zuerst die Request-Methode &uuml;berpr&uuml;fen */
+   if(  NULL == request )
+      return NULL;
+   else if( strcmp(request, "GET") == 0 ) {
+      /* Die Methode GET -&gt; Query String abholen */
+      cgi_string = getenv("QUERY_STRING");
+      if( NULL == cgi_string )
+         return NULL;
+      else {
+         puffer =(char *) Strdup(cgi_string);
+         return puffer; /* R&uuml;ckgabewert an den Aufrufer */
+      }
+   }
+   else if( strcmp(request, "POST") == 0 ) {
+      /* Die Methode POST -&gt; L&auml;nge des Strings
+       * ermitteln (CONTENT_LENGTH) */
+      cont_len = getenv("CONTENT_LENGTH");
+      if( NULL == cont_len)
+         return NULL;
+      else {
+         /* String CONTENT_LENGTH in
+          * unsigned long umwandeln */
+         size = (unsigned long) atoi(cont_len);
+         if(size &lt;= 0)
+            return NULL; /* Keine Eingabe!?!? */
+      }
+      /* Jetzt lesen wir die Daten von stdin ein */
+      puffer = (char *) malloc(size+1);
+      if( NULL == puffer )
+         return NULL;
+      else {
+         if( NULL == fgets(puffer, size+1, stdin) ) {
+            free(puffer);
+            return NULL;
+         }
+         else  /* R&uuml;ckgabewerte an den Ausrufer */
+            return puffer;
+      }
+   }
+   else /*  Weder die GET- noch die POST-Methode
+         *  wurden verwendet */
+      return NULL;
+}
+/*  Da die Funktion strdup() in der Headerdatei &lt;string.h&gt; keine
+ *  ANSI C-Funktion ist, schreiben wir eine eigene
+ */
+char *Strdup(const char *str) {
+   char *p;
+   if(NULL == str)
+      return NULL;
+   else {
+      p = malloc(strlen(str)+1);
+      if(NULL == p)
+         return NULL;
+      else
+         strcpy(p, str);
+   }
+   return p;
+}</pre>
+<p>Es wurde au&szlig;erdem eine extra Funktion f&uuml;r <span class="listing">Strdup()</span> geschrieben, da die vorhandene <span class="listing">strdup()</span> in der Headerdatei <span class="listing">&lt;string.h&gt;</span> nicht zum ANSI C-Standard geh&ouml;rt. Sie k&ouml;nnen diese eben erstellten Funktionen gern in einer CGI-Anwendung testen und ausf&uuml;hren. Falls Sie die CGI-Anwendung getestet haben und Sie haben etwa folgende Eingabe in einem Webformular gemacht:</p>
+<pre>J&uuml;rgen "pronix" Wolf</pre>
+<p>erscheint anschlie&szlig;end im Webbrowser folgende Zeile:</p>
+<pre>Textfeld=J%FCrgen+%22pronix%22+Wolf</pre>
+<p>Also noch ein wenig vom gew&uuml;nschten Ergebnis entfernt.</p>
+<a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3">26.11.2 Eingabe parsen<a id="RxxobKap02601004002C781F03F1A9" name="RxxobKap02601004002C781F03F1A9"></a> 
+      <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999367" name="Xxx999367"></a><a id="Xxx999368" name="Xxx999368"></a>Sie k&ouml;nnen zwar jetzt die Eingabe vom Client empfangen, aber Sie m&uuml;ssen den String noch lesefreundlich dekodieren. Hier ein &Uuml;berblick zu den Zeichen, welche eine besondere Bedeutung haben, und die Sie als Programmierer von CGI-Anwendungen ber&uuml;cksichtigen m&uuml;ssen.</p>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"><span class="listing"> &amp;</span> – Die einzelnen Formularelemente (sofern es mehrere sind) werden mit diesem Zeichen getrennt.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"><span class="listing"> =</span> – Mit diesem Zeichen werden die Variable/Wert-Paare voneinander getrennt.</td>
+</tr>
+</table>
+<blockquote>
+<pre>Textfeld J%FCrgen+%22pronix%22+Wolf</pre>
+</blockquote>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"><span class="listing"> +</span> – Damit werden die Leerzeichen der eingegebenen Daten getrennt.</td>
+</tr>
+</table>
+<blockquote>
+<pre>Textfeld J%Fcrgen %22pronix%22 Wolf</pre>
+</blockquote>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"><span class="listing"> %XX</span> – Bei einem Prozentzeichen gefolgt von zwei hexadezimalen Ziffern handelt es sich um ASCII-Zeichen mit dem dezimalen Wert von 128 bis 255. Diese hexadezimalen Ziffern m&uuml;ssen in ASCII-Zeichen dekodiert werden.</td>
+</tr>
+</table>
+<blockquote>
+<pre>Textfeld J&uuml;rgen pronix Wolf</pre>
+</blockquote>
+<p>In der folgenden Tabelle finden Sie Steuer- und weitere Zeichen und ihre hexadezimale Darstellung im &Uuml;berblick:</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 26.19   
+    </b>Kodierte Zeichen und Ihre Bedeutung</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>Zeichen</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Hexadezimale Darstellung</b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">Tab
+</td>
+<td class="tabellentext" bgcolor="#000000">%09
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">Space
+</td>
+<td class="tabellentext" bgcolor="#000000">%20
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">"
+</td>
+<td class="tabellentext" bgcolor="#000000">%22
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">#
+</td>
+<td class="tabellentext" bgcolor="#000000">%23
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">%
+</td>
+<td class="tabellentext" bgcolor="#000000">%25
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">&amp;
+</td>
+<td class="tabellentext" bgcolor="#000000">%26
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">(
+</td>
+<td class="tabellentext" bgcolor="#000000">%28
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">)
+</td>
+<td class="tabellentext" bgcolor="#000000">%29
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">'
+</td>
+<td class="tabellentext" bgcolor="#000000">%2C
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">.
+</td>
+<td class="tabellentext" bgcolor="#000000">%2E
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">/
+</td>
+<td class="tabellentext" bgcolor="#000000">%2F
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">:
+</td>
+<td class="tabellentext" bgcolor="#000000">%3A
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">;
+</td>
+<td class="tabellentext" bgcolor="#000000">%3B
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">&lt;
+</td>
+<td class="tabellentext" bgcolor="#000000">%3C
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">=
+</td>
+<td class="tabellentext" bgcolor="#000000">%3D
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">&gt;
+</td>
+<td class="tabellentext" bgcolor="#000000">%3E
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">?
+</td>
+<td class="tabellentext" bgcolor="#000000">%3F
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">@
+</td>
+<td class="tabellentext" bgcolor="#000000">%40
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">[
+</td>
+<td class="tabellentext" bgcolor="#000000">%5B
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">\
+</td>
+<td class="tabellentext" bgcolor="#000000">%5C
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">]
+</td>
+<td class="tabellentext" bgcolor="#000000">%5D
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">^
+</td>
+<td class="tabellentext" bgcolor="#000000">%5E
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">,
+</td>
+<td class="tabellentext" bgcolor="#000000">%60
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">{
+</td>
+<td class="tabellentext" bgcolor="#000000">%7B
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">|
+</td>
+<td class="tabellentext" bgcolor="#000000">%7C
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">}
+</td>
+<td class="tabellentext" bgcolor="#000000">%7D
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">~
+</td>
+<td class="tabellentext" bgcolor="#000000">%7E
+</td>
+</tr>
+</table><br>
+<p>Jetzt wollen Sie nat&uuml;rlich auch wissen, wie Sie dies in der Praxis dekodieren k&ouml;nnen. Folgende Funktionen sind dazu zun&auml;chst n&ouml;tig:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Kodierte Zeichen (Prozentzeichen, gefolgt von zwei Hexzahlen) dekodieren.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Alle Leerzeichen, welche mit <span class="listing">+</span> angegeben sind, in ein echtes Leerzeichen konvertieren.</td>
+</tr>
+</table>
+<p>Alle anderen Schritte folgen in den n&auml;chsten Funktionen. Hierzu zun&auml;chst die Funktionen, mit denen die hexadezimalen Zahlen in ASCII-Werte und die <span class="listing">+</span>-Zeichen in echte Leerzeichen konvertiert werden.</p>
+<pre>/* Wandelt einzelne Hexzeichen (%xx) in ASCII-Zeichen
+ * und kodierte Leerzeichen (+) in echte Leerzeichen um */
+void hex2ascii(char *str)  {
+   int x, y;
+   for(x=0,y=0; str[y] != '\0'; ++x,++y) {
+      str[x] = str[y];
+      /* Ein Hexadezimales Zeichen? */
+      if(str[x] == '%')  {
+         str[x] = convert(&amp;str[y+1]);
+         y += 2;
+      }
+      /* Ein Leerzeichen? */
+      else if( str[x] == '+')
+         str[x]=' ';
+   }
+   /* Geparsten String sauber terminieren */
+   str[x] = '\0';
+}
+/* Funktion konvertiert einen String von zwei hexadezimalen
+ * Zeichen und gibt das einzelne daf&uuml;r stehende Zeichen zur&uuml;ck */
+char convert(char *hex) {
+   char ascii;
+   /* erster Hexawert */
+   ascii =
+   (hex[0] &gt;= 'A' ? ((hex[0] &amp; 0xdf) – 'A')+10 : (hex[0] – '0'));
+   ascii &lt;&lt;= 4; /* Bitverschiebung schneller als ascii*=16 */
+   /* zweiter Hexawert */
+   ascii +=
+   (hex[1] &gt;= 'A' ? ((hex[1] &amp; 0xdf) – 'A')+10 : (hex[1] – '0'));
+   return ascii;
+}</pre>
+<p>Sollten Sie die Funktionen wieder in der Praxis testen wollen, k&ouml;nnen Sie dies tun. Jetzt bekommen Sie die Eingabe des Formulars im Klartext ausgegeben:</p>
+<pre>Textfeld=J&uuml;rgen "pronix" Wolf</pre>
+<p>Im n&auml;chsten Schritt ben&ouml;tigen Sie eine Funktion, die diese beiden Werte auseinander h&auml;lt und zwischenspeichert. In diesem Beispiel wurde nur eine Variable (<span class="listing">Textfeld</span>) mit dem Wert (<span class="listing">J&uuml;rgen</span> <span class="listing">"pronix"</span> <span class="listing">Wolf</span>) verwendet. Die nun folgende Funktion sollte in diesem Zusammenhang allgemein g&uuml;ltig und auch sp&auml;ter wieder verwendbar sein. Daher kommen Sie nicht um die Programmierung einer dynamischen Liste herum. Folgende Struktur soll hierf&uuml;r verwendet werden:</p>
+<pre>struct CGI_DATEN {
+   char *variable;
+   char *wert;
+   struct CGI_DATEN *next;
+};
+struct CGI_DATEN *ende = NULL;</pre>
+<p>Die Daten einer einzelnen CGI-Eingabe werden anhand des <span class="listing">'='</span>-Zeichens getrennt (<span class="listing">variable=wert</span>). Somit muss dieses Zeichen auch geparst werden. Und f&uuml;r den Fall (so ist es meistens), dass mehrere Variablen/Werte-Paare &uuml;bermittelt werden, m&uuml;ssen Sie auch das Zeichen <span class="listing">'&amp;'</span> parsen, welches die Paare voneinander trennt (<span class="listing">variable1=wert&amp;variable2=wert</span>). Eine Menge Arbeit liegt damit vor Ihnen. Hier die komplette Funktion.</p>
+<pre>struct CGI_DATEN *erstellen(char *str) {
+   char* s;
+   char* res;
+   /* Irgendwo gibt es auch eine Grenze, hier sind
+    * MAX_PAARE erlaubt */
+   char *paare[MAX_PAARE];
+   struct CGI_DATEN *ptr_daten = NULL;
+   struct CGI_DATEN *ptr_anfang = NULL;
+   int i=0, j=0;
+   /* Zuerst werden die Variablen/Werte-Paare anhand
+    * des Zeichens '&amp;' getrennt, sofern es mehrere sind */
+   s=str;
+   res=strtok(s,"&amp;");
+   while( res != NULL &amp;&amp; i &lt; MAX_PAARE) {
+      /* Wert von res dynamisch in char **pair speichern */
+      paare[i] = (char *)malloc(strlen(res)+1);
+      if(paare[i] == NULL)
+         return NULL;
+      paare[i] = res;
+      res=strtok(NULL,"&amp;");
+      i++;
+   }
+   /* Jetzt werden die Variablen von den Werten getrennt und
+    * an die Struktur CGI_DATEN &uuml;bergeben  */
+   while ( i &gt; j ) { /* Das erste Element? */
+      if(ptr_anfang == NULL) {
+         ptr_anfang =(struct CGI_DATEN *)
+           malloc(sizeof (struct CGI_DATEN *));
+         if( ptr_anfang == NULL )
+            return NULL;
+         res = strtok( paare[j], "=");
+         ptr_anfang-&gt;variable = malloc(strlen(res)+1);
+         if( ptr_anfang-&gt;variable == NULL )
+            return NULL;
+         ptr_anfang-&gt;variable = res;
+         res = strtok(NULL, "\0");
+         ptr_anfang-&gt;wert = malloc(strlen(res)+1);
+         if( ptr_anfang-&gt;wert == NULL )
+            return NULL;
+         ptr_anfang-&gt;wert = res;
+         /* printf("%s %s&lt;br&gt;",
+          * ptr_anfang-&gt;variable, ptr_anfang-&gt;wert); */
+         ptr_anfang-&gt;next = malloc(sizeof (struct CGI_DATEN *));
+         if(ptr_anfang-&gt;next == NULL)
+            return NULL;
+         ptr_daten = ptr_anfang-&gt;next;
+         j++;
+      }
+      else { /* Die restlichen Elemente */
+         res = strtok( paare[j], "=");
+         ptr_daten-&gt;variable = malloc(strlen(res)+1);
+         if(ptr_daten-&gt;variable == NULL)
+            return NULL;
+         ptr_daten-&gt;variable = res;
+         res = strtok(NULL, "\0");
+         ptr_daten-&gt;wert = malloc(strlen(res)+1);
+         if(ptr_daten-&gt;wert == NULL)
+            return NULL;
+         ptr_daten-&gt;wert = res;
+         /* printf("%s %s&lt;br&gt;",
+          * ptr_daten-&gt;variable, ptr_daten-&gt;wert); */
+         ptr_daten-&gt;next = malloc(sizeof (struct CGI_DATEN *));
+         if( ptr_daten-&gt;next == NULL )
+            return NULL;
+         ptr_daten = ptr_daten-&gt;next;
+         j++;
+      }
+   }
+   ende = ptr_daten;
+   /* Anfangsadresse der Liste struct CGI_DATEN zur&uuml;ckgeben */
+   return ptr_anfang;
+}</pre>
+<p>Hiermit haben Sie eine Funktion erstellt, die f&uuml;r alle F&auml;lle ger&uuml;stet ist. Jetzt ben&ouml;tigen Sie nur noch eine Funktion, welche den Speicherplatz der dynamischen Liste wieder freigibt. Diese finden Sie im folgenden Programmbeispiel.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_026_009.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_026_011.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td width="10" valign="top">&nbsp;&nbsp;</td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/899?GPP=opc">
+                                        <img src="common/643_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C von A bis Z" title="Zum Katalog: C von A bis Z">
+                                        <br /><strong>C von A bis Z</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Ihre Meinung?</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1007?GPP=opc">
+                        <img src="common/683_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Shell-Programmierung" title="Zum Katalog: Shell-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Shell-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1137?GPP=opc">
+                        <img src="common/749_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux-UNIX-Programmierung" title="Zum Katalog: Linux-UNIX-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux-UNIX-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1004?GPP=opc">
+                        <img src="common/644_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C/C++" title="Zum Katalog: C/C++"><br /><br /><br /><br /><br /><br /><br />&nbsp;C/C++</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/880?GPP=opc">
+                        <img src="common/573_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/967?GPP=opc">
+                        <img src="common/626_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Reguläre Ausdrücke" title="Zum Katalog: Reguläre Ausdrücke"><br /><br /><br /><br /><br /><br /><br />&nbsp;Reguläre Ausdrücke</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/941?GPP=opc">
+                        <img src="common/677_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Shopping</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opc"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table>
+<br /><br />
+<hr width="70%" align="center"><br />
+<div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2006</b><br>F&uuml;r Ihren privaten Gebrauch d&uuml;rfen Sie die Online-Version nat&uuml;rlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschlie&szlig;lich aller seiner Teile ist urheberrechtlich gesch&uuml;tzt. Alle Rechte vorbehalten einschlie&szlig;lich der Vervielf&auml;ltigung, &Uuml;bersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

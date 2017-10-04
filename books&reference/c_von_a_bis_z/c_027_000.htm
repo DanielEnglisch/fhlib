@@ -1,0 +1,692 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: C von A bis Z – 27 MySQL und C</title>
+<meta name="title" content="Galileo Computing :: C von A bis Z">
+<meta name="author" content="J&uuml;rgen Wolf">
+<meta name="publisher" content="Galileo Press 2006">
+<meta name="copyright" content="Galileo Press 2006">
+<meta name="description" content="C von A bis Z - Das umfassende Handbuch f&uuml;r Linux, Unix und Windows – 2., aktualisierte und erweiterte Auflage 2006, geb., mit CD und Referenzkarte – ISBN 3-89842-643-2">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="c_026_012.htm">
+<link rel="next" href="c_027_001.htm"><script type="text/javascript" language="JavaScript"><!--
+function OpenWin(url,name,height,width)
+{
+  var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+  InfoWin.focus();
+}
+//--></script></head>
+<body vlink="#000099" link="#000099" alink="#000099">
+    <table width="100%" height="74" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+        <tr>
+            <td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+            <td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opc"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger." title="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger."></a></td>
+        </tr>
+    </table>
+    <div align="right"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger.</a></div>
+    <br />
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td width="156" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
+        <tr>
+            <td colspan="2" class="nav1" align="left" valign="top" height="150">
+                <table class="tbl1" width="150" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td class="tbl2" height="25"><a class="nav" href="./index.htm">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000Vorwort_000.htm#Xxx999266">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000VorwortGutachter_000.htm#Xxx999275">Vorwort des Gutachters</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_001_000.htm#Xxx999328">1 Einstieg in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_002_000.htm#Xxx999328">2 Das erste Programm</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_003_000.htm#Xxx999328">3 Zeichens&auml;tze</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_004_000.htm#Xxx999329">4 Kommentare in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_005_000.htm#Xxx999330">5 Formatierte Eingabe mit scanf()</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_006_000.htm#Xxx999330">6 Formatierte Ausgabe mit printf</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_007_000.htm#Xxx999329">7 Elementare Datentypen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_008_000.htm#Xxx999328">8 Operatoren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_009_000.htm#Xxx999328">9 Typenumwandlung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_010_000.htm#Xxx999328">10 Kontrollstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_011_000.htm#Xxx999328">11 Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_012_000.htm#Xxx999328">12 Pr&auml;prozessor-Direktiven</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_013_000.htm#Xxx999328">13 Arrays</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_014_000.htm#Xxx999328">14 Zeiger (Pointer)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_015_000.htm#Xxx999328">15 Kommandozeilenargumente</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_016_000.htm#Xxx999328">16 Dynamische Speicherverwaltung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_017_000.htm#Xxx999328">17 Strukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_018_000.htm#Xxx999328">18 Ein-/Ausgabe-Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_019_000.htm#Xxx999328">19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_020_000.htm#Xxx999328">20 Arbeiten mit variablen langen Argumentlisten – &lt;stdarg.h&gt;</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_021_000.htm#Xxx999328">21 Zeitroutinen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_022_000.htm#Xxx999328">22 Weitere Headerdateien und ihre Funktionen (ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_023_000.htm#Xxx999328">23 Dynamische Datenstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_024_000.htm#Xxx999328">24 Algorithmen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_025_000.htm#Xxx999328">25 Sicheres Programmieren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_026_000.htm#Xxx999328">26 CGI mit C</A></td>
+</tr>
+<tr>
+<td><A class="navh" href="./c_027_000.htm#Xxx999328">27 MySQL und C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_028_000.htm#Xxx999328">28 Netzwerkprogrammierung und Cross-Plattform-Entwicklung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_029_000.htm#Xxx999328">29 Wie geht’s jetzt weiter?</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_030Anhang_000.htm#Xxx999266">A Anhang</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./stichwort.htm#Xxx512322">Index</a></td>
+</tr>
+<tr><td><br /><a class="navnav" href="http://download.galileo-press.de/openbook/c_von_a_bis_z/galileocomputing_c_von_a_bis_z.zip"><strong>Download:</strong><br />- ZIP, ca. 8,5 MB</a></td></tr>
+<tr><td><a class="navnav" href="http://www.galileocomputing.de/899?GPP=opc">Buch bestellen</a></td></tr>
+<tr><td><a class="navnav" href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)">Ihre Meinung?</a><br /><br /></td></tr>
+</table></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10"></td>
+<td width="85%" valign="top" align="center">
+    <div align="center">
+        <table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+            <tr>
+                <td width="100%" class="start" colspan="1" height="22" align="center">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_026_012.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Galileo Computing /</a><a class="navnav" href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"> &lt;openbook&gt; /</a><a href="./index.htm" class="navnav"> C von A bis Z</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_027_001.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" valign="top">
+    <table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+        <tr>
+            <td colspan="2"><a href="http://www.galileocomputing.de/899?GPP=opc" class="buchtitel">C von A bis Z</a><span class="autor"> von J&uuml;rgen Wolf</span><br><span class="untertitel">Das umfassende Handbuch f&uuml;r Linux, Unix und Windows <br />– 2., aktualisierte und erweiterte Auflage 2006</span></td>
+        </tr>
+        <tr>
+            <td valign="top" width="90"><a href="http://www.galileocomputing.de/899?GPP=opc"><img src="common/643.gif" border="0" alt="Buch: C von A bis Z" title="Buch: C von A bis Z" align="left"><br /><br /><span class="autor"><strong>C von A bis Z</strong><br />1.116 S., mit CD, Referenzkarte, 39,90 Euro<br />Galileo Computing<br />ISBN 3-89842-643-2</span></a></a></td>
+            <td width="80%">
+<table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="3" class="kap"><b>Kapitel <a class="navh" href="#RxxobKap02700004002CBD1F02018C">27 MySQL und C</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a class="navh" href="#RxxobKap02700004002CBD1F020190">27.1 Aufbau eines Datenbanksystems</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02700004002CBD1F020193">27.1.1 Warum wurde ein Datenbanksystem (DBS) entwickelt?</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02700004002CBD1F02019C">27.1.2 Das Datenbank-Management-System (DBMS)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02700004002CBD1F0201A9">27.1.3 Relationale Datenbank</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02700004002CBD1F0201BA">27.1.4 Eigene Clients mit C f&uuml;r SQL mit der ODBC-API entwickeln</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_027_001.htm#RxxobKap02700104002CD81F02218C">27.2 MySQL installieren</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_001.htm#RxxobKap02700104002CD81F02218D">27.2.1 Linux</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_001.htm#RxxobKap02700104002CD81F022194">27.2.2 Windows</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_001.htm#RxxobKap02700104002CD81F022199">27.2.3 Den Client mysql starten</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F04418C">27.3 Crashkurs (My)SQL</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F04418E">27.3.1 Was ist SQL?</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F044192">27.3.2 Die Datentypen von (My)SQL</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F0441F1">27.3.3 Eine Datenbank erzeugen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F0441FE">27.3.4 Eine Datenbank l&ouml;schen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F044208">27.3.5 Datenbank wechseln</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F04420B">27.3.6 Eine Tabelle erstellen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F044214">27.3.7 Die Tabelle anzeigen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F044217">27.3.8 Tabellendefinition &uuml;berpr&uuml;fen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F04421E">27.3.9 Tabelle l&ouml;schen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F044225">27.3.10 Struktur einer Tabelle &auml;ndern</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F04422F">27.3.11 Datens&auml;tze eingeben</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F044237">27.3.12 Datens&auml;tze ausw&auml;hlen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F044247">27.3.13 Ein fortgeschrittenes Szenario</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F044257">27.3.14 Datensatz l&ouml;schen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F04425A">27.3.15 Datensatz &auml;ndern</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F044260">27.3.16 Zugriffsrechte in MySQL</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F04427D">27.3.17 &Uuml;bersicht &uuml;ber einige SQL-Kommandos</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_027_003.htm#RxxobKap02700304002CDA1F04D18C">27.4 Die MySQL C-API</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_003.htm#RxxobKap02700304002CDA1F04D191">27.4.1 Grundlagen zur Programmierung eines MySQL-Clients</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_003.htm#RxxobKap02700304002CDA1F04D19B">27.4.2 Client-Programm mit dem gcc- unter Linux und dem Cygwin gcc-Compiler unter Windows</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_003.htm#RxxobKap02700304002CDA1F04D1A6">27.4.3 MySQL Client-Programme mit dem VC++ Compiler und dem Borland Freeware Compiler</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_003.htm#RxxobKap02700304002CDA1F04D1B8">27.4.4 Troubleshooting</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_003.htm#RxxobKap02700304002CDA1F04D1C0">27.4.5 Das erste Client-Programm – Verbindung mit dem MySQL-Server herstellen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_003.htm#RxxobKap02700304002CDA1F04D1F7">27.4.6 MySQL-Kommandozeilen-Optionen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_003.htm#RxxobKap02700304002CDA1F04D21F">27.4.7 Anfrage an den Server</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_027_004.htm#RxxobKap02700404002CDB1F03A18C">27.5 MySQL und C mit CGI</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_004.htm#RxxobKap02700404002CDB1F03A191">27.5.1 HTML-Eingabeformular</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_004.htm#RxxobKap02700404002CDB1F03A197">27.5.2 CGI-Anwendung add_db.cgi</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_004.htm#RxxobKap02700404002CDB1F03A19B">27.5.3 CGI-Anwendung search_db.cgi</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_027_005.htm#RxxobKap02700504002CDC1F03618C">27.6 Funktions&uuml;bersicht</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_027_006.htm#RxxobKap02700604002CDD1F03B18C">27.7 Datentypen&uuml;bersicht der C-API</a></b></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td>
+<h1 class="t1">Kapitel 27 MySQL und C<a id="RxxobKap02700004002CBD1F02018C" name="RxxobKap02700004002CBD1F02018C"></a></h1>
+<p class="anleser"><i>Die Kombination von MySQL und der C-API ist ein sehr reizvolles, aber leider auch selten behandeltes Thema. Dieses Kapitel sorgt f&uuml;r Abhilfe und bietet Ihnen eine Einf&uuml;hrung in MySQL und die C-API.</i></p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard"><b>Hinweis   </b>Dieses Kapitel kann ein vollwertiges MySQL-Buch nicht ersetzen. Das Thema MySQL ist zwar nicht unbedingt kompliziert, aber der Umfang ist gewaltig. Einige Funktionen der C-API oder MySQL-Sprachelemente werden deshalb hier nicht erw&auml;hnt.</p>
+</td>
+</tr>
+</table><br>
+<a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2">27.1 Aufbau eines Datenbanksystems<a id="RxxobKap02700004002CBD1F020190" name="RxxobKap02700004002CBD1F020190"></a> 
+      <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"></h2>
+<p><a id="Xxx999335" name="Xxx999335"></a><a id="Xxx999336" name="Xxx999336"></a><a id="Xxx999337" name="Xxx999337"></a>Dieser Abschnitt ist sehr wichtig, sofern Sie noch keinerlei Erfahrung mit Datenbanksystemen gemacht haben. Er erkl&auml;rt die grundlegenden Prinzipien von Datenbanken im Allgemeinen.</p>
+<p>Als C-Programmierer werden Sie sich fragen, warum ben&ouml;tige ich eine Datenbank? Ich kann doch einfach ein Programm unter Verwendung von bin&auml;ren B&auml;umen entwickeln, womit die Nutzung einer Datenbank &uuml;berfl&uuml;ssig wird. Und Sie werden sich wundern – vereinfacht arbeitet MySQL auch so, nur mit einer anderen Beziehung: einer relationalen. Sicherlich, dass k&ouml;nnten Sie auch programmieren, schlie&szlig;lich wurde MySQL in der Programmiersprache C geschrieben. Also, wozu das Rad wieder neu erfinden? Au&szlig;erdem erweist es sich als recht schwieriges Unterfangen, ein eigenes relationales Datenbankprogramm zu schreiben.</p>
+<a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3">27.1.1 Warum wurde ein Datenbanksystem (DBS) entwickelt?<a id="RxxobKap02700004002CBD1F020193" name="RxxobKap02700004002CBD1F020193"></a> 
+      <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Vor der Zeit der Datenbanken wurden Daten mit selbst entwickelten Programmen in Dateien gespeichert. Diese Programme waren zumeist an die Bed&uuml;rfnisse einer Firma bzw. eines Anwenders angepasst. Schlimmer noch, teilweise wurden die Programme f&uuml;r die einzelnen Abteilungen bis hin zum einzelnen Mitarbeiter konfiguriert. Probleme waren dabei vorprogrammiert. Herr Meier konnte nicht auf die Datei »x« zugreifen, die Herr M&uuml;ller erstellt hat, da Herr Meier im Gegensatz zu Herrn M&uuml;ller ein modifiziertes Programm besitzt.</p>
+<p>In diesem Fall hatte Herr Meier zwei M&ouml;glichkeiten: Entweder er l&auml;sst das Programm vom Programmierer wieder anpassen (das war noch die Bl&uuml;tezeit f&uuml;r Programmierer, immer Arbeit vorhanden) oder er geht zu Herrn M&uuml;ller und besorgt sich von diesem die Daten. Doch dann will Herr M&uuml;ller den Datensatz abrufen und findet ihn nicht mehr. Nach einigen Recherchen stellt sich heraus, dass Frau Schneider diesen Datensatz gel&ouml;scht hat, da Sie dachte, dieser w&uuml;rde nicht mehr ben&ouml;tigt.</p>
+<p>Da beim Zugriff auf gemeinsame Daten (auch file sharing genannt) ein enormer Wartungsaufwand entstand, was h&auml;ufig zu hohen Kosten f&uuml;hrte, wurden Datenbanksysteme entwickelt. Ein Datenbanksystem hat gegen&uuml;ber dem traditionellen Dateisystem die folgenden hervorzuhebenden Vorteile:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Der Benutzer kann auf die Daten zugreifen, ohne dass dieser wissen muss, wie die einzelnen Daten organisiert sind.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Der Benutzer kann (fast) ohne Kenntnisse Daten l&ouml;schen, hinzuf&uuml;gen, &auml;ndern oder erweitern. Der Benutzer muss nicht mal wissen, um welche Datenbank es sich handelt.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Das Datenbanksystem sorgt daf&uuml;r, dass ein unbedachter Benutzer Daten nicht einfach l&ouml;schen kann oder doppelte Daten zweimal gespeichert werden.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Ein gutes Datenbanksystem ist portabel. Das bedeutet, das System organisiert den Datenbestand so, dass mit Hilfe von Schnittstellen andere Programme und Systeme auf diese Daten zur&uuml;ckgreifen k&ouml;nnen.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Datens&auml;tze werden so optimiert, dass diese geringeren Speicherplatz erfordern und eine schnellere Zugriffszeit haben.</td>
+</tr>
+</table>
+<a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3">27.1.2 Das Datenbank-Management-System (DBMS)<a id="RxxobKap02700004002CBD1F02019C" name="RxxobKap02700004002CBD1F02019C"></a> 
+      <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999350" name="Xxx999350"></a>Das Datenbank-Management-System (kurz DBMS) ist die Schnittstelle, mit der der Benutzer Mittel zu Verf&uuml;gung gestellt bekommt, um mit der Datenbank zu kommunizieren. Durch das DBMS wird beim &Auml;ndern, Hinzuf&uuml;gen, L&ouml;schen oder Erweitern immer auf die Korrektheit der Datenbest&auml;nde &uuml;berpr&uuml;ft. Greift der Benutzer zum Beispiel auf einen Datensatz in der Datenbank zur&uuml;ck, wird zuerst nach einem gewissen Schema des DBMS’ auf den Datenbestand zugegriffen. Anschlie&szlig;end werden dem Benutzer diese Daten so serviert, wie er sie sich von der Anforderung erw&uuml;nscht. Dadurch entsteht eine Art Datenunabh&auml;ngigkeit, welche in einem DBMS deshalb so wichtig ist, weil dadurch die physische Speicherung einer Datenbank beliebig ge&auml;ndert werden kann, ohne die logische Struktur der Daten zu ver&auml;ndern.<a id="Xxx999352" name="Xxx999352"></a></p>
+<p>In Abbildung 27.1 k&ouml;nnen Sie das Drei-Schichten-Modell erkennen. Um es kurz zu halten: Es handelt sich dabei schlicht um die Trennung von Benutzer, dem DBMS und der Datenspeicherung. Die externe Schicht beschreibt alle M&ouml;glichkeiten, die der Benutzer hat, um auf die Datenbank zuzugreifen (Programme, Funktionen und Schnittstellen). Die konzeptionelle Schicht beschreibt das Datenmodell (hier das relationale Modell). Mit diesem Modell wird beschrieben, wie auf die Daten zugriffen wird und in welchem Zusammenhang diese zueinander stehen. Die interne Schicht ist die tiefste Schicht und stellt die Ebene der Datenpr&auml;sentation dar – also, wie und wo die Daten gespeichert werden.</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/27_01.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein27_01.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 27.1   
+    </b>Die drei Ebenen eines Datenbanksystems</p>
+<p>Noch ein paar S&auml;tze zur logischen Struktur: Als C Programmierer kennen Sie ja Strukturen. Folgende Struktur dient jetzt als Beispiel:</p>
+<pre>struct file{
+   char name[MAX];
+   char vame[MAX];
+   int  old;
+   struct file *l;
+   struct file *r;
+};</pre>
+<p>Das Programm mit dieser Struktur l&auml;uft jahrelang bei Ihrem Kunden mit unz&auml;hligen Adressen. Jetzt w&uuml;nscht Ihr Kunde, dass Sie den Datenbestand f&uuml;r <span class="listing">int</span> <span class="listing">old</span> entfernen und zwei andere Strukturvariablen daf&uuml;r einsetzen. Sie m&uuml;ssen jetzt das Programm umschreiben, m&uuml;ssen den Datenbestand neu anpassen, und noch einiges mehr gilt es dabei zu beachten. Eine Menge Arbeit also. Mit dem DBMS l&auml;sst sich dies ohne M&uuml;he mit ein oder zwei Befehlen erledigen.</p>
+<p>Der Benutzer kommuniziert allerdings nicht direkt mit dem DBMS, sondern mit einer Schnittstelle, die sich noch vor dem DBMS befindet, dem DBCI (Data-Base-Communication-Interface).</p>
+<p>Sie k&ouml;nnen hier eindeutig das Client-Server-Prinzip wieder erkennen, wobei der Server-Teil sich um die Verwaltung und Verarbeitung von Daten k&uuml;mmert und der Client-Teil mit dem Benutzer zu tun hat, darunter die komfortable Eingabe, einfaches Auslesen und mehr. Hier das Beispiel grafisch dargestellt:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/27_02.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein27_02.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 27.2   
+    </b>MySQL-Datenbanksystem</p>
+<p>Der Client kann jetzt ein Webbrowser sein, der ein CGI-Programm startet, womit auf die Datenbank zugegriffen wird, eine Java-Applikation mit der Schnittstelle JDBC (Java Database Connectivity), ein C-Programm mit der ODBC-Schnittstelle (ODBC = Open DataBase Connectivity), ein Perl-Skript mit dem DBI-Modul oder auch der Datenbank-Client <span class="listing">mysql</span>. Wie auch immer Sie auf das DBMS zugreifen, der Server verarbeitet die Anfrage des Clients und schickt gesammelte Daten an ihn zur&uuml;ck. Und die Sprache, mit der hier kommuniziert wird, hei&szlig;t SQL (Structured Query Language). Die SQL ist eine genormte Datenbanksprache, die in der Regel jede Datenbank versteht. Es gibt nat&uuml;rlich auch Client-Programme, die Sie verwenden k&ouml;nnen, ohne ein Wort SQL zu verstehen. Das Client-Programm sorgt in diesem Fall f&uuml;r die Kommunikation zwischen Server und Benutzer. Als ein C-Programmierer sollte es Ihr Ziel sein, ein solches Client-Programm zu entwickeln.</p>
+<a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3">27.1.3 Relationale Datenbank<a id="RxxobKap02700004002CBD1F0201A9" name="RxxobKap02700004002CBD1F0201A9"></a> 
+      <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999371" name="Xxx999371"></a>MySQL ist eine Datenbank, die auf dem relationalen Konzept aufbaut. Das bedeutet, dass zwischen den Daten, welche in Tabellen gespeichert werden, bestimmte Beziehungen bestehen. Sie k&ouml;nnen die Daten mit Zusammenh&auml;ngen zu anderen Daten speichern.<a id="Xxx999373" name="Xxx999373"></a></p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard"><b>Hinweis   </b>Die Daten einer Datenbank stehen in einer Tabelle mit Zeilen und Spalten. Eine Datenzeile wird dabei als Datensatz bezeichnet.</p>
+</td>
+</tr>
+</table><br>
+<p>Folgende Beziehungen sind jetzt zwischen verschiedenen Datens&auml;tzen m&ouml;glich:<a id="Xxx999378" name="Xxx999378"></a></p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 27.1   
+    </b>Relationale Beziehungen</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>Beziehung</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Bedeutung</b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">1:1-Beziehung
+</td>
+<td class="tabellentext" bgcolor="#000000">Bei der Eins-zu-Eins-Beziehung zwischen Datens&auml;tzen wird nur ein Datensatz mit einem anderen verbunden.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">1:n und n:1 Beziehung
+</td>
+<td class="tabellentext" bgcolor="#000000">Die 1:n-Beziehung ist die g&auml;ngigste Beziehung. Ein Datensatz kann so mit vielen anderen Datens&auml;tzen zusammengeh&auml;ngt werden.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">n:m-Beziehung
+</td>
+<td class="tabellentext" bgcolor="#000000">Hierbei stehen mehrere Datens&auml;tze mit mehreren Datens&auml;tzen in Beziehung.
+</td>
+</tr>
+</table><br>
+<p>Wenn Sie das relationale Konzept hier nicht so richtig verstanden haben, macht dies f&uuml;r den weiteren Verlauf des Buchs nichts aus. Es sollte nur der Vollst&auml;ndigkeit halber erw&auml;hnt werden. Sollten Sie sich allerdings ernsthaft mit MySQL befassen wollen, finden Sie im Anhang Literatur und weiterf&uuml;hrende Links.</p>
+<a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3">27.1.4 Eigene Clients mit C f&uuml;r SQL mit der ODBC-API entwickeln<a id="RxxobKap02700004002CBD1F0201BA" name="RxxobKap02700004002CBD1F0201BA"></a> 
+      <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999407" name="Xxx999407"></a>In diesem Buch wird nur beschrieben, wie Sie eigene Clients f&uuml;r die MySQL-Datenbank mit der C-API (API = Application Programming Interface) schreiben k&ouml;nnen. Sie k&ouml;nnen zwar f&uuml;r jede Datenbank mit C eigene Client-Programme erstellen, nur liefert jede Datenbank daf&uuml;r spezielle und leider unterschiedliche Funktionen aus. Wollen Sie Client-Programme schreiben, die mit jedem Datenbanksystem zusammenarbeiten, so ben&ouml;tigen Sie die ODBC-API, welche eine reine C-Schnittstelle ist. Der ODBC-Treiber muss zuvor besorgt und installiert werden. Er klinkt sich dann zwischen die Client-Anwendung und das DBMS ein. Sendet der Client eine Anforderung an den Server, verarbeitet der ODBC-Treiber zuerst die Anfrage und gibt sie in entsprechender Form an den Server (DBMS) weiter, damit dieser die Anfrage versteht. Der Server antwortet anschlie&szlig;end dem Client, wiederum durch den ODBC-Treiber. Wenn Sie so wollen, dient ODBC also als Dolmetscher f&uuml;r verschiedene Datenbanken mit dem Client-Programm.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_026_012.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_027_001.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td width="10" valign="top">&nbsp;&nbsp;</td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/899?GPP=opc">
+                                        <img src="common/643_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C von A bis Z" title="Zum Katalog: C von A bis Z">
+                                        <br /><strong>C von A bis Z</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Ihre Meinung?</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1007?GPP=opc">
+                        <img src="common/683_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Shell-Programmierung" title="Zum Katalog: Shell-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Shell-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1137?GPP=opc">
+                        <img src="common/749_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux-UNIX-Programmierung" title="Zum Katalog: Linux-UNIX-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux-UNIX-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1004?GPP=opc">
+                        <img src="common/644_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C/C++" title="Zum Katalog: C/C++"><br /><br /><br /><br /><br /><br /><br />&nbsp;C/C++</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/880?GPP=opc">
+                        <img src="common/573_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/967?GPP=opc">
+                        <img src="common/626_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Reguläre Ausdrücke" title="Zum Katalog: Reguläre Ausdrücke"><br /><br /><br /><br /><br /><br /><br />&nbsp;Reguläre Ausdrücke</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/941?GPP=opc">
+                        <img src="common/677_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Shopping</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opc"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table>
+<br /><br />
+<hr width="70%" align="center"><br />
+<div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2006</b><br>F&uuml;r Ihren privaten Gebrauch d&uuml;rfen Sie die Online-Version nat&uuml;rlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschlie&szlig;lich aller seiner Teile ist urheberrechtlich gesch&uuml;tzt. Alle Rechte vorbehalten einschlie&szlig;lich der Vervielf&auml;ltigung, &Uuml;bersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

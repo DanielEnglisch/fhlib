@@ -1,0 +1,1254 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: C von A bis Z – 27.3 Crashkurs (My)SQL</title>
+<meta name="title" content="Galileo Computing :: C von A bis Z">
+<meta name="author" content="J&uuml;rgen Wolf">
+<meta name="publisher" content="Galileo Press 2006">
+<meta name="copyright" content="Galileo Press 2006">
+<meta name="description" content="C von A bis Z - Das umfassende Handbuch f&uuml;r Linux, Unix und Windows – 2., aktualisierte und erweiterte Auflage 2006, geb., mit CD und Referenzkarte – ISBN 3-89842-643-2">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="c_027_001.htm">
+<link rel="next" href="c_027_003.htm"><script type="text/javascript" language="JavaScript"><!--
+function OpenWin(url,name,height,width)
+{
+  var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+  InfoWin.focus();
+}
+//--></script></head>
+<body vlink="#000099" link="#000099" alink="#000099">
+    <table width="100%" height="74" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+        <tr>
+            <td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+            <td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opc"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger." title="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger."></a></td>
+        </tr>
+    </table>
+    <div align="right"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger.</a></div>
+    <br />
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td width="156" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
+        <tr>
+            <td colspan="2" class="nav1" align="left" valign="top" height="150">
+                <table class="tbl1" width="150" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td class="tbl2" height="25"><a class="nav" href="./index.htm">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000Vorwort_000.htm#Xxx999266">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000VorwortGutachter_000.htm#Xxx999275">Vorwort des Gutachters</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_001_000.htm#Xxx999328">1 Einstieg in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_002_000.htm#Xxx999328">2 Das erste Programm</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_003_000.htm#Xxx999328">3 Zeichens&auml;tze</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_004_000.htm#Xxx999329">4 Kommentare in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_005_000.htm#Xxx999330">5 Formatierte Eingabe mit scanf()</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_006_000.htm#Xxx999330">6 Formatierte Ausgabe mit printf</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_007_000.htm#Xxx999329">7 Elementare Datentypen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_008_000.htm#Xxx999328">8 Operatoren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_009_000.htm#Xxx999328">9 Typenumwandlung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_010_000.htm#Xxx999328">10 Kontrollstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_011_000.htm#Xxx999328">11 Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_012_000.htm#Xxx999328">12 Pr&auml;prozessor-Direktiven</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_013_000.htm#Xxx999328">13 Arrays</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_014_000.htm#Xxx999328">14 Zeiger (Pointer)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_015_000.htm#Xxx999328">15 Kommandozeilenargumente</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_016_000.htm#Xxx999328">16 Dynamische Speicherverwaltung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_017_000.htm#Xxx999328">17 Strukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_018_000.htm#Xxx999328">18 Ein-/Ausgabe-Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_019_000.htm#Xxx999328">19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_020_000.htm#Xxx999328">20 Arbeiten mit variablen langen Argumentlisten – &lt;stdarg.h&gt;</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_021_000.htm#Xxx999328">21 Zeitroutinen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_022_000.htm#Xxx999328">22 Weitere Headerdateien und ihre Funktionen (ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_023_000.htm#Xxx999328">23 Dynamische Datenstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_024_000.htm#Xxx999328">24 Algorithmen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_025_000.htm#Xxx999328">25 Sicheres Programmieren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_026_000.htm#Xxx999328">26 CGI mit C</A></td>
+</tr>
+<tr>
+<td><A class="navh" href="./c_027_000.htm#Xxx999328">27 MySQL und C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_028_000.htm#Xxx999328">28 Netzwerkprogrammierung und Cross-Plattform-Entwicklung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_029_000.htm#Xxx999328">29 Wie geht’s jetzt weiter?</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_030Anhang_000.htm#Xxx999266">A Anhang</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./stichwort.htm#Xxx512322">Index</a></td>
+</tr>
+<tr><td><br /><a class="navnav" href="http://download.galileo-press.de/openbook/c_von_a_bis_z/galileocomputing_c_von_a_bis_z.zip"><strong>Download:</strong><br />- ZIP, ca. 8,5 MB</a></td></tr>
+<tr><td><a class="navnav" href="http://www.galileocomputing.de/899?GPP=opc">Buch bestellen</a></td></tr>
+<tr><td><a class="navnav" href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)">Ihre Meinung?</a><br /><br /></td></tr>
+</table></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10"></td>
+<td width="85%" valign="top" align="center">
+    <div align="center">
+        <table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+            <tr>
+                <td width="100%" class="start" colspan="1" height="22" align="center">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_027_001.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Galileo Computing /</a><a class="navnav" href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"> &lt;openbook&gt; /</a><a href="./index.htm" class="navnav"> C von A bis Z</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_027_003.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" valign="top">
+    <table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+        <tr>
+            <td colspan="2"><a href="http://www.galileocomputing.de/899?GPP=opc" class="buchtitel">C von A bis Z</a><span class="autor"> von J&uuml;rgen Wolf</span><br><span class="untertitel">Das umfassende Handbuch f&uuml;r Linux, Unix und Windows <br />– 2., aktualisierte und erweiterte Auflage 2006</span></td>
+        </tr>
+        <tr>
+            <td valign="top" width="90"><a href="http://www.galileocomputing.de/899?GPP=opc"><img src="common/643.gif" border="0" alt="Buch: C von A bis Z" title="Buch: C von A bis Z" align="left"><br /><br /><span class="autor"><strong>C von A bis Z</strong><br />1.116 S., mit CD, Referenzkarte, 39,90 Euro<br />Galileo Computing<br />ISBN 3-89842-643-2</span></a></a></td>
+            <td width="80%">
+<table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="3" class="kap"><b>Kapitel <a href="./c_027_000.htm#RxxobKap02700004002CBD1F02018C">27 MySQL und C</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_027_000.htm#RxxobKap02700004002CBD1F020190">27.1 Aufbau eines Datenbanksystems</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_000.htm#RxxobKap02700004002CBD1F020193">27.1.1 Warum wurde ein Datenbanksystem (DBS) entwickelt?</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_000.htm#RxxobKap02700004002CBD1F02019C">27.1.2 Das Datenbank-Management-System (DBMS)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_000.htm#RxxobKap02700004002CBD1F0201A9">27.1.3 Relationale Datenbank</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_000.htm#RxxobKap02700004002CBD1F0201BA">27.1.4 Eigene Clients mit C f&uuml;r SQL mit der ODBC-API entwickeln</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_027_001.htm#RxxobKap02700104002CD81F02218C">27.2 MySQL installieren</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_001.htm#RxxobKap02700104002CD81F02218D">27.2.1 Linux</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_001.htm#RxxobKap02700104002CD81F022194">27.2.2 Windows</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_001.htm#RxxobKap02700104002CD81F022199">27.2.3 Den Client mysql starten</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a class="navh" href="#RxxobKap02700204002CD91F04418C">27.3 Crashkurs (My)SQL</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02700204002CD91F04418E">27.3.1 Was ist SQL?</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02700204002CD91F044192">27.3.2 Die Datentypen von (My)SQL</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02700204002CD91F0441F1">27.3.3 Eine Datenbank erzeugen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02700204002CD91F0441FE">27.3.4 Eine Datenbank l&ouml;schen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02700204002CD91F044208">27.3.5 Datenbank wechseln</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02700204002CD91F04420B">27.3.6 Eine Tabelle erstellen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02700204002CD91F044214">27.3.7 Die Tabelle anzeigen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02700204002CD91F044217">27.3.8 Tabellendefinition &uuml;berpr&uuml;fen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02700204002CD91F04421E">27.3.9 Tabelle l&ouml;schen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02700204002CD91F044225">27.3.10 Struktur einer Tabelle &auml;ndern</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02700204002CD91F04422F">27.3.11 Datens&auml;tze eingeben</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02700204002CD91F044237">27.3.12 Datens&auml;tze ausw&auml;hlen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02700204002CD91F044247">27.3.13 Ein fortgeschrittenes Szenario</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02700204002CD91F044257">27.3.14 Datensatz l&ouml;schen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02700204002CD91F04425A">27.3.15 Datensatz &auml;ndern</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02700204002CD91F044260">27.3.16 Zugriffsrechte in MySQL</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02700204002CD91F04427D">27.3.17 &Uuml;bersicht &uuml;ber einige SQL-Kommandos</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_027_003.htm#RxxobKap02700304002CDA1F04D18C">27.4 Die MySQL C-API</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_003.htm#RxxobKap02700304002CDA1F04D191">27.4.1 Grundlagen zur Programmierung eines MySQL-Clients</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_003.htm#RxxobKap02700304002CDA1F04D19B">27.4.2 Client-Programm mit dem gcc- unter Linux und dem Cygwin gcc-Compiler unter Windows</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_003.htm#RxxobKap02700304002CDA1F04D1A6">27.4.3 MySQL Client-Programme mit dem VC++ Compiler und dem Borland Freeware Compiler</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_003.htm#RxxobKap02700304002CDA1F04D1B8">27.4.4 Troubleshooting</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_003.htm#RxxobKap02700304002CDA1F04D1C0">27.4.5 Das erste Client-Programm – Verbindung mit dem MySQL-Server herstellen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_003.htm#RxxobKap02700304002CDA1F04D1F7">27.4.6 MySQL-Kommandozeilen-Optionen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_003.htm#RxxobKap02700304002CDA1F04D21F">27.4.7 Anfrage an den Server</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_027_004.htm#RxxobKap02700404002CDB1F03A18C">27.5 MySQL und C mit CGI</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_004.htm#RxxobKap02700404002CDB1F03A191">27.5.1 HTML-Eingabeformular</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_004.htm#RxxobKap02700404002CDB1F03A197">27.5.2 CGI-Anwendung add_db.cgi</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_004.htm#RxxobKap02700404002CDB1F03A19B">27.5.3 CGI-Anwendung search_db.cgi</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_027_005.htm#RxxobKap02700504002CDC1F03618C">27.6 Funktions&uuml;bersicht</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_027_006.htm#RxxobKap02700604002CDD1F03B18C">27.7 Datentypen&uuml;bersicht der C-API</a></b></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td>
+<a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2">27.3 Crashkurs (My)SQL<a id="RxxobKap02700204002CD91F04418C" name="RxxobKap02700204002CD91F04418C"></a> 
+      <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"></h2>
+<p><a id="Xxx999329" name="Xxx999329"></a>Um mit MySQL zu arbeiten, werden Sie einige grundlegende Sprachelemente kennen lernen. Vieles wird Ihnen als C Programmierer ohnehin nicht schwer fallen. Nat&uuml;rlich soll hier nicht die ganze Palette von SQL-Kommandos verwendet werden, sondern nur eine ausgew&auml;hlte Anzahl, die Sie in die Lage versetzt, eine Datenbankstruktur aufzubauen und die zugeh&ouml;rigen Abfragen zu formulieren.</p>
+<a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3">27.3.1 Was ist SQL?<a id="RxxobKap02700204002CD91F04418E" name="RxxobKap02700204002CD91F04418E"></a> 
+      <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Um es gleich vorweg zunehmen, SQL ist keine Programmiersprache. SQL steht f&uuml;r Structured Query Language und gliedert sich in zwei Teile:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> DDL-Anweisungen (Data Definition Language) – Diese Anweisungen dienen dem Aufsetzen der Datenbankstruktur.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> DML-Anweisungen (Data Manipulation Language) – Diese Anweisungen beziehen sich auf die Manipulation von Daten.</td>
+</tr>
+</table>
+<a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3">27.3.2 Die Datentypen von (My)SQL<a id="RxxobKap02700204002CD91F044192" name="RxxobKap02700204002CD91F044192"></a> 
+      <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999338" name="Xxx999338"></a><a id="Xxx999339" name="Xxx999339"></a>Genauso wie in C gibt es bei MySQL Datentypen. Aufgeteilt werden diese in numerische Datentypen, Datentypen f&uuml;r Strings und Datentypen f&uuml;r Datum und Zeit. Zuerst eine kurze &Uuml;bersicht zu den Datentypen f&uuml;r Ganzzahlen (Integerdatentypen) mit deren Bereichsangabe:</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 27.2   
+    </b>&Uuml;bersicht zu den ganzzahligen Datentypen von MySQL</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>Datentyp</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Speicherbedarf</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Erkl&auml;rung</b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">TINYINT
+</td>
+<td class="tabellentext" bgcolor="#000000">1 Byte (8 Bit)
+</td>
+<td class="tabellentext" bgcolor="#000000">–128 bis 127
+mit UNSIGNED von 0 bis 255
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">SMALLINT
+</td>
+<td class="tabellentext" bgcolor="#000000">2 Byte (16 Bit)
+</td>
+<td class="tabellentext" bgcolor="#000000">–32768 bis 32767
+mit UNSIGNED von 0 bis 65535
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">MEDIUMINT
+</td>
+<td class="tabellentext" bgcolor="#000000">3 Byte (24 Bit)
+</td>
+<td class="tabellentext" bgcolor="#000000">–83886008 bis 83886007
+mit UNSIGNED von 0 bis 16777215
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">INT, INTEGER
+</td>
+<td class="tabellentext" bgcolor="#000000">4 Byte (32 Bit)
+</td>
+<td class="tabellentext" bgcolor="#000000">–2147483648 bis 2147483647
+mit UNSIGNED von 0 bis 4294967296
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">BIGINT
+</td>
+<td class="tabellentext" bgcolor="#000000">8 Byte (64 Bit)
+</td>
+<td class="tabellentext" bgcolor="#000000">–9223372036854775808 bis
+9223372036854775807
+mit UNSIGNED von
+0 bis 18446744073709551616
+</td>
+</tr>
+</table><br>
+<p>Wie schon in C k&ouml;nnen Sie auch hierbei mit dem Schl&uuml;sselwort <span class="listing">UNSIGNED</span> das Vorzeichenbit setzen. F&uuml;r Gleitpunktzahlen stehen Ihnen folgende Datentypen zur Verf&uuml;gung:</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 27.3   
+    </b>&Uuml;bersicht zu Datentypen f&uuml;r Gleitpunktzahlen in MySQL</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>Datentyp</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Speicherbedarf</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Erkl&auml;rung</b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">FLOAT
+</td>
+<td class="tabellentext" bgcolor="#000000">4 Byte (32 Bit)
+</td>
+<td class="tabellentext" bgcolor="#000000">–3.402823466E+38 bis
+1.175494351E-38 und
+1.175494351E-38 bis
+3.402823466E+38
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">DOUBLE
+</td>
+<td class="tabellentext" bgcolor="#000000">8 Byte (64 Bit)
+</td>
+<td class="tabellentext" bgcolor="#000000">–1.7976931348623157E+308 bis
+–2.2250738585072014E-308 und
+2.2250738585072014E-308 bis
+1.7976931348623157E+308
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">DECIMAL(M,D)
+</td>
+<td class="tabellentext" bgcolor="#000000">M Byte (M*8 Bit)
+</td>
+<td class="tabellentext" bgcolor="#000000">Abh&auml;ngig von M und D
+</td>
+</tr>
+</table><br>
+<p>F&uuml;r Strings (Zeichenketten) sind gleich mehrere Datentypen einsetzbar, welche sich abgesehen vom Namen haupts&auml;chlich durch die Anzahl der Zeichen unterscheiden, welche diese aufnehmen k&ouml;nnen:</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 27.4   
+    </b>&Uuml;bersicht zu den Datentypen f&uuml;r Zeichen und Strings in MySQL</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>Datentyp</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Speicherbedarf</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Erk&auml;rung</b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">CHAR(x)
+</td>
+<td class="tabellentext" bgcolor="#000000">x-Byte
+</td>
+<td class="tabellentext" bgcolor="#000000">Zeichenkette fester L&auml;nge mit x-Byte bis max. 255 Zeichen
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">VCHAR(x)
+</td>
+<td class="tabellentext" bgcolor="#000000">x+1 Byte
+</td>
+<td class="tabellentext" bgcolor="#000000">Zeichenkette mit variabler L&auml;nge mit x-Byte bis max. 255 Zeichen
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">TINYTEXT,
+TINYBLOB
+</td>
+<td class="tabellentext" bgcolor="#000000">Zeichenzahl+1 Byte
+</td>
+<td class="tabellentext" bgcolor="#000000">Zeichenkette mit variabler L&auml;nge bis max. 255 Zeichen 
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">TEXT, BLOB
+</td>
+<td class="tabellentext" bgcolor="#000000">Zeichenzahl+2 Byte
+</td>
+<td class="tabellentext" bgcolor="#000000">Zeichenkette mit variabler L&auml;nge bis max. 65535 Zeichen
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">MEDIUMTEXT,
+MEDIUMBLOB
+</td>
+<td class="tabellentext" bgcolor="#000000">Zeichenzahl+3 Byte
+</td>
+<td class="tabellentext" bgcolor="#000000">Zeichenkette mit variabler L&auml;nge bis max. 224 Zeichen
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">LONGTEXT,
+LONGBLOB
+</td>
+<td class="tabellentext" bgcolor="#000000">Zeichenzahl+4 Byte
+</td>
+<td class="tabellentext" bgcolor="#000000">Zeichenkette mit variabler L&auml;nge bis max. 232 Zeichen
+</td>
+</tr>
+</table><br>
+<p>Die <span class="listing">BLOP</span>-Datentypen sind f&uuml;r Bin&auml;rdaten gedacht. Zu guter Letzt folgen noch einige MySQL-Datentypen f&uuml;r Datum und Zeit:</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 27.5   
+    </b>&Uuml;bersicht zu den Datentypen f&uuml;r Zeit und Datum</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>Datentyp</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Speicherbedarf</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Erkl&auml;rung</b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">DATE
+</td>
+<td class="tabellentext" bgcolor="#000000">3 Byte (24 Bit)
+</td>
+<td class="tabellentext" bgcolor="#000000">Datum von 1000–01–01 bis 9999–12–31; Format YYYY-MM-DD
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">DATETIME
+</td>
+<td class="tabellentext" bgcolor="#000000">8 Byte (64 Bit)
+</td>
+<td class="tabellentext" bgcolor="#000000">Datum und Zeit von 1000–01–01 00:00:00 bis 9999–12–31 23:59:59; Format YYYY-MM-DD HH:MM:SS
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">TIMESTAMP(M)
+</td>
+<td class="tabellentext" bgcolor="#000000">4 Byte (32 Bit)
+</td>
+<td class="tabellentext" bgcolor="#000000">UNIX-Zeitstempel von Datum und Zeit von 1970–01–01 00:00:00 bis 2036–12–31 23:59:59; Format YYYY-MM-DD HH:MM:SS. Format M = 6 YYMMDD;
+M = 8 YYYYMMDD;
+M = 12 YYMMDDHHMMSS;
+M = 14 YYYYMMDDHHMMSS
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">TIME
+</td>
+<td class="tabellentext" bgcolor="#000000">3 Byte (24 Bit)
+</td>
+<td class="tabellentext" bgcolor="#000000">Zeit von –838:59:89 bis 838:59:59; Format HH:MM:SS
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">YEAR
+</td>
+<td class="tabellentext" bgcolor="#000000">1 Byte (8 Bit)
+</td>
+<td class="tabellentext" bgcolor="#000000">Jahr (4-stellig) von 1901 bis 2155; Format YYYY
+</td>
+</tr>
+</table><br>
+<p>Anhand eines Beispiels sollen Sie in die SQL-Sprache eingef&uuml;hrt werden. Starten Sie zuerst wieder den Client <span class="listing">mysql</span> mit:</p>
+<pre>mysql –u root –h localhost</pre>
+<a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3">27.3.3 Eine Datenbank erzeugen<a id="RxxobKap02700204002CD91F0441F1" name="RxxobKap02700204002CD91F0441F1"></a> 
+      <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999532" name="Xxx999532"></a><a id="Xxx999533" name="Xxx999533"></a>Bevor Sie mit einer Datenbank arbeiten, m&uuml;ssen Sie zun&auml;chst eine neue erzeugen. Dies k&ouml;nnen Sie mit folgendem Befehl erreichen:<a id="Xxx999535" name="Xxx999535"></a></p>
+<pre>CREATE DATABASE dvd_archiv;</pre>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/27_03.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein27_03.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 27.3   
+    </b>Eine Datenbank wurde erstellt</p>
+<p>Mit diesem SQL-Kommando erzeugen Sie eine neue Datenbank mit dem Namen <span class="listing">dvd_archiv</span>. Wie Sie es bereits von C her kennen, wird der Befehl mit einem Semikolon abgeschlossen.</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard"><b>Hinweis   </b>Es ist &uuml;brigens egal, ob Sie die SQL-Anweisung in Gro&szlig;, -Klein- oder Gro&szlig;- und Kleinbuchstaben gemischt schreiben. Sie k&ouml;nnen bspw. folgende Schreibweisen verwenden: <span class="listing">Create</span> <span class="listing">Database</span> oder <span class="listing">create</span> <span class="listing">database</span>.</p>
+</td>
+</tr>
+</table><br>
+<p>Existiert eine Datenbank bereits, wird eine Fehlermeldung mit ausgegeben. Wollen Sie eine Bedingung beim Anlegen einer neuen Datenbank erstellen, k&ouml;nnen Sie so vorgehen:</p>
+<pre>CREATE DATABASE IF NOT EXISTS dvd_archiv;</pre>
+<p>Mit <span class="listing">IF</span> <span class="listing">NOT</span> <span class="listing">EXISTS</span> wird erst &uuml;berpr&uuml;ft, ob eine Datenbank mit dem Namen <span class="listing">dvd_archiv</span> noch nicht vorhanden ist. Ist dies der Fall, wird der Befehl <span class="listing">CREATE</span> <span class="listing">DATABASE</span> ausgef&uuml;hrt.</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard"><b>Hinweis   </b>Der Name der Datenbank darf nicht mehr als 64 Zeichen lang sein. F&uuml;r Zeichen gelten dieselben Regeln wie schon bei der Namensvergabe f&uuml;r Variablen in C, au&szlig;er dass der Name mit einem x-beliebigen Zeichen beginnen darf. Im Gegensatz zu Windows unterscheidet Linux, zumindest was den Namen der Datenbank betrifft, zwischen Gro&szlig;- und Kleinschreibung.</p>
+</td>
+</tr>
+</table><br>
+<a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3">27.3.4 Eine Datenbank l&ouml;schen<a id="RxxobKap02700204002CD91F0441FE" name="RxxobKap02700204002CD91F0441FE"></a> 
+      <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999555" name="Xxx999555"></a>Als N&auml;chstes soll die neu erstellte Datenbank wieder gel&ouml;scht werden. Falls Sie den Namen der neu erstellten Datenbank vergessen haben, lassen Sie sich am besten einen &Uuml;berblick aller Datenbanken geben. Hierf&uuml;r verwenden Sie den SQL-Befehl:<a id="Xxx999557" name="Xxx999557"></a><a id="Xxx999558" name="Xxx999558"></a></p>
+<pre>SHOW DATABASES;</pre>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/27_04.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein27_04.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 27.4   
+    </b>Anzeigen aller vorhandenen Datenbanken</p>
+<p>Jetzt ist es also wieder Zeit, die Datenbank <span class="listing">dvd_archiv</span> zu l&ouml;schen:<a id="Xxx999565" name="Xxx999565"></a></p>
+<pre>DROP DATABASE dvd_archiv;</pre>
+<p>Wollen Sie auch hier eine Fehlermeldung mit einer Bedingung abfangen, k&ouml;nnen Sie das L&ouml;schen auch so schreiben:</p>
+<pre>DROP DATABASE IF EXISTS dvd_archiv;</pre>
+<p>Hiermit wird nur dann versucht, die Datenbank zu l&ouml;schen, wenn diese auch existiert. Erstellen Sie wieder die Datenbank <span class="listing">dvd_archiv</span>, damit Sie mit den folgenden Beispielen weitermachen k&ouml;nnen.</p>
+<a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3">27.3.5 Datenbank wechseln<a id="RxxobKap02700204002CD91F044208" name="RxxobKap02700204002CD91F044208"></a> 
+      <a href="#t2t37"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999572" name="Xxx999572"></a><a id="Xxx999573" name="Xxx999573"></a>Wenn Sie zwischen verschiedenen Datenbanken wechseln wollen, k&ouml;nnen Sie den Befehl <span class="listing">USE</span> verwenden. Beispiel:</p>
+<pre>USE dvd_archiv;</pre>
+<a name="t36"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t37"></a><h3 class="t3">27.3.6 Eine Tabelle erstellen<a id="RxxobKap02700204002CD91F04420B" name="RxxobKap02700204002CD91F04420B"></a> 
+      <a href="#t2t38"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t36"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999577" name="Xxx999577"></a>Nachdem Sie eine Datenbank erstellt haben, wollen Sie sicherlich auch Daten darin speichern. Zuerst m&uuml;ssen Sie aber noch eine Tabelle anlegen. Eine Tabelle erzeugen Sie mit folgender SQL-Anweisung:<a id="Xxx999579" name="Xxx999579"></a></p>
+<pre>CREATE TABLE filmdaten (
+titel CHAR(255),
+hauptrolle CHAR(255),
+gedreht YEAR
+);</pre>
+<p>Mit diesem SQL-Kommando erstellen Sie in der Tabelle <span class="listing">filmdaten</span> die Spalten <span class="listing">titel</span> mit dem Datentyp <span class="listing">CHAR(255)</span>, <span class="listing">hauptrolle</span> mit dem Datentyp <span class="listing">CHAR(255)</span> und <span class="listing">gedreht</span> mit dem Datentyp <span class="listing">YEAR</span>. Die Tabelle (Datensatz) mit dem Namen <span class="listing">filmdaten</span> (max. sind 64 Zeichen erlaubt) wird in der Datenbank <span class="listing">dvd_archiv</span> erzeugt – vorausgesetzt Sie haben mit <span class="listing">USE</span> in entsprechende Datenbank gewechselt. Als Inhalt der Tabelle wurden drei Variablen deklariert. Zwei Datentypen f&uuml;r Strings mit jeweils 255 Zeichen, welche den Titel (<span class="listing">titel</span>) und den Hauptdarsteller (<span class="listing">hauptrolle</span>) eines bestimmten Films enthalten. Au&szlig;erdem wurde noch ein Datentyp angegeben, der das Jahresdatum des Films speichern kann.</p>
+<p>Die Schreibweise, wie Sie hier verwendet wurde, ist nicht unbedingt so vorgeschrieben. Die Tabelle kann auch mit einer Zeile auf einmal erzeugt werden:</p>
+<pre>CREATE TABLE filmdaten (titel CHAR(255),hauptrolle CHAR(255),
+gedreht YEAR);</pre>
+<p>Die Syntax setzt sich aber immer folgenderma&szlig;en zusammen:</p>
+<pre>CREATE TABLE tbl (Spaltenname Datentyp_der_Spalte,
+                  Spaltenname Datentyp_der_Spalte,
+                  Spaltenname Datentyp_der_Spalte);</pre>
+<p>Im Gegensatz zu C wird also hier der Bezeichner vor dem Datentyp geschrieben.</p>
+<a name="t37"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t38"></a><h3 class="t3">27.3.7 Die Tabelle anzeigen<a id="RxxobKap02700204002CD91F044214" name="RxxobKap02700204002CD91F044214"></a> 
+      <a href="#t2t39"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t37"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999588" name="Xxx999588"></a>Einen &Uuml;berblick zu der Tabelle, die Sie mit <span class="listing">CREATE</span> erstellt haben, k&ouml;nnen Sie sich wieder mit dem SQL-Kommando <span class="listing">SHOW</span> anzeigen lassen:<a id="Xxx999590" name="Xxx999590"></a></p>
+<pre>SHOW TABLES;</pre>
+<a name="t38"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t39"></a><h3 class="t3">27.3.8 Tabellendefinition &uuml;berpr&uuml;fen<a id="RxxobKap02700204002CD91F044217" name="RxxobKap02700204002CD91F044217"></a> 
+      <a href="#t2t310"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t38"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999593" name="Xxx999593"></a>Wissen Sie nicht mehr genau, was Sie alles in der Tabelle angegeben haben, k&ouml;nnen Sie sich mit dem Befehl <span class="listing">EXPLAIN</span> einen &Uuml;berblick verschaffen:<a id="Xxx999595" name="Xxx999595"></a></p>
+<pre>EXPLAIN filmdaten;</pre>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard"><b>Hinweis   </b>In der Abbildung 27.5. sehen Sie in der Default-Spalte den Wert <span class="listing">NULL</span>. Dieser ist nicht gleich zu setzen mit dem Wert <span class="listing">NULL</span>, welchen Sie von C her kennen. <span class="listing">NULL</span> bedeutet in MySQL einfach: Es ist kein Wert daf&uuml;r vorhanden. Verwenden Sie hingegen die doppelten Anf&uuml;hrungszeichen (<span class="listing">""</span>), bedeutet dies in MySQL, dass der Wert unbekannt ist. Das mag zwar auf dem ersten Blick dasselbe sein, ist es aber nicht. Dies ist ein h&auml;ufig gemachter MySQL-Fehler.</p>
+</td>
+</tr>
+</table><br>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/27_05.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein27_05.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 27.5   
+    </b>&Uuml;berpr&uuml;fen der Tabellendefinition</p>
+<a name="t39"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t310"></a><h3 class="t3">27.3.9 Tabelle l&ouml;schen<a id="RxxobKap02700204002CD91F04421E" name="RxxobKap02700204002CD91F04421E"></a> 
+      <a href="#t2t311"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t39"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999607" name="Xxx999607"></a>Ben&ouml;tigen Sie eine Tabelle nicht mehr, k&ouml;nnen Sie diese mit demselben SQL-Befehl wie zum L&ouml;schen einer Datenbank entfernen:<a id="Xxx999609" name="Xxx999609"></a></p>
+<pre>DROP TABLE IF EXISTS filmdaten;</pre>
+<p>Wobei <span class="listing">IF</span> <span class="listing">EXISTS</span> hier wieder optional ist. Sie sehen, wie einfach es ist, mit MySQL etwas zu l&ouml;schen. Daher ist es oft sinnvoll, regelm&auml;&szlig;ig ein Backup einer Datenbank durchzuf&uuml;hren. Wenn Sie ein Backup erstellen wollen, k&ouml;nnen Sie sich den Client <span class="listing">mysqldump</span> ansehen, welcher ebenfalls bei einer normalen MySQL-Installation dabei ist. Wollen Sie bspw. die vollst&auml;ndige MySQL-Datenbank sichern, dann geben Sie Folgendes im Prompt ein:</p>
+<pre>mysqldump –u root –p –opt –all –databases &gt; my_backup.sql</pre>
+<p>Nach dieser Eingabe m&uuml;ssen Sie noch schnell Ihr Passwort eingeben, und die Daten sind gesichert. Wollen Sie das Backup wiederherstellen, k&ouml;nnen Sie dies mit dem Client <span class="listing">mysql</span> so erreichen:</p>
+<pre>mysql –u root –p &lt; my_backup.sql</pre>
+<a name="t310"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t311"></a><h3 class="t3">27.3.10 Struktur einer Tabelle &auml;ndern<a id="RxxobKap02700204002CD91F044225" name="RxxobKap02700204002CD91F044225"></a> 
+      <a href="#t2t312"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t310"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999616" name="Xxx999616"></a>Jetzt wollen Sie die Struktur einer Tabelle &auml;ndern. Dies k&ouml;nnen Sie unabh&auml;ngig davon, ob diese Tabelle schon Daten beinhaltet, mit dem SQL-Kommando <span class="listing">ALTER</span> vornehmen. In der Tabelle <span class="listing">filmdaten</span> fehlt noch die Altersbeschr&auml;nkung der einzelnen Filme. Diese soll jetzt hinter der Reihe <span class="listing">hauptrolle</span> eingef&uuml;gt werden:<a id="Xxx999618" name="Xxx999618"></a></p>
+<pre>ALTER TABLE filmdaten ADD fsk TINYINT AFTER hauptrolle;</pre>
+<p>Bei gewissen Englischkenntnissen l&auml;sst sich diese Zeile doch schon fast wie ein Satz lesen: &Auml;ndere Tabelle <span class="listing">filmdaten</span> und f&uuml;ge <span class="listing">fsk</span> vom Typ <span class="listing">TINYINT</span> hinter <span class="listing">hauptrolle</span> hinzu. Mit dem SQL-Kommando <span class="listing">ALTER</span> l&auml;sst sich noch so manches mehr anstellen. Wollen Sie etwa ein Element in der Tabelle entfernen:</p>
+<pre>ALTER TABLE filmdaten DROP fsk;</pre>
+<p>Hier w&uuml;rde zum Beispiel die Spalte <span class="listing">fsk</span> von der Tabelle <span class="listing">filmdaten</span> entfernt. Eine Spaltenbezeichnung &auml;ndern k&ouml;nnen Sie mit folgendem Kommando:</p>
+<pre>ALTER TABLE filmdaten CHANGE fsk alter INT;</pre>
+<p>Hiermit w&uuml;rden Sie die Spalte <span class="listing">fsk</span> in <span class="listing">alter</span> umbenennen. Au&szlig;erdem ist das neue Element jetzt vom Datentyp <span class="listing">INT</span>. Oder wollen Sie beim Titel der Tabelle <span class="listing">filmdaten</span> mehr als 255 Zeichen eingeben:</p>
+<pre>ALTER TABLE filmdaten MODIFY titel CHAR(300);</pre>
+<p>Das <span class="listing">ALTER</span>-Kommando ist sehr vielf&auml;ltig einsetzbar, sodass es sich lohnen w&uuml;rde, dieses Kommando noch genauer zu untersuchen.</p>
+<a name="t311"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t312"></a><h3 class="t3">27.3.11 Datens&auml;tze eingeben<a id="RxxobKap02700204002CD91F04422F" name="RxxobKap02700204002CD91F04422F"></a> 
+      <a href="#t2t313"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t311"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999628" name="Xxx999628"></a><a id="Xxx999629" name="Xxx999629"></a>Mit dem Kommando <span class="listing">INSERT</span> k&ouml;nnen Sie Daten in die Tabelle einf&uuml;gen. Es gibt drei M&ouml;glichkeiten, wie <span class="listing">INSERT</span> verwendet werden kann. In diesem Abschnitt folgt zun&auml;chst die einfachste Variante. Jetzt f&uuml;gen Sie Ihre ersten Daten in die Tabelle <span class="listing">filmdaten</span> ein:</p>
+<pre>INSERT INTO filmdaten (titel, hauptrolle, fsk, gedreht) VALUES
+(’Der Patriot’, ’Mel Gibson’, 16, 2001);</pre>
+<p>Wichtig ist, dass der Inhalt in der zweiten Klammerung mit der Reihenfolge der ersten Klammerung der Tabelle &uuml;bereinstimmen muss. Sie k&ouml;nnten diese Daten auch in einer anderen Reihenfolge in die Tabelle einlesen:</p>
+<pre>INSERT INTO filmdaten (hauptrolle, titel, gedreht, fsk) VALUES
+(’Mel Gibson’, ’Der Patriot’, 2001, 16);</pre>
+<p>Sie m&uuml;ssen also immer darauf achten, dass die in <span class="listing">VALUES</span> angegebenen Werte mit denen der ersten Klammerung einheitlich sind. Sie k&ouml;nnen nat&uuml;rlich auch mehrere Daten auf einmal in eine Tabelle einf&uuml;gen:</p>
+<pre>INSERT INTO filmdaten (titel, hauptrolle, fsk, gedreht) VALUES
+(’Braveheart’, ’Mel Gibson’, 16, 1998),
+(’Hello Mr. President’, ’Michael Douglas’, 6, 1995);</pre>
+<p>Die einzelnen Datens&auml;tze der Tabelle werden dabei jeweils mit einem Komma getrennt. Die Strings wurden hier zwar zwischen einzelne Hochkommata gestellt, k&ouml;nnen bei MySQL aber auch – wie Sie es aus C kennen – zwischen doppelte Hochkommata gestellt werden.</p>
+<a name="t312"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t313"></a><h3 class="t3">27.3.12 Datens&auml;tze ausw&auml;hlen<a id="RxxobKap02700204002CD91F044237" name="RxxobKap02700204002CD91F044237"></a> 
+      <a href="#t2t314"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t312"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999638" name="Xxx999638"></a><a id="Xxx999639" name="Xxx999639"></a>Jetzt zum wohl wichtigsten und am meisten angewandten Befehl in SQL: <span class="listing">SELECT</span>. Mit <span class="listing">SELECT</span> k&ouml;nnen Sie aus einer oder mehreren Tabellen Informationen zusammentragen. Zuerst sollen mittels <span class="listing">SELECT</span> alle Daten der Tabelle <span class="listing">filmdaten</span> angezeigt werden:</p>
+<pre>SELECT * FROM filmdaten;</pre>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/27_06.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein27_06.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 27.6   
+    </b>Datens&auml;tze selektieren</p>
+<p>Das Sternchen steht hier als ein Platzhalter f&uuml;r alle in der Tabelle vorhandenen Spalten. Dieser Platzhalter hat dieselbe Bedeutung, als wenn Sie Folgendes schreiben w&uuml;rden:</p>
+<pre>SELECT titel, hauptrolle, fsk, gedreht FROM filmdaten;</pre>
+<p>Auch hiermit werden alle Daten einer Tabelle ausgegeben. Mit <span class="listing">FROM</span> geben Sie die Tabelle an, die selektiert werden soll. Interessieren Sie sich nur f&uuml;r die Titel der Filme, k&ouml;nnen Sie <span class="listing">SELECT</span> folgenderma&szlig;en verwenden:</p>
+<pre>SELECT titel FROM filmdaten;</pre>
+<p>Wollen Sie hingegen nur die Daten der Filme ausgeben, bei denen Mel Gibson der Hauptdarsteller ist, verwenden Sie zus&auml;tzlich das SQL-Kommando <span class="listing">WHERE</span>:</p>
+<pre>SELECT * FROM filmdaten WHERE hauptrolle=’Mel Gibson’;</pre>
+<p>Oder wissen Sie nicht mehr genau, wie der Hauptdarsteller geschrieben wird:</p>
+<pre>SELECT * FROM filmdaten WHERE hauptrolle LIKE ‘Mel%’;</pre>
+<p>Hier wurde der Unsch&auml;rfe-Operator <span class="listing">LIKE</span> eingesetzt. Wollen Sie alle Filme sortiert nach Datum ausgeben lassen, erreichen Sie dies mit:</p>
+<pre>SELECT * FROM filmdaten ORDER BY gedreht ASC;</pre>
+<p>Mit dem SQL-Befehl <span class="listing">ORDER</span> <span class="listing">BY</span> sagen Sie dem Server, er soll die Daten geordnet ausgeben; in welcher Reihenfolge, geben Sie mit <span class="listing">ASC</span> (aufsteigend) oder <span class="listing">DESC</span> (absteigend) an. Sie k&ouml;nnen nat&uuml;rlich auch die Vergleichsoperatoren verwenden, die Sie bereits von C her kennen.</p>
+<a name="t313"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t314"></a><h3 class="t3">27.3.13 Ein fortgeschrittenes Szenario<a id="RxxobKap02700204002CD91F044247" name="RxxobKap02700204002CD91F044247"></a> 
+      <a href="#t2t315"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t313"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Ein Blick auf Ihre Datenbank <span class="listing">dvd_archiv</span> zeigt Ihnen, dass Sie einige Filme verliehen haben. Leider wissen Sie nicht mehr an wen. Da Sie sich ein wenig mit MySQL auskennen, l&ouml;sen Sie das Problem mit einer Datenbank. Zuerst erstellen Sie eine neue Tabelle <span class="listing">kontakt</span> in der Datenbank <span class="listing">dvd_archiv</span>:</p>
+<pre>CREATE TABLE kontakt(nname CHAR(30), vname CHAR(30),
+telefon BIGINT);</pre>
+<p>Als N&auml;chstes geben Sie die Daten f&uuml;r die Tabelle <span class="listing">kontakt</span> ein:</p>
+<pre>INSERT INTO kontakt(nname, vname, telefon) VALUES
+(’Meier’, ’Hans’, 12345676),
+(’M&uuml;ller’, ’Franz’, 3691215),
+(’Schiller’, ’Johann’, 48121620);</pre>
+<p>Jetzt ben&ouml;tigen Sie noch eine Tabelle, worin sich die Filme befinden, welche Sie verliehen haben und an wen:</p>
+<pre>CREATE TABLE verliehen(name CHAR(30), titel CHAR(255));</pre>
+<p>Sie lernen jetzt eine weitere Methode kennen, wie Sie Datens&auml;tze mit <span class="listing">INSERT</span> einlesen k&ouml;nnen:</p>
+<pre>INSERT INTO verliehen (name, titel) SELECT
+kontakt.nname, filmdaten.titel FROM
+kontakt, filmdaten WHERE
+filmdaten.titel = ’Der Patriot’ AND
+kontakt.nname = ’Meier’;</pre>
+<p>Hier f&uuml;gen Sie mittels <span class="listing">SELECT</span> Daten in die Tabelle <span class="listing">verliehen</span> ein. Mit den Zeilen</p>
+<pre>kontakt.nname, filmdaten.titel</pre>
+<p>haben Sie eine Verkn&uuml;pfung zweier Tabellen realisiert und zum ersten Mal Kontakt mit dem relationalen Modell gehabt. Denn obwohl beide Tabellen physisch voneinander getrennt sind, k&ouml;nnen diese mit <span class="listing">SELECT</span> verkn&uuml;pft werden. Neu ist auch die logische <span class="listing">AND-Verkn&uuml;pfung,</span> <span class="listing">welche</span> <span class="listing">Sie</span> <span class="listing">als</span> <span class="listing">C-Programmierer</span> <span class="listing">als</span> <span class="listing">&amp;&amp;</span> <span class="listing">kennen</span>. Wenn Sie jetzt einen Blick auf die Tabelle <span class="listing">verliehen</span> werfen, befindet sich jetzt darin tats&auml;chlich der Titel des Films und der Name, an wen Sie den Film verliehen haben:</p>
+<pre>SELECT * FROM verliehen;</pre>
+<p>Nun wollen Sie die Telefonnummer der Person ermitteln, damit Sie sich mit dieser in Verbindung setzen k&ouml;nnen. Versuchen Sie es einmal selbst in Worte zu fassen. Beispiel: Suche die Telefonnummer von einer Person, welcher ich einen Film geliehen habe. So setzen Sie dies in MySQL um:</p>
+<pre>SELECT telefon FROM kontakt, verliehen
+WHERE verliehen.name = kontakt.nname;</pre>
+<p>Ein echter MySQL-Guru geht dabei sicherlich noch eleganter zu Werke. Aber das ist jetzt nicht Ziel dieses Kapitels. Das Beispiel soll Ihnen zeigen, warum Sie gut beraten sind, eigene Client-Programme in C zu schreiben.</p>
+<a name="t314"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t315"></a><h3 class="t3">27.3.14 Datensatz l&ouml;schen<a id="RxxobKap02700204002CD91F044257" name="RxxobKap02700204002CD91F044257"></a> 
+      <a href="#t2t316"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t314"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999675" name="Xxx999675"></a>Hat Ihnen der Bekannte den Film wieder zur&uuml;ckgebracht, ist es an der Zeit, ihn aus der Tabelle <span class="listing">verliehen</span> wieder zu l&ouml;schen. Dies k&ouml;nnen Sie mit dem SQL-Befehl <span class="listing">DELETE</span> erledigen:<a id="Xxx999677" name="Xxx999677"></a></p>
+<pre>DELETE FROM verliehen WHERE titel = 'Der Patriot';</pre>
+<a name="t315"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t316"></a><h3 class="t3">27.3.15 Datensatz &auml;ndern<a id="RxxobKap02700204002CD91F04425A" name="RxxobKap02700204002CD91F04425A"></a> 
+      <a href="#t2t317"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t315"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999680" name="Xxx999680"></a>Mit dem SQL-Kommando <span class="listing">UPDATE</span> k&ouml;nnen Sie die einzelnen oder auch mehrere Datens&auml;tze in einer Tabelle &auml;ndern. Zus&auml;tzlich wird der Befehl <span class="listing">SET</span> dazu verwendet. Wollen Sie bspw. die Altersbeschr&auml;nkung f&uuml;r einen Film ver&auml;ndern, k&ouml;nnen Sie dabei so vorgehen:<a id="Xxx999682" name="Xxx999682"></a></p>
+<pre>UPDATE filmdaten SET fsk=12 WHERE fsk=6;</pre>
+<p>Damit werden alle Daten <span class="listing">fsk</span>, bei denen der Wert 6 betr&auml;gt, umge&auml;ndert in den Wert 12.</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard"><b>Hinweis   </b>L&ouml;schen Sie die Datenbank <span class="listing">dvd_Archiv</span> bitte nicht. Sie wird sp&auml;ter bei der C-API wieder ben&ouml;tigt.</p>
+</td>
+</tr>
+</table><br>
+<a name="t316"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t317"></a><h3 class="t3">27.3.16 Zugriffsrechte in MySQL<a id="RxxobKap02700204002CD91F044260" name="RxxobKap02700204002CD91F044260"></a> 
+      <a href="#t2t318"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t316"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Auf die Zugriffsrechte von MySQL soll hier nur kurz eingegangen werden. Die Zugriffsrechte von MySQL werden ebenfalls in Tabellen verwaltet. Wechseln Sie in die Datenbank und sehen Sie sich die Tabellen darin an:</p>
+<pre>USE mysql;
+SHOW TABLES;</pre>
+<p>Sechs Tabellen werden aufgelistet mit folgender Bedeutung:</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 27.6   
+    </b>Tabellen f&uuml;r die Erteilung der Zugriffsrechte von MySQL</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>Tabelle</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Bedeutung</b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">user
+</td>
+<td class="tabellentext" bgcolor="#000000">Darin befinden sich die Zugriffsrechte der Anwender, die auf alle Datenbanken und Tabellen zugreifen k&ouml;nnen.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">db
+</td>
+<td class="tabellentext" bgcolor="#000000">Darin befinden sich die Zugriffsrechte der Anwender, die auf eine bestimmte Datenbank zugreifen k&ouml;nnen.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">tables_priv
+</td>
+<td class="tabellentext" bgcolor="#000000">Darin befinden sich die Zugriffsrechte der Anwender, die auf eine bestimmte Tabelle zugreifen k&ouml;nnen.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">columns_priv
+</td>
+<td class="tabellentext" bgcolor="#000000">Darin befinden sich die Zugriffsrechte der Anwender, die auf eine bestimmte Spalte zugreifen k&ouml;nnen.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">host
+</td>
+<td class="tabellentext" bgcolor="#000000">Darin befinden sich die Zugriffsrechte f&uuml;r bestimmte Rechner, von denen auf die Datenbank zugegriffen werden kann.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">func
+</td>
+<td class="tabellentext" bgcolor="#000000">Diese Tabelle ist bisher noch undokumentiert. Darin sollen in Zukunft die Zugriffsrechte einzelner user defined functions eingetragen werden.
+</td>
+</tr>
+</table><br>
+<p>Anhand dieser Tabelle lassen sich folgende Zugriffslevel zur Vergabe von Benutzerrechten vergeben:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"><b> Globale</b> <b>Rechte</b> – bezieht sich auf alle Datenbanken.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"><b> Datenbank</b> – bezieht sich auf eine bestimmte Datenbank.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"><b> Tabelle</b> – bezieht sich auf eine bestimmte Tabelle in einer Datenbank.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"><b> Spalte</b> – bezieht sich auf eine bestimmte Spalte in einer Datenbank.</td>
+</tr>
+</table>
+<p>Benutzerrechte vergeben k&ouml;nnen Sie mit dem SQL-Kommando <span class="listing">GRANT</span> und die Benutzerrechte entziehen mit <span class="listing">REVOKE</span>. Da das Thema recht umfangreich ist, sei hierf&uuml;r auf die MySQL-Dokumentation verwiesen.</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard"><b>Hinweis   </b>Bei einer Neuinstallation von MySQL ist das root-Passwort nicht gesetzt. Logisch, sonst k&ouml;nnten Sie den Client nicht starten. In der Praxis empfiehlt es sich, ein Passwort zu verwenden. Die Listings, die Sie in den folgenden Abschnitten erstellen, gehen davon aus, dass noch kein Passwort f&uuml;r root vergeben wurde. Falls Sie bereits das Passwort f&uuml;r root ver&auml;ndert haben, &auml;ndern Sie dies auch in den Listings ab.</p>
+</td>
+</tr>
+</table><br>
+<a name="t317"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t318"></a><h3 class="t3">27.3.17 &Uuml;bersicht &uuml;ber einige SQL-Kommandos<a id="RxxobKap02700204002CD91F04427D" name="RxxobKap02700204002CD91F04427D"></a> 
+      <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t317"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999741" name="Xxx999741"></a><a id="Xxx999742" name="Xxx999742"></a>Damit Sie im weiteren Verlauf nicht immer wieder zu den einzelnen Abschnitten zur&uuml;ckbl&auml;ttern m&uuml;ssen, folgt hier ein kurzer &Uuml;berblick der SQL-Kommandos, die Sie kennen gelernt haben, und ihre jeweilige Bedeutung:</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 27.7   
+    </b>&Uuml;bersicht zu einigen g&auml;ngigen  MySQL-Kommandos</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>SQL-Kommando</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Bewirkt</b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">CREATE DATABASE datenbank;
+</td>
+<td class="tabellentext" bgcolor="#000000">Eine Datenbank erzeugen
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">SHOW DATABASES;
+</td>
+<td class="tabellentext" bgcolor="#000000">Anzeigen einer Datenbank
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">DROP DATABASE datenbank;
+</td>
+<td class="tabellentext" bgcolor="#000000">Eine Datenbank l&ouml;schen
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">USE datenbank;
+</td>
+<td class="tabellentext" bgcolor="#000000">Datenbank wechseln
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">CREATE TABLE tabelle
+(Spaltenname Datentyp,
+ Spaltenname Datentyp,
+ Spaltenname Datentyp);
+</td>
+<td class="tabellentext" bgcolor="#000000">Eine Tabelle erstellen
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">SHOW TABLES;
+</td>
+<td class="tabellentext" bgcolor="#000000">Tabelle anzeigen
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">EXPLAIN tabelle;
+</td>
+<td class="tabellentext" bgcolor="#000000">Tabellendefinition &uuml;berpr&uuml;fen
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">DROP TABLE IF EXISTS tabelle;
+</td>
+<td class="tabellentext" bgcolor="#000000">Tabelle l&ouml;schen
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">ALTER TABLE tabelle
+ADD bezeichner_neu datentype
+AFTER bezeichner;
+</td>
+<td class="tabellentext" bgcolor="#000000">Daten in die Tabelle einf&uuml;gen
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">ALTER TABLE tabelle
+-&gt;DROP spaltennamen;
+</td>
+<td class="tabellentext" bgcolor="#000000">Daten aus der Tabelle entfernen
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">ALTER TABLE tabelle
+CHANGE alter_bezeichner
+neuer_bezeichner Datentyp;
+</td>
+<td class="tabellentext" bgcolor="#000000">Bezeichner &auml;ndern
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">ALTER TABLE tabelle MODIFY
+bezeichner datentype_neu;
+</td>
+<td class="tabellentext" bgcolor="#000000">Datentyp von Bezeichner &auml;ndern
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">INSERT INTO tabelle
+(bezeichner1, bezeichner2,
+ bezeichner3, bezeichner4)
+VALUES
+('foo', 'baa', 99, 66);
+</td>
+<td class="tabellentext" bgcolor="#000000">Datens&auml;tze in Tabelle eingeben 
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">SELECT * FROM tabelle;
+</td>
+<td class="tabellentext" bgcolor="#000000">Alle Datens&auml;tze einer Tabelle ausgeben
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">SELECT bezeichner FROM tabelle;
+</td>
+<td class="tabellentext" bgcolor="#000000">Einzelne Datens&auml;tze einer Tabelle ausgeben
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">SELECT * FROM filmdaten
+WHERE hauptrolle='foo';
+</td>
+<td class="tabellentext" bgcolor="#000000">Datens&auml;tze einer Tabelle mit bestimmtem Inhalt ausgeben
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">SELECT * FROM tabelle
+ORDER BY bezeichner ASC;
+</td>
+<td class="tabellentext" bgcolor="#000000">Datens&auml;tze sortiert ausgeben (aufsteigend)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">SELECT * FROM tabelle
+ORDER BY bezeichner DESC;
+</td>
+<td class="tabellentext" bgcolor="#000000">Datens&auml;tze sortiert ausgeben (absteigend)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">DELETE FROM tabelle
+WHERE bezeichner = 'foo';
+</td>
+<td class="tabellentext" bgcolor="#000000">Datensatz aus Tabelle mit bestimmtem Inhalt l&ouml;schen
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">UPDATE tabelle
+SET bezeichner=12
+WHERE bezeichner=6;
+</td>
+<td class="tabellentext" bgcolor="#000000">Datensatz aus Tabelle mit bestimmtem Inhalt &auml;ndern
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">GRANT ALL ON tabelle
+TO benutzername
+</td>
+<td class="tabellentext" bgcolor="#000000">Benutzerrechte vergeben
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">REVOKE ALL ON tabelle
+TO benutzername
+</td>
+<td class="tabellentext" bgcolor="#000000">Benutzerrechte entziehen
+</td>
+</tr>
+</table><br>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_027_001.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_027_003.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td width="10" valign="top">&nbsp;&nbsp;</td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/899?GPP=opc">
+                                        <img src="common/643_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C von A bis Z" title="Zum Katalog: C von A bis Z">
+                                        <br /><strong>C von A bis Z</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Ihre Meinung?</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1007?GPP=opc">
+                        <img src="common/683_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Shell-Programmierung" title="Zum Katalog: Shell-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Shell-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1137?GPP=opc">
+                        <img src="common/749_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux-UNIX-Programmierung" title="Zum Katalog: Linux-UNIX-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux-UNIX-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1004?GPP=opc">
+                        <img src="common/644_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C/C++" title="Zum Katalog: C/C++"><br /><br /><br /><br /><br /><br /><br />&nbsp;C/C++</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/880?GPP=opc">
+                        <img src="common/573_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/967?GPP=opc">
+                        <img src="common/626_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Reguläre Ausdrücke" title="Zum Katalog: Reguläre Ausdrücke"><br /><br /><br /><br /><br /><br /><br />&nbsp;Reguläre Ausdrücke</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/941?GPP=opc">
+                        <img src="common/677_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Shopping</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opc"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table>
+<br /><br />
+<hr width="70%" align="center"><br />
+<div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2006</b><br>F&uuml;r Ihren privaten Gebrauch d&uuml;rfen Sie die Online-Version nat&uuml;rlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschlie&szlig;lich aller seiner Teile ist urheberrechtlich gesch&uuml;tzt. Alle Rechte vorbehalten einschlie&szlig;lich der Vervielf&auml;ltigung, &Uuml;bersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

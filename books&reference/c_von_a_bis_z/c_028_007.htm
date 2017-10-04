@@ -1,0 +1,638 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: C von A bis Z – 28.8 Weitere Anmerkungen zur Netzwerkprogrammierung</title>
+<meta name="title" content="Galileo Computing :: C von A bis Z">
+<meta name="author" content="J&uuml;rgen Wolf">
+<meta name="publisher" content="Galileo Press 2006">
+<meta name="copyright" content="Galileo Press 2006">
+<meta name="description" content="C von A bis Z - Das umfassende Handbuch f&uuml;r Linux, Unix und Windows – 2., aktualisierte und erweiterte Auflage 2006, geb., mit CD und Referenzkarte – ISBN 3-89842-643-2">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="c_028_006.htm">
+<link rel="next" href="c_029_000.htm"><script type="text/javascript" language="JavaScript"><!--
+function OpenWin(url,name,height,width)
+{
+  var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+  InfoWin.focus();
+}
+//--></script></head>
+<body vlink="#000099" link="#000099" alink="#000099">
+    <table width="100%" height="74" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+        <tr>
+            <td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+            <td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opc"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger." title="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger."></a></td>
+        </tr>
+    </table>
+    <div align="right"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger.</a></div>
+    <br />
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td width="156" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
+        <tr>
+            <td colspan="2" class="nav1" align="left" valign="top" height="150">
+                <table class="tbl1" width="150" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td class="tbl2" height="25"><a class="nav" href="./index.htm">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000Vorwort_000.htm#Xxx999266">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000VorwortGutachter_000.htm#Xxx999275">Vorwort des Gutachters</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_001_000.htm#Xxx999328">1 Einstieg in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_002_000.htm#Xxx999328">2 Das erste Programm</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_003_000.htm#Xxx999328">3 Zeichens&auml;tze</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_004_000.htm#Xxx999329">4 Kommentare in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_005_000.htm#Xxx999330">5 Formatierte Eingabe mit scanf()</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_006_000.htm#Xxx999330">6 Formatierte Ausgabe mit printf</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_007_000.htm#Xxx999329">7 Elementare Datentypen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_008_000.htm#Xxx999328">8 Operatoren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_009_000.htm#Xxx999328">9 Typenumwandlung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_010_000.htm#Xxx999328">10 Kontrollstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_011_000.htm#Xxx999328">11 Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_012_000.htm#Xxx999328">12 Pr&auml;prozessor-Direktiven</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_013_000.htm#Xxx999328">13 Arrays</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_014_000.htm#Xxx999328">14 Zeiger (Pointer)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_015_000.htm#Xxx999328">15 Kommandozeilenargumente</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_016_000.htm#Xxx999328">16 Dynamische Speicherverwaltung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_017_000.htm#Xxx999328">17 Strukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_018_000.htm#Xxx999328">18 Ein-/Ausgabe-Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_019_000.htm#Xxx999328">19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_020_000.htm#Xxx999328">20 Arbeiten mit variablen langen Argumentlisten – &lt;stdarg.h&gt;</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_021_000.htm#Xxx999328">21 Zeitroutinen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_022_000.htm#Xxx999328">22 Weitere Headerdateien und ihre Funktionen (ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_023_000.htm#Xxx999328">23 Dynamische Datenstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_024_000.htm#Xxx999328">24 Algorithmen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_025_000.htm#Xxx999328">25 Sicheres Programmieren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_026_000.htm#Xxx999328">26 CGI mit C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_027_000.htm#Xxx999328">27 MySQL und C</A></td>
+</tr>
+<tr>
+<td><A class="navh" href="./c_028_000.htm#Xxx999328">28 Netzwerkprogrammierung und Cross-Plattform-Entwicklung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_029_000.htm#Xxx999328">29 Wie geht’s jetzt weiter?</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_030Anhang_000.htm#Xxx999266">A Anhang</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./stichwort.htm#Xxx512322">Index</a></td>
+</tr>
+<tr><td><br /><a class="navnav" href="http://download.galileo-press.de/openbook/c_von_a_bis_z/galileocomputing_c_von_a_bis_z.zip"><strong>Download:</strong><br />- ZIP, ca. 8,5 MB</a></td></tr>
+<tr><td><a class="navnav" href="http://www.galileocomputing.de/899?GPP=opc">Buch bestellen</a></td></tr>
+<tr><td><a class="navnav" href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)">Ihre Meinung?</a><br /><br /></td></tr>
+</table></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10"></td>
+<td width="85%" valign="top" align="center">
+    <div align="center">
+        <table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+            <tr>
+                <td width="100%" class="start" colspan="1" height="22" align="center">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_028_006.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Galileo Computing /</a><a class="navnav" href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"> &lt;openbook&gt; /</a><a href="./index.htm" class="navnav"> C von A bis Z</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_029_000.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" valign="top">
+    <table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+        <tr>
+            <td colspan="2"><a href="http://www.galileocomputing.de/899?GPP=opc" class="buchtitel">C von A bis Z</a><span class="autor"> von J&uuml;rgen Wolf</span><br><span class="untertitel">Das umfassende Handbuch f&uuml;r Linux, Unix und Windows <br />– 2., aktualisierte und erweiterte Auflage 2006</span></td>
+        </tr>
+        <tr>
+            <td valign="top" width="90"><a href="http://www.galileocomputing.de/899?GPP=opc"><img src="common/643.gif" border="0" alt="Buch: C von A bis Z" title="Buch: C von A bis Z" align="left"><br /><br /><span class="autor"><strong>C von A bis Z</strong><br />1.116 S., mit CD, Referenzkarte, 39,90 Euro<br />Galileo Computing<br />ISBN 3-89842-643-2</span></a></a></td>
+            <td width="80%">
+<table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="3" class="kap"><b>Kapitel <a href="./c_028_000.htm#RxxobKap02800004002D021F04318C">28 Netzwerkprogrammierung und Cross-Plattform-Entwicklung</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_028_000.htm#RxxobKap02800004002D021F043192">28.1 Begriffe zur Netzwerktechnik</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_028_000.htm#RxxobKap02800004002D021F043194">28.1.1 IP-Nummern</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_028_000.htm#RxxobKap02800004002D021F04319E">28.1.2 Portnummer</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_028_000.htm#RxxobKap02800004002D021F0431A2">28.1.3 Host- und Domainname</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_028_000.htm#RxxobKap02800004002D021F0431A6">28.1.4 Nameserver</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_028_000.htm#RxxobKap02800004002D021F0431A8">28.1.5 Das IP-Protokoll</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_028_000.htm#RxxobKap02800004002D021F0431AC">28.1.6 TCP und UDP</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_028_000.htm#RxxobKap02800004002D021F0431B2">28.1.7 Was sind Sockets?</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_028_001.htm#RxxobKap02800104002D1D1F01518C">28.2 Headerdateien zur Socketprogrammierung</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_028_001.htm#RxxobKap02800104002D1D1F01518E">28.2.1 Linux/UNIX</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_028_001.htm#RxxobKap02800104002D1D1F015193">28.2.2 Windows</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_028_002.htm#RxxobKap02800204002D1E1F02A18C">28.3 Client-/Server-Prinzip</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_028_002.htm#RxxobKap02800204002D1E1F02A190">28.3.1 Loopback-Interface</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_028_003.htm#RxxobKap02800304002D1F1F03918C">28.4 Erstellen einer Client-Anwendung</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_028_003.htm#RxxobKap02800304002D1F1F03918E">28.4.1 socket() – Erzeugen eines Kommunikationsendpunktes</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_028_003.htm#RxxobKap02800304002D1F1F0391AC">28.4.2 connect() – Client stellt Verbindung zum Server her</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_028_003.htm#RxxobKap02800304002D1F1F0391DA">28.4.3 Senden und Empfangen von Daten</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_028_003.htm#RxxobKap02800304002D1F1F0391F3">28.4.4 close(), closesocket()</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_028_004.htm#RxxobKap02800404002D201F01818C">28.5 Erstellen einer Server-Anwendung</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_028_004.htm#RxxobKap02800404002D201F01818E">28.5.1 bind() – Festlegen einer Adresse aus dem Namensraum</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_028_004.htm#RxxobKap02800404002D201F018199">28.5.2 listen() – Warteschlange f&uuml;r eingehende Verbindungen einrichten</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_028_004.htm#RxxobKap02800404002D201F0181A2">28.5.3 accept() und die Serverhauptschleife</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_028_005.htm#RxxobKap02800504002D211F04918C">28.6 (Cross-Plattform)TCP-Echo-Server</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_028_005.htm#RxxobKap02800504002D211F04918E">28.6.1 Der Client</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_028_005.htm#RxxobKap02800504002D211F049191">28.6.2 Der Server</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_028_006.htm#RxxobKap02800604002D221F02418C">28.7 Cross-Plattform-Development</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_028_006.htm#RxxobKap02800604002D221F02418E">28.7.1 Abstraktion Layer</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_028_006.htm#RxxobKap02800604002D221F024190">28.7.2 Headerdatei Linux/UNIX</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_028_006.htm#RxxobKap02800604002D221F024192">28.7.3 Linux/UNIX-Quelldatei</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_028_006.htm#RxxobKap02800604002D221F024196">28.7.4 Headerdatei MS-Windows</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_028_006.htm#RxxobKap02800604002D221F024198">28.7.5 Windows-Quelldatei</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_028_006.htm#RxxobKap02800604002D221F02419A">28.7.6 All together – die main-Funktionen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_028_006.htm#RxxobKap02800604002D221F0241AE">28.7.7 Ein UDP-Beispiel</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_028_006.htm#RxxobKap02800604002D221F0241BA">28.7.8 Mehrere Clients gleichzeitig behandeln</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a class="navh" href="#RxxobKap02800704002D231F02218C">28.8 Weitere Anmerkungen zur Netzwerkprogrammierung</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02800704002D231F02218E">28.8.1 Das Datenformat</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02800704002D231F022193">28.8.2 Der Puffer</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02800704002D231F022199">28.8.3 Portabilit&auml;t</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02800704002D231F02219B">28.8.4 Von IPv4 nach IPv6</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02800704002D231F0221AA">28.8.5 RFC-Dokumente (Request for Comments)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02800704002D231F0221AC">28.8.6 Sicherheit</a></b></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td>
+<a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2">28.8 Weitere Anmerkungen zur Netzwerkprogrammierung<a id="RxxobKap02800704002D231F02218C" name="RxxobKap02800704002D231F02218C"></a> 
+      <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"></h2>
+<p>Mit diesem kleinen Kapitel haben Sie sich jetzt den Grundstein zur Netzwerkprogrammierung gelegt. Bedenken Sie aber, dass dieses Thema ein noch viel gr&ouml;&szlig;eres Spektrum umfasst, als hier beschrieben. Dazu k&ouml;nnte (will) man ein ganzes Buch schreiben (an mir solls nicht liegen ;-)). Bevor Sie sich jetzt in das Abenteuer st&uuml;rzen, eigene kleine Programme mit Netzwerkfunktionalit&auml;t zu schreiben, m&ouml;chte ich Ihnen hier noch in kleinen Abschnitten einige Dinge hervorheben, auf die Sie besonders ein Augenmerk legen sollten (bzw. mit denen Sie sich noch intensiver auseinander setzen sollten) – insbesondere, wenn Ihre Anwendung nicht so funktioniert, wie Sie es gerne h&auml;tten.</p>
+<a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3">28.8.1 Das Datenformat<a id="RxxobKap02800704002D231F02218E" name="RxxobKap02800704002D231F02218E"></a> 
+      <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999331" name="Xxx999331"></a>In den Beispielen, die Sie hier erstellt haben, wurden lediglich Zeichenketten verschickt. Meistens liegen die Daten aber nicht in einem solch bequemen Format vor. Wenn Sie bspw. Ganzzahlen oder Gleitkommazahlen versenden wollen, verwenden Sie am besten <span class="listing">sscanf()</span> und <span class="listing">snprintf()</span>.</p>
+<p>Und was ist mit bin&auml;ren Strukturen (<span class="listing">struct</span>)? Auch hier empfiehlt es sich, die komplette Struktur in eine Zeichenkette zu konvertieren, bevor Sie diese versenden. Auf der anderen Seite m&uuml;ssen selbstverst&auml;ndlich ebenfalls bestimmte Vorkehrungen getroffen werden.</p>
+<p>Sicherlich, letztendlich entscheiden Sie, wie die Daten zwischen Client und Server hin- und hergeschickt werden. Allerdings sollten Sie bedenken, Sie wissen nicht immer, auf was f&uuml;r einen Rechner die Daten &uuml;bertragen werden. Schicken Sie von einem Little-Endian-Rechner einen Integer an ein Big-Endian-System, sind Probleme vorprogrammiert. Oder was ist, wenn Sie von einem 64Bit-Rechner einen Integer an einen 32Bit-Rechner verschicken? Sie wissen also nie genau, welche Gr&ouml;&szlig;e die Datentypen <span class="listing">int</span>, <span class="listing">long</span> und <span class="listing">short</span> auf der Gegenseite haben. Zwar gibt es (seit der Einf&uuml;hrung des C99-Standards) die unabh&auml;ngigen Typen wie bspw. <span class="listing">int8_t</span>, <span class="listing">int16_t</span> etc. und <span class="listing">uint8_t</span> etc. in der Headerdatei <span class="listing">stdint.h</span>, was aber recht wenig n&uuml;tzt, weil dieser Standard von einigen Compiler-Herstellern (insbes. auf Windows-Systemen) unzureichend bis &uuml;berhaupt nicht beachtet wird.</p>
+<p>Daher die Empfehlung: Senden Sie numerische Daten immer im Textformat an die Gegenseite. Nat&uuml;rlich setzt dies voraus, dass die Gegenseite denselben Zeichensatz verwendet. Wenn Sie einen String an einen Rechner schicken, worauf sich nur japanische Schriftarten befinden, kommt nichts dabei raus. Ebenso m&uuml;ssen Sie unsere landestypischen Umlaute ber&uuml;cksichtigen, welche meist auf einem Rechner, der bspw. in der USA steht, auch nicht richt dargestellt werden k&ouml;nnen. Der Nachteil: Es wird Bandbreite verschwendet. Eine 64Bit-Nummer bspw. kann n&auml;mlich &uuml;ber 20 Zeichen lang sein, w&auml;hrend im Bin&auml;rformat gerade mal 8 Zeichen daf&uuml;r ben&ouml;tigt werden. Aber es ist Ihre Entscheidung!</p>
+<a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3">28.8.2 Der Puffer<a id="RxxobKap02800704002D231F022193" name="RxxobKap02800704002D231F022193"></a> 
+      <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999337" name="Xxx999337"></a>Bisher mussten Sie sich nie so richtig um die Pufferung der Daten k&uuml;mmern. Bspw. bei Funktionen wie <span class="listing">fgets()</span> oder <span class="listing">fputs()</span> hat Ihnen das System die Pufferung abgenommen. Sie mussten hierbei nur angeben, wie gro&szlig; dieser sein sollte. In der Netzwerkprogrammierung m&uuml;ssen Sie sich nun selbst darum k&uuml;mmern. Mit den Funktionen <span class="listing">send()/sendto()</span> und <span class="listing">recv()/recvfrom()</span> k&ouml;nnen bei den Sockets erst mal weniger Bytes ein- bzw. ausgegeben werden wie angenommen. Das Problem ist, dass das System (der Kernel) f&uuml;r das Socket eine bestimmte Puffergr&ouml;&szlig;e vorgibt. Das bedeutet, wenn der Puffer voll ist, liest <span class="listing">recv()/recvfrom()</span> bzw.  schreibt  <span class="listing">send()/sendto()</span> aus diesem bzw. in diesen Puffer – selbst wenn noch nicht alle gew&uuml;nschten Daten ausgelesen bzw. geschrieben wurden.</p>
+<p>Wenn Sie die Daten in Form eines <span class="listing">char</span>-Arrays mit einfachem Text &uuml;bertragen, d&uuml;rften Sie keine Probleme mit der Pufferung bekommen, sofern Sie einen String ordentlich mit <span class="listing">\0</span> abschlie&szlig;en. Sobald allerdings bin&auml;re Daten &uuml;bertragen werden sollen, gibt es Probleme damit. Bei bin&auml;ren Daten k&ouml;nnen Sie sich nicht darauf verlassen, dass diese mit einem <span class="listing">\0</span> abgeschlossen werden – weshalb Sie sich hierbei selbst um das letzte Zeichen k&uuml;mmern m&uuml;ssen.</p>
+<p>Welche Puffergr&ouml;&szlig;e Sie verwenden, bleibt Ihnen &uuml;berlassen und h&auml;ngt vom Anwendungsfall ab. Allerdings macht ein byteweiser Puffer genauso wenig Sinn wie ein &uuml;berdimensional gro&szlig;er Puffer. Es hat sich bew&auml;hrt, eine  Puffergr&ouml;&szlig;e von 512 oder 1024 KB zu verwenden.</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard"><b>Hinweis   </b>Der Puffer ist Ihr wichtigstes Kommunikationswerkzeug, mit dem Sie Daten austauschen k&ouml;nnen. Sie sollten daher immer bedenken, wenn Sie etwas darin hineinschreiben, wie dies auf der anderen Seite wieder herauskommt, und eventuell auch &uuml;berpr&uuml;fen, was herauskommt. Denn, wenn h&auml;ufig etwas nicht klappt, dann ist es die Art und Weise, wie die Daten beim Empf&auml;nger ankommen. Nicht selten ist es ein nicht terminierter String, der f&uuml;r Zeichensalat sorgt.</p>
+</td>
+</tr>
+</table><br>
+<a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3">28.8.3 Portabilit&auml;t<a id="RxxobKap02800704002D231F022199" name="RxxobKap02800704002D231F022199"></a> 
+      <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999346" name="Xxx999346"></a>Sie haben in diesem Kapitel gesehen, wie man mit einem abstrakten Layer eine portable Anwendung (nicht nur) f&uuml;r die Netzwerkprogrammierung erstellen kann. Mit Linux/UNIX und MS-Windows haben Sie in den Beispielen eine recht gro&szlig;e Zielgruppe eingeschlossen. Bedenken Sie allerdings, dass es auch noch Systeme jenseits dieser gibt. Gemeint sind bspw. Systeme wie QNX oder SGI IRIX. Zwar sind die Unterschiede der allgemeinen Socket-Programmierung nicht allzu gravierend, dennoch m&uuml;ssen Sie sich auch diesbez&uuml;glich ggf. schlau machen, welche Differenzen es dabei gibt.</p>
+<a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3">28.8.4 Von IPv4 nach IPv6<a id="RxxobKap02800704002D231F02219B" name="RxxobKap02800704002D231F02219B"></a> 
+      <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999349" name="Xxx999349"></a>Da IPv6 noch nicht eingef&uuml;hrt wurde (und eine Einf&uuml;hrung noch nicht in Sicht ist) wurden die Eigenheiten in den vorangegangenen Abschnitten nicht n&auml;her behandelt. Allerdings gibt es hierzu eigentlich auch gar nicht die Welt zu berichten. Daher hier eine kurze Zusammenfassung, f&uuml;r den Fall der F&auml;lle, wie Sie Ihre Anwendungen von IPv4 nach IPv6 portieren k&ouml;nnten.</p>
+<h4 class="t4">Konstanten</h4>
+<p>Die IPv4-Konstanten <span class="listing">AF_INET</span> bzw. <span class="listing">PF_INET</span> wurden durch <span class="listing">AF_INET6</span> bzw. <span class="listing">PF_INET6</span> ersetzt. Es muss hierbei eigentlich nur die Konstante um eine <span class="listing">6</span> erweitert werden. Es ist auch kein Fehler, wenn Sie auch bei einer IPv4-Software gleich die neuen Konstanten verwenden, da ein Programm, welches auf IPv6 portiert wurde, auch weiterhin auf IPv4-Rechnern l&auml;uft (vorausgesetzt, der Rechner ist »dual-stacked«, was in Zukunft bei IPv6-f&auml;higen Rechnern immer der Fall sein sollte).</p>
+<p>Was sich auch ver&auml;ndert hat, ist die Konstante <span class="listing">INADDR_ANY</span>, die beim Binden von Sockets an einen Port angeben wird, und die bedeutet, dass Pakete von jedem Interface angenommen werden. Ein wenig ungew&ouml;hnlich ist, dass die neue Konstante kleingeschrieben wird – <span class="listing">in6addr_any</span>. Der Grund hierf&uuml;r: Die alte Struktur in_<span class="listing">addr</span> bestand nur aus einem "<span class="listing">unsigned</span> <span class="listing">long</span> <span class="listing">int</span> <span class="listing">s_addr</span>" und somit war die Konstante <span class="listing">INADDR_ANY</span> auch nur eine Zahl. Da die Adresse bei IPv6 128 Bit breit ist, ist dies nicht mehr m&ouml;glich (da kein portabler Datentyp mit dieser Breite existiert), weshalb es sich nun um ein Array handelt:</p>
+<pre>struct in6_addr {
+   union  {
+      uint8_t  u6_addr8[16];
+      uint16_t u6_addr16[8];
+      uint32_t u6_addr32[4];
+   } in6_u;
+#define s6_addr    in6_u.u6_addr8
+#define s6_addr16  in6_u.u6_addr16
+#define s6_addr32  in6_u.u6_addr32
+};</pre>
+<h4 class="t4">Strukturen</h4>
+<p>Nachdem <span class="listing">in_addr</span> durch <span class="listing">in6_addr</span> ersetzt wurde (s.o.), ist es auch n&ouml;tig, die Struktur <span class="listing">sockaddr_in</span> anzupassen:</p>
+<pre>struct sockaddr_in6 {
+   sa_family_t sin6_family     /* Address family – AF_INET6 */
+   in_port_t sin6_port;        /* Transport layer port # */
+   uint32_t sin6_flowinfo;     /* IPv6 flow information */
+   struct in6_addr sin6_addr;  /* IPv6 address */
+   uint32_t sin6_scope_id;     /* IPv6 scope-id */
+};</pre>
+<p>Au&szlig;er, dass die Adressstruktur ver&auml;ndert wurde, wurden noch die zus&auml;tzlichen Strukturvariablen <span class="listing">sin6_flowinfo</span> und <span class="listing">sin6_scope_id</span> hinzugef&uuml;gt.</p>
+<h4 class="t4">Funktionen</h4>
+<p>Der Gro&szlig;teil der Socket-API-Funktionen ist gleich geblieben. Ver&auml;ndert (hinzugef&uuml;gt) wurden lediglich die meisten Adressaufl&ouml;sungs- und Konvertierungsfunktionen. So werden die Funktionen (wurde bereits im Buch erw&auml;hnt) <span class="listing">inet_aton()</span> bzw. <span class="listing">inet_ntoa()</span> durch die Funktionen <span class="listing">inet_pton()</span> bzw. <span class="listing">inet_ntop()</span> ersetzt. Da diese neuen Funktionen jetzt nicht mehr auf Zahlen operieren, sondern auf den konkreten Adressstrukturen (z.B. <span class="listing">in6_addr</span>), unterst&uuml;tzen sie somit auch beliebige Adress-Familien.</p>
+<p>Noch wichtiger sind die neu hinzugekommenen Funktionen <span class="listing">getaddrinfo()</span> und <span class="listing">getnameinfo()</span>. Diese wurden als Ersatz f&uuml;r die Funktionen <span class="listing">gethostbyname()</span>/<span class="listing">gethostbyaddr()</span> und <span class="listing">getipnodebyname()</span>/<span class="listing">getipnodebyaddr()</span> eingef&uuml;hrt und haben den Vorteil, dass sie direkt <span class="listing">sockaddr</span>-Strukturen bearbeiten. Des Weiteren wurde noch die Funktion <span class="listing">gethostbyname2()</span> hinzugef&uuml;gt, wobei es sich allerdings nur um eine reine GNU-Extension handelt!</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard"><b>Hinweis   </b>All diese Funktionen stehen Ihnen &uuml;brigens auch schon f&uuml;r IPv4 zur Verf&uuml;gung, weshalb es nicht falsch sein kann, diese jetzt schon zu verwenden, um eine eventuell sp&auml;tere Portierung zu erleichtern.</p>
+</td>
+</tr>
+</table><br>
+<a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3">28.8.5 RFC-Dokumente  (Request for Comments)<a id="RxxobKap02800704002D231F0221AA" name="RxxobKap02800704002D231F0221AA"></a> 
+      <a href="#t2t37"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999367" name="Xxx999367"></a>Sie wollen einen HTTP-, einen FTP- oder einen SMPT-Server bzw. einen Client erstellen, der damit kommuniziert, und wissen nicht, wo Sie anfangen sollen. Dies ist eine beliebte Frage in den Foren. Wie Sie bereits erfahren haben, findet die Kommunikation zwischen dem Server und Client mit Protokollen statt (vergleichbar mit den verschiedenen Sprachen dieser Welt). Ein Webclient und ein Webserver bspw. unterhalten sich anders als ein Mailclient und ein Mailserver. All diese Standard-Protokolle werden unter dem Namen RFC (Request for Comments) gesammelt. RFCs sind eine Reihe von technischen Dokumentationen zum Internet, welche ihren Ursprung zu ARPANET-Zeiten 1969 hatten. Einen gewaltigen Fundus zur RFC-Sammlung finden Sie im Internet unter <a href="http://www.ietf.org/" target="_blank">http://www.ietf.org/</a> (The Internet Engineering Task Force).</p>
+<a name="t36"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t37"></a><h3 class="t3">28.8.6 Sicherheit<a id="RxxobKap02800704002D231F0221AC" name="RxxobKap02800704002D231F0221AC"></a> 
+      <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t36"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999370" name="Xxx999370"></a>… und dass Wichtigste zum Schluss. Mit den Kenntnissen der Netzwerkprogrammierung in C haben Sie auch das gef&auml;hrlichste Kapitel in C kennen gelernt. Die meisten Programme, die angegriffen werden, sind nicht Ihr Editor oder Ihre Entwicklungsumgebung, sondern die Programme, die mit dem Netz verbunden und somit meistens auch f&uuml;r ALLE erreichbar sind. Ein Buffer Overflow bspw. bei einer Netzwerk-Anwendung kann sehr b&ouml;se Folgen haben (beliebtes L&auml;sterbeispiel der Internet Explorer (alias Internet Exploiter)).</p>
+<p>Des Weiteren sollten Sie beachten, dass die Daten, die Sie &uuml;bers Netzwerk versenden, jederzeit abgefangen werden k&ouml;nnen. Daher empfiehlt es sich, bei sicherheitsrelevanten Daten (bspw. Kundendaten) diese verschl&uuml;sselt zu versenden. Die Daten k&ouml;nnen zwar weiterhin abgefangen werden, aber bei einer guten Verschl&uuml;sselung sind diese Daten f&uuml;r den »Sniffer« nicht mehr lesbar – es sei denn, er kann die Verschl&uuml;sselung knacken.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_028_006.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_029_000.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td width="10" valign="top">&nbsp;&nbsp;</td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/899?GPP=opc">
+                                        <img src="common/643_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C von A bis Z" title="Zum Katalog: C von A bis Z">
+                                        <br /><strong>C von A bis Z</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Ihre Meinung?</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1007?GPP=opc">
+                        <img src="common/683_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Shell-Programmierung" title="Zum Katalog: Shell-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Shell-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1137?GPP=opc">
+                        <img src="common/749_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux-UNIX-Programmierung" title="Zum Katalog: Linux-UNIX-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux-UNIX-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1004?GPP=opc">
+                        <img src="common/644_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C/C++" title="Zum Katalog: C/C++"><br /><br /><br /><br /><br /><br /><br />&nbsp;C/C++</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/880?GPP=opc">
+                        <img src="common/573_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/967?GPP=opc">
+                        <img src="common/626_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Reguläre Ausdrücke" title="Zum Katalog: Reguläre Ausdrücke"><br /><br /><br /><br /><br /><br /><br />&nbsp;Reguläre Ausdrücke</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/941?GPP=opc">
+                        <img src="common/677_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Shopping</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opc"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table>
+<br /><br />
+<hr width="70%" align="center"><br />
+<div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2006</b><br>F&uuml;r Ihren privaten Gebrauch d&uuml;rfen Sie die Online-Version nat&uuml;rlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschlie&szlig;lich aller seiner Teile ist urheberrechtlich gesch&uuml;tzt. Alle Rechte vorbehalten einschlie&szlig;lich der Vervielf&auml;ltigung, &Uuml;bersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

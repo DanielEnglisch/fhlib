@@ -1,0 +1,851 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: C von A bis Z – 24.6 String-Matching</title>
+<meta name="title" content="Galileo Computing :: C von A bis Z">
+<meta name="author" content="J&uuml;rgen Wolf">
+<meta name="publisher" content="Galileo Press 2006">
+<meta name="copyright" content="Galileo Press 2006">
+<meta name="description" content="C von A bis Z - Das umfassende Handbuch f&uuml;r Linux, Unix und Windows – 2., aktualisierte und erweiterte Auflage 2006, geb., mit CD und Referenzkarte – ISBN 3-89842-643-2">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="c_024_004.htm">
+<link rel="next" href="c_024_006.htm"><script type="text/javascript" language="JavaScript"><!--
+function OpenWin(url,name,height,width)
+{
+  var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+  InfoWin.focus();
+}
+//--></script></head>
+<body vlink="#000099" link="#000099" alink="#000099">
+    <table width="100%" height="74" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+        <tr>
+            <td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+            <td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opc"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger." title="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger."></a></td>
+        </tr>
+    </table>
+    <div align="right"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger.</a></div>
+    <br />
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td width="156" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
+        <tr>
+            <td colspan="2" class="nav1" align="left" valign="top" height="150">
+                <table class="tbl1" width="150" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td class="tbl2" height="25"><a class="nav" href="./index.htm">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000Vorwort_000.htm#Xxx999266">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000VorwortGutachter_000.htm#Xxx999275">Vorwort des Gutachters</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_001_000.htm#Xxx999328">1 Einstieg in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_002_000.htm#Xxx999328">2 Das erste Programm</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_003_000.htm#Xxx999328">3 Zeichens&auml;tze</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_004_000.htm#Xxx999329">4 Kommentare in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_005_000.htm#Xxx999330">5 Formatierte Eingabe mit scanf()</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_006_000.htm#Xxx999330">6 Formatierte Ausgabe mit printf</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_007_000.htm#Xxx999329">7 Elementare Datentypen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_008_000.htm#Xxx999328">8 Operatoren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_009_000.htm#Xxx999328">9 Typenumwandlung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_010_000.htm#Xxx999328">10 Kontrollstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_011_000.htm#Xxx999328">11 Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_012_000.htm#Xxx999328">12 Pr&auml;prozessor-Direktiven</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_013_000.htm#Xxx999328">13 Arrays</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_014_000.htm#Xxx999328">14 Zeiger (Pointer)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_015_000.htm#Xxx999328">15 Kommandozeilenargumente</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_016_000.htm#Xxx999328">16 Dynamische Speicherverwaltung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_017_000.htm#Xxx999328">17 Strukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_018_000.htm#Xxx999328">18 Ein-/Ausgabe-Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_019_000.htm#Xxx999328">19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_020_000.htm#Xxx999328">20 Arbeiten mit variablen langen Argumentlisten – &lt;stdarg.h&gt;</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_021_000.htm#Xxx999328">21 Zeitroutinen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_022_000.htm#Xxx999328">22 Weitere Headerdateien und ihre Funktionen (ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_023_000.htm#Xxx999328">23 Dynamische Datenstrukturen</A></td>
+</tr>
+<tr>
+<td><A class="navh" href="./c_024_000.htm#Xxx999328">24 Algorithmen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_025_000.htm#Xxx999328">25 Sicheres Programmieren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_026_000.htm#Xxx999328">26 CGI mit C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_027_000.htm#Xxx999328">27 MySQL und C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_028_000.htm#Xxx999328">28 Netzwerkprogrammierung und Cross-Plattform-Entwicklung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_029_000.htm#Xxx999328">29 Wie geht’s jetzt weiter?</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_030Anhang_000.htm#Xxx999266">A Anhang</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./stichwort.htm#Xxx512322">Index</a></td>
+</tr>
+<tr><td><br /><a class="navnav" href="http://download.galileo-press.de/openbook/c_von_a_bis_z/galileocomputing_c_von_a_bis_z.zip"><strong>Download:</strong><br />- ZIP, ca. 8,5 MB</a></td></tr>
+<tr><td><a class="navnav" href="http://www.galileocomputing.de/899?GPP=opc">Buch bestellen</a></td></tr>
+<tr><td><a class="navnav" href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)">Ihre Meinung?</a><br /><br /></td></tr>
+</table></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10"></td>
+<td width="85%" valign="top" align="center">
+    <div align="center">
+        <table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+            <tr>
+                <td width="100%" class="start" colspan="1" height="22" align="center">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_024_004.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Galileo Computing /</a><a class="navnav" href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"> &lt;openbook&gt; /</a><a href="./index.htm" class="navnav"> C von A bis Z</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_024_006.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" valign="top">
+    <table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+        <tr>
+            <td colspan="2"><a href="http://www.galileocomputing.de/899?GPP=opc" class="buchtitel">C von A bis Z</a><span class="autor"> von J&uuml;rgen Wolf</span><br><span class="untertitel">Das umfassende Handbuch f&uuml;r Linux, Unix und Windows <br />– 2., aktualisierte und erweiterte Auflage 2006</span></td>
+        </tr>
+        <tr>
+            <td valign="top" width="90"><a href="http://www.galileocomputing.de/899?GPP=opc"><img src="common/643.gif" border="0" alt="Buch: C von A bis Z" title="Buch: C von A bis Z" align="left"><br /><br /><span class="autor"><strong>C von A bis Z</strong><br />1.116 S., mit CD, Referenzkarte, 39,90 Euro<br />Galileo Computing<br />ISBN 3-89842-643-2</span></a></a></td>
+            <td width="80%">
+<table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="3" class="kap"><b>Kapitel <a href="./c_024_000.htm#RxxobKap02400004002BDC1F04A18C">24 Algorithmen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_024_000.htm#RxxobKap02400004002BDC1F04A18F">24.1 Was sind Algorithmen?</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_024_001.htm#RxxobKap02400104002BF71F03D18C">24.2 Wie setze ich Algorithmen ein?</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_024_002.htm#RxxobKap02400204002BF81F01518C">24.3 Sortieralgorithmen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_002.htm#RxxobKap02400204002BF81F015193">24.3.1 Selektion Sort – Sortieren durch Ausw&auml;hlen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_002.htm#RxxobKap02400204002BF81F01519D">24.3.2 Insertion Sort</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_002.htm#RxxobKap02400204002BF81F0151A8">24.3.3 Bubble Sort</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_002.htm#RxxobKap02400204002BF81F0151B2">24.3.4 Shellsort</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_002.htm#RxxobKap02400204002BF81F0151BF">24.3.5 Quicksort</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_002.htm#RxxobKap02400204002BF81F0151F5">24.3.6 qsort()</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_002.htm#RxxobKap02400204002BF81F0151FA">24.3.7 Zusammenfassung der Sortieralgorithmen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C18C">24.4 Suchalgorithmen – Grundlage zur Suche</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C197">24.4.1 Lineare Suche</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C1A1">24.4.2 Bin&auml;re Suche</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C1A8">24.4.3 Bin&auml;re (Such-)B&auml;ume</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C1C0">24.4.4 Elemente im bin&auml;ren Baum einordnen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C1EA">24.4.5 Bin&auml;re B&auml;ume travesieren</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C1F6">24.4.6 L&ouml;schen eines Elements im bin&auml;ren Baum</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C20A">24.4.7 Ein bin&auml;rer Suchbaum in der Praxis</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C220">24.4.8 Bin&auml;re Suchb&auml;ume mit Eltern-Zeiger und Threads</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C228">24.4.9 Ausgeglichene Bin&auml;rb&auml;ume</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C22F">24.4.10 Algorithmen f&uuml;r ausgeglichene B&auml;ume – eine &Uuml;bersicht</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_024_004.htm#RxxobKap02400404002BFA1F03918C">24.5 Hashing (Zerhacken)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_004.htm#RxxobKap02400404002BFA1F03918E">24.5.1 Wann wird Hashing verwendet?</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_004.htm#RxxobKap02400404002BFA1F039191">24.5.2 Was ist f&uuml;r das Hashing erforderlich?</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_004.htm#RxxobKap02400404002BFA1F0391BB">24.5.3 Hash-Funktion</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_004.htm#RxxobKap02400404002BFA1F0391D9">24.5.4 Hashing mit direkter Adressierung</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_004.htm#RxxobKap02400404002BFA1F0391DD">24.5.5 Vergleich von Hashing mit bin&auml;ren B&auml;umen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a class="navh" href="#RxxobKap02400504002BFB1F04418C">24.6 String-Matching</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02400504002BFB1F044197">24.6.1 Brute-Force-Algorithmus</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02400504002BFB1F04419E">24.6.2 Der Algorithmus von Knuth/Morris/Pratt (KMP)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02400504002BFB1F0441C0">24.6.3 Weitere String-Matching-Algorithmen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_024_006.htm#RxxobKap02400604002BFC1F02118C">24.7 Pattern Matching (regul&auml;re Ausdr&uuml;cke)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_024_007.htm#RxxobKap02400704002BFD1F02618C">24.8 Backtracking</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_007.htm#RxxobKap02400704002BFD1F02618E">24.8.1 Der Weg durch den Irrgarten</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_007.htm#RxxobKap02400704002BFD1F0261CD">24.8.2 Das 8-Dame-Problem</a></b></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td>
+<a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2">24.6 String-Matching<a id="RxxobKap02400504002BFB1F04418C" name="RxxobKap02400504002BFB1F04418C"></a> 
+      <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"></h2>
+<p><a id="Xxx999329" name="Xxx999329"></a><a id="Xxx999330" name="Xxx999330"></a><a id="Xxx999331" name="Xxx999331"></a>Textverarbeitungsprogramme verwenden f&uuml;r die Bearbeitung von Texten Zeichenkettenfolgen in Form von einzelnen Buchstaben, Nummern oder Sonderzeichen.</p>
+<p>Wenn Sie einen Texteditor oder &Auml;hnliches entwickeln wollen, werden Sie auch Funktionen wie das Suchen von Strings oder Teilstrings ben&ouml;tigen; oder etwa die Syntaxhervorhebung einer bestimmten Programmiersprache. Eine weitere M&ouml;glichkeit ist das Pattern Matching, das Sie vielleicht aus Perl oder Shell von Linux kennen.</p>
+<p>F&uuml;r solche und weitere Anwendungsm&ouml;glichkeiten werden String-Matching-Algorithmen genutzt. Sie funktionieren nach folgendem Prinzip: In einer Textzeichenfolge, wie etwa dem Text in diesem Buch, soll mit einem Suchmuster die H&auml;ufigkeit der enthaltenen N-Zeichen und M-Zeichen verglichen werden.</p>
+<p>Das Ziel des Kapitels ist es nicht, die Algorithmen anhand mathematischer Formeln zu erkl&auml;ren, sondern eher, die Algorithmen so zu erkl&auml;ren, dass ihr Prinzip, nach dem sie funktionieren, verstanden wird. Auf der Suche nach genaueren Beschreibungen werden Sie im Anhang dieses Buches unter Weiterf&uuml;hrende Literatur f&uuml;ndig.</p>
+<p>Als Schnittstelle zu diesen Beispielen soll eine Struktur verwendet werden, welche die Daten von der Kommandozeile entnimmt und f&uuml;r eventuelle Auswertungen speichert.</p>
+<pre>struct datei{
+   char name[LEN];  /* Name der Datei  */
+   int gefunden;    /* Anzahl gefunden */
+};
+typedef struct datei DATEI;</pre>
+<p>Sie k&ouml;nnen diese Struktur gern um weitere Informationen wie die Position der Fundstelle erweitern. In den Beispielen wird jeweils ein Array von Strukturen verwendet. In der Praxis k&ouml;nnen Sie auch verkettete Listen einsetzen.</p>
+<p>Der Aufruf der Programme lautet hierbei immer:</p>
+<pre>programmname suchstring datei1 ... bis datei_n</pre>
+<p>Bei all den Zus&auml;tzen sollten Sie dennoch das Hauptaugenmerk auf die einzelnen Algorithmen richten. Alle Matching-Algorithmen suchen nach einer bestimmten Textfolge. Sofern Sie an ganzen W&ouml;rtern interessiert sind, k&ouml;nnen Sie den Algorithmus entsprechend anpassen. Dabei sollten Sie darauf achten, dass vor und nach dem Suchstring alle Whitespace-Zeichen beachtet werden (Newline, Tabulator und Space).</p>
+<a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3">24.6.1 Brute-Force-Algorithmus<a id="RxxobKap02400504002BFB1F044197" name="RxxobKap02400504002BFB1F044197"></a> 
+      <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999343" name="Xxx999343"></a><a id="Xxx999344" name="Xxx999344"></a>Der einfachste Algorithmus liegt auf der Hand. Es werden alle infrage kommenden Positionen des Musters in einem Text &uuml;berpr&uuml;ft, bis das Muster mit dem Text &uuml;bereinstimmt oder das Ende des Texts gekommen ist. Das komplette Muster wird also beim Vergleich des Texts um eine Position nach vorn gez&auml;hlt. Dies ist ein Brute-Force-Algorithmus (oder auch grober Algorithmus oder naiver Algorithmus). Hier das simple Beispiel:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/24_30.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein24_30.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 24.30   
+    </b>Ablauf des Brute-Force-Algorithmus</p>
+<p>Jetzt der Quellcode zu diesem einfachen String-Matching-Algorithmus:</p>
+<pre>/* bruteforce.c */
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+#define LEN 255
+#define MAX_DAT 10
+#define MAX_LINE 4096
+#define LINE "---------------------------------------\n"
+struct datei{
+   char name[LEN];  /* Name der Datei  */
+   int gefunden;    /* Anzahl gefunden */
+};
+typedef struct datei DATEI;
+/* int i = der Textz&auml;hlerstand
+ * int j = der Musterz&auml;hlerstand */
+int BruteForce(char *muster, char *text) {
+   int i = 0, j, cnt = 0;
+   int m=strlen(muster); /* L&auml;nge Muster */
+   int n=strlen(text);   /* L&auml;nge Text   */
+   while (i&lt;=n-m) {      /* Solange i kleiner als n-m zum Ende */
+      /* Solang Muster und Text gleich j++ */
+      for(j=0; j&lt;m &amp;&amp; muster[j]==text[i+j]; j++);
+      if(j==m) { /* Ist die L&auml;nge von j gleich der vom Muster? */
+         printf("Pos. %3d, ",i);
+         cnt++;
+      }
+      i++; /* Im Text eine Position weiter */
+   }
+   return cnt;
+}
+int main(int argc, char **argv) {
+   DATEI suche[MAX_DAT];
+   char suchstring[LEN];
+   char read_line[MAX_LINE];
+   FILE *f;
+   int i, j , ret, zeile;
+   if(argc &lt; 3) {
+      fprintf(stderr, "Verwendung: %s suchstring datei1"
+         " &lt;datei2&gt;  – &lt;datei%d&gt;\n",argv[0],MAX_DAT);
+      return EXIT_FAILURE;
+   }
+   strncpy(suchstring, argv[1], LEN);
+   /* Kommandozeilen-Argumente auswerten */
+   for(i=2,j=0; j &lt; MAX_DAT &amp;&amp; i &lt; argc; i++,j++) {
+      strncpy(suche[j].name, argv[i], LEN);
+      suche[j].gefunden = 0;
+   }
+   for(i = 0; i &lt; argc-2; i++) {
+      f = fopen(suche[i].name, "r");
+      if(f == NULL) {
+         perror(NULL);
+         continue;
+      }
+      zeile = 0;
+      printf("\nDatei \"%s\": \n",suche[i].name);
+      while( fgets(read_line, MAX_LINE, f) != NULL) {
+         zeile++;
+         ret = BruteForce(suchstring, read_line);
+         if(ret != 0) {
+            suche[i].gefunden+=ret;
+            printf(" in Zeile %d\n",zeile);
+            ret = 0;
+         }
+      }
+      printf("Suchergebnisse in \"%s\": %d\n",
+         suche[i].name, suche[i].gefunden);
+      printf(LINE);
+      fclose(f);
+   }
+   return EXIT_SUCCESS;
+}</pre>
+<p>Um als Beispiel den Suchstring <span class="listing">"ex"</span> und als Muster <span class="listing">"a</span> <span class="listing">example</span> <span class="listing">text"</span> zu verwenden: Die innere <span class="listing">for</span>-Schleife wird dabei nur dreimal inkrementiert, und zwar bei jedem Vorkommen des Buchstabens <span class="listing">'e'</span>. Zweimal wird davon ein Ergebnis gefunden. Die Laufzeit des Algorithmus ist nat&uuml;rlich abh&auml;ngig vom Suchmuster, aber im Durchschnitt hat der Brute-Force-Algorithmus immer ein lineares Zeitverhalten.</p>
+<a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3">24.6.2 Der Algorithmus von Knuth/Morris/Pratt (KMP)<a id="RxxobKap02400504002BFB1F04419E" name="RxxobKap02400504002BFB1F04419E"></a> 
+      <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999355" name="Xxx999355"></a><a id="Xxx999356" name="Xxx999356"></a>Der Nachteil des Brute-Force-Algorithmus‘ ist der, dass dieser stur Zeichen f&uuml;r Zeichen, Position um Position vergleicht. Die Programmierer Knuth, Morris und Pratt, nach denen dieser Algorithmus auch benannt ist, haben diesen Algorithmus verbessert (verfeinert). Sie hatten die Idee, die Fehlvergleiche (so genanntes Missmatch) in den weiteren Algorithmus mit einzubeziehen. Als Beispiel sei diese Textfolge gegeben (<span class="listing">text</span>):</p>
+<pre>lu lalalala lule lulalalas</pre>
+<p>Der Suchstring (<span class="listing">suchmuster</span>) lautet <span class="listing">alalas</span>. Der Vorgang beginnt wie beim Brute-Force-Algorithmus:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/24_31.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein24_31.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 24.31   
+    </b>Auf der Suche nach dem Suchstring »alalas« – Start</p>
+<p>Hier haben Sie zwischen <span class="listing">text[i]</span> und <span class="listing">suchmuster[j]</span> keine &Uuml;bereinstimmung. Daher kann <span class="listing">suchmuster</span> um eine Position weitergeschoben werden:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/24_32.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein24_32.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 24.32   
+    </b>Keine &Uuml;bereinstimmung – Suchstring eine Postion weiter</p>
+<p>Dies wird so lange wiederholt, bis zwei gleiche Zeichen aufeinander treffen:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/24_33.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein24_33.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 24.33   
+    </b>Erstes Zeichen stimmt &uuml;berein</p>
+<p>Solange <span class="listing">text[i]</span> jetzt gleich mit <span class="listing">suchmuster[j]</span> ist, werden <span class="listing">i</span> und <span class="listing">j</span> inkrementiert:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/24_34.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein24_34.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 24.34   
+    </b>Nach f&uuml;nf Zeichen tritt ein Fehlvergleich auf</p>
+<p>An Position <span class="listing">text[9]</span> und <span class="listing">suchmuster[5]</span> tritt hier eine Ungleichheit auf. Beim Brute-Force-Algorithmus w&uuml;rde jetzt das Muster wieder um eine Position nach vorn gesetzt werden. Und genau hier greift der Algorithmus von Knuth, Morris und Pratt ein. Die kleinstm&ouml;gliche Verschiebung, bei der »alalas« sich mit sich selbst deckt, ist um zwei Stellen:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/24_35.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein24_35.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 24.35   
+    </b>Kleinstm&ouml;gliche Verschiebung des Suchstrings selbst</p>
+<p>Im n&auml;chsten Schritt werden dabei auch zwei Stellen weitergeschoben, da Sie ja nun wissen, dass sich der Anfang nicht &uuml;berlappt. Genauer gesagt, Sie wissen es jetzt, weil ich es Ihnen gesagt habe, aber nicht wie dies programmtechnisch geschieht. Hierf&uuml;r ist eine Vorlaufphase erforderlich. Aber dazu gleich mehr.</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/24_36.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein24_36.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 24.36   
+    </b>Verschiebung um zwei Stellen anstatt um eine</p>
+<p>In der Theorie h&ouml;rt sich das alles nat&uuml;rlich recht interessant an. Aber es in die Praxis umzusetzen, ist wesentlich komplizierter. Wie realisieren Sie eine kleinstm&ouml;gliche Verschiebung um den Suchstring (<span class="listing">suchmuster</span>) selbst?</p>
+<p>Da die Berechnung einer solchen Verschiebung nicht vom Text abh&auml;ngig ist, in dem die Suche stattfindet, sondern nur vom Suchtext (<span class="listing">suchmuster</span>), kann sie schon vor der eigentlichen Suche erstellt werden. Es wird dabei von einer Vorlaufphase (Preprocessing) gesprochen. Hier der Algorithmus, welcher eine Sprungtabelle aus dem Suchstring selbst f&uuml;r den eigentlichen Suchalgorithmus erstellt.</p>
+<pre>void init_next(char *suchmuster, int m) {
+   int i, j;
+   i = 0;
+   j = next[0] = –1;
+   /* Solange i kleiner als der Suchstring ist */
+   while (i &lt; m) {
+      while (j &gt; –1 &amp;&amp; suchmuster[i] != suchmuster[j])
+         j = next[j];
+      i++;
+      j++;
+      if (suchmuster[i] == suchmuster[j])
+         next[i] = next[j];
+      else
+         next[i] = j;
+   }
+}</pre>
+<p>Um nochmals zum Szenario zu kommen: Sie verwenden gerade einen Brute-Force-Algorithmus und vergleichen einzelne Zeichen. Findet jetzt ein Missmatch (<span class="listing">suchmuster!=text</span>) statt, wird in den bisher gefundenen und &uuml;bereinstimmenden Zeichen von hinten ein String mit maximaler (<span class="listing">L</span>) L&auml;nge gesucht, der zugleich Anfang eines weiteren Strings ist. Danach wird das Zeichen mit <span class="listing">L+1</span> (<span class="listing">=next[j]</span>) und dem <span class="listing">i</span>-ten Zeichen im Text verglichen. Zwei M&ouml;glichkeiten gibt es daf&uuml;r:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Das Zeichen <span class="listing">next[j]</span> des Suchstrings stimmt nicht mit dem <span class="listing">i</span>-ten Zeichen des Texts &uuml;berein. Somit wird entweder ganz normal wie beim Brute-Force-Algorithmus fortgefahren, bis der ganze String gefunden wurde oder erneut ein Missmatch auftritt. In diesem Fall wird genauso fortgefahren wie beim ersten Missmatch.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Das Zeichen <span class="listing">next[j]</span> des Suchstrings stimmt nicht mit dem <span class="listing">i</span>-ten Zeichen des Texts &uuml;berein. <span class="listing">next[j]</span> wird somit um den Wert 1 reduziert, und der Vergleich geht weiter. Tritt wieder ein Missmatch auf, wird <span class="listing">next[j]</span> dekrementiert, bis das erste Zeichen des Suchstrings erreicht wurde. In diesem Fall wird <span class="listing">i</span> inkrementiert und das Ganze beginnt von vorne.</td>
+</tr>
+</table>
+<p><span class="listing">Mit</span> <span class="listing">next[i]</span> <span class="listing">=</span> <span class="listing">j</span> stellen Sie sicher, dass <span class="listing">j–1</span> die L&auml;nge des gr&ouml;&szlig;ten Endst&uuml;cks, aber auch das Anfangsst&uuml;ck des Suchstrings ist. Ist <span class="listing">suchmuster[i]</span> gleich <span class="listing">suchmuster[j]</span>, wird mit <span class="listing">next[++i]=++j</span> der Wert zugewiesen, da das <span class="listing">next</span>-Array immer das n&auml;chste Zeichen beinhaltet. Ist dies nicht der Fall, wird der Anfangsteil und das l&auml;ngste Endteil mit dem Muster verglichen, bis es zu einem positiven Vergleich zwischen <span class="listing">muster[i]</span> und <span class="listing">muster[j]</span> kommt.</p>
+<p>Nun noch der eigentliche Algorithmus mit dem Suchstring und dem Textbeispiel, welches eben verwendet wurde (<span class="listing">alalas</span>).</p>
+<pre>/* kmp.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#define MAX 4096
+void init_next(char *, int);
+void kmpSearch(char *, char *);
+int next[MAX];
+/* i = Position im Text */
+/* j = Position im Muster */
+void kmpSearch(char *muster, char *text) {
+   int i=0, j=0;
+   int m=strlen(muster);  /* L&auml;nge Muster */
+   int n=strlen(text);    /* L&auml;nge Text   */
+   init_next(muster, m);  /* Tabelle f&uuml;r next berechnen */
+   while (i&lt;n) {  /*Solange wir nicht am Ende vom Text sind*/
+      while (j&gt;=0 &amp;&amp; text[i]!=muster[j])j=next[j];
+      i++; j++;
+      if (j==m) {
+         printf("Gefunden an Pos. %d\n", i-j);
+         j = next[j];
+      }
+   }
+}
+void init_next(char *muster, int m) {
+   int i, j;
+   i = 0;
+   j = next[0] = –1;
+   /* Solange i kleiner als der Suchstring ist */
+   while (i &lt; m) {
+      while (j &gt; –1 &amp;&amp; muster[i] != muster[j])
+         j = next[j];
+      i++;
+      j++;
+      (muster[i] == muster[j]) ? (next[i]=next[j]) : (next[i]=j);
+   }
+}
+int main(void)  {
+   kmpSearch("alalas", "lu lalalala lule lulalalas");
+   return EXIT_SUCCESS;
+}</pre>
+<p>Das vollst&auml;ndige Listing des »Brute-Force-Algorithmus« umgeschrieben auf das Programmbeispiel:</p>
+<pre>/* kmpsearch.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#define LEN 255
+#define MAX_DAT 10
+#define MAX_LINE 4096
+#define MAX 255
+#define LINE "_______________________________________\n"
+struct datei{
+   char name[LEN];  /* Name der Datei  */
+   int gefunden;    /* Anzahl gefunden */
+};
+typedef struct datei DATEI;
+int next[MAX];
+int kmp_Search(char *, char *);
+void init_next(char *, int);
+int kmp_Search(char *muster, char *text) {
+   int i=0, j=0, cnt=0;
+   int m=strlen(muster);  /* L&auml;nge Muster */
+   int n=strlen(text);    /* L&auml;nge Text */
+   init_next(muster, m);  /* Tabelle f&uuml;r next berechnen */
+   while (i&lt;n) {   /* Solange wir nicht am Ende vom Text sind */
+      while (j&gt;=0 &amp;&amp; text[i]!=muster[j])j=next[j];
+      i++; j++;
+      if (j==m) {
+         printf("Gefunden an Pos. %d\n", i-j);
+         cnt++;
+         j=next[j];
+      }
+   }
+   return cnt;
+}
+void init_next(char *muster, int m) {
+   int i, j;
+   i = 0;
+   j = next[0] = –1;
+   /* Solange i kleiner als der Suchstring ist */
+   while (i &lt; m) {
+      while (j &gt; –1 &amp;&amp; muster[i] != muster[j])
+         j = next[j];
+      i++;
+      j++;
+      (muster[i]==muster[j]) ? (next[i]=next[j]) : (next[i]=j);
+   }
+}
+int main(int argc, char **argv) {
+   DATEI suche[MAX_DAT];
+   char suchstring[LEN];
+   char read_line[MAX_LINE];
+   FILE *f;
+   int i, j , ret, zeile;
+   if(argc &lt; 3) {
+      fprintf(stderr, "Verwendung: %s suchstring datei1 "
+         "&lt;datei2&gt; ... &lt;datei%d&gt;\n",argv[0],MAX_DAT);
+      return EXIT_FAILURE;
+   }
+   strncpy(suchstring, argv[1], LEN);
+   /* Kommandozeilen-Argumente auswerten */
+   for(i=2,j=0; j &lt; MAX_DAT &amp;&amp; i &lt; argc; i++,j++) {
+      strncpy(suche[j].name, argv[i], LEN);
+      suche[j].gefunden = 0;
+   }
+   for(i = 0; i &lt; argc-2; i++) {
+      f = fopen(suche[i].name, "r");
+      if(f == NULL) {
+         perror(NULL);
+         continue;
+      }
+      zeile = 0;
+      printf("\nDatei \"%s\": \n",suche[i].name);
+      while( fgets(read_line, MAX_LINE, f) != NULL) {
+         zeile++;
+         ret = kmp_Search(suchstring, read_line);
+         if(ret != 0) {
+            suche[i].gefunden+=ret;
+            printf(" in Zeile %d\n",zeile);
+            ret=0;
+         }
+      }
+      printf("Suchergebnisse in \"%s\": %d\n",
+         suche[i].name, suche[i].gefunden);
+      printf(LINE);
+      fclose(f);
+   }
+   return EXIT_SUCCESS;
+}</pre>
+<p>Der eine oder andere wird mir jetzt entgegnen, dass Kapitel sei viel zu schwer f&uuml;r ein Einsteiger-Buch. Im Prinzip muss ich dem zustimmen. Allerdings m&ouml;chte ich zum Knuth-Morris-Pratt-Algorithmus sagen, dass hierbei versucht wurde, diesen Algorithmus m&ouml;glichst einfach zu erkl&auml;ren, ohne viele technische Begriffe aus der Welt der Mathematik und Informatik. F&uuml;r Hardcore-Programmierer, die mehr Details ben&ouml;tigen, sei auf die weiterf&uuml;hrenden Links und die Literatur im Anhang verwiesen.</p>
+<p>Au&szlig;erdem soll nicht unerw&auml;hnt bleiben, dass der Knuth-Morris-Pratt-Algorithmus immer noch einer der leichteren String-Matching-Algorithmen ist.</p>
+<a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3">24.6.3 Weitere String-Matching-Algorithmen<a id="RxxobKap02400504002BFB1F0441C0" name="RxxobKap02400504002BFB1F0441C0"></a> 
+      <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<h4 class="t4">Boyer Moore</h4>
+<p><a id="Xxx999410" name="Xxx999410"></a><a id="Xxx999411" name="Xxx999411"></a>Der Boyer-Moore-Algorithmus &auml;hnelt dem Brute-Force und ist eine weitere Verbesserung gegen&uuml;ber dem Knuth-Morris-Pratt-Algorithmus. Auch mit diesem Algorithmus werden Verschiebungen vorgenommen, und nicht mehr infrage kommende Verschiebungen werden &uuml;bersprungen. Hierf&uuml;r sind gleich zwei Vorlaufphasen (Preprocessing) notwendig. Genauer gesagt zwei Heuristiken, welche die Schrittweite bei der n&auml;chsten Verschiebung vorschlagen:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Schlechter-Buchstabe-Heuristik – Dabei wird untersucht, ob ein Zeichen im Text, welches nicht mehr mit dem Pattern &uuml;bereinstimmt, an einer anderen Stelle im Pattern vorkommt, und dann wird eine entsprechende Schrittweite vorgeschlagen.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Gutes-Suffix-Heuristik – Dabei wird untersucht, ob das Suffix des Patterns, welches mit dem Text &uuml;bereinstimmt, an einer anderen Stelle vorkommt, und dann wird auch hier eine entsprechende Schrittweite vorgeschlagen.</td>
+</tr>
+</table>
+<h4 class="t4">Karp Rabin</h4>
+<p><a id="Xxx999416" name="Xxx999416"></a><a id="Xxx999417" name="Xxx999417"></a>Jeder m&ouml;gliche String des Musters wird in eine Hash-Tabelle eingetragen. Daf&uuml;r wird eine spezielle Hash-Funktion geschrieben, welche die Eigenschaft hat, dass sie bei dem Text f&uuml;r Startindex <span class="listing">i</span> effizient aus dem vorhergehenden Hashwert (Startindex = <span class="listing">i-1</span>) berechnet werden kann. Sind dabei zwei Hashwerte gleich, wird wie beim Brute-Force-Algorithmus vorgegangen. Dies funktioniert nach folgendem Pseudocode:</p>
+<pre>hash_pattern = hash_wert_des_pattern
+hash_text    = hash_wert_der_ersten_m_Zeichen_im_text
+do {
+   if(hash_pattern == hash_text)
+      bruteforce_vergleich
+   hash_text = hash_wert_der_n&auml;chsten_m_Zeichen_des_Textes
+} while(Text_zu_Ende || bruteforce == wahr);</pre>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_024_004.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_024_006.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td width="10" valign="top">&nbsp;&nbsp;</td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/899?GPP=opc">
+                                        <img src="common/643_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C von A bis Z" title="Zum Katalog: C von A bis Z">
+                                        <br /><strong>C von A bis Z</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Ihre Meinung?</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1007?GPP=opc">
+                        <img src="common/683_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Shell-Programmierung" title="Zum Katalog: Shell-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Shell-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1137?GPP=opc">
+                        <img src="common/749_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux-UNIX-Programmierung" title="Zum Katalog: Linux-UNIX-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux-UNIX-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1004?GPP=opc">
+                        <img src="common/644_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C/C++" title="Zum Katalog: C/C++"><br /><br /><br /><br /><br /><br /><br />&nbsp;C/C++</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/880?GPP=opc">
+                        <img src="common/573_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/967?GPP=opc">
+                        <img src="common/626_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Reguläre Ausdrücke" title="Zum Katalog: Reguläre Ausdrücke"><br /><br /><br /><br /><br /><br /><br />&nbsp;Reguläre Ausdrücke</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/941?GPP=opc">
+                        <img src="common/677_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Shopping</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opc"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table>
+<br /><br />
+<hr width="70%" align="center"><br />
+<div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2006</b><br>F&uuml;r Ihren privaten Gebrauch d&uuml;rfen Sie die Online-Version nat&uuml;rlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschlie&szlig;lich aller seiner Teile ist urheberrechtlich gesch&uuml;tzt. Alle Rechte vorbehalten einschlie&szlig;lich der Vervielf&auml;ltigung, &Uuml;bersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

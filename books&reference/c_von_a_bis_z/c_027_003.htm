@@ -1,0 +1,1679 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: C von A bis Z – 27.4 Die MySQL C-API</title>
+<meta name="title" content="Galileo Computing :: C von A bis Z">
+<meta name="author" content="J&uuml;rgen Wolf">
+<meta name="publisher" content="Galileo Press 2006">
+<meta name="copyright" content="Galileo Press 2006">
+<meta name="description" content="C von A bis Z - Das umfassende Handbuch f&uuml;r Linux, Unix und Windows – 2., aktualisierte und erweiterte Auflage 2006, geb., mit CD und Referenzkarte – ISBN 3-89842-643-2">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="c_027_002.htm">
+<link rel="next" href="c_027_004.htm"><script type="text/javascript" language="JavaScript"><!--
+function OpenWin(url,name,height,width)
+{
+  var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+  InfoWin.focus();
+}
+//--></script></head>
+<body vlink="#000099" link="#000099" alink="#000099">
+    <table width="100%" height="74" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+        <tr>
+            <td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+            <td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opc"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger." title="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger."></a></td>
+        </tr>
+    </table>
+    <div align="right"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger.</a></div>
+    <br />
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td width="156" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
+        <tr>
+            <td colspan="2" class="nav1" align="left" valign="top" height="150">
+                <table class="tbl1" width="150" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td class="tbl2" height="25"><a class="nav" href="./index.htm">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000Vorwort_000.htm#Xxx999266">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000VorwortGutachter_000.htm#Xxx999275">Vorwort des Gutachters</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_001_000.htm#Xxx999328">1 Einstieg in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_002_000.htm#Xxx999328">2 Das erste Programm</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_003_000.htm#Xxx999328">3 Zeichens&auml;tze</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_004_000.htm#Xxx999329">4 Kommentare in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_005_000.htm#Xxx999330">5 Formatierte Eingabe mit scanf()</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_006_000.htm#Xxx999330">6 Formatierte Ausgabe mit printf</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_007_000.htm#Xxx999329">7 Elementare Datentypen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_008_000.htm#Xxx999328">8 Operatoren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_009_000.htm#Xxx999328">9 Typenumwandlung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_010_000.htm#Xxx999328">10 Kontrollstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_011_000.htm#Xxx999328">11 Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_012_000.htm#Xxx999328">12 Pr&auml;prozessor-Direktiven</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_013_000.htm#Xxx999328">13 Arrays</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_014_000.htm#Xxx999328">14 Zeiger (Pointer)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_015_000.htm#Xxx999328">15 Kommandozeilenargumente</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_016_000.htm#Xxx999328">16 Dynamische Speicherverwaltung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_017_000.htm#Xxx999328">17 Strukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_018_000.htm#Xxx999328">18 Ein-/Ausgabe-Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_019_000.htm#Xxx999328">19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_020_000.htm#Xxx999328">20 Arbeiten mit variablen langen Argumentlisten – &lt;stdarg.h&gt;</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_021_000.htm#Xxx999328">21 Zeitroutinen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_022_000.htm#Xxx999328">22 Weitere Headerdateien und ihre Funktionen (ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_023_000.htm#Xxx999328">23 Dynamische Datenstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_024_000.htm#Xxx999328">24 Algorithmen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_025_000.htm#Xxx999328">25 Sicheres Programmieren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_026_000.htm#Xxx999328">26 CGI mit C</A></td>
+</tr>
+<tr>
+<td><A class="navh" href="./c_027_000.htm#Xxx999328">27 MySQL und C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_028_000.htm#Xxx999328">28 Netzwerkprogrammierung und Cross-Plattform-Entwicklung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_029_000.htm#Xxx999328">29 Wie geht’s jetzt weiter?</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_030Anhang_000.htm#Xxx999266">A Anhang</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./stichwort.htm#Xxx512322">Index</a></td>
+</tr>
+<tr><td><br /><a class="navnav" href="http://download.galileo-press.de/openbook/c_von_a_bis_z/galileocomputing_c_von_a_bis_z.zip"><strong>Download:</strong><br />- ZIP, ca. 8,5 MB</a></td></tr>
+<tr><td><a class="navnav" href="http://www.galileocomputing.de/899?GPP=opc">Buch bestellen</a></td></tr>
+<tr><td><a class="navnav" href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)">Ihre Meinung?</a><br /><br /></td></tr>
+</table></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10"></td>
+<td width="85%" valign="top" align="center">
+    <div align="center">
+        <table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+            <tr>
+                <td width="100%" class="start" colspan="1" height="22" align="center">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_027_002.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Galileo Computing /</a><a class="navnav" href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"> &lt;openbook&gt; /</a><a href="./index.htm" class="navnav"> C von A bis Z</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_027_004.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" valign="top">
+    <table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+        <tr>
+            <td colspan="2"><a href="http://www.galileocomputing.de/899?GPP=opc" class="buchtitel">C von A bis Z</a><span class="autor"> von J&uuml;rgen Wolf</span><br><span class="untertitel">Das umfassende Handbuch f&uuml;r Linux, Unix und Windows <br />– 2., aktualisierte und erweiterte Auflage 2006</span></td>
+        </tr>
+        <tr>
+            <td valign="top" width="90"><a href="http://www.galileocomputing.de/899?GPP=opc"><img src="common/643.gif" border="0" alt="Buch: C von A bis Z" title="Buch: C von A bis Z" align="left"><br /><br /><span class="autor"><strong>C von A bis Z</strong><br />1.116 S., mit CD, Referenzkarte, 39,90 Euro<br />Galileo Computing<br />ISBN 3-89842-643-2</span></a></a></td>
+            <td width="80%">
+<table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="3" class="kap"><b>Kapitel <a href="./c_027_000.htm#RxxobKap02700004002CBD1F02018C">27 MySQL und C</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_027_000.htm#RxxobKap02700004002CBD1F020190">27.1 Aufbau eines Datenbanksystems</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_000.htm#RxxobKap02700004002CBD1F020193">27.1.1 Warum wurde ein Datenbanksystem (DBS) entwickelt?</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_000.htm#RxxobKap02700004002CBD1F02019C">27.1.2 Das Datenbank-Management-System (DBMS)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_000.htm#RxxobKap02700004002CBD1F0201A9">27.1.3 Relationale Datenbank</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_000.htm#RxxobKap02700004002CBD1F0201BA">27.1.4 Eigene Clients mit C f&uuml;r SQL mit der ODBC-API entwickeln</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_027_001.htm#RxxobKap02700104002CD81F02218C">27.2 MySQL installieren</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_001.htm#RxxobKap02700104002CD81F02218D">27.2.1 Linux</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_001.htm#RxxobKap02700104002CD81F022194">27.2.2 Windows</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_001.htm#RxxobKap02700104002CD81F022199">27.2.3 Den Client mysql starten</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F04418C">27.3 Crashkurs (My)SQL</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F04418E">27.3.1 Was ist SQL?</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F044192">27.3.2 Die Datentypen von (My)SQL</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F0441F1">27.3.3 Eine Datenbank erzeugen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F0441FE">27.3.4 Eine Datenbank l&ouml;schen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F044208">27.3.5 Datenbank wechseln</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F04420B">27.3.6 Eine Tabelle erstellen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F044214">27.3.7 Die Tabelle anzeigen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F044217">27.3.8 Tabellendefinition &uuml;berpr&uuml;fen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F04421E">27.3.9 Tabelle l&ouml;schen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F044225">27.3.10 Struktur einer Tabelle &auml;ndern</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F04422F">27.3.11 Datens&auml;tze eingeben</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F044237">27.3.12 Datens&auml;tze ausw&auml;hlen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F044247">27.3.13 Ein fortgeschrittenes Szenario</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F044257">27.3.14 Datensatz l&ouml;schen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F04425A">27.3.15 Datensatz &auml;ndern</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F044260">27.3.16 Zugriffsrechte in MySQL</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F04427D">27.3.17 &Uuml;bersicht &uuml;ber einige SQL-Kommandos</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a class="navh" href="#RxxobKap02700304002CDA1F04D18C">27.4 Die MySQL C-API</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02700304002CDA1F04D191">27.4.1 Grundlagen zur Programmierung eines MySQL-Clients</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02700304002CDA1F04D19B">27.4.2 Client-Programm mit dem gcc- unter Linux und dem Cygwin gcc-Compiler unter Windows</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02700304002CDA1F04D1A6">27.4.3 MySQL Client-Programme mit dem VC++ Compiler und dem Borland Freeware Compiler</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02700304002CDA1F04D1B8">27.4.4 Troubleshooting</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02700304002CDA1F04D1C0">27.4.5 Das erste Client-Programm – Verbindung mit dem MySQL-Server herstellen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02700304002CDA1F04D1F7">27.4.6 MySQL-Kommandozeilen-Optionen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02700304002CDA1F04D21F">27.4.7 Anfrage an den Server</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_027_004.htm#RxxobKap02700404002CDB1F03A18C">27.5 MySQL und C mit CGI</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_004.htm#RxxobKap02700404002CDB1F03A191">27.5.1 HTML-Eingabeformular</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_004.htm#RxxobKap02700404002CDB1F03A197">27.5.2 CGI-Anwendung add_db.cgi</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_004.htm#RxxobKap02700404002CDB1F03A19B">27.5.3 CGI-Anwendung search_db.cgi</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_027_005.htm#RxxobKap02700504002CDC1F03618C">27.6 Funktions&uuml;bersicht</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_027_006.htm#RxxobKap02700604002CDD1F03B18C">27.7 Datentypen&uuml;bersicht der C-API</a></b></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td>
+<a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2">27.4 Die MySQL C-API<a id="RxxobKap02700304002CDA1F04D18C" name="RxxobKap02700304002CDA1F04D18C"></a> 
+      <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"></h2>
+<p><a id="Xxx999329" name="Xxx999329"></a><a id="Xxx999330" name="Xxx999330"></a>Die MySQL C-API ist eine Bibliothek, welche in C geschrieben wurde und die es Ihnen erlaubt, Client-Programme mit Zugriff auf die MySQL-Datenbank zu erstellen.</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard"><b>Tipp   </b>Die meisten Client-Programme bei MySQL wurden in C geschrieben und liegen in freier Form zum Studieren der Quellcodes vor. Wollen Sie den Quellcode von Client-Programmen wie <span class="listing">mysql</span> oder <span class="listing">mysqladmin</span> genauer unter die Lupe nehmen, m&uuml;ssen Sie sich die Quellcode-Distribution herunterladen. Im Verzeichnis <span class="listing">client</span> finden Sie dann au&szlig;er den erw&auml;hnten Client-Programmen weitere Beispiele dazu.</p>
+</td>
+</tr>
+</table><br>
+<p>Abgesehen von der MySQL C-API gibt es noch MySQL APIs zu Perl, PHP, C++, Python, Tcl und einen Eiffel-Wrapper, welche aber alle – wie auch die C API – die <span class="listing">mysqlclient</span>-Bibliothek verwenden. Eine Ausnahme stellt hierbei nur JAVA dar. Um mit JAVA auf den MySQL-Server zuzugreifen, wird der JDBC-Treiber ben&ouml;tigt.</p>
+<a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3">27.4.1 Grundlagen zur Programmierung eines MySQL-Clients<a id="RxxobKap02700304002CDA1F04D191" name="RxxobKap02700304002CDA1F04D191"></a> 
+      <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999338" name="Xxx999338"></a>Bevor Sie beginnen eigene Client-Programme zu schreiben, sollten Sie zun&auml;chst in Erfahrung bringen, wie Sie ein solches Programm erstellen k&ouml;nnen. Das Kompilieren und Linken eines Client-Programms ist gerade unter Windows recht umst&auml;ndlich. Umst&auml;ndlich daher, weil die Bibliothek <a id="Xxx999340" name="Xxx999340"></a><span class="listing">libmysql.lib</span> mit dem Visual C++-Compiler erzeugt wurde. F&uuml;r denjenigen, der diesen Compiler unter Windows verwendet, kann das egal sein. Aber viele Benutzer mit anderen Compilern werden recht schnell frustriert aufgeben, eigene MySQL-Client-Programme zu schreiben, wenn sich die Bibliothek nicht mit dem Compiler vertr&auml;gt.</p>
+<p>Dabei darf neidisch auf die Linux-Anwender geschaut werden, da es auf diesem System &uuml;berhaupt keine Probleme gibt, denn dort wird der Compiler <span class="listing">gcc</span> verwendet. Die Auswahl des Compilers und das Herum&auml;rgern mit der Bibliothek f&auml;llt also schon einmal weg. Damit Sie einen MySQL-Client programmieren k&ouml;nnen, ben&ouml;tigen Sie Folgendes:<a id="Xxx999342" name="Xxx999342"></a><a id="Xxx999343" name="Xxx999343"></a></p>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Die MySQL Bibliothek (lib)</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Die MySQL Headerdateien (include)</td>
+</tr>
+</table>
+<p>Unter Windows ist bei einer Standardinstallation von MySQL in der Regel beides vorhanden. Die Bibliothek sollten Sie dabei im Verzeichnis (»c:« sei das Laufwerk) <span class="listing">c:\mysql\lib\opt</span> vorfinden und die Headerdateien im Verzeichnis <span class="listing">c:\mysql\include</span>.</p>
+<p>Bei Linux sollten Sie die Bibliothek im Verzeichnis <span class="listing">/usr/lib</span> oder <span class="listing">/usr/lib/mysql</span> oder auch <span class="listing">/usr/local/lib/mysql</span> finden. Die Headerdatei ist in der Regel unter <span class="listing">/usr/include/mysql</span> oder auch <span class="listing">/usr/local/include/mysql</span> <span class="listing">abgelegt</span>. Bei einer RPM-Installation unter Linux kann es auch sein, dass Sie zur Entwicklung eigener Clients noch ein extra RPM installieren m&uuml;ssen (Developer RPM).</p>
+<p>Wollen Sie jetzt den Client-Quellcode, den Sie erstellt haben, kompilieren und linken, m&uuml;ssen Sie angeben, wo sich die Headerdateien und die Bibliothek von MySQL befinden.</p>
+<p>Bei Windows m&uuml;ssen Sie au&szlig;erdem die DLL <a id="Xxx999349" name="Xxx999349"></a><span class="listing">libmysql.dll</span> in ein Systemverzeichnis kopieren. Zumeist sollte dies das Verzeichnis <span class="listing">c:\Windows\system32</span> sein. Au&szlig;erdem sollten Sie in der Quelldatei unter Windows den Header <span class="listing">&lt;windows.h&gt;</span> noch vor der Headerdatei <span class="listing">&lt;mysql.h&gt;</span> inkludieren. Etwa so:</p>
+<pre>#if defined __WIN32__ || _MSC_VER
+    #include &lt;windows.h&gt;
+#endif
+#include &lt;mysql.h&gt;</pre>
+<a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3">27.4.2 Client-Programm mit dem gcc- unter Linux und dem Cygwin gcc-Compiler unter Windows<a id="RxxobKap02700304002CDA1F04D19B" name="RxxobKap02700304002CDA1F04D19B"></a> 
+      <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999353" name="Xxx999353"></a>Zuerst kompilieren Sie das geschriebene Client-Programm, in dem Sie mit dem Compilerflag <span class="listing">–I</span> (Include) angeben, an welcher Stelle sich die Headerdateien von MySQL befinden. Bei Linux mit <span class="listing">gcc</span>:</p>
+<pre>gcc –c –I/usr/include/mysql myclient.c</pre>
+<p>Windows unter der Cygwin-Umgebung mit <span class="listing">gcc</span>:</p>
+<pre>gcc –c –I"c:\mysql\include" myclient.c</pre>
+<p>Jetzt verf&uuml;gen Sie &uuml;ber eine Objektdatei in dem Verzeichnis, in welchem Sie den Quellcode kompiliert haben. Als N&auml;chstes m&uuml;ssen Sie diese Objektdatei zu einer ausf&uuml;hrbaren Datei linken. Damit dies auch klappt, m&uuml;ssen Sie dem Linker mitteilen, wo sich die Client-Bibliothek von MySQL befindet. Dies erledigen Sie mit dem Compilerflag <span class="listing">–L</span>, mit dem der Pfad zur Bibliothek angegeben wird, und dem Flag <span class="listing">–l,</span> mit dem Sie die Bibliothek angeben, welche hinzugelinkt werden soll. Die Eingabe f&uuml;r Linux lautet:</p>
+<pre>gcc –o myclient myclient.o -L/usr/lib/mysql -lmysqlclient</pre>
+<p>Und mit Windows unter der Cygwin-Umgebung:</p>
+<pre>gcc –o myclient.exe myclient.o -L"c:\mysql\lib\opt" -llibmysql</pre>
+<p><a id="Xxx999362" name="Xxx999362"></a>Bei Windows sollten Sie die dynamische Bibliothek <span class="listing">libmySQL</span> hinzulinken, welche ein Wrapper zum Laden von <span class="listing">libmySQL.dll</span> ist. Es ist aber auch m&ouml;glich, die statische Bibliothek <span class="listing">mysqlclient.lib</span> hinzuzulinken.</p>
+<p>Wenn alles bis hierher glatt verlaufen ist, k&ouml;nnen Sie den Client beim Namen aufrufen.</p>
+<a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3">27.4.3 MySQL Client-Programme mit dem VC++ Compiler und dem Borland Freeware Compiler<a id="RxxobKap02700304002CDA1F04D1A6" name="RxxobKap02700304002CDA1F04D1A6"></a> 
+      <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999366" name="Xxx999366"></a>Bei beiden Compilern wird davon ausgegangen, dass diese bereits auf Ihrem System installiert sind. Installationsanleitungen diverser Compiler finden Sie unter <a href="http://www.pronix.de" target="_blank">http://www.pronix.de</a>.</p>
+<h4 class="t4">MS-Visual C++</h4>
+<p>Erstellen Sie wie gew&ouml;hnlich ein leeres Win32-Konsolen-Fensterprojekt. F&uuml;gen Sie dem Projekt eine C++-Datei hinzu. In diese Datei k&ouml;nnen Sie jetzt wie gewohnt Ihren Quellcode eingeben. Binden Sie die Headerdatei <span class="listing">&lt;mysql.h&gt;</span> &uuml;ber die Pfadangabe mit ein:</p>
+<pre>#include &lt;stdio.h&gt;
+#if defined __WIN32__ || _MSC_VER
+    #include &lt;windows.h&gt;
+#endif
+#include "c:\mysql\include\mysql.h"</pre>
+<p>Jetzt k&ouml;nnen Sie den Quellcode kompilieren, aber noch nicht linken. Zuvor m&uuml;ssen Sie dem Linker noch den Pfad zur <span class="listing">mysql</span>-Bibliothek mitteilen. Dies realisieren Sie &uuml;ber <b>Projekt</b>_$punkt_<b>Einstellungen</b>. Im Register <b>Linker</b> im Feld <b>Objekt-/Bibliothek-Module</b> f&uuml;gen Sie jetzt am Ende folgenden Pfad hinzu:</p>
+<pre>c:\mysql\lib\opt\libmysql.lib</pre>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/27_07.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein27_07.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 27.7   
+    </b>Pfadangabe zur MySQL-Bibliothek f&uuml;r den Linker</p>
+<p>Jetzt k&ouml;nnen Sie das Programm linken und ausf&uuml;hren. Voraussetzung ist nat&uuml;rlich auch, dass Sie die DLL <span class="listing">libmySQL.dll</span> in ein Systemverzeichnis kopiert haben (bspw. system32).</p>
+<h4 class="t4">Borland Freeware Compiler</h4>
+<p><a id="Xxx999380" name="Xxx999380"></a>Im <span class="listing">bin</span>-Verzeichnis des Borland-Compilers befindet sich das Tool <span class="listing">coff2omf</span>, mit dem Sie die im Microsoft-Croff-Format vorliegende <span class="listing">libmysql</span> in ein f&uuml;r Borland &uuml;bliches Format, dem <span class="listing">omf</span>, konvertieren k&ouml;nnen:</p>
+<pre>coff2omf c:\mysql\lib\opt\libmysql.lib c:\borland\bcc55\lib\
+libmysql.lib</pre>
+<p>Damit kopieren Sie auch gleich die im OMF-Format erzeugte Bibliothek <span class="listing">libmysql</span> in das Bibliothekenverzeichnis des Borland-Compilers. Das war es auch schon. Jetzt k&ouml;nnen Sie das Client-Programm kompilieren:</p>
+<pre>bcc32 –c –I"c:\mysql\include" myclient.c</pre>
+<p>Nun befindet sich eine Objektdatei im entsprechenden Verzeichnis, welche Sie mit den Dateien <span class="listing">c0x32.obj</span>, <span class="listing">import32.lib</span> sowie <span class="listing">cw32.lib</span> und der Bibliothek <span class="listing">libmysql</span> zusammenlinken. Die Objektdatei <span class="listing">c0x32</span> und die beiden Bibliotheken <span class="listing">import32</span> und <span class="listing">cw32</span> sind notwendig f&uuml;r eine Konsolenanwendung. Hier die vollst&auml;ndige Linkeranweisung zu einer ausf&uuml;hrbaren Datei:</p>
+<pre>ilink32 c0x32.obj  myclient.obj ,  myclient.exe ,  , 
+import32.lib  cw32.lib libmysql.lib</pre>
+<p>Bei dieser umst&auml;ndlichen Schreibweise empfiehlt es sich, eventuell eine Batchdatei zu erstellen. Nun k&ouml;nnen Sie den Client mit dem Namen starten.</p>
+<a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3">27.4.4 Troubleshooting<a id="RxxobKap02700304002CDA1F04D1B8" name="RxxobKap02700304002CDA1F04D1B8"></a> 
+      <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999389" name="Xxx999389"></a>Die MySQL C-API verwendet auch Funktionen aus der Headerdatei <span class="listing">&lt;math.h&gt;</span> (<span class="listing">floor()</span>). Bei manchen Linux-Distributionen m&uuml;ssen Sie <span class="listing">&lt;math.h&gt;</span> mit dem Compilerflag <span class="listing">–lm</span> hinzulinken:</p>
+<pre>gcc –o myclient myclient.o -L/usr/lib/mysql –lmysqlclient -lm</pre>
+<p>Bei Solaris m&uuml;ssen au&szlig;erdem noch folgende zwei Bibliotheken hinzugelinkt werden:</p>
+<pre>gcc –o myclient myclient.o -L/usr/lib/mysql –lmysqlclient –lm
+–lsocket –lnsl</pre>
+<p>Erhalten Sie einen undefined reference-Fehler bei den Funktionen <span class="listing">compress</span> und <span class="listing">uncompress</span>, m&uuml;ssen Sie die Bibliothek <span class="listing">zlib</span> mit <span class="listing">–lz</span> hinzulinken:</p>
+<pre>gcc –o myclient myclient.o -L/usr/lib/mysql –lmysqlclient –lm
+–lsocket –lnsl –lz</pre>
+<p>Erhalten Sie vom Compiler hingegen undefined reference-Fehler auf verschiedene Funktionen, dann vertr&auml;gt sich die <span class="listing">mysqlclient</span>-Bibliothek nicht mit dem Compiler. Dann m&uuml;ssen Sie sich entweder einen Compiler besorgen, mit dem sich diese Bibliothek vertr&auml;gt, oder Sie laden sich die Quellcode-Distribution herunter und &uuml;bersetzen sich die Bibliothek f&uuml;r Ihren Compiler selbst. Wie Sie dabei vorgehen, k&ouml;nnen Sie dem MySQL-Manual entnehmen.</p>
+<a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3">27.4.5 Das erste Client-Programm – Verbindung mit dem MySQL-Server herstellen<a id="RxxobKap02700304002CDA1F04D1C0" name="RxxobKap02700304002CDA1F04D1C0"></a> 
+      <a href="#t2t37"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999398" name="Xxx999398"></a><a id="Xxx999399" name="Xxx999399"></a>Ihr erstes MySQL-Client-Programm wird das einfachste sein. Das Programm stellt ein Grundger&uuml;st f&uuml;r die weiteren Client-Programme dar, die Sie noch schreiben werden. Bevor Sie n&auml;mlich umfangreiche Datenbankoperationen vornehmen, m&uuml;ssen Sie sich erst mit dem MySQL-Server verbinden.</p>
+<p>Zuerst m&uuml;ssen Sie f&uuml;r ein MySQL-Objekt Speicherplatz reservieren und es initialisieren. Ein MYSQL-Handle erstellen Sie wie folgt:<a id="Xxx999402" name="Xxx999402"></a></p>
+<pre>MYSQL *my;</pre>
+<p>Die Struktur <span class="listing">MYSQL</span> repr&auml;sentiert einen Handle f&uuml;r eine Datenbankverbindung, welchen Sie f&uuml;r fast alle MySQL-Funktionen ben&ouml;tigen. Die Struktur <span class="listing">MYSQL</span> k&ouml;nnen Sie sich in der Headerdatei <span class="listing">&lt;mysql.h&gt;</span> gern genauer ansehen.</p>
+<p>Um f&uuml;r diesen Handle jetzt Speicherplatz zu reservieren und zu initialisieren, wird die Funktion <span class="listing">mysql_init()</span> verwendet. Hier die Syntax zu dieser Funktion:<a id="Xxx999406" name="Xxx999406"></a></p>
+<pre>MYSQL *mysql_init(MYSQL *mysql);</pre>
+<p>Wird diese Funktion mit einem <span class="listing">NULL</span>-Zeiger aufgerufen, wird zuerst Speicherplatz f&uuml;r ein MYSQL-Objekt alloziiert und gleich darauf initialisiert. Zur&uuml;ck gibt diese Funktion dann ein neues MYSQL-Objekt. Rufen Sie diese Funktion hingegen mit einem MYSQL-Objekt auf, wird nur das Objekt initialisiert und die Adresse des Objekts zur&uuml;ckgegeben. In beiden F&auml;llen gibt diese Funktion entweder einen initialisierten MYSQL-Handle zur&uuml;ck oder im Fehlerfall den (C-typischen) <span class="listing">NULL</span>-Zeiger.</p>
+<pre>MYSQL *my;
+my = mysql_init(NULL);
+if(my == NULL) {
+   fprintf(stderr, "Fehler beim Initialisieren \n");
+   exit (EXIT_FAILURE);
+}</pre>
+<p>Die erfolgreiche Ausf&uuml;hrung der Funktion <span class="listing">mysql_init()</span> ist Voraussetzung f&uuml;r die n&auml;chste Funktion <span class="listing">mysql_real_connect()</span>, mit der versucht wird, eine Verbindung mit dem MySQL-Server aufzubauen. Die Syntax dieser Funktion ist ein wenig lang, aber trotzdem recht klar:<a id="Xxx999411" name="Xxx999411"></a></p>
+<pre>MYSQL *mysql_real_connect( MYSQL *mysql,
+                           const char *host,
+                           const char *user,
+                           const char *passwort,
+                           const char *db,
+                           unsigned int port,
+                           const char *unix_socket,
+                           unsigned int client_flag );</pre>
+<p>Ohne erfolgreiche Ausf&uuml;hrung dieser Funktion ist es nicht m&ouml;glich, irgendeine weitere Funktion aus der C-API zu verwenden (mit Ausnahme von <span class="listing">mysql_get_client_info()</span>). In der folgenden Tabelle finden Sie die Bedeutungen der einzelnen Parameter der Funktion <span class="listing">mysql_real_connect()</span>.</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 27.8   
+    </b>Bedeutung der Parameter der Funktion mysql_real_connect()</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>Parameter</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Bedeutung</b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">MYSQL *mysql
+</td>
+<td class="tabellentext" bgcolor="#000000">Die Adresse einer existierenden MYSQL-Struktur, welche zuvor mit der Funktion mysql_init() initialisiert wurde.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">const char *host
+</td>
+<td class="tabellentext" bgcolor="#000000">Ein Hostname oder eine IP-Adresse; wird hierf&uuml;r NULL oder "localhost" angegeben, wird versucht, eine Verbindung zum lokalen Host aufzubauen. Bei Betriebssystemen mit Sockets und Named Pipes werden diese Verbindungen statt TCP/IP verwendet, um eine Verbindung mit dem Server aufzubauen.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">const char *user
+</td>
+<td class="tabellentext" bgcolor="#000000">Der Username, welcher beim MySQL-Login verwendet wird; bei Angabe von NULL wird der aktuell eingeloggte User verwendet.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">const char *passwort
+</td>
+<td class="tabellentext" bgcolor="#000000">Das Passwort f&uuml;r den user; wird hier NULL angegeben, kann nur auf die user-Tabellen zugegriffen werden, welche ein leeres Passwort-Feld besitzen.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">const char *db
+</td>
+<td class="tabellentext" bgcolor="#000000">Name der Datenbank (Datenbank muss existieren); bei NULL wird eine vorgegebene Datenbank verwendet.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">unsigned int port
+</td>
+<td class="tabellentext" bgcolor="#000000">Es wird die Portnummer der TCP/IP-Verbindung verwendet, welche der host-Parameter festlegt. Ansonsten wird dabei Port 0 verwendet.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">const char *unix_socket
+</td>
+<td class="tabellentext" bgcolor="#000000">Entweder NULL oder ein String, der ein Socket oder Named Pipe festlegt; der Verbindungstyp wird dabei vom host-Parameter festgelegt.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">unsigned int client_flag
+</td>
+<td class="tabellentext" bgcolor="#000000">In der Regel wird hierf&uuml;r der Wert 0 angegeben. Es sind aber auch spezielle Optionen, einzeln oder kombiniert, m&ouml;glich:
+CLIENT_COMPRESS, CLIENT_FOUND_ROWS, CLIENT_IGNORE_SPACE, CLIENT_INTER_ACTIVE, CLIENT_NO_SCHEMA, CLIENT_ODBC, CLIENT_SSL
+</td>
+</tr>
+</table><br>
+<p>Die Funktion <span class="listing">mysql_real_connect()</span> gibt als R&uuml;ckgabewert bei Erfolg den <span class="listing">MYSQL</span>-Handle des ersten Parameters zur&uuml;ck. Bei Fehler wird <span class="listing">NULL</span> zur&uuml;ckgeliefert. Somit sieht der vorzeitige Code folgenderma&szlig;en aus:</p>
+<pre>MYSQL *my;
+my = mysql_init(NULL);
+if(my == NULL) {
+   fprintf(stderr, "Initialisierung fehlgeschlagen\n");
+   exit (EXIT_FAILURE);
+}
+if( mysql_real_connect (
+                my,            /* Zeiger auf MYSQL-Handler */
+                def_host_name, /* Host-Name */
+                def_user_name, /* User-Name */
+                def_passwort,  /* Passwort f&uuml;r user_name */
+                def_db_name,   /* Name der Datenbank */
+                0,             /* Port (default=0) */
+                NULL,          /* Socket (default=NULL) */
+                0              /* keine Flags */  )  == NULL)</pre>
+<p><a id="Xxx999461" name="Xxx999461"></a>Da beim Aufruf der Funktion <span class="listing">mysql_real_connect()</span> fast ein gutes Dutzend Fehler auftreten kann, w&auml;re es sehr aufschlussreich zu erfahren, was denn nicht funktioniert hat.</p>
+<p>Zum Gl&uuml;ck m&uuml;ssen Sie hierf&uuml;r keine spezielle Routine schreiben, welche die einzelnen Fehler abfragt. Sie k&ouml;nnen die Funktion <span class="listing">mysql_errno()</span> und <span class="listing">mysql_error()</span> verwenden. Zuerst die Syntax der Funktion <span class="listing">mysql_errno()</span>:<a id="Xxx999464" name="Xxx999464"></a></p>
+<pre>unsigned int mysql_errno(MYSQL *mysql);</pre>
+<p>Schl&auml;gt die Verbindung mit dem Handler <span class="listing">mysql</span> fehl, gibt diese Funktion einen Fehlerstatuscode zur&uuml;ck. Wird kein Fehler festgestellt, gibt <span class="listing">mysql_errno()</span> 0 zur&uuml;ck.</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard"><b>Hinweis   </b>Fehler, die bei einem Client-Programm auftreten k&ouml;nnen, finden Sie in der Headerdatei <span class="listing">&lt;errmsg.h&gt;</span>, welche sich im selben Verzeichnis wie <span class="listing">&lt;mysql.h&gt;</span> befindet. Fehler des Serverprogramms befinden sich in der Headerdatei <span class="listing">&lt;mysqld_error.h&gt;</span>.</p>
+</td>
+</tr>
+</table><br>
+<p>Ein Fehlerstatuscode alleine n&uuml;tzt dem Anwender des Client-Programms allerdings recht wenig. Sie k&ouml;nnten jetzt die einzelnen symbolischen Konstanten der Headerdatei <span class="listing">&lt;errmsg.h&gt;</span> auswerten, etwa so:</p>
+<pre>unsigned int error;
+...
+if( mysql_real_connect (
+        my,            /* Zeiger auf MYSQL-Handler */
+        def_host_name, /* Host-Name */
+        def_user_name, /* User-Name */
+        def_passwort,  /* Passwort f&uuml;r user_name */
+        def_db_name,   /* Name der Datenbank */
+        0,             /* Port (default=0) */
+        NULL,          /* Socket (default=NULL) */
+        0              /* keine Flags */  )  == NULL)
+   error = mysql_errno(my);
+if( error == CR_CONN_HOST_ERROR )
+   fprintf(stderr, "Keine Verbindung zu Host\n");</pre>
+<p>Die C-API f&uuml;r MySQL hat aber auch hierf&uuml;r eine Funktion parat. Die Syntax lautet:<a id="Xxx999474" name="Xxx999474"></a></p>
+<pre>char *mysql_error(MYSQL *mysql);</pre>
+<p>Diese Funktion gibt eine entsprechende Fehlermeldung auf dem Bildschirm aus, die von der zuletzt aufgerufenen API-Funktion provoziert wurde. Trat kein Fehler auf, gibt die Funktion einen leeren String (<span class="listing">Index[0]</span> <span class="listing">==</span> <span class="listing">'\0'</span>) zur&uuml;ck. Somit k&ouml;nnen Sie, falls die Funktion <span class="listing">mysql_real_connect()</span> <span class="listing">NULL</span> zur&uuml;ckgibt, folgenderma&szlig;en eine Fehlermeldung auf dem Bildschirm ausgeben (<span class="listing">my</span> sei der <span class="listing">MYSQL</span>-Handle):</p>
+<pre>fprintf (stderr, "Fehler mysql_real_connect(): %u (%s)\n",
+  mysql_errno (my), mysql_error (my));</pre>
+<p>Hiermit wird im Fall eines Fehlers der Statuscode und ein String mit entsprechender Fehlermeldung ausgegeben. Jetzt haben Sie eine Verbindung mit dem MySQL-Server hergestellt und k&ouml;nnten damit arbeiten. Aber dazu mehr im n&auml;chsten Abschnitt.</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard"><b>Hinweis   </b>Wollen Sie sich die Fehlermeldungen in deutscher Sprache ausgeben lassen, geben Sie Folgendes in der Kommandozeile ein: </p>
+<p><span class="listing">mysqld</span> <span class="listing">--language=german</span></p>
+</td>
+</tr>
+</table><br>
+<p>Wenn eine Verbindung zum Server aufgebaut wurde, sollte diese auch irgendwann wieder freigegeben werden. Eine saubere Beendigung des Clients, also des <span class="listing">MYSQL</span>-Handles, erreichen Sie mit der Funktion <span class="listing">mysql_close()</span>:<a id="Xxx999485" name="Xxx999485"></a><a id="Xxx999486" name="Xxx999486"></a></p>
+<pre>void mysql_close(MYSQL *mysql);</pre>
+<p>Dies sind die grundlegenden Aufgaben, um eine Verbindung mit dem MySQL-Server herzustellen und am Ende auch wieder zu beenden. Dazu jetzt alle Funktionen als ausf&uuml;hrbares Programm:</p>
+<pre>/* mysql1.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#if defined __WIN32__ || _MSC_VER
+    #include &lt;windows.h&gt;
+#endif
+#include &lt;mysql.h&gt;
+// F&uuml;r VC++:
+//#include "c:\mysql\include\mysql.h"
+int main (int argc, char **argv) {
+   MYSQL  *my;
+   /* Handle initialisieren */
+   my = mysql_init(NULL);
+   if(my == NULL) {
+      fprintf(stderr, " Initialisierung fehlgeschlagen\n");
+      return EXIT_SUCCESS;
+   }
+   /* Mit dem Server verbinden */
+   if( mysql_real_connect (
+        my,   /* Zeiger auf MYSQL-Handler */
+        NULL, /* Host-Name */
+        NULL, /* User-Name */
+        NULL, /* Passwort f&uuml;r user_name */
+        NULL,  /* Name der Datenbank */
+        0,     /* Port (default=0) */
+        NULL,  /* Socket (default=NULL) */
+        0      /* keine Flags */  )  == NULL) {
+      fprintf (stderr, "Fehler mysql_real_connect():"
+        "%u (%s)\n",mysql_errno (my), mysql_error (my));
+   }
+   else
+      printf("Erfolgreich mit dem MySQL-Server verbunden\n");
+   /* Hier befindet sich der Code f&uuml;r die Arbeit mit MySQL */
+   /* Verbindung trennen */
+   mysql_close (my);
+   return EXIT_SUCCESS;
+}</pre>
+<a name="t36"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t37"></a><h3 class="t3">27.4.6 MySQL-Kommandozeilen-Optionen<a id="RxxobKap02700304002CDA1F04D1F7" name="RxxobKap02700304002CDA1F04D1F7"></a> 
+      <a href="#t2t38"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t36"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999491" name="Xxx999491"></a>Im Listing zuvor wurde die Verbindung zum MySQL-Server &uuml;ber die Funktion <span class="listing">mysql_real_connect()</span> mit Default-Werten bzw. <span class="listing">NULL</span>-Zeigern aufgebaut. Das dies in der Praxis h&auml;ufig nicht so ist, d&uuml;rfte klar sein. Dieses Thema ist im Prinzip nicht Teil dieses Buchs, doch einige Worte sollen hierzu trotzdem gesagt werden. Vielleicht erinnern Sie sich noch, wie der <span class="listing">mysql</span>-Client aufgerufen wurde:</p>
+<pre><span class="listing">mysql –u root –h localhost</span></pre>
+<p>Die Bedeutung dieser einzelnen Flags und aller weiteren finden Sie in der folgenden Tabelle:</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 27.9   
+    </b>MySQL-Kommandozeilen-Optionen (Flags)</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>Parameter</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Kurze Form</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Lange Form</b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">Hostname
+</td>
+<td class="tabellentext" bgcolor="#000000">-h host_name
+</td>
+<td class="tabellentext" bgcolor="#000000">--host=host_name
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">Username
+</td>
+<td class="tabellentext" bgcolor="#000000">-u user_name
+</td>
+<td class="tabellentext" bgcolor="#000000">--user=user_name
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">Passwort
+</td>
+<td class="tabellentext" bgcolor="#000000">-p oder
+-p your_password
+</td>
+<td class="tabellentext" bgcolor="#000000">--password oder
+–password=your_password
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">Portnummer
+</td>
+<td class="tabellentext" bgcolor="#000000">-P port_num
+</td>
+<td class="tabellentext" bgcolor="#000000">--port=port_num
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">Socket Name
+</td>
+<td class="tabellentext" bgcolor="#000000">-S socket_name
+</td>
+<td class="tabellentext" bgcolor="#000000">--socket=socket_name
+</td>
+</tr>
+</table><br>
+<p>Damit Ihr Client, den Sie programmieren, ebenso Flags auswerten kann wie der <span class="listing">mysql</span>-Client, m&uuml;ssen Sie entweder die Argumente aus der Kommandozeile selbst auswerten oder die einzelnen Argumente im Programm abfragen. Sollten Sie auf einem System arbeiten, welches die Bibliothek <span class="listing">getopt()</span> beinhaltet, rate ich Ihnen, diese daf&uuml;r zu verwenden.</p>
+<p>Wollen Sie wissen, wie die Default-Optionen f&uuml;r die aktuelle Verbindung mit MySQL lauten, k&ouml;nnen Sie die Funktion <span class="listing">load_defaults()</span> einsetzen. Die Syntax lautet:<a id="Xxx999544" name="Xxx999544"></a></p>
+<pre>void load_defaults(const char *conf_file, const char **groups,
+                   int *argc, char ***argv);</pre>
+<p>Mit dieser Funktion laden Sie aus <span class="listing">conf_file</span> – unter Linux die Datei <span class="listing">my.cnf</span> und unter Windows <span class="listing">my.ini</span> – die Optionen der Gruppen <span class="listing">groups</span>. Zus&auml;tzlich werden noch die Kommandozeilenargumente zur Auswertung verwendet.</p>
+<p>F&uuml;r die Variable <span class="listing">groups</span> k&ouml;nnen Sie einen oder mehrere Strings angeben. Dies sind die Zeilen, welche in den eben genannten Konfigurations-Files zwischen eckigen Klammen stehen, bspw. unter Windows:</p>
+<pre>[WinMySQLadmin]
+user=Jonathan
+password=sql
+host=localhost
+...</pre>
+<p>Das letzte Element in der Gruppe muss ein <span class="listing">NULL</span>-Zeiger sein:</p>
+<pre>char *groups[] = {
+   "client", "WinMySQLadmin", NULL
+};</pre>
+<p>F&uuml;r den String <span class="listing">conf_file</span> wird in der Regel immer <span class="listing">"my"</span> verwendet. Bevor Sie jetzt die Funktion <span class="listing">load_default()</span> verwenden k&ouml;nnen, m&uuml;ssen Sie noch die Funktion <span class="listing">my_init()</span> aufrufen. Hierzu das Listing zu <span class="listing">load_default()</span>:</p>
+<pre>/* mysql2.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#if defined __WIN32__ || _MSC_VER
+    #include &lt;windows.h&gt;
+#endif
+#include &lt;mysql.h&gt;
+// F&uuml;r VC++:
+//#include "c:\mysql\include\mysql.h"
+int main (int argc, char **argv) {
+   int i;
+   char *groups[] = {
+      "client", "WinMySQLadmin", NULL
+   };
+   my_init ();
+   printf ("Urspr&uuml;ngliche Argumente:\n");
+   for (i = 0; i &lt; argc; i++)
+      printf ("argv[%d] : %s\n", i, argv[i]);
+   load_defaults ("my", (const char **)groups, &amp;argc, &amp;argv);
+   printf ("Angepasste Argumente nach load_default():\n");
+   for (i = 0; i &lt; argc; i++)
+      printf ("argv[%d] : %s\n", i, argv[i]);
+   return EXIT_SUCCESS;
+}</pre>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/27_08.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein27_08.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 27.8   
+    </b>Angepasste Argumente mit load_default()</p>
+<p>Wollen Sie die MySQL-Umgebungsvariablen <span class="listing">MYSQL_TCP_PORT<a id="Xxx999558" name="Xxx999558"></a></span> f&uuml;r die Portnummer und <span class="listing">MSQL_UNIX_SOCKET<a id="Xxx999560" name="Xxx999560"></a></span> f&uuml;r den Socket-Namen verwenden, k&ouml;nnen Sie daf&uuml;r die Funktion <a id="Xxx999561" name="Xxx999561"></a><span class="listing">getenv()</span> aus der Headerdatei <span class="listing">&lt;stdlib.h&gt;</span> nutzen:</p>
+<pre>char *p;
+int port_num = 0;
+char *socket_name = NULL;
+if ((p = getenv ("MYSQL_TCP_PORT")) != NULL)
+port_num = atoi (p);
+if ((p = getenv ("MYSQL_UNIX_PORT")) != NULL)
+socket_name = p;
+...
+if( mysql_real_connect (
+        my,   /* Zeiger auf MYSQL-Handler */
+        NULL, /* Host-Name */
+        NULL, /* User-Name */
+        NULL, /* Passwort f&uuml;r user_name */
+        NULL, /* Name der Datenbank */
+        port_num,     /* Port */
+        socket_name,  /* Socket */
+        0     /* keine Flags */  )  == NULL)</pre>
+<a name="t37"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t38"></a><h3 class="t3">27.4.7 Anfrage an den Server<a id="RxxobKap02700304002CDA1F04D21F" name="RxxobKap02700304002CDA1F04D21F"></a> 
+      <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t37"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999564" name="Xxx999564"></a>Ich empfehle Ihnen jetzt eine nochmalige Wiederholung der SQL-Anweisungen, da Sie einige davon auf den n&auml;chsten Seiten mit der C-API wieder verwenden werden. Als Beispiel soll hier gezeigt werden, wie Sie auf eine bereits vorhandene Datenbank zugreifen k&ouml;nnen. Dabei dient die Datenbank <span class="listing">dvd_archiv</span> <span class="listing">als</span> <span class="listing">Grundlage</span>, welche Sie im MySQL-Crashkurs erstellt haben. Falls Sie diese bereits gel&ouml;scht haben, erstellen Sie diese bitte nochmals. Hier die einzelnen Schritte daf&uuml;r:</p>
+<pre>mysql&gt; CREATE DATABASE dvd_archiv;
+mysql&gt; USE dvd_archiv;
+mysql&gt; CREATE TABLE filmdaten (
+    -&gt; titel CHAR(255), hauptrolle CHAR(255),
+    -&gt; fsk TINYINT, gedreht YEAR);</pre>
+<p>Zum Schluss dieses Kapitels werden Sie dazu ein etwas umfangreicheres Beispiel erstellen.</p>
+<p>Wie schon beim <span class="listing">mysql-</span>Client-Programm gibt es auch bei der C-API zwei Arten von Anfragen an den Server:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Das Client-Programm sendet eine Anfrage an den Server, wobei der Server nicht antwortet.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Das Client-Programm sendet eine Anfrage an den Server, und dieser gibt dem Client einen R&uuml;ckgabewert.</td>
+</tr>
+</table>
+<p>Wenn Sie wollen, k&ouml;nnen Sie sich dies wie bei den Funktionen vorstellen. Es gibt Funktionen mit einem und Funktionen ohne einen R&uuml;ckgabewert. Eine Anfrage an den Server k&ouml;nnen Sie mit der Funktion <span class="listing">mysql_real_query()</span> (bzw. auch <span class="listing">mysql_query()</span>) stellen. Jede Anfrage an den Server l&auml;uft folgenderma&szlig;en ab:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Sie erstellen eine SQL-Anfrage an den Server.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Der Server erh&auml;lt die Anfrage und &uuml;berpr&uuml;ft diese auf syntaktische Fehler.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Der Server f&uuml;hrt die Anfrage aus und gibt das Resultat zur&uuml;ck. Ob ein Wert zur&uuml;ckgegeben wird, h&auml;ngt von der Art der Anfrage ab. So gibt beispielsweise die Anfrage <span class="listing">INSERT</span> keinen R&uuml;ckgabewert zur&uuml;ck, im Gegensatz zu einer Anfrage mit dem Kommando <span class="listing">SELECT</span>.</td>
+</tr>
+</table>
+<p>Zuerst die Syntax der Funktion f&uuml;r das Stellen einer Anfrage:<a id="Xxx999575" name="Xxx999575"></a><a id="Xxx999576" name="Xxx999576"></a></p>
+<pre><span class="listing">int mysql_query(MYSQL *mysql, const char *anfrage);
+</span>int mysql_real_query( MYSQL *mysql, const char *anfrage,
+                      unsigned long laenge );</pre>
+<p>Damit wird die SQL-Anweisung <span class="listing">anfrage</span> ausgef&uuml;hrt, welche allerdings im Gegensatz zur Anfrage, die Sie beim MySQL-Crashkurs kennen gelernt haben, kein Semikolon oder <span class="listing">\g</span> am Ende haben darf. Bei dem String <span class="listing">anfrage</span> handelt es sich au&szlig;erdem um einen nullterminierten String. Der R&uuml;ckgabewert dieser Funktion lautet 0, wenn alles glatt verlief, ansonsten ungleich 0.</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard"><b>Hinweis   </b>F&uuml;r den Fall, dass Sie eine Anfrage mit Bin&auml;rdaten stellen wollen, m&uuml;ssen Sie auf jeden Fall die Funktion <a id="Xxx999583" name="Xxx999583"></a><span class="listing">mysql_real_query()</span> verwenden. </p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard">Dies ist erforderlich, da Bin&auml;rdaten das Stringende-Zeichen <span class="listing">'\0'</span> enthalten k&ouml;nnen, was bei <span class="listing">mysql_query()</span> das Ende der Anfrage bedeutet.</p>
+<p class="BStandard">Da mit <span class="listing">mysql_query()</span> keinerlei Angaben zur L&auml;nge des Strings gemacht werden, ist diese Funktion ein Kandidat f&uuml;r einen Buffer Overflow – deshalb sollte immer die Funktion <span class="listing">mysql_real_query()</span> bevorzugt werden.</p>
+</td>
+</tr>
+</table><br>
+<p>Wenn Sie eine Anfrage an den Server mit der Funktion <span class="listing">mysql_real_query()</span> stellen, und es will nicht klappen, k&ouml;nnte es an einem der folgenden Fehler liegen:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Der MySQL-Server ist gar nicht in Betrieb. Klingt banal, aber kommt h&auml;ufig vor.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Sie haben keine entsprechenden Zugriffsrechte, was unter Linux &ouml;fter der Fall ist.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Die Syntax der Anfrage ist falsch.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Die Anfrage ist ung&uuml;ltig. Beispielsweise wollen Sie den Inhalt einer Tabelle ausgeben, die gar nicht existiert.</td>
+</tr>
+</table>
+<p>Jetzt folgt auf den n&auml;chsten Seiten das versprochene Programm, womit Sie auf die im Crashkurs erstellte Datenbank <span class="listing">dvd_archiv</span> zugreifen.</p>
+<p>Sofern Sie die Datenbank <span class="listing">dvd_archiv</span> bereits wieder gel&ouml;scht haben, oder Sie ebenso wie der Autor zu den Personen geh&ouml;ren, die gerne kreuz und quer lesen, finden Sie hier nochmals die MySQL-Befehle (f&uuml;r den mysql-Client) um die entsprechende Datenbank mitsamt der Struktur anzulegen, welche Sie f&uuml;r das folgende Listing ben&ouml;tigen:</p>
+<pre>CREATE DATABASE IF NOT EXISTS dvd_archiv;
+CREATE TABLE filmdaten (
+titel CHAR(255),
+hauptrolle CHAR(255),
+fsk tinyint,
+gedreht YEAR
+);</pre>
+<p>Einen ersten &Uuml;berblick, welche Funktionen auf den folgenden Seiten erstellt werden, k&ouml;nnen Sie den Angaben der Funktionsprototypen und der <span class="listing">main()</span>-Funktion des Programms entnehmen:</p>
+<pre>/* mysql3.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#if defined __WIN32__ || _MSC_VER
+    #include &lt;windows.h&gt;
+#endif
+#include &lt;mysql.h&gt;
+// F&uuml;r VC++:
+//#include "c:\mysql\include\mysql.h"
+/* Wegen sehr vielen malloc()-Aufrufen im Listing
+ * wurde hier zur Verk&uuml;rzung des Listings ein Makro
+ * geschrieben, welches aber keine Schule machen soll!!
+ */
+#define malloc(size) \
+        malloc(size);\
+        if( (size) == NULL)\
+           {\
+              printf("Kein Speicher mehr ...\n");\
+              return;\
+           }
+/* Funktionsprototypen */
+void check_error(void);
+void verbinden(void);
+void verbindung_schliessen(void);
+void db_waehlen(char *);
+void filmdaten_anfuegen(void);
+void filmdaten_loeschen(void);
+void filmdaten_aendern(void);
+void alle_daten_ausgeben(void);
+void schauspieler_suchen(char *);
+void print_line(MYSQL_RES *);
+MYSQL *mysql;
+/* Ab hier k&ouml;nnen Sie die einzelnen Funktionen der
+ * kommenden Seiten einf&uuml;gen
+ */
+int main (int argc, char **argv) {
+  int auswahl;
+  char darsteller[255];
+  char *ptr;
+  printf("Baue verbindung zur Datenbank auf ...\n\n");
+  verbinden();
+  db_waehlen("dvd_archiv");
+  do {
+     printf("\n-1- Filmdaten hinzufuegen\n");
+     printf("-2- Filmdaten loeschen\n");
+     printf("-3- Filmdaten aendern\n");
+     printf("-4- Alle Filmdaten ausgeben\n");
+     printf("-5- Film suchen\n");
+     printf("-6- Programm beenden\n\n");
+     printf("Ihre Auswahl : ");
+     scanf("%d",&amp;auswahl);
+     getchar();
+     switch(auswahl) {
+        case 1: filmdaten_anfuegen();
+                break;
+        case 2: filmdaten_loeschen();
+                break;
+        case 3: filmdaten_aendern();
+                break;
+        case 4: alle_daten_ausgeben();
+                break;
+        case 5: printf("Suchkriterium Schauspieler "
+                   "(Name eingeben): ");
+                fgets(darsteller, 254, stdin);
+                if((ptr=(char *)strchr(darsteller, '\n'))!= NULL)
+                   /* newline durch \0 ersetzen */
+                   *ptr = '\0';
+                schauspieler_suchen(darsteller);
+                break;
+        case 6: printf("...beende Verbindung zur Datenbank\n");
+                break;
+        default:printf("Falsche Eingabe\n\n");
+     }
+  } while(auswahl != 6);
+  verbindung_schliessen();
+  return EXIT_SUCCESS;
+}</pre>
+<p>Auf den ersten Blick sieht das Programm noch nicht wie ein MySQL-Client-Programm aus. Die API-Funktionen zum Verbinden mit dem Server, die Fehler&uuml;berp&uuml;fung und das Schlie&szlig;en einer Verbindung wurden aus der <span class="listing">main()</span>-Funktion entfernt und sind somit modular verf&uuml;gbar. Hier die Funktionen <span class="listing">verbinden()</span>, <span class="listing">check_error()</span>, <span class="listing">verbindung_schliessen()</span> und <span class="listing">db_waehlen()</span>:</p>
+<pre>/* Bricht bei Fehler (mysql_error != 0) das Programm ab */
+void check_error(void)  {
+   if (mysql_errno(mysql) != 0) {
+      fprintf(stderr, "Fehler: %s\n", mysql_error(mysql));
+      exit(EXIT_FAILURE);
+   }
+}
+/* Baut eine Verbindung zum Datenbankserver auf.
+ * Passen Sie ggf. Usernamen und Passwort und, sofern
+ * andere Parameter ben&ouml;tigt werden, diese Ihren
+ * Umst&auml;nden selbst an
+ */
+void verbinden(void)  {
+   mysql=mysql_init(mysql);
+   check_error();
+   mysql_real_connect(mysql, "localhost", "root",
+                      NULL, NULL, 0, NULL, 0);
+   check_error();
+}
+/* Serververbindung wieder schlie&szlig;en und den Speicher f&uuml;r die
+ * Struktur MYSQL wieder freigeben */
+void verbindung_schliessen(void)  {
+   mysql_close(mysql);
+}
+/* Falls die Datenbank bei der Funktion verbinden() nicht 
+ * angegeben wurde oder Sie die Datenbank wechseln wollen, dann
+ * verwenden Sie diese Funktion */
+void db_waehlen(char *db) {
+   mysql_select_db(mysql, db);
+   check_error();
+}</pre>
+<p>Die einzelnen Funktionen stellen bis auf die Funktion <span class="listing">db_waehlen()</span> nichts Neues mehr f&uuml;r Sie dar. In der Funktion <span class="listing">db_waehlen()</span> finden Sie die API-Funktion <span class="listing">mysql_select_db()</span>, welche die folgende Syntax hat:<a id="Xxx999602" name="Xxx999602"></a><a id="Xxx999603" name="Xxx999603"></a></p>
+<pre>int mysql_select_db(MYSQL *mysql, const char *db);</pre>
+<p>Mit dieser Funktion wechseln Sie in die Datenbank mit dem Namen <span class="listing">db</span>. Mit dem MYSQL-Handle <span class="listing">mysql</span> k&ouml;nnen Sie jetzt auf diese Datenbank mit weiteren Operationen zugreifen. Haben Sie keine Zugriffsrechte oder existiert diese Datenbank nicht, liefert sie einen Wert ungleich 0 zur&uuml;ck. Bei Erfolg hingegen ist der R&uuml;ckgabewert 0. Diese Funktion entspricht also der SQL-Anweisung <span class="listing">USE</span>.</p>
+<p>Jetzt werden Sie eine einfache Anfrage an den Server stellen. Es sollen dabei neue Daten in die Datenbank mit der SQL-Anweisung <span class="listing">INSERT</span> eingef&uuml;gt werden. Damit Sie jetzt nicht mehr so weit zur&uuml;ckbl&auml;ttern m&uuml;ssen, hier noch einmal das erforderliche SQL-Kommando:</p>
+<pre>INSERT INTO filmdaten (titel, hauptrolle, fsk, gedreht) VALUES
+                      (’Der Patriot’, ’Mel Gibson’, 16, 2001);</pre>
+<p>Die vollst&auml;ndige Funktion <span class="listing">filmdaten_anfuegen()</span>:<a id="Xxx999608" name="Xxx999608"></a></p>
+<pre>/* Daten mit mysql<span class="listing">_real_</span>query() in die Datenbank schreiben */
+void filmdaten_anfuegen(void) {
+   char titel[255], hauptrolle[255], temp[6];
+   unsigned int fsk, gedreht;
+   int i,  size=0;
+   char *str[9], *query;
+   char *ptr;
+   printf("\n\nFilmtitel  : ");
+   fgets(titel, 254, stdin);
+   if( (ptr = (char *) strchr(titel, '\n')) != NULL)
+      *ptr = '\0';  /* newline durch \0 ersetzen */
+   printf("Hauptrolle : ");
+   fgets(hauptrolle, 254, stdin);
+   if( (ptr = (char *) strchr(hauptrolle, '\n')) != NULL)
+      *ptr = '\0';  /* newline durch \0 ersetzen */
+   printf("FSK        : ");
+   fgets(temp, 4, stdin);
+   if( (ptr = (char *) strchr(temp, '\n')) != NULL)
+      *ptr = '\0';  /* newline durch \0 ersetzen */
+   sscanf(temp, "%d", &amp;fsk);
+   printf("Gedreht    : ");
+   fgets(temp, 5, stdin);
+   if( (ptr = (char *) strchr(temp, '\n')) != NULL)
+      *ptr = '\0';  /* newline durch \0 ersetzen */
+   sscanf(temp, "%d", &amp;gedreht);
+   /* Jetzt wird der Anfragestring erstellt */
+   str[0] = "INSERT INTO filmdaten (titel, hauptrolle, fsk, "
+            "gedreht) VALUES ('";
+   str[1] =(char *) malloc(strlen(titel)+1);
+   strcpy(str[1], titel);
+   str[2] = "','";
+   str[3] =(char *) malloc(strlen(hauptrolle)+1);
+   strcpy(str[3], hauptrolle);
+   str[4] = "',";
+   str[5] =(char *) malloc(3);
+   sprintf(str[5], "%2d", fsk);
+   str[6] = ",";
+   str[7] =(char *) malloc(5);
+   sprintf(str[7], "%4d", gedreht);
+   str[8] = ")";
+   for (i=0; i &lt; 9; i++)
+      size+=strlen(str[i]);
+   /* Speicherplatz f&uuml;r den Anfragestring reservieren */
+   query =(char *) malloc(size + 1);
+   strcpy(query, str[0]);
+   for(i = 1; i &lt; 9; i++)
+      strcat(query, str[i]);
+   /* Zum Testen f&uuml;r die Konsole  */
+   /* printf("%s",query);         */
+   /* Jetzt die Anfrage an den Datenbankserver */
+   mysql<span class="listing">_real_</span>query(mysql, query, strlen(query));
+   check_error();
+   free(query);
+}</pre>
+<p>Der Gro&szlig;teil dieser Funktion vollf&uuml;hrt nichts anderes, als den Anfragestring f&uuml;r die Funktion <span class="listing">mysql_real_query()</span> dynamisch zu erstellen. Es wird hierbei davon ausgegangen, dass Sie mittlerweile gute Kenntnisse in C besitzen, sonst h&auml;tte es wohl kaum Sinn, sich mit dem Thema MySQL und C zu befassen. Wenn alles glatt verlief, befindet sich in der Datenbank <span class="listing">dvd_archiv</span> ein neuer Eintrag in der Tabelle <span class="listing">filmdaten</span>. Diese Funktion beachtet auch Eintr&auml;ge, bei denen Sie zum Beispiel keine Daten eingeben und einfach mit <b>(¢)</b> quittieren, damit dieses Feld leer bleibt.</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard"><b>Hinweis   </b>Wollen Sie vermeiden, dass keine <span class="listing">NULL</span>-Werte oder doppelte Eintr&auml;ge in der MySQL-Datenbank vorgenommen werden, so k&ouml;nnen Sie jeden Datensatz in einer Tabelle mit einem Schl&uuml;ssel, dem so genannten Prim&auml;rschl&uuml;ssel, belegen. Dieser Schl&uuml;ssel wird bei Erstellung der Tabelle mit dem <span class="listing">CREATE</span> <span class="listing">TABLE</span>-Kommando &uuml;bergeben. Mit der Option <span class="listing">NOT</span> <span class="listing">NULL</span> sorgen Sie daf&uuml;r, dass keine leeren Werte gespeichert werden, und mit <span class="listing">PRIMARY</span> <span class="listing">KEY</span> legen Sie fest, dass keine doppelten Eintr&auml;ge f&uuml;r ein bestimmtes Feld gespeichert werden d&uuml;rfen. Genaueres dazu entnehmen Sie bitte der MySQL-Dokumentation oder entsprechender Literatur.</p>
+</td>
+</tr>
+</table><br>
+<p>Als N&auml;chstes soll die Funktion zum L&ouml;schen eines Datensatzes in der Tabelle <span class="listing">filmdaten</span> geschrieben werden:<a id="Xxx999617" name="Xxx999617"></a></p>
+<pre>void filmdaten_loeschen(void) {
+   char del[255], temp[4];
+   char *item[] = {"titel", "hauptrolle", "fsk", "gedreht" };
+   char *ptr;
+   char *str[5], *query='\0';
+   int auswahl, i, size=0;
+   unsigned long affected;
+   printf("Nach welchem Kriterium wollen Sie Daten loeschen\n");
+   printf("[1]=Titel  [2]=Hauptrolle  [3]=FSK  "
+          "[4]=Datum  : [ ]\b\b");
+   fgets(temp, 3, stdin);
+   if( (ptr = (char *) strchr(temp, '\n')) != NULL)
+      *ptr = '\0';  /* newline durch \0 ersetzen */
+   sscanf(temp, "%d", &amp;auswahl);
+   str[0] = "DELETE FROM filmdaten WHERE ";
+   if(auswahl &gt; 0 &amp;&amp; auswahl &lt; 5) {
+      str[1] =(char *) malloc(strlen(item[auswahl-1])+1);
+      strcpy(str[1], item[auswahl-1]);
+   }
+   else {
+      printf("Kein solches Kriterium vorhanden!!!\n\n");
+      return;
+   }
+   str[2] = " = '";
+   printf("Bitte angaben fuer \'%s\' machen: ", item[auswahl-1]);
+   fgets(del, 254, stdin);
+   if( (ptr = (char *) strchr(del, '\n')) != NULL)
+      *ptr = '\0';  /* newline durch \0 ersetzen */
+   str[3] =(char *) malloc(strlen(del)+1);
+   strcpy(str[3], del);
+   str[4] = "'";
+   for (i=0; i &lt; 5; i++)
+      size+=strlen(str[i]);
+   /* Speicherplatz f&uuml;r den Anfragestring reservieren */
+   query =(char *) malloc(size + 1);
+   strcpy(query, str[0]);
+   for(i = 1; i &lt; 5; i++)
+      strcat(query, str[i]);
+   /* Als Test f&uuml;r die Konsole */
+   /* printf("%s",query);      */
+   /* Jetzt die Anfrage an den Datenbankserver */
+   mysql<span class="listing">_real_</span>query(mysql, query, strlen(query));
+   check_error();
+   if((affected=(unsigned long)mysql_affected_rows(mysql))&lt;= 0 ){
+      printf("Kein Datensatz von dieser Anfrage betroffen\n");
+      check_error();
+   }
+   else
+       printf("%d %s von dieser Anfrage betroffen\n\n",
+        affected, (affected == 1) ? "Datensatz war" :
+        "Datensaetze waren" );
+   free(query);
+}</pre>
+<p>Auch hier dient der L&ouml;wenanteil der Funktion dazu, den Anfragestring f&uuml;r die Funktion <span class="listing">mysql_real_query()</span> dynamisch zu erstellen. Neu in der Funktion <span class="listing">filmdaten_loeschen</span> ist die API-Funktion <span class="listing">mysql_affected_rows()</span>, welche nach der Funktion <span class="listing">mysql_real_query()</span> aufgerufen wurde. Die Syntax dieser Funktion lautet:<a id="Xxx999620" name="Xxx999620"></a><a id="Xxx999621" name="Xxx999621"></a></p>
+<pre>my_ulonglong mysql_affected_rows(MYSQL *mysql);</pre>
+<p>Diese Funktion gibt die Anzahl der Zeilen zur&uuml;ck, welche von der letzten SQL-Anweisung wie <span class="listing">DELETE</span>, <span class="listing">INSERT</span> oder <span class="listing">UPDATE</span> betroffen war. Meistens wird diese Funktion unmittelbar nach einem Aufruf von <span class="listing">mysql_real_query()</span> verwendet. War kein Datensatz von der letzten Anfrage betroffen, liefert diese Funktion 0 zur&uuml;ck. Trat ein Fehler bei der Funktion auf, ist der R&uuml;ckgabewert  –1.</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard"><b>Hinweis   </b>Weil es auf manchen Systemen zu Problemen mit <span class="listing">mysql_affected_rows()</span> und dem R&uuml;ckgabewert des primitiven Datentyps <span class="listing">my_longlong</span> kommen kann, empfiehlt es sich, ein Casting mit <span class="listing">unsigned</span> <span class="listing">long</span> durchzuf&uuml;hren, um Probleme zu vermeiden.</p>
+</td>
+</tr>
+</table><br>
+<p>Als N&auml;chstes die vollst&auml;ndige Funktion <span class="listing">filmdaten_aendern()</span>:<a id="Xxx999628" name="Xxx999628"></a></p>
+<pre>void filmdaten_aendern(void) {
+   char change[255],replace[255], temp[4];
+   char *item[] = {"titel", "hauptrolle", "fsk", "gedreht" };
+   char *ptr;
+   char *str[8], *query;
+   int auswahl1, auswahl2, i, size=0;
+   unsigned int integer;
+   unsigned long affected;
+   printf("Welche Daten wollen Sie aendern (Suchkriterium)\n");
+   printf("[1]=Titel  [2]=Hauptrolle  "
+          "[3]=FSK  [4]=Datum  : [ ]\b\b");
+   fgets(temp, 3, stdin);
+   if( (ptr = (char *) strchr(temp, '\n')) != NULL)
+      *ptr = '\0';  /* newline durch \0 ersetzen */
+   sscanf(temp, "%1d", &amp;auswahl1);
+   printf("Welchen Inhalt suchen Sie fuer %s:",item[auswahl1–1]);
+   fgets(change, 254, stdin);
+   if( (ptr = (char *) strchr(change, '\n')) != NULL)
+      *ptr = '\0';  /* newline durch \0 ersetzen */
+   printf("Welche Daten sollen ersetzt werden"
+          " (Ersetzkriterium)\n");
+   printf("[1]=Titel  [2]=Hauptrolle  "
+          "[3]=FSK  [4]=Datum  : [ ]\b\b");
+   fgets(temp, 3, stdin);
+   if( (ptr = (char *) strchr(temp, '\n')) != NULL)
+      *ptr = '\0';  /* newline durch \0 ersetzen */
+   sscanf(temp, "%1d", &amp;auswahl2);
+   printf("Welchen Inhalt soll %s haben: ",item[auswahl2–1]);
+   fgets(replace, 254, stdin);
+   if( (ptr = (char *) strchr(replace, '\n')) != NULL)
+      *ptr = '\0';  /* newline durch \0 ersetzen */
+   /* Alle Daten vorhanden, um Querystr zu erzeugen */
+   str[0] = "UPDATE filmdaten SET ";
+   if(auswahl2 &gt; 0 &amp;&amp; auswahl2 &lt; 5) {
+      str[1] =(char *) malloc(strlen(item[auswahl2–1])+1);
+      strcpy(str[1], item[auswahl2–1]);
+   }
+   else {
+      printf("Kein solches Kriterium vorhanden!!!\n\n");
+      return;
+   }
+   str[2] = "=";
+   /* Integerwerte ? */
+   if(auswahl2==3 || auswahl2==4) {
+      sscanf(replace, "%d", &amp;integer);
+      str[3] =(char *) malloc(5);
+      sprintf(str[3], "%4d", integer);
+   }
+   else { /* ... dann ist es ein str */
+      str[3] =(char *) malloc(strlen(replace)+3);
+      strcpy(str[3], "'");
+      strcat(str[3], replace);
+      strcat(str[3], "'");
+   }
+   str[4] = " WHERE ";
+   if(auswahl1 &gt; 0 &amp;&amp; auswahl1 &lt; 5) {
+      str[5] =(char *) malloc(strlen(item[auswahl1–1])+1);
+      strcpy(str[5], item[auswahl1–1]);
+   }
+   else {
+      printf("Kein solches Kriterium vorhanden!!!\n\n");
+      return;
+   }
+   str[6] = "=";
+   /* Integerwerte ? */
+   if(auswahl1==3 || auswahl1==4) {
+      sscanf(change, "%d", &amp;integer);
+      str[7] =(char *) malloc(5);
+      sprintf(str[7], "%4d", integer);
+   }
+   else { /* ... dann ist es ein str */
+      str[7] =(char *) malloc(strlen(change)+3);
+      strcpy(str[7], "'");
+      strcat(str[7], change);
+      strcat(str[7], "'");
+   }
+   for (i=0; i &lt; 8; i++)
+      size+=strlen(str[i]);
+   /* Speicherplatz f&uuml;r den Anfragestr reservieren */
+   query =(char *) malloc(size + 1);
+   strcpy(query, str[0]);
+   for(i = 1; i &lt; 8; i++)
+      strcat(query, str[i]);
+   /* printf("%s",query); */
+   /* Jetzt die Anfrage an den Datenbankserver */
+   mysql<span class="listing">_real_</span>query(mysql, query, strlen(query));
+   check_error();
+   if((affected=(unsigned long)mysql_affected_rows(mysql))&lt;=0) {
+      printf("Kein Datensatz von dieser Anfrage betroffen\n");
+      check_error();
+   }
+   else
+      printf("%d %s von dieser Anfrage betroffen\n\n",
+        affected, (affected == 1) ?"Datensatz war" :
+        "Datensaetze waren");
+   free(query);
+}</pre>
+<p>Der Ablauf der Funktion <span class="listing">filmdaten_aendern()</span> &auml;hnelt dem der Funktion <span class="listing">fimdaten_loeschen()</span> zuvor, nur dass hier ein anderer Anfragestring (<span class="listing">UPDATE</span>) erstellt wird.</p>
+<p>Die Funktionen, mit denen Sie bisher eine Anfrage an den Server gestellt haben, haben noch keine Daten zur&uuml;ckgegeben. Aus dem MySQL-Crashkurs wissen Sie ja noch, dass Funktionen wie <span class="listing">SELECT</span>, <span class="listing">EXPLAIN</span> oder <span class="listing">SHOW</span> bewirken, dass etwas auf dem Bildschirm ausgegeben wird.</p>
+<p>Der Vorgang, Daten vom Server zu empfangen, wird ebenfalls mit der Funktion <span class="listing">mysql_real_query()</span> ausgel&ouml;st. Danach folgt ein Aufruf der API-Funktion <span class="listing">mysql_store_result()</span>, welche alle angeforderten Daten vom Server in den Speicher des Client-Programms l&auml;dt. Hier die Syntax der Funktion:<a id="Xxx999634" name="Xxx999634"></a><a id="Xxx999635" name="Xxx999635"></a></p>
+<pre>MYSQL_RES *mysql_store_result(MYSQL *mysql);</pre>
+<p>Alle angeforderten Daten befinden sich jetzt in der Struktur <a id="Xxx999637" name="Xxx999637"></a><span class="listing">MYSQL_RES</span>. Tritt beim Einlesen der Daten ein Fehler auf, wird <span class="listing">NULL</span> zur&uuml;ckgegeben. <span class="listing">NULL</span> wird allerdings auch bei SQL-Anweisungen wie <span class="listing">INSERT</span>, also Anweisungen ohne R&uuml;ckgabewert, zur&uuml;ckgegeben. Ob also tats&auml;chlich ein Fehler auftrat, m&uuml;ssen Sie mit <span class="listing">mysql_errno()</span> oder <span class="listing">mysql_error()</span> &uuml;berpr&uuml;fen.</p>
+<p>Nach dem Aufruf der Funktion <span class="listing">mysql_store_results()</span> befinden sich die Daten jetzt in der Struktur <span class="listing">MYSQL_RES</span>. Wollen Sie jetzt wissen, wie viele Zeilen sich in der Struktur <span class="listing">MYSQL_RES</span> befinden, k&ouml;nnen Sie folgende Funktion aufrufen:<a id="Xxx999641" name="Xxx999641"></a></p>
+<pre>my_ulonglong mysql_num_rows(MYSQL_RES *result);</pre>
+<p>Die Funktion ist &auml;hnlich wie <span class="listing">mysql_affected_rows()</span>. Auch hier empfiehlt sich aus Portabilit&auml;tsgr&uuml;nden ein <span class="listing">unsigned</span> <span class="listing">long</span>-Casting des R&uuml;ckgabewerts. Diese Funktion ist nat&uuml;rlich optional und muss nicht unbedingt nach der Funktion <span class="listing">mysql_store_result()</span> aufgerufen werden. Dennoch erweist diese sich h&auml;ufig als recht n&uuml;tzlich.</p>
+<p>Um die Daten aus der Struktur <span class="listing">MYSQL_RES</span> zu lesen, ben&ouml;tigen Sie eine Funktion, die das kann. Und das ist die Funktion <span class="listing">mysql_fetch_row()</span>:<a id="Xxx999645" name="Xxx999645"></a></p>
+<pre>MYSQL_ROW mysql_fetch_row(MYSQL_RES *result);</pre>
+<p>Diese Funktion liest Zeile f&uuml;r Zeile aus der Struktur <span class="listing">MYSQL_RES</span> ein, bis ein <span class="listing">NULL</span>-Zeiger zur&uuml;ckgegeben wird; also &auml;hnlich wie die Standardfunktion <span class="listing">fgets()</span>, nur nicht bis zum n&auml;chsten Newline, sondern bis zum n&auml;chsten Datensatz. <span class="listing">NULL</span> wird auch zur&uuml;ckgegeben, wenn ein Fehler aufgetreten ist. <span class="listing">MYSQL_ROW</span> pr&auml;sentiert eine Zeile von Daten, welche als Array-gez&auml;hlte Byte-Zeichenkette implementiert ist.</p>
+<p>Wollen Sie jetzt wissen, wie viele Spalten der aktuelle Datensatz in der Struktur <span class="listing">MYSQL_RES</span> hat, dann m&uuml;ssen Sie die Funktion <span class="listing">mysql_num_fields()</span> verwenden:<a id="Xxx999649" name="Xxx999649"></a></p>
+<pre>unsigned int mysql_num_fields(MYSQL_RES *results);</pre>
+<p>Sind Sie fertig mit den Daten der Struktur <span class="listing">MYSQL_RES</span>, dann sollten Sie den Speicher wieder freigeben, um Memory Leaks zu vermeiden. Die Syntax dazu lautet:<a id="Xxx999652" name="Xxx999652"></a></p>
+<pre>void mysql_free_result(MYSQL_RES *result);</pre>
+<p>Zugegeben, dass war jetzt ein ziemlicher Brocken, der Ihnen hier vor die F&uuml;&szlig;e geschmissen wurde. Daher nochmals eine kurze Zusammenfassung, wie Sie die Anfrage vom Server abholen und bearbeiten k&ouml;nnen:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Anfrage an den Server (<span class="listing">mysql_real_query</span>)</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Daten der Anfrage abholen (<span class="listing">mysql_store_result</span>)</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Anzahl der Zeilen ermitteln, die abgeholt wurden (<span class="listing">mysql_num_rows</span>)</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Zeilenweises Einlesen der Daten (<span class="listing">mysql_fetch_row</span>)</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Anzahl der Spalten der aktuellen Zeile ermitteln (<span class="listing">mysql_num_fields</span>)</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Speicherplatz wieder freigeben (<span class="listing">mysql_free_result</span>)</td>
+</tr>
+</table>
+<p>Hierzu folgt jetzt die Funktion <span class="listing">schauspieler_suchen()</span>, die alle diese Funktionen demonstriert.<a id="Xxx999662" name="Xxx999662"></a></p>
+<pre>void schauspieler_suchen(char *name) {
+   unsigned long  anzahl_reihen;
+   unsigned int i;
+   MYSQL_ROW  row;
+   MYSQL_RES  *mysql_res;
+   char *query, *string;
+   char *select = "SELECT * FROM filmdaten WHERE hauptrolle='";
+   string =(char *) malloc(strlen(name)+2);
+   strcpy(string,name);
+   strcat(string, "'");
+   query =(char *) malloc(strlen(select)+strlen(string)+1);
+   strcpy(query, select);
+   strcat(query, string);
+   /* Jetzt die Anfrage an den Datenbankserver */
+   mysql<span class="listing">_real_</span>query(mysql, query, strlen(query));
+   check_error();
+   /* Daten der Anfrage abholen */
+   mysql_res = mysql_store_result(mysql);
+   check_error();
+   /* Anzahl der gefundenen Datens&auml;tze ermitteln */
+   anzahl_reihen = (unsigned long) mysql_num_rows (mysql_res);
+   printf ("Anzahl gefunden: %lu\n\n", anzahl_reihen);
+   /* Gefundenen Datensatz bzw. Datens&auml;tze ausgeben */
+   while ((row = mysql_fetch_row (mysql_res)) != NULL) {
+      /* Einzelne Spalten der Zeile ausgeben */
+      for (i = 0;  i &lt; mysql_num_fields(mysql_res);  i ++)
+         printf ("%s ",row[i]);
+      printf("\n");
+   }
+   /* Speicherplatz wieder freigeben */
+   mysql_free_result(mysql_res);
+   free(string);
+   free(query);
+}</pre>
+<p>In dieser Funktion wird in der Datenbank nach Filmen eines bestimmten Schauspielers gesucht und ausgegeben. Zuvor wird wieder der Anfragestring erstellt. Um jetzt die Feldwerte eines einzelnen Felds zu ermitteln, verwenden Sie die Funktion <span class="listing">mysql_fetch_field()</span>, welche die folgende Syntax besitzt:<a id="Xxx999665" name="Xxx999665"></a><a id="Xxx999666" name="Xxx999666"></a></p>
+<pre>MYSQL_FIELD *mysql_fetch_field(MYSQL_RES *results);</pre>
+<p>Die Informationen des Felds werden in der Struktur <a id="Xxx999668" name="Xxx999668"></a><span class="listing">MYSQL_FIELD</span> gespeichert. Hierzu ein kurzer &Uuml;berblick, welche Daten Sie aus dieser Struktur entnehmen k&ouml;nnen.</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 27.10   
+    </b>Variablen der Struktur MYSQL_FIELD</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>Variable</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Bedeutung</b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">char *name;
+</td>
+<td class="tabellentext" bgcolor="#000000">Name des Felds als String, nicht zu verwechseln mit dem Inhalt des Felds. Im Programmbeispiel sind dies titel, hauptrolle, fsk und gedreht.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">char *table;
+</td>
+<td class="tabellentext" bgcolor="#000000">Name der Tabelle, welche dieses Feld enth&auml;lt als String. Im Programmbeispiel ist der Name filmdaten.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">char *def;
+</td>
+<td class="tabellentext" bgcolor="#000000">Der Vorgabewert des Felds als String. Wird nur gesetzt, wenn die Funktion mysql_list_fields() verwendet wird.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">enum enum_field_types;
+</td>
+<td class="tabellentext" bgcolor="#000000">Der Datentyp des Felds. Folgende Werte k&ouml;nnen dies sein:
+FIELD_TYPE_DECIMAL, FIELD_TYPE_TINY,
+FIELD_TYPE_SHORT, FIELD_TYPE_LONG,
+FIELD_TYPE_FLOAT, FIELD_TYPE_DOUBLE,
+FIELD_TYPE_NULL, FIELD_TYPE_TIMESTAMP,
+FIELD_TYPE_LONGLONG,FIELD_TYPE_INT24,
+FIELD_TYPE_DATE, FIELD_TYPE_TIME,
+FIELD_TYPE_DATETIME, FIELD_TYPE_YEAR,
+FIELD_TYPE_NEWDATE,FIELD_TYPE_ENUM,
+FIELD_TYPE_SET,FIELD_TYPE_TINY_BLOB,
+FIELD_TYPE_MEDIUM_BLOB,
+FIELD_TYPE_LONG_BLOB,FIELD_TYPE_BLOB,
+FIELD_TYPE_VAR_STRING,FIELD_TYPE_STRING,
+FIELD_TYPE_GEOMETRY
+Die Bedeutung der einzelnen Flags spricht teilweise f&uuml;r sich. F&uuml;r eine genauere Erl&auml;uterung sei die Dokumentation der C-API empfohlen. Um zu testen, ob das Feld ein numerisches ist oder nicht, k&ouml;nnen Sie das Makro IS_NUM() verwenden.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">unsigned int length;
+</td>
+<td class="tabellentext" bgcolor="#000000">Die Breite des Felds, die Sie in der Tabellendefinition festgelegt haben. Im Programmbeispiel ist dies f&uuml;r titel 255, f&uuml;r hauptrolle 255 und f&uuml;r fsk, gedreht jeweils 4.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">unsigned int max_length;
+</td>
+<td class="tabellentext" bgcolor="#000000">Maximale Breite des Felds. Diese Funktion ist ideal zur Ausgabe einer Tabelle auf dem Bildschirm.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">unsigned int flags;
+</td>
+<td class="tabellentext" bgcolor="#000000">Einige Bit-Flags f&uuml;r das Feld. Folgende Flags k&ouml;nnen das sein:
+NOT_NULL_FLAG, PRI_KEY_FLAG,UNIQUE_KEY_FLAG,
+MULTIPLE_KEY_FLAG. BLOB_FLAG,
+UNSIGNED_FLAG, ZEROFILL_FLAG
+BINARY_FLAG, ENUM_FLAG,
+AUTO_INCREMENT_FLAG, TIMESTAMP_FLAG
+SET_FLAG, NUM_FLAG, PART_KEY_FLAG
+GROUP_FLAG, UNIQUE_FLAG
+Die Bedeutung der einzelnen Flags spricht teilweise f&uuml;r sich. F&uuml;r genauere Informationen sei die C-API-Dokumentation empfohlen. Um die einzelnen Flags zu testen, k&ouml;nnen die IS_-Makros verwendet werden. Beispiel, ob der Inhalt eines Felds nicht NULL ist:
+IS_NOT_NULL(flag);
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">unsigned int decimals;
+</td>
+<td class="tabellentext" bgcolor="#000000">Anzahl von Dezimalstellen f&uuml;r numerische Felder
+</td>
+</tr>
+</table><br>
+<p>Die folgenden zwei Funktionen <span class="listing">alle_daten_ausgeben()</span> und <span class="listing">print_line()</span> sollen jetzt noch die Funktion <span class="listing">mysql_fetch_field()</span> veranschaulichen:<a id="Xxx999721" name="Xxx999721"></a></p>
+<pre>void alle_daten_ausgeben(void) {
+   unsigned int  i, col_len;
+   MYSQL_ROW  row;
+   MYSQL_RES  *res;
+   MYSQL_FIELD  *field;
+   /* Jetzt die Anfrage an den Datenbankserver */
+   mysql<span class="listing">_real_</span>query(mysql, "SELECT * FROM filmdaten",
+      strlen("SELECT * FROM filmdaten"));
+   check_error();
+   /* Anfrage vom Server in die Struktur MYSQL_RES laden */
+   res = mysql_store_result(mysql);
+   check_error();
+   /* offset = 0 bedeutet auf den Anfang der Zeile setzen */
+   mysql_field_seek (res, 0);
+   /* Damit bei der Ausgabe ein einheitliches Bild entsteht,
+    * sollen die Daten f&uuml;r die max. L&auml;nge einer Spalte bei jeder
+    * einzelnen (MYSQL_FIELD)-Spalte ver&auml;ndert werden */
+   for (i = 0; i &lt; mysql_num_fields(res); i++) {
+      field = mysql_fetch_field (res);
+      /* L&auml;nge des Namens in der Spalte ermitteln */
+      col_len = strlen (field-&gt;name);
+      /* Ist die L&auml;nge des Elements in der Spalte kleiner als
+         die max. L&auml;nge ... */
+      if (col_len &lt; field-&gt;max_length)
+      /* ... dann bekommt col_len den Wert der max. erl. L&auml;nge
+             der Spalte */
+         col_len = field-&gt;max_length;
+      /* F&uuml;r den Fall, dass eine Spalte keine Daten
+         beinhaltet ... */
+      if (col_len &lt; 4 &amp;&amp; !IS_NOT_NULL (field-&gt;flags))
+      /* col_len bekommt den Wert 4 f&uuml;r den String
+         "NULL" -&gt;kein Daten */
+         col_len = 4;
+      /* max. L&auml;nge von Spalten-Info ver&auml;ndern */
+      field-&gt;max_length = col_len;
+   }
+   /* Namen der Tabelle ausgeben */
+   printf("Daten der Tabelle: [ %s ]\n", field-&gt;table);
+   print_line(res);
+   printf("|");
+   /* Alles wieder auf den Anfang stellen */
+   mysql_field_seek (res, 0);
+   /* Jetzt den Tabellenkopf ausgeben (titel, hauptrolle, fsk,
+    * gedreht) */
+   for (i = 0; i &lt; mysql_num_fields (res); i++)  {
+      field = mysql_fetch_field (res);
+      printf (" %-*s |", field-&gt;max_length, field-&gt;name);
+   }
+   printf("\n");
+   print_line(res);
+   /* Jetzt die Daten aus der Struktur MYSQL_RES zeilenweise
+    * einlesen */
+   while ((row = mysql_fetch_row (res)) != NULL) {
+      mysql_field_seek (res, 0);
+      printf("|");
+      for (i = 0; i &lt; mysql_num_fields (res); i++) {
+         /* Spalte f&uuml;r Spalte abarbeiten */
+         field = mysql_fetch_field (res);
+         /* Keine Daten in dieser Spalte */
+         if (row[i] == NULL)
+            printf (" %-*s |", field-&gt;max_length, "NULL");
+         /* Handelt es sich um ein numerisches Feld */
+         else if (IS_NUM (field-&gt;type))
+            /* Dann wird der Inhalt rechtsb&uuml;ndig formatiert
+             * ausgegeben */
+            printf (" %*s |", field-&gt;max_length, row[i]);
+         else
+            /* Der Wert der Spalte ist ein String, also
+             * linksb&uuml;ndige Ausgabe */
+            printf (" %-*s |", field-&gt;max_length, row[i]);
+      }
+      printf("\n");
+   }
+   print_line(res);
+   mysql_free_result(res);
+}
+void print_line(MYSQL_RES *res) {
+   MYSQL_FIELD   *field;
+   unsigned int  i, j;
+   mysql_field_seek (res, 0);
+   /* Erstes Zeichen der Linie */
+   printf("+");
+   for (i = 0; i &lt; mysql_num_fields(res); i++) {
+      field = mysql_fetch_field(res);
+      /* max_length '-' Zeichen jeder Spalte ausgeben */
+      for (j = 0; j &lt; field-&gt;max_length + 2; j++)
+         printf("-");
+      /* Am Ende der Spalte '+' ausgeben */
+      printf("+");
+   }
+   printf("\n");
+}</pre>
+<p>Mit diesen beiden Funktionen werden alle Daten der Tabelle <span class="listing">filmdaten</span> sauber in Tabellenform auf dem Bildschirm ausgegeben. Zus&auml;tzlich wurde hier die Funktion <span class="listing">mysql_field_seek()</span> verwendet, womit der Feldcursor auf das angegebene Offset gesetzt wird. Da hier als Offset 0 angegeben wurde, wird immer bis zum Anfang einer Zeile gesucht. Die Funktion <span class="listing">mysql_fetch_field()</span>, welche danach aufgerufen wird, ruft die Felddefinition der Spalte ab, die mit dem Offset <span class="listing">MYSQL_FIELD_OFFSET</span> verkn&uuml;pft ist. Wollen Sie beispielsweise an eine Position des letzten <span class="listing">mysql_fetch_field()</span> zur&uuml;ckspringen, k&ouml;nnen Sie sich eine Position mit der Funktion <span class="listing">mysql_field_tell()<a id="Xxx999724" name="Xxx999724"></a></span> merken und den R&uuml;ckgabewert dieser Funktion als Offset an die Funktion <span class="listing">mysql_field_seek()<a id="Xxx999725" name="Xxx999725"></a></span> &uuml;bergeben.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_027_002.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_027_004.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td width="10" valign="top">&nbsp;&nbsp;</td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/899?GPP=opc">
+                                        <img src="common/643_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C von A bis Z" title="Zum Katalog: C von A bis Z">
+                                        <br /><strong>C von A bis Z</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Ihre Meinung?</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1007?GPP=opc">
+                        <img src="common/683_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Shell-Programmierung" title="Zum Katalog: Shell-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Shell-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1137?GPP=opc">
+                        <img src="common/749_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux-UNIX-Programmierung" title="Zum Katalog: Linux-UNIX-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux-UNIX-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1004?GPP=opc">
+                        <img src="common/644_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C/C++" title="Zum Katalog: C/C++"><br /><br /><br /><br /><br /><br /><br />&nbsp;C/C++</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/880?GPP=opc">
+                        <img src="common/573_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/967?GPP=opc">
+                        <img src="common/626_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Reguläre Ausdrücke" title="Zum Katalog: Reguläre Ausdrücke"><br /><br /><br /><br /><br /><br /><br />&nbsp;Reguläre Ausdrücke</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/941?GPP=opc">
+                        <img src="common/677_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Shopping</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opc"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table>
+<br /><br />
+<hr width="70%" align="center"><br />
+<div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2006</b><br>F&uuml;r Ihren privaten Gebrauch d&uuml;rfen Sie die Online-Version nat&uuml;rlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschlie&szlig;lich aller seiner Teile ist urheberrechtlich gesch&uuml;tzt. Alle Rechte vorbehalten einschlie&szlig;lich der Vervielf&auml;ltigung, &Uuml;bersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

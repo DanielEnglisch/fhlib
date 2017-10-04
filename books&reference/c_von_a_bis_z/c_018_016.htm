@@ -1,0 +1,950 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: C von A bis Z – 18.17 Blockweise Lesen und Schreiben – fread und fwrite</title>
+<meta name="title" content="Galileo Computing :: C von A bis Z">
+<meta name="author" content="J&uuml;rgen Wolf">
+<meta name="publisher" content="Galileo Press 2006">
+<meta name="copyright" content="Galileo Press 2006">
+<meta name="description" content="C von A bis Z - Das umfassende Handbuch f&uuml;r Linux, Unix und Windows – 2., aktualisierte und erweiterte Auflage 2006, geb., mit CD und Referenzkarte – ISBN 3-89842-643-2">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="c_018_015.htm">
+<link rel="next" href="c_018_017.htm"><script type="text/javascript" language="JavaScript"><!--
+function OpenWin(url,name,height,width)
+{
+  var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+  InfoWin.focus();
+}
+//--></script></head>
+<body vlink="#000099" link="#000099" alink="#000099">
+    <table width="100%" height="74" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+        <tr>
+            <td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+            <td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opc"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger." title="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger."></a></td>
+        </tr>
+    </table>
+    <div align="right"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger.</a></div>
+    <br />
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td width="156" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
+        <tr>
+            <td colspan="2" class="nav1" align="left" valign="top" height="150">
+                <table class="tbl1" width="150" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td class="tbl2" height="25"><a class="nav" href="./index.htm">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000Vorwort_000.htm#Xxx999266">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000VorwortGutachter_000.htm#Xxx999275">Vorwort des Gutachters</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_001_000.htm#Xxx999328">1 Einstieg in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_002_000.htm#Xxx999328">2 Das erste Programm</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_003_000.htm#Xxx999328">3 Zeichens&auml;tze</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_004_000.htm#Xxx999329">4 Kommentare in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_005_000.htm#Xxx999330">5 Formatierte Eingabe mit scanf()</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_006_000.htm#Xxx999330">6 Formatierte Ausgabe mit printf</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_007_000.htm#Xxx999329">7 Elementare Datentypen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_008_000.htm#Xxx999328">8 Operatoren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_009_000.htm#Xxx999328">9 Typenumwandlung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_010_000.htm#Xxx999328">10 Kontrollstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_011_000.htm#Xxx999328">11 Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_012_000.htm#Xxx999328">12 Pr&auml;prozessor-Direktiven</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_013_000.htm#Xxx999328">13 Arrays</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_014_000.htm#Xxx999328">14 Zeiger (Pointer)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_015_000.htm#Xxx999328">15 Kommandozeilenargumente</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_016_000.htm#Xxx999328">16 Dynamische Speicherverwaltung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_017_000.htm#Xxx999328">17 Strukturen</A></td>
+</tr>
+<tr>
+<td><A class="navh" href="./c_018_000.htm#Xxx999328">18 Ein-/Ausgabe-Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_019_000.htm#Xxx999328">19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_020_000.htm#Xxx999328">20 Arbeiten mit variablen langen Argumentlisten – &lt;stdarg.h&gt;</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_021_000.htm#Xxx999328">21 Zeitroutinen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_022_000.htm#Xxx999328">22 Weitere Headerdateien und ihre Funktionen (ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_023_000.htm#Xxx999328">23 Dynamische Datenstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_024_000.htm#Xxx999328">24 Algorithmen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_025_000.htm#Xxx999328">25 Sicheres Programmieren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_026_000.htm#Xxx999328">26 CGI mit C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_027_000.htm#Xxx999328">27 MySQL und C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_028_000.htm#Xxx999328">28 Netzwerkprogrammierung und Cross-Plattform-Entwicklung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_029_000.htm#Xxx999328">29 Wie geht’s jetzt weiter?</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_030Anhang_000.htm#Xxx999266">A Anhang</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./stichwort.htm#Xxx512322">Index</a></td>
+</tr>
+<tr><td><br /><a class="navnav" href="http://download.galileo-press.de/openbook/c_von_a_bis_z/galileocomputing_c_von_a_bis_z.zip"><strong>Download:</strong><br />- ZIP, ca. 8,5 MB</a></td></tr>
+<tr><td><a class="navnav" href="http://www.galileocomputing.de/899?GPP=opc">Buch bestellen</a></td></tr>
+<tr><td><a class="navnav" href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)">Ihre Meinung?</a><br /><br /></td></tr>
+</table></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10"></td>
+<td width="85%" valign="top" align="center">
+    <div align="center">
+        <table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+            <tr>
+                <td width="100%" class="start" colspan="1" height="22" align="center">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_018_015.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Galileo Computing /</a><a class="navnav" href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"> &lt;openbook&gt; /</a><a href="./index.htm" class="navnav"> C von A bis Z</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_018_017.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" valign="top">
+    <table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+        <tr>
+            <td colspan="2"><a href="http://www.galileocomputing.de/899?GPP=opc" class="buchtitel">C von A bis Z</a><span class="autor"> von J&uuml;rgen Wolf</span><br><span class="untertitel">Das umfassende Handbuch f&uuml;r Linux, Unix und Windows <br />– 2., aktualisierte und erweiterte Auflage 2006</span></td>
+        </tr>
+        <tr>
+            <td valign="top" width="90"><a href="http://www.galileocomputing.de/899?GPP=opc"><img src="common/643.gif" border="0" alt="Buch: C von A bis Z" title="Buch: C von A bis Z" align="left"><br /><br /><span class="autor"><strong>C von A bis Z</strong><br />1.116 S., mit CD, Referenzkarte, 39,90 Euro<br />Galileo Computing<br />ISBN 3-89842-643-2</span></a></a></td>
+            <td width="80%">
+<table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="3" class="kap"><b>Kapitel <a href="./c_018_000.htm#RxxobKap018000040029FC1F01818C">18 Ein-/Ausgabe-Funktionen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_018_000.htm#RxxobKap018000040029FC1F01818E">18.1 Was ist eine Datei?</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_018_001.htm#RxxobKap01800104002A171F03418C">18.2 Formatierte und unformatierte Ein-/Ausgabe</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_018_002.htm#RxxobKap01800204002A181F01A18C">18.3 Streams</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_018_003.htm#RxxobKap01800304002A191F02918C">18.4 H&ouml;here Ein-/Ausgabe-Funktionen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_018_004.htm#RxxobKap01800404002A1A1F03618C">18.5 Datei (Stream) &ouml;ffnen – fopen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_018_004.htm#RxxobKap01800404002A1A1F0361B5">18.5.1 Modus f&uuml;r fopen()</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_018_004.htm#RxxobKap01800404002A1A1F036208">18.5.2 Maximale Anzahl ge&ouml;ffneter Dateien – FOPEN_MAX</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_018_005.htm#RxxobKap01800504002A1B1F03018C">18.6 Zeichenweise Lesen und Schreiben – getchar und putchar</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_018_005.htm#RxxobKap01800504002A1B1F03019C">18.6.1 Ein etwas portableres getch()</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_018_006.htm#RxxobKap01800604002A1C1F02A18C">18.7 Zeichenweise Lesen und Schreiben – putc/fputc und getc/fgetc</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_018_007.htm#RxxobKap01800704002A1D1F04718C">18.8 Datei (Stream) schlie&szlig;en – fclose</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_018_008.htm#RxxobKap01800804002A1E1F03E18C">18.9 Formatiertes Einlesen/Ausgeben von Streams mit fprintf und fscanf</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_018_009.htm#RxxobKap01800904002A1F1F04D18C">18.10 Standard-Streams in C</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_018_009.htm#RxxobKap01800904002A1F1F04D198">18.10.1 Standard-Streams umleiten</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_018_010.htm#RxxobKap01801004002A201F03A18C">18.11 Fehlerbehandlung von Streams – feof, ferror und clearerr</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_018_011.htm#RxxobKap01801104002A211F04518C">18.12 Gelesenes Zeichen in die Eingabe zur&uuml;ck-schieben – ungetc</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_018_012.htm#RxxobKap01801204002A221F02B18C">18.13 (Tastatur-)Puffer leeren – fflush</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_018_012.htm#RxxobKap01801204002A221F02B194">18.13.1 Pufferung</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_018_013.htm#RxxobKap01801304002A231F01418C">18.14 Stream positionieren – fseek, rewind und ftell</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_018_014.htm#RxxobKap01801404002A241F01D18C">18.15 Stream positionieren – fsetpos, fgetpos</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_018_015.htm#RxxobKap01801504002A251F04018C">18.16 Zeilenweise Ein-/Ausgabe von Streams</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_018_015.htm#RxxobKap01801504002A251F04018D">18.16.1 Zeilenweise Lesen mit gets/fgets</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_018_015.htm#RxxobKap01801504002A251F04019E">18.16.2 Zeilenweise Schreiben mit puts/fputs</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_018_015.htm#RxxobKap01801504002A251F0401A4">18.16.3 Zeilenweise Einlesen vom Stream mit getline() (nicht ANSI C)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_018_015.htm#RxxobKap01801504002A251F0401B0">18.16.4 Rezepte f&uuml;r zeilenweises Einlesen und Ausgeben</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a class="navh" href="#RxxobKap01801604002A261F02518C">18.17 Blockweise Lesen und Schreiben – fread und fwrite</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap01801604002A261F025194">18.17.1 Blockweises Lesen – fread()</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap01801604002A261F0251A0">18.17.2 Blockweises Schreiben – fwrite()</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap01801604002A261F0251BD">18.17.3 Big-Endian und Little-Endian</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_018_017.htm#RxxobKap01801704002A271F01B18C">18.18 Datei (Stream) erneut &ouml;ffnen – freopen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_018_018.htm#RxxobKap01801804002A281F03718C">18.19 Datei l&ouml;schen oder umbenennen – remove und rename</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_018_018.htm#RxxobKap01801804002A281F03718E">18.19.1 remove()</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_018_018.htm#RxxobKap01801804002A281F037198">18.19.2 rename()</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_018_019.htm#RxxobKap01801904002A291F02118C">18.20 Pufferung einstellen – setbuf und setvbuf</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_018_020.htm#RxxobKap01802004002A2A1F02818C">18.21 Tempor&auml;re Dateien erzeugen – tmpfile und tmpnam</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_018_020.htm#RxxobKap01802004002A2A1F0281A5">18.21.1 mkstemp() – Sichere Alternative f&uuml;r Linux/UNIX (nicht ANSI C)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_018_021.htm#RxxobKap01802104002A2B1F03018C">18.22 Fehlerausgabe mit strerror und perror</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_018_022.htm#RxxobKap01802204002A2C1F01018C">18.23 Formatiert in einem String schreiben und formatiert aus einem String lesen – sscanf und sprintf</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_018_023.htm#RxxobKap01802304002A2D1F03E18C">18.24 Fortgeschrittenes Thema</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_018_024.htm#RxxobKap01802404002A2E1F04818C">18.25 Low-Level-Datei-I/O-Funktionen (nicht ANSI C)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_018_025.htm#RxxobKap01802504002A2F1F02418C">18.26 Datei &ouml;ffnen – open</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_018_026.htm#RxxobKap01802604002A301F03118C">18.27 Datei schlie&szlig;en – close</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_018_027.htm#RxxobKap01802704002A311F03718C">18.28 Datei erzeugen – creat</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_018_028.htm#RxxobKap01802804002A321F02F18C">18.29 Schreiben und Lesen – write und read</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_018_029.htm#RxxobKap01802904002A331F01E18C">18.30 File-Deskriptor positionieren – lseek</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_018_030.htm#RxxobKap01803004002A341F01C18C">18.31 File-Deskriptor von einem Stream – fileno</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_018_031.htm#RxxobKap01803104002A351F03718C">18.32 Stream von File-Deskriptor – fdopen</a></b></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td>
+<a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2">18.17 Blockweise Lesen und Schreiben – fread und fwrite<a id="RxxobKap01801604002A261F02518C" name="RxxobKap01801604002A261F02518C"></a> 
+      <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"></h2>
+<p><a id="Xxx999329" name="Xxx999329"></a><a id="Xxx999330" name="Xxx999330"></a><a id="Xxx999331" name="Xxx999331"></a><a id="Xxx999332" name="Xxx999332"></a>Diese beiden Funktionen lassen sich nicht so recht in ein Thema der Datei-E/A einordnen. Weder in den h&ouml;heren Standardfunktionen (High Level) noch in den niedrigeren Funktionen (Low-Level). Mit <span class="listing">fread()</span> und <span class="listing">fwrite()</span> wird eine Datei nicht als strukturierte Textdatei und auch nicht als unformatierter Bytestrom betrachtet. Die Dateien werden im Bin&auml;rmodus bearbeitet und haben eine feste Satzstruktur. Das hei&szlig;t, die Funktionen <span class="listing">fread()</span> und <span class="listing">fwrite()</span> erledigen nichts anderes als bin&auml;res Lesen und Schreiben ganzer Bl&ouml;cke.</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard"><b>Hinweis   </b>Die Bezeichnungen »Textmodus« und »Bin&auml;rmodus« k&ouml;nnen hierbei recht verwirrend sein. ANSI C erlaubt beide M&ouml;glichkeiten, eine Datei zu &ouml;ffnen. Informationen k&ouml;nnen somit im Bin&auml;rmodus oder Textmodus geschrieben oder gelesen werden, eine Textdatei beispielsweise k&ouml;nnen Sie also im Bin&auml;rmodus &ouml;ffnen. Ebenso l&auml;sst sich ein Text im Bin&auml;rmodus abspeichern. Sie k&ouml;nnen auch die Funktion <span class="listing">fgetc()</span> oder <span class="listing">getc()</span> verwenden, um eine Datei mit bin&auml;ren Daten zu kopieren.</p>
+</td>
+</tr>
+</table><br>
+<p>Das Gute an diesen beiden Funktionen ist ihre einfache Anwendung. Der Nachteil ist aber, dass die Daten der Datei, die <span class="listing">fwrite()</span> schreibt, nicht portabel und plattformabh&auml;ngig sind. Wollen Sie zum Beispiel mit diesen Funktionen Hauptspeicherinhalte direkt in eine Datei schreiben, k&ouml;nnten aufgrund eines anderen Alignments Probleme auftreten. Dies kommt daher, weil ein Member-Alignment in anderen Strukturen eine andere Byte-Reihenfolge bei Ganzzahlen oder eine unterschiedliche interne Darstellung von Flie&szlig;kommazahlen haben k&ouml;nnte. Dieses Problem kann schon bei unterschiedlichen Compilern auftreten! Ist es also wichtig, dass die Daten auch auf anderen Systemen gelesen werden k&ouml;nnen, haben Sie folgende zwei M&ouml;glichkeiten:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Die bessere L&ouml;sung w&auml;re es, eine einfache ASCII-Textdatei zu verwenden, die mit <span class="listing">fprintf()</span> geschrieben und mit <span class="listing">fscanf()</span> gelesen wird. &Auml;hnlich wird &uuml;brigens auch bei Netzwerkprotokollen vorgegangen. Zwar sind Textdateien meistens gr&ouml;&szlig;er, und die Ein-/Ausgabe l&auml;uft ein wenig langsamer ab, aber der Vorteil, die einfachere Handhabung der Daten, macht diese Nachteile wieder wett.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Sie &uuml;berpr&uuml;fen, ob es sich dabei um eine Big-Endian oder Little-Endian-Maschine handelt.</td>
+</tr>
+</table>
+<p>Diese Funktionen erg&auml;nzen das Sortiment der Lese- und Schreibfunktionen hervorragend. Denn mit <span class="listing">fgets()</span> und <span class="listing">fputs()</span> lassen sich, wegen der besonderen Bedeutung der Zeichen <span class="listing">'\0'</span> und <span class="listing">'\n'</span> in ihnen, schlecht ganze Bl&ouml;cke von Daten lesen bzw. schreiben. Ebenso ist es nicht sinnvoll, Daten Zeichen f&uuml;r Zeichen zu verarbeiten, wie dies bei den Funktionen <span class="listing">fputc()</span> und <span class="listing">fgetc()</span> geschieht. Au&szlig;erdem ist es nahe liegend, dass sich diese beiden Funktionen hervorragend zum Lesen und Schreiben von Strukturen eignen.</p>
+<a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3">18.17.1 Blockweises Lesen – fread()<a id="RxxobKap01801604002A261F025194" name="RxxobKap01801604002A261F025194"></a> 
+      <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Hier die Syntax der Funktion:<a id="Xxx999343" name="Xxx999343"></a></p>
+<pre>size_t fread(void *puffer, size_t blockgroesse,
+             size_t blockzahl, FILE *datei);</pre>
+<p><span class="listing">size_t</span> ist ein primitiver Systemdatentyp f&uuml;r die Gr&ouml;&szlig;e von Speicherobjekten. <span class="listing">fread()</span> liest <span class="listing">blockzahl</span>-Speicherobjekte, von denen jedes die Gr&ouml;&szlig;e von <span class="listing">blockgroesse</span> Bytes hat, aus dem Stream <span class="listing">FILE</span> <span class="listing">*datei</span>, der zuvor ge&ouml;ffnet wurde, in die Adresse von <span class="listing">puffer</span>. F&uuml;r <span class="listing">puffer</span> muss dementsprechend viel Platz zur Verf&uuml;gung stehen.</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/18_06.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein18_06.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 18.6   
+    </b>Blockweises Lesen mit fread()</p>
+<p>Es sei eine Datei namens »wert.dat« mit Inhalten von Integerwerten gegeben. Werden z.B. die ersten zehn Werte ben&ouml;tigt, sieht der Quellcode folgenderma&szlig;en aus:</p>
+<pre>/* fread.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main(void) {
+   int puffer[10];
+   FILE *quelle;
+   int i;
+   quelle = fopen("wert.dat", "r+b");
+   if(quelle != NULL)
+      fread(&amp;puffer, sizeof(int), 10, quelle);
+   for(i = 0; i &lt; 10; i++)
+      printf("Wert %d = %d\n", i, puffer[i]);
+ return EXIT_SUCCESS;
+}</pre>
+<p>Folgende Zeile soll wie oben interpretiert werden:</p>
+<pre>fread(&amp;puffer, sizeof(int), 10, quelle);</pre>
+<p><span class="listing">fread()</span> liest <span class="listing">10</span> Datenobjekte mit der Gr&ouml;&szlig;e von je <span class="listing">sizeof(int)</span> Bytes aus dem Stream <span class="listing">quelle</span> in die Adresse von <span class="listing">puffer</span>.</p>
+<p>Ein wenig undurchsichtig d&uuml;rfte der Parameter <span class="listing">void</span> <span class="listing">*puffer</span> bei <span class="listing">fread()</span> und <span class="listing">fwrite()</span> erscheinen. Mit dem <span class="listing">void</span>-Zeiger haben Sie den Vorteil, dass diesem Parameter ein Zeiger beliebigen Datentyps &uuml;bergeben werden kann. In Kapitel 14, Zeiger, wurde dies bereits durchgenommen.</p>
+<a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3">18.17.2 Blockweises Schreiben – fwrite(<a id="Xxx999358" name="Xxx999358"></a>)<a id="RxxobKap01801604002A261F0251A0" name="RxxobKap01801604002A261F0251A0"></a> 
+      <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Jetzt zur Funktion <span class="listing">fwrite()</span>:</p>
+<pre>size_t fwrite(const void *puffer,size_t blockgroesse,
+              size_t blockzahl, FILE *datei);</pre>
+<p>Mit <span class="listing">fwrite()</span> werden <span class="listing">blockzahl</span>-Speicherobjekte, von denen jedes <span class="listing">blockgroesse</span> Bytes gro&szlig; ist, von der Adresse <span class="listing">puffer</span> in den Stream <span class="listing">datei</span> geschrieben:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/18_07.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein18_07.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 18.7   
+    </b>Blockweise Schreiben mit fwrite()</p>
+<p>Wieder ein Beispiel:</p>
+<pre>struct {
+   char name[20];
+   char vornam[20];
+   char wohnort[30];
+   int alter;
+   int plz;
+   char Strasse[30];
+} adressen;
+FILE *quelle;
+strcpy(adressen.name, "George W.");
+strcpy(adressen.vornam, "Bush");
+strcpy(adressen.wohnort, "Washington D.C");
+adressen.alter = 55;
+adressen.plz = 23223;
+...
+if((quelle=fopen("adres.dat", "w+b")) == NULL)
+...
+fwrite(&amp;adressen, sizeof(struct adressen), 1, quelle);</pre>
+<p>Hier wird mit <span class="listing">fwrite()</span> aus der Adresse <span class="listing">adressen</span> ein Speicherobjekt mit der Gr&ouml;&szlig;e von <span class="listing">sizeof(struct</span> <span class="listing">adressen)</span> Bytes in den Stream <span class="listing">quelle</span> geschrieben.</p>
+<p>Als Beispiel zu den Funktionen <span class="listing">fread()</span> und <span class="listing">fwrite()</span> folgt ein kleines Adressenverwaltungsprogramm ohne irgendwelche besonderen Funktionen, um nicht vom eigentlichen Thema abzulenken:</p>
+<pre>/* fread_fwrite.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+struct {
+   char vorname[20];
+   char nachname[30];
+   char strasse[30];
+   char hausnummer[5];
+   char plz[7];
+   char ort[30];
+   char sternzeichen[30];
+   char alter[3];
+} adressen;
+void speichern(void) {
+   FILE *save = fopen("adressen.dat","r+b");
+   if( NULL == save ) {
+      save = fopen("adressen.dat","w+b");
+      if( NULL == save ) {
+         fprintf(stderr,"Kann \"adressen.dat\" nicht &ouml;ffnen!\n");
+         return EXIT_FAILURE;
+      }
+   }
+   /* FILE-Zeiger save auf das Ende der Datei setzen */
+   fseek(save, 0, SEEK_END);
+   /* Wir schreiben eine Adresse ans Ende von "adressen.dat" */
+   if(fwrite(&amp;adressen, sizeof(adressen), 1, save) != 1) {
+      fprintf(stderr, "Fehler bei fwrite...!!!\n");
+      return EXIT_SUCCESS;
+   }
+   /* Wir geben unseren FILE-Zeiger wieder frei */
+   fclose(save);
+}
+void ausgabe(void) {
+   FILE *output = fopen("adressen.dat","r+b");
+   if( NULL == output ) {
+      fprintf(stderr,"Kann \"adressen.dat\" nicht &ouml;ffnen!\n");
+      return EXIT_FAILURE;
+   }
+   /* Wir lesen alle Adressen aus "adressen.dat" */
+   while(fread(&amp;adressen, sizeof(adressen), 1, output) == 1) {
+      printf("Vorname...........: %s",adressen.vorname);
+      printf("Nachname..........: %s",adressen.nachname);
+      printf("Strasse...........: %s",adressen.strasse);
+      printf("Hausnummer........: %s",adressen.hausnummer);
+      printf("Postleitzahl......: %s",adressen.plz);
+      printf("Ort...............: %s",adressen.ort);
+      printf("Sternzeichen......: %s",adressen.sternzeichen);
+      printf("Alter.............: %s",adressen.alter);
+      printf("\n\n");
+   }
+   fclose(output);
+}
+void eingabe(void) {
+   printf("Vorname...........:");
+   fgets(adressen.vorname, sizeof(adressen.vorname), stdin);
+   printf("Nachname..........:");
+   fgets(adressen.nachname, sizeof(adressen.nachname),stdin);
+   printf("Strasse...........:");
+   fgets(adressen.strasse, sizeof(adressen.strasse), stdin);
+   printf("Hausnummer........:");
+   fgets(adressen.hausnummer,sizeof(adressen.hausnummer),stdin);
+   printf("Postleitzahl......:");
+   fgets(adressen.plz, sizeof(adressen.plz), stdin);
+   printf("Ort...............:");
+   fgets(adressen.ort, sizeof(adressen.ort), stdin);
+   printf("Sternzeichen......:");
+   fgets(adressen.sternzeichen,sizeof(adressen.sternzeichen),
+      stdin );
+   printf("Alter.............:");
+   fgets(adressen.alter, sizeof(adressen.alter), stdin);
+   speichern();
+}
+int main(void) {
+   int wahl;
+   do {
+      printf("Was wollen Sie machen:\n\n");
+      printf("-1- Neuen Datensatz hinzufuegen\n");
+      printf("-2- Alle Datensaetze ausgeben\n");
+      printf("-3- Programm beenden\n\n");
+      printf("Ihre Auswahl : ");
+      do {
+         scanf("%d",&amp;wahl);
+      } while(getchar() != '\n');
+      switch(wahl) {
+         case 1 : eingabe();        break;
+         case 2 : ausgabe();        break;
+         case 3 : printf("...Programm wird beendet\n");
+                  break;
+         default: printf("&gt;&gt;%d&lt;&lt; ???\n",wahl);
+      }
+   } while(wahl != 3);
+   return EXIT_SUCCESS;
+}</pre>
+<p>Zuerst wurde eine Struktur mit dem Namen <span class="listing">adressen</span> deklariert. In der Funktion <span class="listing">speichern()</span> wird, falls vorhanden, die Datei »adressen.dat« ge&ouml;ffnet. Ansonsten wird diese Datei erstellt:</p>
+<pre>   FILE *save = fopen("adressen.dat","r+b");
+   if( NULL == save ) {
+      save = fopen("adressen.dat","w+b");
+      if( NULL == save ) {</pre>
+<p>Gleich darauf wird der Stream <span class="listing">save</span> an das Ende der Datei »adressen.dat« positioniert:</p>
+<pre>fseek(save, 0, SEEK_END);</pre>
+<p>Jetzt kann der Adressensatz in die Datei geschrieben werden:</p>
+<pre>if(fwrite(&amp;adressen, sizeof(adressen), 1, save) != 1)</pre>
+<p>Nochmals eine Erkl&auml;rung von <span class="listing">fwrite()</span>:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"><span class="listing"> &amp;adressen</span> – Anfangsadresse der Struktur <span class="listing">adressen,</span> <span class="listing">welche</span> <span class="listing">am</span> <span class="listing">Programmbeginn</span> <span class="listing">deklariert</span> und in der Funktion <span class="listing">eingabe()</span> mit Werten initialisiert wurde.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"><span class="listing"> sizeof(struct</span> <span class="listing">adressen)</span> – Gr&ouml;&szlig;e (Blockgr&ouml;&szlig;e) in Byte, wie viel auf einmal in den Stream <span class="listing">save</span> geschrieben werden soll.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"><span class="listing"> 1</span> – Anzahl der Bl&ouml;cke von der Gr&ouml;&szlig;e <span class="listing">sizeof(adressen)</span>, welche in den Stream <span class="listing">save</span> geschrieben werden.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"><span class="listing"> save</span> – Stream, der zuvor ge&ouml;ffnet wurde, und in dem geschrieben wird.</td>
+</tr>
+</table>
+<p>Diese Anweisung wurde in eine <span class="listing">if</span>-Bedingung gepackt, die eine Fehlerausgabe vornimmt, falls weniger als ein Block geschrieben wird. Mit der Funktion <span class="listing">ausgabe()</span> wird diese Datei jetzt &uuml;ber <span class="listing">fread()</span> blockweise ausgelesen und der Inhalt auf dem Bildschirm ausgegeben:</p>
+<pre>while(fread(&amp;adressen, sizeof(adressen), 1, output) == 1)</pre>
+<p>Es wird so lange ausgelesen, bis kein ganzer Block der Gr&ouml;&szlig;e <span class="listing">sizeof(adressen)</span> mehr vorhanden ist. Auch hierzu eine genauere Erl&auml;uterung von <span class="listing">fread()</span>:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"><span class="listing"> &amp;adressen</span> – hierhin wird der Block der Gr&ouml;&szlig;e <span class="listing">sizeof(adressen)</span>, auf die der <span class="listing">FILE</span>-Zeiger <span class="listing">output</span> zeigt, »geschoben«. Nat&uuml;rlich handelt es sich auch hier um die Struktur <span class="listing">adressen</span>, welche durch den Aufruf von <span class="listing">fread()</span> mit dementsprechenden Werten initialisiert wird.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"><span class="listing"> sizeof(adressen)</span> – Gr&ouml;&szlig;e des Blocks, der gelesen werden soll.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"><span class="listing"> 1</span> – Anzahl der Bl&ouml;cke, die gelesen werden.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"><span class="listing"> output</span> – Stream, aus dem gelesen wird.</td>
+</tr>
+</table>
+<a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3">18.17.3 Big-Endian und Little-Endian<a id="RxxobKap01801604002A261F0251BD" name="RxxobKap01801604002A261F0251BD"></a> 
+      <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999392" name="Xxx999392"></a><a id="Xxx999393" name="Xxx999393"></a>Es wurde bereits erw&auml;hnt, dass die Funktionen <span class="listing">fread()</span> und <span class="listing">fwrite()</span> nicht portabel und somit plattformabh&auml;ngig sind. Sollten Sie also Programme schreiben wollen, die auf den verschiedensten Systemen laufen sollen, bleibt Ihnen nur die Wahl, diese Funktionen nicht zu verwenden, oder Sie finden heraus, auf welchem System genau sie laufen sollen. Unterschieden werden die Systeme dabei nach Little-Endian und Big-Endian. Little-Endian und Big-Endian sind zwei Methoden, wie die einzelnen Bytes im Speicher angeordnet sind. Little-Endian und Big-Endian unterscheiden sich durch die Anordnung des most significant byte und des least significant byte. Bei einer Word-Gr&ouml;&szlig;e der CPU von vier Bytes wird das rechte Ende als least significant byte und das linke Ende als most significant byte bezeichnet. Das least significant byte stellt dabei die niedrigeren Werte und das most significant byte die gr&ouml;&szlig;eren Werte in einem Word dar. Als Beispiel dient jetzt folgende Hex-Zahl:</p>
+<pre>22CCDDEE</pre>
+<p>Auf den unterschiedlichen Systemen wird diese Hex-Zahl im Speicher folgenderma&szlig;en abgelegt:</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 18.7   
+    </b>Little-Endian und Big-Endian im Vergleich</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>Adresse</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>0x12345</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>0x12346</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>0x12347</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>0x12348</b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">Big-Endian
+</td>
+<td class="tabellentext" bgcolor="#000000">22
+</td>
+<td class="tabellentext" bgcolor="#000000">CC
+</td>
+<td class="tabellentext" bgcolor="#000000">DD
+</td>
+<td class="tabellentext" bgcolor="#000000">EE
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">Little-Endian
+</td>
+<td class="tabellentext" bgcolor="#000000">EE
+</td>
+<td class="tabellentext" bgcolor="#000000">DD
+</td>
+<td class="tabellentext" bgcolor="#000000">CC
+</td>
+<td class="tabellentext" bgcolor="#000000">22
+</td>
+</tr>
+</table><br>
+<p>Um jetzt herauszufinden, auf was f&uuml;r einem System das Programm ausgef&uuml;hrt wird, m&uuml;ssen Sie diese Hex-Zahl in einem Speicher einer Word-Gr&ouml;&szlig;e schreiben und das erste Byte mithilfe von Bit-Operationen &uuml;berpr&uuml;fen. Hier das Listing dazu:</p>
+<pre>/* endian.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+typedef unsigned int  WORD;
+typedef unsigned char BYTE;
+int main(void) {
+   /* Word in den Speicher schreiben */
+   WORD Word = 0x22CCDDEE;
+   /* Zeiger auf ein Byte */
+   BYTE *Byte;
+   /* Word-Zeiger auf Byte-Zeiger casten */
+   Byte = (BYTE *) &amp;Word;
+/* Speicherinhalt nach Adressen von links nach rechts
+ * ausgeben.
+ * byte[0]byte[1]byte[2]byte[3]
+ * 22     CC     DD     EE      Speicherinhalt bei Little-Endian
+ * EE     DD     CC     22      Speicherinhalt bei Big-Endian
+ */
+   /* Ist Byte[0] == 11 */
+   if(Byte[0] == ((Word &gt;&gt;  0) &amp; 0xFF))
+      printf("Little-Endian Architecture\n");
+   /* oder ist Byte[0] == CC */
+   if(Byte[0] == ((Word &gt;&gt; 24) &amp; 0xFF))
+      printf("Big-Endian Architecture\n");
+   return EXIT_SUCCESS;
+}</pre>
+<p>Mit</p>
+<pre>if(Byte[0] == ((Word &gt;&gt;  0) &amp; 0xFF))</pre>
+<p>werden die ersten acht Bit (ein Byte) mithilfe einer Maske (<span class="listing">FF</span> == 256 == 1Byte) gezielt getestet. Werden bei dem Ausdruck (<span class="listing">(Word</span> <span class="listing">&gt;&gt;</span>  <span class="listing">0)</span> <span class="listing">&amp;</span> <span class="listing">0xFF)</span>) praktisch keine Bits auf 0 gesetzt, und stimmt danach der ausgewertete Ausdruck mit <span class="listing">Byte[0]</span> &uuml;berein, haben Sie ein Little-Endian-System. Bei der zweiten Bedingung ist es dasselbe, nur wird dabei das vierte (24. bis 32. Bit) Byte, verwendet. Zu den Little-Endian-Systemen geh&ouml;ren z.B.:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Intel CPUs</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> DEC Alpha</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> VAX</td>
+</tr>
+</table>
+<p>Und einige Big-Endian-Systeme:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Motorola MC68000 (Amiga, Atari)</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> SPARC CPUs (SUN)</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> IBM PowerPC</td>
+</tr>
+</table>
+<p>Einen faden Nachgeschmack hat diese Methode allerdings dann doch. Jetzt wissen Sie zwar, ob es sich um ein Little- oder Big-Endian-System handelt, aber jetzt m&uuml;ssen Sie sich dennoch selbst darum k&uuml;mmern, dass die einzelnen Bytes richtig gelesen und geschrieben werden. Damit ist gemeint, Sie m&uuml;ssen die Bits selbst verschieben. Aber dies ist ein Thema, dass den Rahmen sprengen und weit &uuml;ber den Titel dieses Buchs hinausgehen w&uuml;rde.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_018_015.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_018_017.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td width="10" valign="top">&nbsp;&nbsp;</td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/899?GPP=opc">
+                                        <img src="common/643_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C von A bis Z" title="Zum Katalog: C von A bis Z">
+                                        <br /><strong>C von A bis Z</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Ihre Meinung?</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1007?GPP=opc">
+                        <img src="common/683_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Shell-Programmierung" title="Zum Katalog: Shell-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Shell-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1137?GPP=opc">
+                        <img src="common/749_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux-UNIX-Programmierung" title="Zum Katalog: Linux-UNIX-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux-UNIX-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1004?GPP=opc">
+                        <img src="common/644_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C/C++" title="Zum Katalog: C/C++"><br /><br /><br /><br /><br /><br /><br />&nbsp;C/C++</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/880?GPP=opc">
+                        <img src="common/573_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/967?GPP=opc">
+                        <img src="common/626_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Reguläre Ausdrücke" title="Zum Katalog: Reguläre Ausdrücke"><br /><br /><br /><br /><br /><br /><br />&nbsp;Reguläre Ausdrücke</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/941?GPP=opc">
+                        <img src="common/677_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Shopping</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opc"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table>
+<br /><br />
+<hr width="70%" align="center"><br />
+<div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2006</b><br>F&uuml;r Ihren privaten Gebrauch d&uuml;rfen Sie die Online-Version nat&uuml;rlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschlie&szlig;lich aller seiner Teile ist urheberrechtlich gesch&uuml;tzt. Alle Rechte vorbehalten einschlie&szlig;lich der Vervielf&auml;ltigung, &Uuml;bersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>
