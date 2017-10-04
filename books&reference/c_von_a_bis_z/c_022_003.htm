@@ -1,0 +1,1009 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: C von A bis Z – 22.4 &lt;stdlib.h&gt;</title>
+<meta name="title" content="Galileo Computing :: C von A bis Z">
+<meta name="author" content="J&uuml;rgen Wolf">
+<meta name="publisher" content="Galileo Press 2006">
+<meta name="copyright" content="Galileo Press 2006">
+<meta name="description" content="C von A bis Z - Das umfassende Handbuch f&uuml;r Linux, Unix und Windows – 2., aktualisierte und erweiterte Auflage 2006, geb., mit CD und Referenzkarte – ISBN 3-89842-643-2">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="c_022_002.htm">
+<link rel="next" href="c_022_004.htm"><script type="text/javascript" language="JavaScript"><!--
+function OpenWin(url,name,height,width)
+{
+  var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+  InfoWin.focus();
+}
+//--></script></head>
+<body vlink="#000099" link="#000099" alink="#000099">
+    <table width="100%" height="74" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+        <tr>
+            <td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+            <td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opc"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger." title="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger."></a></td>
+        </tr>
+    </table>
+    <div align="right"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger.</a></div>
+    <br />
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td width="156" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
+        <tr>
+            <td colspan="2" class="nav1" align="left" valign="top" height="150">
+                <table class="tbl1" width="150" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td class="tbl2" height="25"><a class="nav" href="./index.htm">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000Vorwort_000.htm#Xxx999266">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000VorwortGutachter_000.htm#Xxx999275">Vorwort des Gutachters</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_001_000.htm#Xxx999328">1 Einstieg in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_002_000.htm#Xxx999328">2 Das erste Programm</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_003_000.htm#Xxx999328">3 Zeichens&auml;tze</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_004_000.htm#Xxx999329">4 Kommentare in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_005_000.htm#Xxx999330">5 Formatierte Eingabe mit scanf()</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_006_000.htm#Xxx999330">6 Formatierte Ausgabe mit printf</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_007_000.htm#Xxx999329">7 Elementare Datentypen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_008_000.htm#Xxx999328">8 Operatoren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_009_000.htm#Xxx999328">9 Typenumwandlung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_010_000.htm#Xxx999328">10 Kontrollstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_011_000.htm#Xxx999328">11 Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_012_000.htm#Xxx999328">12 Pr&auml;prozessor-Direktiven</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_013_000.htm#Xxx999328">13 Arrays</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_014_000.htm#Xxx999328">14 Zeiger (Pointer)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_015_000.htm#Xxx999328">15 Kommandozeilenargumente</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_016_000.htm#Xxx999328">16 Dynamische Speicherverwaltung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_017_000.htm#Xxx999328">17 Strukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_018_000.htm#Xxx999328">18 Ein-/Ausgabe-Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_019_000.htm#Xxx999328">19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_020_000.htm#Xxx999328">20 Arbeiten mit variablen langen Argumentlisten – &lt;stdarg.h&gt;</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_021_000.htm#Xxx999328">21 Zeitroutinen</A></td>
+</tr>
+<tr>
+<td><A class="navh" href="./c_022_000.htm#Xxx999328">22 Weitere Headerdateien und ihre Funktionen (ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_023_000.htm#Xxx999328">23 Dynamische Datenstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_024_000.htm#Xxx999328">24 Algorithmen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_025_000.htm#Xxx999328">25 Sicheres Programmieren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_026_000.htm#Xxx999328">26 CGI mit C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_027_000.htm#Xxx999328">27 MySQL und C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_028_000.htm#Xxx999328">28 Netzwerkprogrammierung und Cross-Plattform-Entwicklung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_029_000.htm#Xxx999328">29 Wie geht’s jetzt weiter?</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_030Anhang_000.htm#Xxx999266">A Anhang</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./stichwort.htm#Xxx512322">Index</a></td>
+</tr>
+<tr><td><br /><a class="navnav" href="http://download.galileo-press.de/openbook/c_von_a_bis_z/galileocomputing_c_von_a_bis_z.zip"><strong>Download:</strong><br />- ZIP, ca. 8,5 MB</a></td></tr>
+<tr><td><a class="navnav" href="http://www.galileocomputing.de/899?GPP=opc">Buch bestellen</a></td></tr>
+<tr><td><a class="navnav" href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)">Ihre Meinung?</a><br /><br /></td></tr>
+</table></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10"></td>
+<td width="85%" valign="top" align="center">
+    <div align="center">
+        <table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+            <tr>
+                <td width="100%" class="start" colspan="1" height="22" align="center">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_022_002.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Galileo Computing /</a><a class="navnav" href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"> &lt;openbook&gt; /</a><a href="./index.htm" class="navnav"> C von A bis Z</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_022_004.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" valign="top">
+    <table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+        <tr>
+            <td colspan="2"><a href="http://www.galileocomputing.de/899?GPP=opc" class="buchtitel">C von A bis Z</a><span class="autor"> von J&uuml;rgen Wolf</span><br><span class="untertitel">Das umfassende Handbuch f&uuml;r Linux, Unix und Windows <br />– 2., aktualisierte und erweiterte Auflage 2006</span></td>
+        </tr>
+        <tr>
+            <td valign="top" width="90"><a href="http://www.galileocomputing.de/899?GPP=opc"><img src="common/643.gif" border="0" alt="Buch: C von A bis Z" title="Buch: C von A bis Z" align="left"><br /><br /><span class="autor"><strong>C von A bis Z</strong><br />1.116 S., mit CD, Referenzkarte, 39,90 Euro<br />Galileo Computing<br />ISBN 3-89842-643-2</span></a></a></td>
+            <td width="80%">
+<table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="3" class="kap"><b>Kapitel <a href="./c_022_000.htm#RxxobKap02200004002B581F03E18C">22 Weitere Headerdateien und ihre Funktionen (ANSI C)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_022_000.htm#RxxobKap02200004002B581F03E18E">22.1 &lt;assert.h&gt; -– Testm&ouml;glichkeiten und Fehlersuche</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_022_001.htm#RxxobKap02200104002B731F03618C">22.2 &lt;ctype.h&gt; – Zeichenklassifizierung und Umwandlung</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_022_002.htm#RxxobKap02200204002B741F03018C">22.3 Mathematische Funktionen – &lt;math.h&gt;</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a class="navh" href="#RxxobKap02200304002B751F04818C">22.4 &lt;stdlib.h&gt;</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02200304002B751F04818E">22.4.1 Programmbeendigung – exit(), _exit(), atexit() und abort()</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02200304002B751F0481A4">22.4.2 Konvertieren von Strings in numerische Werte</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02200304002B751F0481B3">22.4.3 Bessere Alternative – Konvertieren von Strings in numerische Werte</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02200304002B751F0481C6">22.4.4 Zufallszahlen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02200304002B751F0481D2">22.4.5 Absolutwerte, Quotient und Rest von Divisionen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02200304002B751F0481E1">22.4.6 Suchen und Sortieren – qsort() und bsearch()</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02200304002B751F0481EB">22.4.7 system()</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_022_004.htm#RxxobKap02200404002B761F01218C">22.5 &lt;locale.h&gt; – L&auml;nderspezifische Eigenheiten</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_022_005.htm#RxxobKap02200504002B771F04B18C">22.6 &lt;setjmp.h&gt;</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_022_006.htm#RxxobKap02200604002B781F04618C">22.7 &lt;signal.h&gt;</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_022_007.htm#RxxobKap02200704002B791F03918C">22.8 &lt;string.h&gt; – Die mem…-Funktionen zur Speichermanipulation</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_022_007.htm#RxxobKap02200704002B791F03918E">22.8.1 memchr() – Suche nach einzelnen Zeichen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_022_007.htm#RxxobKap02200704002B791F039193">22.8.2 memcmp() – Bestimmte Anzahl von Bytes vergleichen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_022_007.htm#RxxobKap02200704002B791F039198">22.8.3 memcpy() – Bestimmte Anzahl von Bytes kopieren</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_022_007.htm#RxxobKap02200704002B791F03919D">22.8.4 memmove() – Bestimmte Anzahl von Bytes kopieren</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_022_007.htm#RxxobKap02200704002B791F0391A2">22.8.5 memset() – Speicherbereich mit bestimmten Zeichen auff&uuml;llen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_022_008.htm#RxxobKap02200804002B7A1F02018C">22.9 Erweiterter ANSI C-Standard (ANSI C99)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_022_008.htm#RxxobKap02200804002B7A1F020190">22.9.1 Neue elementare Datentypen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_022_008.htm#RxxobKap02200804002B7A1F0201A3">22.9.2 &lt;stdint.h&gt; – Ganzzahlige Typen mit vorgegebener Breite</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_022_008.htm#RxxobKap02200804002B7A1F0201B5">22.9.3 Komplexe Gleitpunkttypen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_022_008.htm#RxxobKap02200804002B7A1F0201B9">22.9.4 &lt;iso646.h&gt; – Symbolische Konstanten f&uuml;r Operatoren</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_022_008.htm#RxxobKap02200804002B7A1F0201D6">22.9.5 Deklaration von Bezeichnern</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_022_008.htm#RxxobKap02200804002B7A1F0201D8">22.9.6 inline-Funktionen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_022_008.htm#RxxobKap02200804002B7A1F0201DD">22.9.7 Vordefinierte Makros</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_022_008.htm#RxxobKap02200804002B7A1F0201EC">22.9.8 &lt;math.h&gt; – Neue Funktionen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_022_008.htm#RxxobKap02200804002B7A1F020233">22.9.9 &lt;wchar.h&gt; – (NA1)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_022_008.htm#RxxobKap02200804002B7A1F020239">22.9.10 &lt;wctype.h&gt; (NA1)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_022_008.htm#RxxobKap02200804002B7A1F02023C">22.9.11 &lt;fenv.h&gt; – Kontrolle der Gleitpunkzahlen-Umgebung</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_022_008.htm#RxxobKap02200804002B7A1F02023E">22.9.12 &lt;inttypes.h&gt; – F&uuml;r genauere Integer-Typen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_022_008.htm#RxxobKap02200804002B7A1F020240">22.9.13 &lt;tgmath.h&gt; – Typengenerische Mathematik-Funktionen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_022_008.htm#RxxobKap02200804002B7A1F020244">22.9.14 Zusammenfassung</a></b></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td>
+<a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2">22.4 &lt;stdlib.h&gt;<a id="RxxobKap02200304002B751F04818C" name="RxxobKap02200304002B751F04818C"></a> 
+      <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"></h2>
+<p><a id="Xxx999329" name="Xxx999329"></a>In der Headerdatei <span class="listing">&lt;stdlib.h&gt;</span> befinden sich au&szlig;er den Funktionen zum Allokieren von Speicherplatz noch weitere n&uuml;tzliche.</p>
+<a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3">22.4.1 Programmbeendigung – exit(), _exit(), atexit() und abort()<a id="RxxobKap02200304002B751F04818E" name="RxxobKap02200304002B751F04818E"></a> 
+      <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999332" name="Xxx999332"></a>Zur normalen Beendigung eines Programms k&ouml;nnen Sie au&szlig;er <span class="listing">return</span> folgende Funktion verwenden:<a id="Xxx999334" name="Xxx999334"></a><a id="Xxx999335" name="Xxx999335"></a></p>
+<pre><span class="listing">void exit(int status);</span></pre>
+<p>Laut ANSI C-Standard ist es gleich, ob ein Programm mit der Funktion <span class="listing">exit()</span> oder <span class="listing">return</span> beendet wird – mit dem Unterschied, dass &uuml;ber <span class="listing">exit()</span> von einer beliebigen Position des Programms aus beendet werden kann. Bei <span class="listing">return</span> gelingt dies nur in der <span class="listing">main()</span>-Funktion. Der Ablauf von <span class="listing">exit()</span> l&auml;sst sich so erkl&auml;ren: Bei Programmbeendigung mit <span class="listing">exit()</span> werden zuvor alle gef&uuml;llten Puffer geleert, alle ge&ouml;ffneten Dateien geschlossen und alle tempor&auml;ren Dateien, die mit der Funktion <span class="listing">tmpfile()</span> angelegt wurden, gel&ouml;scht. Anschlie&szlig;end wird die Routine <span class="listing">_exit()</span> aufgerufen, und das Programm beendet sich.</p>
+<p>Auch bei <span class="listing">exit()</span> gilt Gleiches mit dem R&uuml;ckgabewert als Parameter wie schon beim Beenden der <span class="listing">main()</span>-Funktion mittels <span class="listing">return</span>. Ein R&uuml;ckgabewert von 0 bedeutet, dass ein Programm ordentlich beendet wurde – ein Wert ungleich 0 hingegen sagt aus, dass etwas nicht ordnungsgem&auml;&szlig; abgeschlossen wurde. Da dies, wie schon in Abschnitt 11.7 erw&auml;hnt, nicht unbedingt so implementiert sein muss, ist man auch hier mit den Standard-C Makros <span class="listing">EXIT_SUCCESS</span> (f&uuml;r eine erfolgreiche Beendigung) und <span class="listing">EXIT_FAILURE</span> (bei einem Fehler) auf der sicheren Seite als Parameter f&uuml;r <span class="listing">exit()</span>.</p>
+<p>Theoretisch kann die Funktion <span class="listing">_exit</span> auch gleich aufgerufen werden. Dies entspricht allerdings nicht dem ANSI C-Standard. Hier die Syntax:<a id="Xxx999340" name="Xxx999340"></a><a id="Xxx999341" name="Xxx999341"></a></p>
+<pre>#include &lt;unistd.h&gt;    /* unter Linux/UNIX */
+#include &lt;stdlib.h&gt;    /* unter MS-DOS     */
+void _exit(int status);</pre>
+<p>Damit werden die oben genannten »Aufr&auml;umarbeiten« nicht vorgenommen.</p>
+<p>Eine weitere Funktion f&uuml;r Beendigungsroutinen in der Headerdatei <span class="listing">&lt;stdlib.h&gt;</span> ist die Funktion <span class="listing">atexit()</span>. Die Syntax:<a id="Xxx999345" name="Xxx999345"></a><a id="Xxx999346" name="Xxx999346"></a></p>
+<pre>#include &lt;stdlib.h&gt;
+int atexit(void (*funktion) (void));</pre>
+<p>Mit <span class="listing">atexit()</span> wird ein so genannter Funktionshandler eingerichtet. Alle Funktionen, die in <span class="listing">atexit()</span> angegeben sind, werden in einer Funktionsliste eingetragen und bei Beendigung des Programms in umgekehrter Reihenfolge ausgef&uuml;hrt, also nach dem LIFO-Prinzip (Last In First Out). Laut ANSI C k&ouml;nnen insgesamt 32 solcher Funktionen verwendet werden. Hierzu ein Beispiel:</p>
+<pre>/* atexit1.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+void funktion1(void) {
+   printf("Die Funktion funktion1 wurde aufgerufen\n");
+}
+void funktion2(void) {
+   printf("Die Funktion funktion2 wurde aufgerufen\n");
+}
+int main(void) {
+   atexit(funktion1);
+   atexit(funktion2);
+   printf("Wir beenden unser Programm\n");
+   exit(EXIT_FAILURE);
+   printf("Dies wird nicht mehr ausgegeben\n");
+   return EXIT_SUCCESS;
+}</pre>
+<p>Solch ein Beispiel macht nat&uuml;rlich wenig Sinn. Sie k&ouml;nnen <span class="listing">atexit()</span> beispielsweise verwenden, um Log-Dateien zu schreiben, etwa wenn der User das Programm beendet, oder wenn ein Programm mit einem Fehler beendet wurde. Oder Sie k&ouml;nnen noch diverse Aufr&auml;umarbeiten durchf&uuml;hren, wie dies im folgenden Beispiel geschieht:</p>
+<pre>/* atexit2.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+char *memPtr;
+void free_malloc(void) {
+   /* Wurde &uuml;berhaupt Speicher reserviert? */
+   if(memPtr == NULL)
+      printf("Kein Speicher war reserviert!!!\n");
+   else {
+      free(memPtr);
+      printf("Speicher wurde freigegeben!!\n");
+   }
+}
+int main(void) {
+   memPtr =(char *) malloc(10000);
+   if(memPtr==NULL)
+      printf("Konnte keinen Speicher reservieren\n");
+   if(atexit (free_malloc) != 0)
+      printf("Konnte Funktionshandler nicht einrichten\n");
+   /* Nach vielen Zeilen Code beenden wir das Programm */
+   printf("Ein Fehler – Programm wird beendet – \n");
+   exit(EXIT_FAILURE);
+   printf("Wird nicht mehr ausgegeben\n");
+   return EXIT_SUCCESS;
+}</pre>
+<p>Die n&auml;chste Funktion zur Beendigung oder in diesem Fall besser, zur abnormalen Beendigung eines Programms, ist die Funktion <span class="listing">abort()</span>. Die Syntax:<a id="Xxx999353" name="Xxx999353"></a><a id="Xxx999354" name="Xxx999354"></a><a id="Xxx999355" name="Xxx999355"></a></p>
+<pre>#include &lt;stdlib.h&gt;
+void abort(void);</pre>
+<p>Diese Funktion bewirkt – wie der Name schon sagt – eine abnormale Programmbeendigung. <span class="listing">abort()</span> schickt dem aufrufenden Prozess das Signal <span class="listing">SIGABRT</span>. Dieses Signal sollte niemals ignoriert werden. Hier ein Mini-Beispiel dazu:</p>
+<pre>/* abort.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main(void) {
+   abort();
+   return EXIT_SUCCESS;
+}</pre>
+<p>Das Programm wird mit folgender Fehlermeldung beendet:</p>
+<pre>Abnormal Programm termination</pre>
+<p>Hier wurde die Fehlerausgabe &uuml;ber <span class="listing">stderr</span> realisiert. Im Gegensatz zur Funktion <span class="listing">exit()</span> gibt es bei der Funktion <span class="listing">abort()</span> keine Vorgaben, ob der Ausgabepuffer geleert oder die tempor&auml;ren Dateien automatisch gel&ouml;scht werden. Somit ist diese Funktion nicht f&uuml;r Programme geeignet, die auf mehreren Systemen laufen m&uuml;ssen. Ebenso werden nach einem <span class="listing">abort()</span>-Aufruf die Funktionen, die mit <span class="listing">atexit()</span> eingerichtet wurden, nicht mehr ausgef&uuml;hrt.</p>
+<p>POSIX.1 hingegen schreibt vor, dass zumindest alle noch offenen Standard-E-/A-Streams mit <span class="listing">fclose()</span> ordentlich geschlossen werden m&uuml;ssen.</p>
+<a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3">22.4.2 Konvertieren von Strings in numerische Werte<a id="RxxobKap02200304002B751F0481A4" name="RxxobKap02200304002B751F0481A4"></a> 
+      <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999364" name="Xxx999364"></a>M&uuml;ssen Sie einen String in einen numerischen Wert konvertieren, gibt es hierf&uuml;r in der Headerdatei <span class="listing">&lt;stdlib.h&gt;</span> gleich mehrere Funktionen. Einen String in einen <span class="listing">int</span>-Wert umwandeln k&ouml;nnen Sie mit der Funktion:<a id="Xxx999366" name="Xxx999366"></a></p>
+<pre>int atoi(char *string);</pre>
+<p>Ein String kann in einen <span class="listing">long</span> <span class="listing">int</span>-Wert mit der Funktion<a id="Xxx999368" name="Xxx999368"></a></p>
+<pre>long int atol(char *string);</pre>
+<p>umgewandelt werden, und soll ein <span class="listing">double</span>-Wert aus einem String werden, ist diese Funktion verf&uuml;gbar:<a id="Xxx999372" name="Xxx999372"></a></p>
+<pre>double atof(char *string);</pre>
+<p>Es soll ein Programm geschrieben werden, das z.B. folgende Eingabe von der Kommandozeile verarbeiten kann:</p>
+<pre>typen 5 5.55 A 255555 3E234</pre>
+<p>Die Ausgabe sollte dann so aussehen:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/22_01.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein22_01.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 22.1   
+    </b>Konvertieren von Strings in numerische Werte</p>
+<p>Hierzu der Quellcode und die Funktionen <span class="listing">atof()</span> und <span class="listing">atol()</span>:</p>
+<pre>/* string2val1.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;float.h&gt;
+#include &lt;limits.h&gt;
+int main(int argc, char **argv) {
+   if(argc==1) {
+      printf("Keine Zahlen zum Auswerten vorhanden!\n");
+      return EXIT_FAILURE;
+   }
+   while(*++argv) {
+      if(strchr(*argv,'.') || strchr(*argv,'e') ||
+       strchr(*argv,'E')) {
+         if(((atof(*argv)) &lt;= FLT_MAX)&amp;&amp;
+          ((atof(*argv)) &gt;= FLT_MIN)) {
+            printf("\n%s ist ein float-Wert\n", *argv);
+            printf("Maximaler float-Wert:%f\n", FLT_MAX);
+            printf("Kleinster pos. float-Wert : %f\n" , FLT_MIN);
+         }
+         else if(((atof(*argv)) &lt;= DBL_MAX)&amp;&amp;
+          ((atof(*argv)) &gt;= DBL_MIN)) {
+            printf("\n%s ist ein double-Wert\n", *argv);
+            printf("Max. double-Wert:%f\n", DBL_MAX);
+            printf("Kleinster pos. double-Wert : %f\n", DBL_MIN);
+         }
+      }
+      else if(((atol(*argv)) &lt; SHRT_MAX)&amp;&amp;
+       ((atol(*argv))&gt;SHRT_MIN) &amp;&amp; (atol(*argv) != 0)) {
+         printf("\n%s ist ein short int-Wert\n",*argv);
+         printf("Maximaler short int-Wert: %d\n",SHRT_MAX);
+         printf("Kleinster short int-Wert: %d\n",SHRT_MIN);
+      }
+      else if(((atol(*argv)) &lt; LONG_MAX) &amp;&amp;
+       ((atol(*argv)) &gt; LONG_MIN) &amp;&amp; (atol(*argv) != 0)) {
+         printf("\n%s ist ein long-Wert\n",*argv);
+         printf("Maximaler long-Wert : %ld\n",LONG_MAX);
+         printf("Kleinster long-Wert : %ld\n",LONG_MIN);
+      }
+      else
+         printf("\nUnbekannter Typ (%s)!\n",*argv);
+      }
+    return EXIT_SUCCESS;
+}</pre>
+<p>Es wurde hier nicht auf alle Datentypen gepr&uuml;ft, und anderweitig ist das Programm auch nicht wasserdicht. Aber dies w&uuml;rde den Rahmen dieses Kapitels sprengen. Hier wurden au&szlig;erdem die (ANSI C-) Konstanten aus den Headerdateien <span class="listing">&lt;float.h&gt;</span> und <span class="listing">&lt;limits.h&gt;</span> verwendet, damit das Programm auch auf jedem System l&auml;uft. Egal, welche Grenzen gesetzt sind.</p>
+<a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3">22.4.3 Bessere Alternative –  Konvertieren von Strings in numerische Werte<a id="RxxobKap02200304002B751F0481B3" name="RxxobKap02200304002B751F0481B3"></a> 
+      <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Sicherlich ist Ihnen an der Methode (im Listing <span class="listing">string2va1.c</span>) mit <span class="listing">atof()</span> bzw. <span class="listing">atol()</span> aufgefallen, dass diese Funktionen recht unflexibel sind und vor allem das Manko haben, keinen Fehler bei der Eingabe feststellen zu k&ouml;nnen. Eine gerne gestellte Frage lautet n&auml;mlich, wie man auf die Richtigkeit der Eingabe eines Datentyps pr&uuml;fen k&ouml;nne. Und genau diese »bessere« Alternative stellt Ihnen die Standard-Bibliothek mit den Funktionen <span class="listing">strtod()</span> und <span class="listing">strtol()</span> zur Verf&uuml;gung. Beide Funktionen sind ebenfalls in der Headerdatei <span class="listing">&lt;stdlib.h&gt;</span> enthalten. Zuerst die Funktion <span class="listing">strtod()</span>:<a id="Xxx999387" name="Xxx999387"></a></p>
+<pre>double strtod(const char *string, char **endptr);</pre>
+<p><span class="listing">strtod()</span> konvertiert einen String in einen <span class="listing">double</span>-Wert. <span class="listing">strtod()</span> bricht die Analyse beim ersten Zeichen ab, das nicht mehr als Teil eines <span class="listing">double</span>-Werts interpretiert werden kann. Solange der Parameter <span class="listing">endptr</span> nicht <span class="listing">NULL</span> ist, wird <span class="listing">*endptr</span> von <span class="listing">strtod()</span> auf das Zeichen innerhalb von <span class="listing">string</span> gesetzt, durch das die Analyse abgebrochen wurde (<span class="listing">*endptr=&amp;abbruch_zeichen</span>).<a id="Xxx999390" name="Xxx999390"></a></p>
+<pre>long strtol(const char *string, char **endptr, int basis);</pre>
+<p><span class="listing">strtol()</span> konvertiert einen String in einen <span class="listing">long</span>-Wert. <span class="listing">basis</span> legt das Zahlensystem fest, in das die Zahl umgewandelt werden soll (Basis = 8 ist Oktalzahl, Basis = 16 (0–9,A-F) ist eine Hexadezimalzahl, Basis = 10 ist das Dezimalsystem). F&uuml;r <span class="listing">basis</span> sind Werte von 2 bis 36 m&ouml;glich. F&uuml;r <span class="listing">endptr</span> k&ouml;nnen Sie den <span class="listing">NULL</span>-Zeiger angeben. Falls kein <span class="listing">NULL</span>-Zeiger angegeben wird, zeigt <span class="listing">endptr</span> auf den Rest des <span class="listing">long</span>-Werts (sollte einer &uuml;brig bleiben). F&uuml;r diese Funktion gibt es auch den <span class="listing">unsigned</span>-Bruder mit derselben Bedeutung:<a id="Xxx999393" name="Xxx999393"></a></p>
+<pre>unsigned long stroul(const char *string,
+                     char **end_ptr,int basis);</pre>
+<p>Im Falle eines Fehlers liefern all diese Funktionen 0 zur&uuml;ck. Wird der Wertebereich des zu konvertierenden Typs unter- bzw- &uuml;berschritten (bei <span class="listing">long</span> sind dies <span class="listing">LONG_MIN</span> bzw. <span class="listing">LONG_MAX</span>), wird <span class="listing">errno</span> auf <span class="listing">ERANGE</span> gesetzt. Somit k&ouml;nnen Sie mit ziemlicher Sicherheit davon ausgehen, wenn der R&uuml;ckgabewert der Funktionen nicht 0, der <span class="listing">end_ptr</span> gleich <span class="listing">NULL</span> und die Fehlervariable <span class="listing">errno</span> nicht <span class="listing">ERANGE</span> ist, dass die von Ihnen eingegebene Zahl richtig ist (100%-ige Garantie gibt es aber nicht).</p>
+<p>Hier ein kurzes Beispiel, welches den gleichwertigen Fall von <span class="listing">atol()</span> und <span class="listing">strtol()</span> demonstrieren soll:</p>
+<pre>/* string2val2.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main(void) {
+   char string1[] =  "256Vorrat";
+   char string2[]=   "128Benoetigt";
+   long zahl1, zahl2;
+   zahl1 = atol(string1);
+   zahl2 = strtol(string2, NULL, 10);
+   printf("zahl1: %ld; zahl2: %ld\n", zahl1, zahl2);
+   return EXIT_SUCCESS;
+}</pre>
+<p>Hierbei wird »korrekterweise« einmal die Zahl 256 und einmal 128 ausgegeben. Beide Funktionen konvertieren also bis zum ersten Zeichen, was nicht mehr zum Datentypen geh&ouml;rt. Was aber, wenn eine derartige Eingabe &uuml;berpr&uuml;ft werden soll, denn eigentlich sind ja beide Strings keine »korrekten« Zahlen, sondern nur Strings, die eben Zahlen beinhalten bzw. welche mit Zahlen beginnen. Eben hier ist <span class="listing">atol()</span> am Ende. Mit <span class="listing">strtol()</span> hingegen haben Sie hierbei noch den zweiten Parameter, der Ihnen dabei helfen wird.</p>
+<p>Daher soll hier ein Beispiel erstellt werden, welches jeweils zweimal die Eingabe eines Strings erfordert und &uuml;berpr&uuml;ft, ob es sich dabei um einen »echten« <span class="listing">long</span> Wert handelt (<span class="listing">strtol()</span>) und noch eine Funktion hat, welche &uuml;berpr&uuml;ft, ob sich der String korrekt in einen double-Wert konvertieren l&auml;sst (<span class="listing">mit</span> <span class="listing">strtod()</span>).</p>
+<pre>/* check_input.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;errno.h&gt;
+#define CHARS 20
+void chomp(char *str) {
+   size_t p=strlen(str);
+   /* '\n' mit '\0' &uuml;berschreiben */
+   str[p-1]='\0';
+}
+void is_long(char *str) {
+   static long val;
+   char *stop_ptr = NULL;
+   val = strtoul(str, &amp;stop_ptr, 10);
+   if(errno == ERANGE) {
+      printf("Werte&uuml;ber- bzw. Unterlauf!!!\n");
+      exit(EXIT_FAILURE);
+   }
+   if(!val) {
+      printf("Wert konnte nicht umgewandelt werden\n");
+      exit(EXIT_FAILURE);
+   }
+   if(*stop_ptr != NULL) {
+      printf("Kein korrekter long-Wert: %s\n", str);
+      printf("Fehler der Umwandlung ab Pos.: %s\n", stop_ptr);
+      printf("Umgewandelt ---&gt; %ld\n", val);
+   }
+   else
+      printf("Yeah! Korrekter long-Wert : %ld\n", val);
+}
+void is_double(char *str) {
+   static double val;
+   char *stop_ptr = NULL;
+   val = strtod(str, &amp;stop_ptr);
+   if(errno == ERANGE) {
+      printf("Werte&uuml;ber- bzw. Unterlauf!!!\n");
+      exit(EXIT_FAILURE);
+   }
+   if(!val) {
+      printf("Wert konnte nicht umgewandelt werden\n");
+      exit(EXIT_FAILURE);
+   }
+   if(*stop_ptr != NULL) {
+      printf("Kein korrekter double-Wert: %s\n", str);
+      printf("Fehler der Umwandlung ab Pos.: %s\n", stop_ptr);
+      printf("Umgewandelt ---&gt; %lf\n", val);
+   }
+   else
+      printf("Yeah! Korrekter double-Wert : %lf\n", val);
+}
+int main(void) {
+   char val[CHARS];
+   /* Testen eines long-Wertes */
+   printf("Bitte geben Sie eine long-Wert ein : ");
+   fgets(val, CHARS, stdin);
+   chomp(val);
+   is_long(val);
+   /* Gleiches nochmals mit einem double-Wert */
+   printf("Bitte geben Sie eine double-Wert ein : ");
+   fgets(val, CHARS, stdin);
+   chomp(val);
+   is_double(val);
+   return EXIT_SUCCESS;
+}</pre>
+<p>Sofern Sie jetzt hierbei auf andere Typen wie bspw. <span class="listing">int</span> &uuml;berpr&uuml;fen wollen, m&uuml;ssen Sie dazu die Limit-Konstanten der Headerdatei <span class="listing">&lt;limits.h&gt;</span> (bspw. <span class="listing">INT_MIN</span> oder <span class="listing">INT_MAX</span>)  verwenden und mit dem <span class="listing">long</span>-konvertieren Wert vergleichen.</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard"><b>Hinweis   </b>Sofern Ihr Compiler den ISO C99-Standard versteht, finden Sie hierbei noch weitere solcher sehr n&uuml;tzlichen Funktionen mit <span class="listing">strtoll()</span> (string to long long), <span class="listing">strtoimax()</span> (string to int max), <span class="listing">strtof()</span> (string to float) und <span class="listing">strtold</span> (string to long double). Mehr dazu entnehmen Sie dann der Dokumentation Ihres Compilers (bspw. Manual-Page).</p>
+</td>
+</tr>
+</table><br>
+<p>Eine h&auml;ufige Frage lautet: Wo ist <span class="listing">itoa()</span>, oder wie kann ich einen Integerwert in einen String konvertieren? <span class="listing">itoa()</span> ist keine ANSI C-Standardfunktion und daher h&auml;ngt es vom Compiler ab, ob diese Funktion vorhanden ist oder nicht. Sollten Sie aber portabel bleiben m&uuml;ssen, macht diese Funktion ohnehin keinen Sinn. Also, basteln Sie sich diese Funktion selbst zusammen:<a id="Xxx999407" name="Xxx999407"></a></p>
+<pre>/* my_itoa.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+char *my_itoa(int wert, int laenge) {
+   char *ret =(char *) malloc(laenge+1 * sizeof(char));
+   int i;
+   for(i  =0; i &lt; laenge; i++) {
+      ret[laenge-i-1] = (wert % 10) + 48;
+      wert = wert / 10;
+   }
+   ret[laenge]='\0';
+   return ret;
+}
+int main(void) {
+   printf("%s\n", my_itoa(1234,4));
+   printf("%s\n", my_itoa(5432,6));
+   return EXIT_SUCCESS;
+}</pre>
+<p>Falls f&uuml;r die L&auml;nge zu viele Zahlen angegeben wurden, werden diese mit voranstehenden Nullen gef&uuml;llt.</p>
+<a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3">22.4.4 Zufallszahlen<a id="RxxobKap02200304002B751F0481C6" name="RxxobKap02200304002B751F0481C6"></a> 
+      <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999411" name="Xxx999411"></a>Die Funktion<a id="Xxx999412" name="Xxx999412"></a></p>
+<pre>int rand(void);</pre>
+<p>liefert eine Pseudo-Zufallszahl im Bereich 0 bis <span class="listing">RAND_MAX</span> zur&uuml;ck. Beispielsweise mit:</p>
+<pre>/* zufall1.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main(void) {
+   int zufallszahl, i;
+   for(i = 0; i &lt; 5; i++)
+      printf("Die Zufallszahl lautet %d\n", zufallszahl=rand());
+   return EXIT_SUCCESS;
+}</pre>
+<p>Bei Ausf&uuml;hrung des Listings werden f&uuml;nf verschiedene Zufallszahlen zwischen 0 und <span class="listing">RAND_MAX<a id="Xxx999418" name="Xxx999418"></a></span> ausgegeben. Aber sp&auml;testens, wenn das Programm jetzt ein zweites Mal gestartet wird, merken Sie, dass sich diese Zufallszahlen immer wiederholen. Das Problem an der Funktion <span class="listing">rand()</span> ist, dass diese immer denselben Startpunkt zur Berechnung der Zufallszahl benutzt. Anders dagegen die Funktion<a id="Xxx999419" name="Xxx999419"></a><a id="Xxx999420" name="Xxx999420"></a></p>
+<pre>void srand(unsigned int startwert);</pre>
+<p>Hiermit kann der Startpunkt f&uuml;r die Zufallszahl selbst bestimmt werden. Ein Beispiel:</p>
+<pre>/* zufall2.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main(void) {
+   int zufallszahl, i, startpunkt;
+   printf("Geben Sie irgendeine Zahl ein : ");
+   scanf("%d",&amp;startpunkt);
+   srand(startpunkt);
+   for(i = 0; i &lt; 5; i++)
+      printf("Die Zufallszahl lautet  %d\n", zufallszahl=rand());
+   return EXIT_SUCCESS;
+}</pre>
+<p>Jetzt wollen Sie aber sicher nicht andauernd einen Startwert f&uuml;r den Zufallsgenerator eingeben. Zum einen ist dies umst&auml;ndlich, und zum anderen bekommen Sie wieder dieselbe Zahl zur&uuml;ck, sollte zweimal der gleiche Wert eingegeben werden. Was eignet sich also besser als die Funktion <span class="listing">time()</span> <span class="listing">f&uuml;r</span> den Startwert. Und wie gehen Sie vor, falls eine Zufallszahl im Bereich zwischen 1 und 10 ben&ouml;tigt wird? Hier eignet sich der Modulo-Operator bestens. Ein entsprechendes Beispiel:</p>
+<pre>/* zufall3.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+int main(void) {
+   int zufallszahl, i;
+   srand(time(NULL));
+   for(i = 0; i &lt; 5; i++)
+      printf("Zufallszahl lautet %d\n", zufallszahl=rand()%10+1);
+   return EXIT_SUCCESS;
+}</pre>
+<p>Jetzt erhalten Sie schon etwas bessere Zufallszahlen im Bereich zwischen 1–10.</p>
+<a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3">22.4.5 Absolutwerte, Quotient und Rest von Divisionen<a id="RxxobKap02200304002B751F0481D2" name="RxxobKap02200304002B751F0481D2"></a> 
+      <a href="#t2t37"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999428" name="Xxx999428"></a>Um Absolutwerte von Ganzzahlen zu ermitteln, k&ouml;nnen zwei Funktionen verwendet werden:<a id="Xxx999430" name="Xxx999430"></a><a id="Xxx999431" name="Xxx999431"></a></p>
+<pre>long int labs(long int zahl);
+int abs(int zahl);</pre>
+<p>So erhalten Sie den Absolutwert zum ganzzahligen Argument <span class="listing">zahl</span>. Das Beispiel:</p>
+<pre>/* absolut.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main(void) {
+   int zahl = 5;
+   printf("%d\n", abs(zahl-20));
+   return EXIT_SUCCESS;
+}</pre>
+<p>Wird der Quotient und der Rest einer Division ben&ouml;tigt, k&ouml;nnen folgende Funktionen verwendet werden:<a id="Xxx999436" name="Xxx999436"></a><a id="Xxx999437" name="Xxx999437"></a><a id="Xxx999438" name="Xxx999438"></a></p>
+<pre>div_t div(int zaehler, int nenner);
+ldiv_t ldiv(long int zaehler, long int nenner);</pre>
+<p><span class="listing">div_t</span> und <span class="listing">ldiv_t</span> sind Strukturtypen mit folgendem Inhalt:</p>
+<pre>typedef struct{
+   int quot;  /* quotient */
+   int rem;   /* remainder */
+} div_t;</pre>
+<p>... bzw. ...<a id="Xxx999442" name="Xxx999442"></a></p>
+<pre>typedef struct{
+   long int quot;  /* quotient */
+   long int rem;   /* remainder */
+} ldiv_t;</pre>
+<p>Damit berechnen Sie <span class="listing">zaehler/nenner</span>. Der Rest des Werts steht in <span class="listing">rem</span>, falls die Rechnung ungenau ist, und der Quotient befindet sich in <span class="listing">quot</span>. Ein Beispiel:</p>
+<pre>/* division.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main(void) {
+   div_t x = div(10,3);
+   printf("10 div 3 = %d Rest %d\n",  x.quot, x.rem);
+   return EXIT_SUCCESS;
+}</pre>
+<p>Diese Funktion macht im Prinzip nichts anderes, als Folgendes zu berechnen:</p>
+<pre>quot = zaehler / nenner;
+rem  = zaehler % nenner;</pre>
+<a name="t36"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t37"></a><h3 class="t3">22.4.6 Suchen und Sortieren – qsort() und bsearch()<a id="RxxobKap02200304002B751F0481E1" name="RxxobKap02200304002B751F0481E1"></a> 
+      <a href="#t2t38"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t36"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999450" name="Xxx999450"></a>Mit der Funktion <span class="listing">qsort()</span> kann ein Array der Wahl nach beliebigen Kriterien sortiert werden. Die <span class="listing">qsort()</span>-Funktion basiert auf dem Quicksort-Algorithmus von C.A.R. Hoare. Die Syntax von <span class="listing">qsort(),</span> ausf&uuml;hrlich dokumentiert:<a id="Xxx999452" name="Xxx999452"></a></p>
+<pre>void qsort(
+   void *array,        // Anfangsadresse des Vektors
+   size_t n,           // Anzahl der Elemente zum Sortieren
+   size_t size,        // Gr&ouml;&szlig;e des Datentyps, der sortiert wird
+   // Jetzt folgt die Vergleichsfunktion
+   int (*vergleich_func)(const void*, const void*)   );</pre>
+<p>Die Bedeutungen der einzelnen Parameter d&uuml;rften klar sein – bis auf die Vergleichsfunktion. Diese m&uuml;ssen Sie selbst implementieren. Hierzu ein einfaches Beispiel mit der Funktion <span class="listing">qsort()</span>:</p>
+<pre>/* qsort.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+/* Vergleichsfunktion */
+int cmp(const void *ptr1, const void *ptr2) {
+   if( *(int *)ptr1 &lt; *(int *)ptr2 )
+      return –1;
+   else if( *(int *)ptr1 &gt; *(int *)ptr2 )
+      return 1;
+   else
+      return 0;  /* Beide Elemente sind gleich */
+}
+int main(void) {
+   int wert[] = { 2, 5, 2, 7, 6, 4, 2 };
+   int i;
+   printf("Daten vor dem Sortieren\n");
+   for(i = 0; i &lt; sizeof(wert)/sizeof(int); i++)
+      printf("%d\t", wert[i]);
+   printf("\n");
+   /* Jetzt sortieren mit qsort() */
+   qsort(wert, sizeof(wert)/sizeof(int), sizeof(int), cmp);
+   printf("Daten nach dem Sortieren mit qsort()\n");
+   for(i = 0; i &lt; sizeof(wert)/sizeof(int); i++)
+      printf("%d\t", wert[i]);
+   printf("\n");
+   return EXIT_SUCCESS;
+}</pre>
+<p>Das Listing sortiert das unsortierte Integer-Feld <span class="listing">wert</span>, die Ausgabe des Programms best&auml;tigt dies.</p>
+<p><a id="Xxx999457" name="Xxx999457"></a>Wollen Sie ein Element wieder in Ihrem sortierten Vektor finden, dann k&ouml;nnen Sie die Funktion <span class="listing">bsearch()</span> verwenden. <span class="listing">bsearch</span> steht f&uuml;r »bin&auml;re Suche« und sucht die Elemente, indem die Suche mit dem mittleren Bereich eines Arrays begonnen wird, und f&auml;hrt je nach Resultat mit der Suche auf der linken oder rechten H&auml;lfte fort. Genaueres dazu erfahren Sie in Kapitel 24, Algorithmen. Wird ein entsprechendes Element gefunden, liefert diese Funktion die Adresse zur&uuml;ck. Wird kein entsprechendes Element gefunden, dann wird der <span class="listing">NULL</span>-Zeiger zur&uuml;ckgegeben. Hier die Syntax:<a id="Xxx999459" name="Xxx999459"></a></p>
+<pre>void *bsearch(
+   const void *key,      // gesuchte Elemente
+   const void *array,    // Anfangsadresse der Tabelle zum Suchen
+   size_t n,             // Anzahl der Elemente
+   size_t size,          // Elementgr&ouml;&szlig;e
+   // Jetzt folgt die Vergleichsfunktion
+   int (*vergleich_func)(const void*, const void*)   );</pre>
+<p>Die Syntax ist also der Funktion <span class="listing">qsort()</span> recht &auml;hnlich. Zur Abwechslung soll aber hier nach einem String in einer Stringtabelle gesucht werden, welche Sie zuvor noch mit <span class="listing">qsort()</span> sortieren.</p>
+<pre>/* bsearch.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+/* Anzahl der Strings */
+#define MAX 5
+/* Vergleichsfunktion f&uuml;r zwei Strings */
+int cmp_str(const void *s1, const void *s2) {
+   return (strcmp(*(char **)s1, *(char **)s2));
+}
+int main(void) {
+   char *daten[MAX], puffer[80], *ptr, *key_ptr, **key_ptrptr;
+   int count;
+   /* W&ouml;rter eingeben */
+   printf("Geben Sie %d W&ouml;rter ein\n", MAX);
+   for (count = 0; count &lt; MAX; count++) {
+      printf("Wort %d: ", count+1);
+      fgets(puffer, 80, stdin);
+      /* Speicher f&uuml;r das Wort Numer count reservieren */
+      daten[count] = (char *) malloc(strlen(puffer)+1);
+      strcpy(daten[count], strtok(puffer,"\n") );
+   }
+   /* Die einzelnen W&ouml;rter sortieren */
+   qsort(daten, MAX, sizeof(daten[0]), cmp_str);
+   /* Sortierte Daten ausgeben */
+   for (count = 0; count &lt; MAX; count++)
+      printf("\nWort %d: %s", count+1, daten[count]);
+   /* Jetzt nach einem Wort suchen */
+   printf("\n\nNach welchem Wort wollen Sie suchen: ");
+   fgets(puffer, 80, stdin);
+   /* Zur Suche &uuml;bergeben Sie zuerst den puffer an key,
+    * danach ben&ouml;tigen Sie einen weiteren Zeiger, der
+    * auf diesen Such-Schl&uuml;ssel zeigt
+    */
+   key_ptr = strtok(puffer, "\n");
+   key_ptrptr = &amp;key_ptr;
+   /* Der Zeiger ptr bekommt die Adresse des Suchergebnisses */
+   ptr =(char *) bsearch(key_ptrptr, daten, MAX,
+                         sizeof(daten[0]), cmp_str);
+   if(NULL == ptr)
+      printf("Kein Ergebnis stimmt mit %s &uuml;berein\n", puffer);
+   else
+      printf("%s wurde gefunden\n", puffer);
+   return EXIT_SUCCESS;
+}</pre>
+<a name="t37"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t38"></a><h3 class="t3">22.4.7 system()<a id="RxxobKap02200304002B751F0481EB" name="RxxobKap02200304002B751F0481EB"></a> 
+      <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t37"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Um aus einem lauff&auml;higen Programm ein anderes Programm zu starten, steht Ihnen die Funktion <span class="listing">system()</span> zur Verf&uuml;gung. Die Syntax:<a id="Xxx999465" name="Xxx999465"></a></p>
+<pre>#include &lt;stdlib.h&gt;
+int system(const char *kommandozeile);</pre>
+<p>Beim Ausf&uuml;hren der Funktion <span class="listing">system()</span> &uuml;bergeben Sie den String <span class="listing">kommandozeile</span> an den Kommandozeilenprozessor<a id="Xxx999468" name="Xxx999468"></a>. Konnte der Aufruf erfolgreich ausgef&uuml;hrt werden, gibt die Funktion einen Wert ungleich 0 zur&uuml;ck, ansonsten –1. F&uuml;r den String <span class="listing">kommandozeile</span> k&ouml;nnen Sie alles angeben, was auch in der Kommandozeile erlaubt ist.</p>
+<p>Um zu testen, ob auf Ihrem System der Kommandozeilenprozessor &uuml;berhaupt zur Verf&uuml;gung steht, m&uuml;ssen Sie die Funktion <span class="listing">system()</span> mit dem <span class="listing">NULL</span>-Zeiger aufrufen:</p>
+<pre>if(system(NULL) == 0) {
+   // Kommandoprozessor steht nicht zur Verf&uuml;gung
+}
+else {
+   // Kommandozeilenprozessor ist bereit
+}</pre>
+<p>Wird dabei ein Wert ungleich Null zur&uuml;ckgegeben, k&ouml;nnen Sie die Funktion <span class="listing">system()</span> ohne Bedenken verwenden.</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard"><b>Hinweis   </b>Wenn Sie sich mit der Linux-Systemprogrammierung ein wenig auskennen, d&uuml;rfte Ihnen das Verhalten der Funktion <span class="listing">system()</span> bekannt vorkommen. Mit der Funktion <span class="listing">system()</span> werden <span class="listing">fork()</span>, <span class="listing">exec()</span> und <span class="listing">waitpid()</span> praktisch auf einmal aufgerufen.</p>
+</td>
+</tr>
+</table><br>
+<p>Zum Abschluss ein einfaches Beispiel zur Funktion <span class="listing">system()</span>. Auf jedem System gibt es einen Kommandozeilenbefehl, mit dem sich das vollst&auml;ndige Verzeichnis auflisten l&auml;sst. Unter Linux/UNIX ist dies <span class="listing">ls</span> und unter Windows/MS-DOS das Kommando <span class="listing">dir</span>. Im folgenden Listing soll dieses Kommando auf dem jeweiligen System mithilfe der Funktion <span class="listing">system()</span> ausgef&uuml;hrt werden. Hier das Listing:</p>
+<pre>/* list_dir.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#ifdef __unix__
+   #define KOMMANDO system("ls -C")
+#else
+   #define KOMMANDO system("dir /w")
+#endif
+int main(void) {
+  if( system(NULL) == 0) {
+     fprintf(stderr,"Kein Kommandoprozessor vorhanden ...\n");
+     return EXIT_FAILURE;
+  }
+  else
+     KOMMANDO;
+  return EXIT_SUCCESS;
+}</pre>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard"><b>Achtung   </b>Vermeiden Sie den <span class="listing">system()</span>-Funktionsaufruf, mit dem sich der Anwender einen eigenen String zusammenbasteln kann. B&ouml;se Anwender k&ouml;nnten dabei so manchen gef&auml;hrlichen Konsolenbefehl ausf&uuml;hren lassen.</p>
+</td>
+</tr>
+</table><br>
+<p>Nicht besprochen in diesem Abschnitt wurde die Funktion der Headerdatei <span class="listing">&lt;stdlib.h&gt;</span>, mit der Sie Vielbyte-Zeichen bearbeiten k&ouml;nnen, da diese recht selten ben&ouml;tigt wird.</p>
+<p>Die Funktion <span class="listing">getenv()</span>, mit der Sie Umgebungsvariablen auslesen k&ouml;nnen, wird in Kapitel 26, CGI mit C, besprochen.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_022_002.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_022_004.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td width="10" valign="top">&nbsp;&nbsp;</td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/899?GPP=opc">
+                                        <img src="common/643_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C von A bis Z" title="Zum Katalog: C von A bis Z">
+                                        <br /><strong>C von A bis Z</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Ihre Meinung?</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1007?GPP=opc">
+                        <img src="common/683_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Shell-Programmierung" title="Zum Katalog: Shell-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Shell-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1137?GPP=opc">
+                        <img src="common/749_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux-UNIX-Programmierung" title="Zum Katalog: Linux-UNIX-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux-UNIX-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1004?GPP=opc">
+                        <img src="common/644_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C/C++" title="Zum Katalog: C/C++"><br /><br /><br /><br /><br /><br /><br />&nbsp;C/C++</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/880?GPP=opc">
+                        <img src="common/573_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/967?GPP=opc">
+                        <img src="common/626_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Reguläre Ausdrücke" title="Zum Katalog: Reguläre Ausdrücke"><br /><br /><br /><br /><br /><br /><br />&nbsp;Reguläre Ausdrücke</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/941?GPP=opc">
+                        <img src="common/677_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Shopping</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opc"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table>
+<br /><br />
+<hr width="70%" align="center"><br />
+<div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2006</b><br>F&uuml;r Ihren privaten Gebrauch d&uuml;rfen Sie die Online-Version nat&uuml;rlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschlie&szlig;lich aller seiner Teile ist urheberrechtlich gesch&uuml;tzt. Alle Rechte vorbehalten einschlie&szlig;lich der Vervielf&auml;ltigung, &Uuml;bersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

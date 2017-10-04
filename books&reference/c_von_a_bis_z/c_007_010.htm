@@ -1,0 +1,820 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: C von A bis Z – 7.11 Limits f&uuml;r Ganzzahl- und Gleitpunktdatentypen</title>
+<meta name="title" content="Galileo Computing :: C von A bis Z">
+<meta name="author" content="J&uuml;rgen Wolf">
+<meta name="publisher" content="Galileo Press 2006">
+<meta name="copyright" content="Galileo Press 2006">
+<meta name="description" content="C von A bis Z - Das umfassende Handbuch f&uuml;r Linux, Unix und Windows – 2., aktualisierte und erweiterte Auflage 2006, geb., mit CD und Referenzkarte – ISBN 3-89842-643-2">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="c_007_009.htm">
+<link rel="next" href="c_007_011.htm"><script type="text/javascript" language="JavaScript"><!--
+function OpenWin(url,name,height,width)
+{
+  var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+  InfoWin.focus();
+}
+//--></script></head>
+<body vlink="#000099" link="#000099" alink="#000099">
+    <table width="100%" height="74" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+        <tr>
+            <td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+            <td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opc"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger." title="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger."></a></td>
+        </tr>
+    </table>
+    <div align="right"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger.</a></div>
+    <br />
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td width="156" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
+        <tr>
+            <td colspan="2" class="nav1" align="left" valign="top" height="150">
+                <table class="tbl1" width="150" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td class="tbl2" height="25"><a class="nav" href="./index.htm">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000Vorwort_000.htm#Xxx999266">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000VorwortGutachter_000.htm#Xxx999275">Vorwort des Gutachters</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_001_000.htm#Xxx999328">1 Einstieg in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_002_000.htm#Xxx999328">2 Das erste Programm</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_003_000.htm#Xxx999328">3 Zeichens&auml;tze</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_004_000.htm#Xxx999329">4 Kommentare in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_005_000.htm#Xxx999330">5 Formatierte Eingabe mit scanf()</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_006_000.htm#Xxx999330">6 Formatierte Ausgabe mit printf</A></td>
+</tr>
+<tr>
+<td><A class="navh" href="./c_007_000.htm#Xxx999329">7 Elementare Datentypen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_008_000.htm#Xxx999328">8 Operatoren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_009_000.htm#Xxx999328">9 Typenumwandlung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_010_000.htm#Xxx999328">10 Kontrollstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_011_000.htm#Xxx999328">11 Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_012_000.htm#Xxx999328">12 Pr&auml;prozessor-Direktiven</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_013_000.htm#Xxx999328">13 Arrays</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_014_000.htm#Xxx999328">14 Zeiger (Pointer)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_015_000.htm#Xxx999328">15 Kommandozeilenargumente</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_016_000.htm#Xxx999328">16 Dynamische Speicherverwaltung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_017_000.htm#Xxx999328">17 Strukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_018_000.htm#Xxx999328">18 Ein-/Ausgabe-Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_019_000.htm#Xxx999328">19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_020_000.htm#Xxx999328">20 Arbeiten mit variablen langen Argumentlisten – &lt;stdarg.h&gt;</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_021_000.htm#Xxx999328">21 Zeitroutinen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_022_000.htm#Xxx999328">22 Weitere Headerdateien und ihre Funktionen (ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_023_000.htm#Xxx999328">23 Dynamische Datenstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_024_000.htm#Xxx999328">24 Algorithmen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_025_000.htm#Xxx999328">25 Sicheres Programmieren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_026_000.htm#Xxx999328">26 CGI mit C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_027_000.htm#Xxx999328">27 MySQL und C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_028_000.htm#Xxx999328">28 Netzwerkprogrammierung und Cross-Plattform-Entwicklung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_029_000.htm#Xxx999328">29 Wie geht’s jetzt weiter?</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_030Anhang_000.htm#Xxx999266">A Anhang</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./stichwort.htm#Xxx512322">Index</a></td>
+</tr>
+<tr><td><br /><a class="navnav" href="http://download.galileo-press.de/openbook/c_von_a_bis_z/galileocomputing_c_von_a_bis_z.zip"><strong>Download:</strong><br />- ZIP, ca. 8,5 MB</a></td></tr>
+<tr><td><a class="navnav" href="http://www.galileocomputing.de/899?GPP=opc">Buch bestellen</a></td></tr>
+<tr><td><a class="navnav" href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)">Ihre Meinung?</a><br /><br /></td></tr>
+</table></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10"></td>
+<td width="85%" valign="top" align="center">
+    <div align="center">
+        <table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+            <tr>
+                <td width="100%" class="start" colspan="1" height="22" align="center">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_007_009.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Galileo Computing /</a><a class="navnav" href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"> &lt;openbook&gt; /</a><a href="./index.htm" class="navnav"> C von A bis Z</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_007_011.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" valign="top">
+    <table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+        <tr>
+            <td colspan="2"><a href="http://www.galileocomputing.de/899?GPP=opc" class="buchtitel">C von A bis Z</a><span class="autor"> von J&uuml;rgen Wolf</span><br><span class="untertitel">Das umfassende Handbuch f&uuml;r Linux, Unix und Windows <br />– 2., aktualisierte und erweiterte Auflage 2006</span></td>
+        </tr>
+        <tr>
+            <td valign="top" width="90"><a href="http://www.galileocomputing.de/899?GPP=opc"><img src="common/643.gif" border="0" alt="Buch: C von A bis Z" title="Buch: C von A bis Z" align="left"><br /><br /><span class="autor"><strong>C von A bis Z</strong><br />1.116 S., mit CD, Referenzkarte, 39,90 Euro<br />Galileo Computing<br />ISBN 3-89842-643-2</span></a></a></td>
+            <td width="80%">
+<table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="3" class="kap"><b>Kapitel <a href="./c_007_000.htm#RxxobKap0070000400261B1F03A18C">7 Elementare Datentypen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_007_000.htm#RxxobKap0070000400261B1F03A18F">7.1 Der Datentyp int (Integer)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_007_001.htm#RxxobKap007001040026361F02818C">7.2 Variablen deklarieren</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_007_001.htm#RxxobKap007001040026361F0281A1">7.2.1 Erlaubte Bezeichner</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_007_002.htm#RxxobKap007002040026371F03B18C">7.3 C versus C++ bei der Deklaration von Variablen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_007_003.htm#RxxobKap007003040026381F04418C">7.4 Der Datentyp long</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_007_004.htm#RxxobKap007004040026391F01E18C">7.5 Der Datentyp short</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_007_005.htm#RxxobKap0070050400263A1F01218C">7.6 Die Gleitpunkttypen float und double</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_007_005.htm#RxxobKap0070050400263A1F0121B5">7.6.1 Gleitpunkttypen im Detail</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_007_005.htm#RxxobKap0070050400263A1F0121BA">7.6.2 float im Detail</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_007_005.htm#RxxobKap0070050400263A1F0121C1">7.6.3 double im Detail</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_007_005.htm#RxxobKap0070050400263A1F0121C8">7.6.4 long double</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_007_005.htm#RxxobKap0070050400263A1F0121CF">7.6.5 Einiges zu n-stelliger Genauigkeit</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_007_006.htm#RxxobKap0070060400263B1F02418C">7.7 Numerische Gleitpunktprobleme</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_007_007.htm#RxxobKap0070070400263C1F01E18C">7.8 Der Datentyp char</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_007_008.htm#RxxobKap0070080400263D1F04318C">7.9 Nationale contra internationale Zeichens&auml;tze</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_007_009.htm#RxxobKap0070090400263E1F01618C">7.10 Vorzeichenlos und vorzeichenbehaftet</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a class="navh" href="#RxxobKap0070100400263F1F04718C">7.11 Limits f&uuml;r Ganzzahl- und Gleitpunktdatentypen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_007_011.htm#RxxobKap007011040026401F01118C">7.12 Konstanten</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_007_011.htm#RxxobKap007011040026401F01118E">7.12.1 Ganzzahlkonstanten</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_007_011.htm#RxxobKap007011040026401F0111AE">7.12.2 Gleitpunktkonstanten</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_007_011.htm#RxxobKap007011040026401F0111BE">7.12.3 Zeichenkonstanten</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_007_011.htm#RxxobKap007011040026401F0111C4">7.12.4 String-Literale (Stringkonstante)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_007_012.htm#RxxobKap007012040026411F04B18C">7.13 Umwandlungsvorgaben f&uuml;r formatierte Ein–/Ausgabe</a></b></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td>
+<a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2">7.11 Limits f&uuml;r Ganzzahl- und Gleitpunktdatentypen<a id="RxxobKap0070100400263F1F04718C" name="RxxobKap0070100400263F1F04718C"></a> 
+      <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"></h2>
+<p>Jetzt haben Sie eine Menge &uuml;ber Datentypen und ihre Eigenschaften erfahren. H&auml;ufig hie&szlig; es jedoch, auf bestimmten Systemen hat Datentyp <span class="listing">x</span> die Gr&ouml;&szlig;e <span class="listing">y</span>. Wenn Sie jetzt erfahren wollen, welchen maximalen oder minimalen Wert der Datentyp int z.B. auf Ihrem System besitzt, k&ouml;nnen Sie die Konstanten in den Standard-Headerdateien <span class="listing">&lt;limits.h&gt;<a id="Xxx999330" name="Xxx999330"></a></span> und <span class="listing">&lt;float.h&gt;<a id="Xxx999331" name="Xxx999331"></a></span> abfragen bzw. ausgeben. Mit folgendem Listing ist es m&ouml;glich, alle Limits des Datentyps <span class="listing">int</span> auf Ihrem System abzufragen:</p>
+<pre>/* int_limit.c */
+#include &lt;stdio.h&gt;
+#include &lt;limits.h&gt;
+int main(void) {
+   printf("int-Wert mindestens : %d\n", INT_MIN);
+   printf("int-Wert maximal    : %d\n", INT_MAX);
+   printf("unsigned int max.   : %u\n", UINT_MAX);
+   printf("int ben&ouml;tigt %d Byte (%d Bit) Speicher\n",
+      sizeof(int), sizeof(int) * CHAR_BIT);
+   return 0;
+}</pre>
+<p>Genauso wie in diesem Beispiel k&ouml;nnen Sie auch die anderen Limiteigenschaften der Datentypen abfragen. Vorausgesetzt, Sie binden die Headerdatei <span class="listing">&lt;limits.h&gt;</span> mit ein. Hierzu die Tabelle der Limits f&uuml;r ganzzahlige Datentypen in der Headerdatei <span class="listing">&lt;limits.h&gt;:</span></p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 7.7   
+    </b>Limit-Konstanten f&uuml;r ganzzahlige Datentypen in &lt;limits.h&gt;</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>Konstante</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Mindestwert</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Erkl&auml;rung</b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">CHAR_BIT<a id="Xxx999342" name="Xxx999342"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">8
+</td>
+<td class="tabellentext" bgcolor="#000000">Bitzahl f&uuml;r ein Byte
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">SCHAR_MIN<a id="Xxx999349" name="Xxx999349"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">–127
+</td>
+<td class="tabellentext" bgcolor="#000000">min. signed char
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">SCHAR_MAX<a id="Xxx999356" name="Xxx999356"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">+127
+</td>
+<td class="tabellentext" bgcolor="#000000">max. signed char
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">UCHAR_MAX<a id="Xxx999363" name="Xxx999363"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">255
+</td>
+<td class="tabellentext" bgcolor="#000000">max. unsigned char
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">CHAR_MIN<a id="Xxx999370" name="Xxx999370"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">SCHAR_MIN oder 0
+</td>
+<td class="tabellentext" bgcolor="#000000">min. char
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">CHAR_MAX<a id="Xxx999377" name="Xxx999377"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">SCHAR_MAX oder UCHAR_MAX
+</td>
+<td class="tabellentext" bgcolor="#000000">max. char
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">MB_LEN_MAX<a id="Xxx999384" name="Xxx999384"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">1
+</td>
+<td class="tabellentext" bgcolor="#000000">max. Byte f&uuml;r ein Viel-Bytezeichen
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">SHRT_MIN<a id="Xxx999391" name="Xxx999391"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">–32767
+</td>
+<td class="tabellentext" bgcolor="#000000">min. short int
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">SHRT_MAX<a id="Xxx999398" name="Xxx999398"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">+32767
+</td>
+<td class="tabellentext" bgcolor="#000000">max short int
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">USHRT_MAX<a id="Xxx999405" name="Xxx999405"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">65535
+</td>
+<td class="tabellentext" bgcolor="#000000">max. unsigned short
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">INT_MIN<a id="Xxx999412" name="Xxx999412"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">–32767
+(32Bit: –2147483647)
+</td>
+<td class="tabellentext" bgcolor="#000000">min. int
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">INT_MAX<a id="Xxx999419" name="Xxx999419"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">+32767
+(32Bit: +2147483647)
+</td>
+<td class="tabellentext" bgcolor="#000000">max. int
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">UINT_MAX<a id="Xxx999426" name="Xxx999426"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">65535
+(32Bit: 4294967295)
+</td>
+<td class="tabellentext" bgcolor="#000000">max. unsigned int
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">LONG_MIN<a id="Xxx999433" name="Xxx999433"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">–2147483647
+</td>
+<td class="tabellentext" bgcolor="#000000">min. long int
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">LONG_MAX<a id="Xxx999440" name="Xxx999440"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">+2147483647
+</td>
+<td class="tabellentext" bgcolor="#000000">max. long int
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">ULONG_MAX<a id="Xxx999447" name="Xxx999447"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">4294967295
+</td>
+<td class="tabellentext" bgcolor="#000000">max. unsigned long int
+</td>
+</tr>
+</table><br>
+<p>Ben&ouml;tigen Sie hingegen Limitwerte f&uuml;r Gleitpunktzahlen, gibt die Headerdatei <span class="listing">&lt;float.h&gt;</span> Auskunft. Darin finden Sie u.a. Konstanten mit allen Limits und Eigenschaften, die f&uuml;r Gleitpunktdatentypen entscheidend sind. Das folgende Listing gibt alle Limits und Eigenschaften f&uuml;r den Datentyp <span class="listing">float</span> auf Ihrem System aus:</p>
+<pre>/* float_limit.c */
+#include &lt;stdio.h&gt;
+#include &lt;float.h&gt;
+#include &lt;limits.h&gt; //f&uuml;r CHAR_BIT
+int main(void) {
+   printf("Limits und Eigenschaften des float-Wertes\n\n");
+   printf("float ben&ouml;tigt %d Bytes (%d Bit) an Speicherplatz\n",
+      sizeof(float), sizeof(float) * CHAR_BIT);
+   printf("Basis f&uuml;r Exponentendarstellung: %d\n", FLT_RADIX);
+   printf("Anzahl der Mantissenstellen    : %d\n", FLT_MANT_DIG);
+   printf("Anzahl sign. Dezimalziffern    : %d\n", FLT_DIG);
+   printf("Kleinst. neg. FLT_RADIX-Exponent: %d\n", FLT_MIN_EXP);
+   printf("Kleinst. neg. Zehnerexponent : %d\n", FLT_MIN_10_EXP);
+   printf("Gr&ouml;&szlig;ter FLT_RADIX-Exponent     : %d\n", FLT_MAX_EXP);
+   printf("Gr&ouml;&szlig;ter Zehnerexponent       : %d\n", FLT_MAX_10_EXP);
+   printf("Gr&ouml;&szlig;ter endlicher float-Wert   : %f\n", FLT_MAX);
+   printf("Kleinster endlicher float-Wert : %f\n", FLT_MIN);
+   return 0;
+}</pre>
+<p>Auch hierzu eine Tabelle mit den Limits und Eigenschaften von Gleitpunktdatentypen, welche in der Headerdatei <span class="listing">&lt;float.h&gt;</span> deklariert sind:</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 7.8   
+    </b>Limit-Konstanten f&uuml;r Gleitpunkt-Datentypen in &lt;float.h&gt;</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>Konstante</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Bedeutung</b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">FLT_RADIX<a id="Xxx999472" name="Xxx999472"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Basis f&uuml;r Exponentendarstellung
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">FLT_MANT_DIG<a id="Xxx999477" name="Xxx999477"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Anzahl Mantissenstellen (float)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">DBL_MANT_DIG<a id="Xxx999482" name="Xxx999482"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Anzahl Mantissenstellen (double)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">LDBL_MANT_DIG<a id="Xxx999487" name="Xxx999487"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Anzahl Mantissenstellen (long double)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">FLT_DIG<a id="Xxx999492" name="Xxx999492"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Genauigkeit in Dezimalziffern (float)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">DBL_DIG<a id="Xxx999497" name="Xxx999497"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Genauigkeit in Dezimalziffern (double)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">LDBL_DIG<a id="Xxx999502" name="Xxx999502"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Genauigkeit in Dezimalziffern (long double)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">FLT_MIN_EXP<a id="Xxx999507" name="Xxx999507"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Minimalster negativer FLT_RADIX-Exponent (float)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">DBL_MIN_EXP<a id="Xxx999512" name="Xxx999512"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Minimalster negativer FLT_RADIX-Exponent (double)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">LDBL_MIN_EXP<a id="Xxx999517" name="Xxx999517"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Minimalster negativer FLT_RADIX-Exponent (long double)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">FLT_MIN_10_EXP<a id="Xxx999522" name="Xxx999522"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Minimalster negativer Zehnerexponent (float)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">DBL_MIN_10_EXP<a id="Xxx999527" name="Xxx999527"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Minimalster negativer Zehnerexponent (double)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">LDBL_MIN_10_EXP<a id="Xxx999532" name="Xxx999532"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Minimalster negativer Zehnerexponent (long double)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">FLT_MAX_EXP<a id="Xxx999537" name="Xxx999537"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Maximaler FLT_RADIX-Exponent (float)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">DBL_MAX_EXP<a id="Xxx999542" name="Xxx999542"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Maximaler FLT_RADIX-Exponent (double)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">LDBL_MAX_EXP<a id="Xxx999547" name="Xxx999547"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Maximaler FLT_RADIX-Exponent (long double)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">FLT_MAX_10_EXP<a id="Xxx999552" name="Xxx999552"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Maximaler Zehnerexponent (float)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">DBL_MAX_10_EXP<a id="Xxx999557" name="Xxx999557"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Maximaler Zehnerexponent (double)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">LDBL_MAX_10_EXP<a id="Xxx999562" name="Xxx999562"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Maximaler Zehnerexponent (long double)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">FLT_MAX<a id="Xxx999567" name="Xxx999567"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Maximaler Gleitpunktwert (float)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">DBL_MAX<a id="Xxx999572" name="Xxx999572"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Maximaler Gleitpunktwert (double)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">LDBL_MAX<a id="Xxx999577" name="Xxx999577"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Maximaler Gleitpunktwert (long double)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">FLT_EPSILON<a id="Xxx999582" name="Xxx999582"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Kleinster float-Wert x f&uuml;r den 1.0 + x ungleich 1.0 gilt
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">DBL_EPSILON<a id="Xxx999587" name="Xxx999587"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Kleinster double-Wert x f&uuml;r den 1.0 + x ungleich 1.0 gilt
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">LDBL_EPSILON<a id="Xxx999592" name="Xxx999592"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Kleinster long double-Wert x f&uuml;r den 1.0 + x ungleich 1.0 gilt
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">FLT_MIN<a id="Xxx999597" name="Xxx999597"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Minimalster normalisierter Gleitpunktwert (float)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">DBL_MIN<a id="Xxx999602" name="Xxx999602"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Minimalster normalisierter Gleitpunktwert (double)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">LDBL_MIN<a id="Xxx999607" name="Xxx999607"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Minimalster normalisierter Gleitpunktwert (long double)
+</td>
+</tr>
+</table><br>
+<p>Nat&uuml;rlich gilt auch bei der Verwendung der Konstanten, welche sich in der Headerdatei <span class="listing">&lt;float.h&gt;</span> befinden, dass die entsprechende Headerdatei mit eingebunden wird.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_007_009.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_007_011.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td width="10" valign="top">&nbsp;&nbsp;</td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/899?GPP=opc">
+                                        <img src="common/643_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C von A bis Z" title="Zum Katalog: C von A bis Z">
+                                        <br /><strong>C von A bis Z</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Ihre Meinung?</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1007?GPP=opc">
+                        <img src="common/683_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Shell-Programmierung" title="Zum Katalog: Shell-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Shell-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1137?GPP=opc">
+                        <img src="common/749_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux-UNIX-Programmierung" title="Zum Katalog: Linux-UNIX-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux-UNIX-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1004?GPP=opc">
+                        <img src="common/644_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C/C++" title="Zum Katalog: C/C++"><br /><br /><br /><br /><br /><br /><br />&nbsp;C/C++</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/880?GPP=opc">
+                        <img src="common/573_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/967?GPP=opc">
+                        <img src="common/626_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Reguläre Ausdrücke" title="Zum Katalog: Reguläre Ausdrücke"><br /><br /><br /><br /><br /><br /><br />&nbsp;Reguläre Ausdrücke</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/941?GPP=opc">
+                        <img src="common/677_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Shopping</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opc"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table>
+<br /><br />
+<hr width="70%" align="center"><br />
+<div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2006</b><br>F&uuml;r Ihren privaten Gebrauch d&uuml;rfen Sie die Online-Version nat&uuml;rlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschlie&szlig;lich aller seiner Teile ist urheberrechtlich gesch&uuml;tzt. Alle Rechte vorbehalten einschlie&szlig;lich der Vervielf&auml;ltigung, &Uuml;bersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

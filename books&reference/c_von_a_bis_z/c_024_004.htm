@@ -1,0 +1,853 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: C von A bis Z – 24.5 Hashing (Zerhacken)</title>
+<meta name="title" content="Galileo Computing :: C von A bis Z">
+<meta name="author" content="J&uuml;rgen Wolf">
+<meta name="publisher" content="Galileo Press 2006">
+<meta name="copyright" content="Galileo Press 2006">
+<meta name="description" content="C von A bis Z - Das umfassende Handbuch f&uuml;r Linux, Unix und Windows – 2., aktualisierte und erweiterte Auflage 2006, geb., mit CD und Referenzkarte – ISBN 3-89842-643-2">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="c_024_003.htm">
+<link rel="next" href="c_024_005.htm"><script type="text/javascript" language="JavaScript"><!--
+function OpenWin(url,name,height,width)
+{
+  var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+  InfoWin.focus();
+}
+//--></script></head>
+<body vlink="#000099" link="#000099" alink="#000099">
+    <table width="100%" height="74" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+        <tr>
+            <td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+            <td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opc"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger." title="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger."></a></td>
+        </tr>
+    </table>
+    <div align="right"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger.</a></div>
+    <br />
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td width="156" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
+        <tr>
+            <td colspan="2" class="nav1" align="left" valign="top" height="150">
+                <table class="tbl1" width="150" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td class="tbl2" height="25"><a class="nav" href="./index.htm">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000Vorwort_000.htm#Xxx999266">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000VorwortGutachter_000.htm#Xxx999275">Vorwort des Gutachters</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_001_000.htm#Xxx999328">1 Einstieg in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_002_000.htm#Xxx999328">2 Das erste Programm</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_003_000.htm#Xxx999328">3 Zeichens&auml;tze</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_004_000.htm#Xxx999329">4 Kommentare in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_005_000.htm#Xxx999330">5 Formatierte Eingabe mit scanf()</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_006_000.htm#Xxx999330">6 Formatierte Ausgabe mit printf</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_007_000.htm#Xxx999329">7 Elementare Datentypen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_008_000.htm#Xxx999328">8 Operatoren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_009_000.htm#Xxx999328">9 Typenumwandlung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_010_000.htm#Xxx999328">10 Kontrollstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_011_000.htm#Xxx999328">11 Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_012_000.htm#Xxx999328">12 Pr&auml;prozessor-Direktiven</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_013_000.htm#Xxx999328">13 Arrays</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_014_000.htm#Xxx999328">14 Zeiger (Pointer)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_015_000.htm#Xxx999328">15 Kommandozeilenargumente</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_016_000.htm#Xxx999328">16 Dynamische Speicherverwaltung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_017_000.htm#Xxx999328">17 Strukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_018_000.htm#Xxx999328">18 Ein-/Ausgabe-Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_019_000.htm#Xxx999328">19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_020_000.htm#Xxx999328">20 Arbeiten mit variablen langen Argumentlisten – &lt;stdarg.h&gt;</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_021_000.htm#Xxx999328">21 Zeitroutinen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_022_000.htm#Xxx999328">22 Weitere Headerdateien und ihre Funktionen (ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_023_000.htm#Xxx999328">23 Dynamische Datenstrukturen</A></td>
+</tr>
+<tr>
+<td><A class="navh" href="./c_024_000.htm#Xxx999328">24 Algorithmen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_025_000.htm#Xxx999328">25 Sicheres Programmieren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_026_000.htm#Xxx999328">26 CGI mit C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_027_000.htm#Xxx999328">27 MySQL und C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_028_000.htm#Xxx999328">28 Netzwerkprogrammierung und Cross-Plattform-Entwicklung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_029_000.htm#Xxx999328">29 Wie geht’s jetzt weiter?</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_030Anhang_000.htm#Xxx999266">A Anhang</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./stichwort.htm#Xxx512322">Index</a></td>
+</tr>
+<tr><td><br /><a class="navnav" href="http://download.galileo-press.de/openbook/c_von_a_bis_z/galileocomputing_c_von_a_bis_z.zip"><strong>Download:</strong><br />- ZIP, ca. 8,5 MB</a></td></tr>
+<tr><td><a class="navnav" href="http://www.galileocomputing.de/899?GPP=opc">Buch bestellen</a></td></tr>
+<tr><td><a class="navnav" href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)">Ihre Meinung?</a><br /><br /></td></tr>
+</table></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10"></td>
+<td width="85%" valign="top" align="center">
+    <div align="center">
+        <table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+            <tr>
+                <td width="100%" class="start" colspan="1" height="22" align="center">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_024_003.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Galileo Computing /</a><a class="navnav" href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"> &lt;openbook&gt; /</a><a href="./index.htm" class="navnav"> C von A bis Z</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_024_005.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" valign="top">
+    <table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+        <tr>
+            <td colspan="2"><a href="http://www.galileocomputing.de/899?GPP=opc" class="buchtitel">C von A bis Z</a><span class="autor"> von J&uuml;rgen Wolf</span><br><span class="untertitel">Das umfassende Handbuch f&uuml;r Linux, Unix und Windows <br />– 2., aktualisierte und erweiterte Auflage 2006</span></td>
+        </tr>
+        <tr>
+            <td valign="top" width="90"><a href="http://www.galileocomputing.de/899?GPP=opc"><img src="common/643.gif" border="0" alt="Buch: C von A bis Z" title="Buch: C von A bis Z" align="left"><br /><br /><span class="autor"><strong>C von A bis Z</strong><br />1.116 S., mit CD, Referenzkarte, 39,90 Euro<br />Galileo Computing<br />ISBN 3-89842-643-2</span></a></a></td>
+            <td width="80%">
+<table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="3" class="kap"><b>Kapitel <a href="./c_024_000.htm#RxxobKap02400004002BDC1F04A18C">24 Algorithmen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_024_000.htm#RxxobKap02400004002BDC1F04A18F">24.1 Was sind Algorithmen?</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_024_001.htm#RxxobKap02400104002BF71F03D18C">24.2 Wie setze ich Algorithmen ein?</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_024_002.htm#RxxobKap02400204002BF81F01518C">24.3 Sortieralgorithmen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_002.htm#RxxobKap02400204002BF81F015193">24.3.1 Selektion Sort – Sortieren durch Ausw&auml;hlen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_002.htm#RxxobKap02400204002BF81F01519D">24.3.2 Insertion Sort</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_002.htm#RxxobKap02400204002BF81F0151A8">24.3.3 Bubble Sort</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_002.htm#RxxobKap02400204002BF81F0151B2">24.3.4 Shellsort</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_002.htm#RxxobKap02400204002BF81F0151BF">24.3.5 Quicksort</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_002.htm#RxxobKap02400204002BF81F0151F5">24.3.6 qsort()</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_002.htm#RxxobKap02400204002BF81F0151FA">24.3.7 Zusammenfassung der Sortieralgorithmen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C18C">24.4 Suchalgorithmen – Grundlage zur Suche</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C197">24.4.1 Lineare Suche</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C1A1">24.4.2 Bin&auml;re Suche</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C1A8">24.4.3 Bin&auml;re (Such-)B&auml;ume</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C1C0">24.4.4 Elemente im bin&auml;ren Baum einordnen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C1EA">24.4.5 Bin&auml;re B&auml;ume travesieren</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C1F6">24.4.6 L&ouml;schen eines Elements im bin&auml;ren Baum</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C20A">24.4.7 Ein bin&auml;rer Suchbaum in der Praxis</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C220">24.4.8 Bin&auml;re Suchb&auml;ume mit Eltern-Zeiger und Threads</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C228">24.4.9 Ausgeglichene Bin&auml;rb&auml;ume</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_003.htm#RxxobKap02400304002BF91F04C22F">24.4.10 Algorithmen f&uuml;r ausgeglichene B&auml;ume – eine &Uuml;bersicht</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a class="navh" href="#RxxobKap02400404002BFA1F03918C">24.5 Hashing (Zerhacken)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02400404002BFA1F03918E">24.5.1 Wann wird Hashing verwendet?</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02400404002BFA1F039191">24.5.2 Was ist f&uuml;r das Hashing erforderlich?</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02400404002BFA1F0391BB">24.5.3 Hash-Funktion</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02400404002BFA1F0391D9">24.5.4 Hashing mit direkter Adressierung</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02400404002BFA1F0391DD">24.5.5 Vergleich von Hashing mit bin&auml;ren B&auml;umen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_024_005.htm#RxxobKap02400504002BFB1F04418C">24.6 String-Matching</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_005.htm#RxxobKap02400504002BFB1F044197">24.6.1 Brute-Force-Algorithmus</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_005.htm#RxxobKap02400504002BFB1F04419E">24.6.2 Der Algorithmus von Knuth/Morris/Pratt (KMP)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_005.htm#RxxobKap02400504002BFB1F0441C0">24.6.3 Weitere String-Matching-Algorithmen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_024_006.htm#RxxobKap02400604002BFC1F02118C">24.7 Pattern Matching (regul&auml;re Ausdr&uuml;cke)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_024_007.htm#RxxobKap02400704002BFD1F02618C">24.8 Backtracking</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_007.htm#RxxobKap02400704002BFD1F02618E">24.8.1 Der Weg durch den Irrgarten</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_024_007.htm#RxxobKap02400704002BFD1F0261CD">24.8.2 Das 8-Dame-Problem</a></b></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td>
+<a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2">24.5 Hashing (Zerhacken)<a id="RxxobKap02400404002BFA1F03918C" name="RxxobKap02400404002BFA1F03918C"></a> 
+      <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"></h2>
+<p><a id="Xxx999329" name="Xxx999329"></a><a id="Xxx999330" name="Xxx999330"></a>Hashing ist eine bekannte Methode zum Suchen und Speichern von Datens&auml;tzen mithilfe einer Tabelle, bei der ein Schl&uuml;ssel in eine Tabellenadresse umgewandelt wird. Durch diese Umwandlung kann bei einer Suche sofort auf diese Tabellenadresse gesprungen werden, ohne den vollst&auml;ndigen Datensatz (bei bin&auml;rer Suche, einen Teil des Datensatzes) zu durchlaufen. Die Ziele beim Hashing sind dabei eine effizientere Nutzung der verf&uuml;gbaren Speicherkapazit&auml;t und ein schnellerer Zugriff.</p>
+<a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3">24.5.1 Wann wird Hashing verwendet?<a id="RxxobKap02400404002BFA1F03918E" name="RxxobKap02400404002BFA1F03918E"></a> 
+      <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Das beste Beispiel f&uuml;r Hashing sind Symboltabellen, bei denen Werte durch jedes Element mit einer dynamischen Menge von Strings assoziiert werden. So geschieht dies etwa beim Compiler. So kann ein Compiler alle Variablen eines Programms am effizientesten verwalten.</p>
+<p>Ein weiteres Beispiel ist die (verr&auml;terische) Autovervollst&auml;ndigung des Browsers oder auch der Cache des Webbrowsers, der den Verlauf speichert. Ein simples Beispiel f&uuml;r Hashing ist die Z&auml;hlung von W&ouml;rtern, die in einem Text vorkommen. Abfragen, angewendet auf ein digitales W&ouml;rterbuch, k&ouml;nnen mit Hashing ebenso effizient gestaltet werden wie die Programmierung von gro&szlig;en Datenbanken. Denn in diesen F&auml;llen ist es wirklich geboten, unglaublich viele Daten in kurzer Zeit zu durchsuchen.</p>
+<a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3">24.5.2 Was ist f&uuml;r das Hashing erforderlich?<a id="RxxobKap02400404002BFA1F039191" name="RxxobKap02400404002BFA1F039191"></a> 
+      <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Eine Hash-Funktion – Mit der Hash-Funktion wird eine eindeutige Adresse erzeugt, die die Position des Datensatzes in der Hash-Tabelle bestimmt.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Eine Hashtabelle – In der Hashtabelle befinden sich die eindeutigen Adressen. Eine Suchanfrage wird zun&auml;chst mit der Hash-Funktion in eine Tabellenadresse umgewandelt. Mit dieser eindeutigen Adresse wird im Anschluss der Datensatz in der Hash-Tabelle gesucht.</td>
+</tr>
+</table>
+<p>Die Hash-Funktion wird in der Praxis meist mit einem Array passender Gr&ouml;&szlig;e angegeben, welches zur Kompilierzeit angelegt wird. Einfach ausgedr&uuml;ckt: Eine Hash-Tabelle mit 10 Elementen ist ein Array mit verketteten Listen – mit der Gr&ouml;&szlig;e von 10* Arraygr&ouml;&szlig;e. In jedem Index dieses Arrays k&ouml;nnte eine verkettete Liste sein.</p>
+<p>Das soll jetzt in der Praxis untersucht werden. Hier wird wieder das Postleitzahlen-Beispiel verwendet:</p>
+<pre>struct plz{
+   char ort[MAX];
+   unsigned int postleit;
+   struct plz *next;
+};</pre>
+<p>Die Hash-Tabelle, die jetzt f&uuml;r die verkettete Liste verwendet wird, sieht wie folgt aus:</p>
+<pre>struct plz *hash_tabelle[MAX_HASH];</pre>
+<p>Um es einfach zu halten, wird eine niedrige Arraygr&ouml;&szlig;e verwendet:</p>
+<pre>#define MAX_HASH 10</pre>
+<p>Hierzu die aktuelle Hash-Tabelle grafisch dargestellt:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/24_25.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein24_25.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 24.25   
+    </b>Leere Hash-Tabelle</p>
+<p>Jetzt ben&ouml;tigen Sie eine Funktion zum Hinzuf&uuml;gen eines neuen Datensatzes im Hash:</p>
+<pre>struct plz *insert(char *o, unsigned int p) {
+   struct plz *pointer;
+   /* Hashwert (bucket) an hash_adresse (0–9) */
+   int hash_adresse = hash_funktion(o);
+   / *printf("%d\n",hash_adresse); */
+   /* Zeiger auf errechnete Tabellenadresse
+    * durch hash_funktion */
+   pointer = hash_tabelle[hash_adresse];
+   /* Wir suchen freien Platz f&uuml;r einen neuen Eintrag
+    * in hash_tabelle[hash_adresse] */
+   while(pointer != NULL) {
+      if(strcmp(o, pointer-&gt;ort) == 0)  /* Stadt gleich? */
+         if(pointer-&gt;postleit == p) {
+            /* Postleitzahlen gleich? */
+            printf("%s mit PLZ %d ist bereits vorhanden\n",o,p);
+            /* Doppelte Eintr&auml;ge vermeiden */
+            return pointer;
+         }
+         pointer=pointer-&gt;next;
+   }
+   /* Speicher f&uuml;r neues Element allokieren */
+   pointer = (struct plz *)malloc(sizeof(struct plz));
+   if(pointer == NULL) {
+      printf("Kein Speicher f&uuml;r neue PLZ vorhanden\n");
+      return NULL;
+   }
+   strcpy(pointer-&gt;ort, o);
+   pointer-&gt;postleit = p;
+   pointer-&gt;next = hash_tabelle[hash_adresse];
+   hash_tabelle[hash_adresse] = pointer;
+   return pointer;
+}</pre>
+<p>Die Funktion wird jetzt Schritt f&uuml;r Schritt erl&auml;utert:</p>
+<pre>int hash_adresse = hash_funktion(o);</pre>
+<p>Hiermit bekommt die Variable <span class="listing">hash_adresse</span> einen errechneten Hashwert, der logischerweise zwischen 0 und 9 liegen muss, da die Hash-Tabelle 10 Slots besitzt. Es sei gegeben, dass der Funktion <span class="listing">insert()</span> folgende Werte &uuml;bergeben wurden:</p>
+<pre>insert("Augsburg", 86163);</pre>
+<p>Die Hashfunktion errechnet in diesem Beispiel aus dem String <span class="listing">"Augsburg"</span> den Wert 6. Somit kommt der String <span class="listing">"Augsburg"</span> in den Index (Slot) 6 der Hash-Tabelle. Auf diesen Slot soll jetzt erst ein Zeiger verweisen:</p>
+<pre> /* Zeiger auf errechnete Tabellenadresse
+  * durch hash_funktion */
+ pointer = hash_tabelle[hash_adresse];</pre>
+<p>Bildlich sieht diese wie folgt aus:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/24_26.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein24_26.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 24.26   
+    </b>Zeiger auf errechneten Index</p>
+<p>Jetzt muss ein freier Speicherplatz f&uuml;r die neuen Daten gesucht werden:</p>
+<pre>   while(pointer != NULL) {
+      if(strcmp(o, pointer-&gt;ort) == 0)  /* Stadt gleich? */
+         if(pointer-&gt;postleit == p) {
+            /* Postleitzahlen gleich? */
+            printf("%s mit PLZ %d ist bereits vorhanden\n",o,p);
+            /* Doppelte Eintr&auml;ge vermeiden */
+            return pointer;
+         }
+         pointer=pointer-&gt;next;
+   }</pre>
+<p>Im ersten Fall ist dies recht trivial. Also kann der neue Datensatz gleich in die Hash-Tabelle eingef&uuml;gt werden mit:</p>
+<pre> strcpy(pointer-&gt;ort, o);
+ pointer-&gt;postleit = p;
+ pointer-&gt;next = hash_tabelle[hash_adresse];
+ hash_tabelle[hash_adresse] = pointer;</pre>
+<p>Jetzt befindet sich das erste Element in der Hash-Tabelle, grafisch dargestellt sieht dies dann so aus:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/24_27.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein24_27.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 24.27   
+    </b>Erster Datensatz hinzugef&uuml;gt</p>
+<p>Nun folgt ein weiterer Datensatz:</p>
+<pre>insert("Friedberg", 86316);</pre>
+<p>Die Hashfunktion, die Ihnen immer noch vorenthalten wurde, errechnet hierbei den Index (Slot) 8. Darauf sieht die Hash-Tabelle nach Abarbeiten der Funktion <span class="listing">insert()</span> so aus:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/24_28.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein24_28.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 24.28   
+    </b>Einen weiteren Datensatz hinzugef&uuml;gt</p>
+<p>Jetzt zu einem speziellen Fall beim Hashing. Es wird folgender neue Datensatz eingef&uuml;gt:</p>
+<pre>insert("Stuttgart", 70190);</pre>
+<p>Die Hashfunktion errechnet aus dem String <span class="listing">"Stuttgart"</span> den Indexwert 8.</p>
+<p>Beim Betrachten der Abbildung 24.29 k&ouml;nnen Sie erkennen, dass Slot 8 bereits einen Inhalt hat (<span class="listing">"Friedberg"</span>). Dies wird Kollision genannt, und es bedeutet, dass die Hash-Funktion zu unterschiedlichen Schl&uuml;sseln gleiche Werte liefern kann. Deshalb wurde ja auch eine lineare verkettete Liste verwendet. Somit wird der neue Datensatz einfach hinter <span class="listing">"Friedberg"</span> eingef&uuml;gt. In der Informatik wird dies als Synonymkette bezeichnet.</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/24_29.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein24_29.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 24.29   
+    </b>Einen Datensatz nach einer Kollision hinzugef&uuml;gt</p>
+<a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3">24.5.3 Hash-Funktion<a id="RxxobKap02400404002BFA1F0391BB" name="RxxobKap02400404002BFA1F0391BB"></a> 
+      <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999395" name="Xxx999395"></a>Anhand dieses Beispiels d&uuml;rfte klar sein, dass der Hash-Funktion eine entscheidende Rolle zuf&auml;llt. Wie Sie eine solche Funktion schreiben, bleibt Ihnen selbst &uuml;berlassen. Sie k&ouml;nnten sogar eine Funktion schreiben, die Zufallszahlen zwischen 0 und 9 zur&uuml;ckliefert. Doch was nutzt eine solche Funktion, wenn 90% der Zufallszahlen zum Beispiel zwischen 2–4 liegen? Die restlichen Slots werden dabei kaum verwendet.</p>
+<p>F&uuml;r tats&auml;chlich effektive Hash-Berechnungen existieren drei Methoden:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Divisionsmethode</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Mittquadratmethode</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Zerlegungsmethode</td>
+</tr>
+</table>
+<h4 class="t4">Divisionsmethode</h4>
+key = key mod m
+<p>F&uuml;r <span class="listing">m</span> sollten Sie idealerweise eine Primzahl so nahe wie m&ouml;glich am h&ouml;chsten Index w&auml;hlen.</p>
+<h4 class="t4">Mittquadratmethode</h4>
+key = I
+<p><span class="listing">I</span> ist <span class="listing">key</span>, wobei f&uuml;hrende und endende Ziffern entfernt werden m&uuml;ssen. Beispielsweise:</p>
+<pre>H(3206) = 32062 = 10278436</pre>
+<p>Von dem Wert <span class="listing">10278436</span> werden abwechselnd rechts und links die Ziffern abgeschnitten, bis ein Wert entsteht, der kleiner als der Index ist. Wenn z.B. eine Hash-Tabelle mit dem Index 10 deklariert wurde, sieht der Wert aus dem Schl&uuml;ssel <span class="listing">10278436</span> wie folgt aus:</p>
+<pre>1027 [8] 436 = 8</pre>
+<h4 class="t4">Zerlegungsmethode</h4>
+<p>Man zerlegt den Schl&uuml;ssel, bis er eine g&uuml;ltige Adresse hat. Als Beispiel der Schl&uuml;ssel <span class="listing">135612</span>:</p>
+<pre>135612 = [13]+[56]+[12]= 81 = [8]+[1] = 9</pre>
+<p>Der Schl&uuml;ssel wurde zerlegt, bis er als g&uuml;ltige Adresse den Wert 9 besitzt.</p>
+<h4 class="t4">Hashing von Strings</h4>
+<p><a id="Xxx999415" name="Xxx999415"></a>Ein bew&auml;hrter Hash-Algorithmus f&uuml;r Strings erzeugt einen Hashwert, in dem er jedes Byte des Strings zum Vielfachen des Strings hinzuaddiert. Eine Multiplikation verteilt die einzelnen Bits des Bytes auf den bisher berechneten Wert. Tests haben ergeben, dass sich bei Strings die Werte 31 und 37 als gute Multiplikatoren erwiesen haben, die auch f&uuml;r das Programmbeispiel verwendet werden.</p>
+<p>Theoretisch k&ouml;nnten Sie sich das Beispiel anhand des Postleitzahlen-Listings so vorstellen. F&uuml;r String <span class="listing">"Stuttgart"</span> wurden die Postleitzahlen 70190 eingetragen:</p>
+<pre>hash_tabelle["Stuttgart"] = 70190;</pre>
+<p>Dies ist eigentlich ein Array mit dem Indexwert als String. In der Praxis ist dies in C nat&uuml;rlich nicht m&ouml;glich. Daf&uuml;r schreiben Sie ja auch die Hash-Funktion.</p>
+<p>Jetzt die passende Hash-Funktion f&uuml;r das Programmbeispiel:</p>
+<pre>/* Die Hash-Funktion zur Berechnung des
+ * Hashwerts eines Strings */
+int hash_funktion(char *string) {
+   unsigned int hash_adresse;
+   unsigned char *pointer;
+   hash_adresse = 0;
+   pointer = (unsigned char *) string;
+   while(*pointer != '\0') {
+      hash_adresse = M * hash_adresse + *pointer;
+      pointer++;
+   }
+   return hash_adresse % MAX_HASH;
+}</pre>
+<p>Zur Sicherstellung, dass auch positive Hash-Adressen f&uuml;r die Hash-Tabelle zur&uuml;ckgeliefert werden, wird <span class="listing">unsigned</span> verwendet.</p>
+<p>Es ist relativ schwierig, eine optimale Hash-Funktion zu finden. In solch einem Fall m&uuml;ssen Sie so lange testen, bis Sie mit dem Ergebnis zufrieden sind. Hierzu das vollst&auml;ndige Programm, welches das Hashing mit getrennter Verkettung demonstrieren soll:</p>
+<pre>/* hashing.c */
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+#define MAX_HASH 10
+#define M 31
+struct plz{
+   char ort[255];
+   unsigned int postleit;
+   struct plz *next;
+};
+struct plz *hash_tabelle[MAX_HASH];
+struct plz *insert(char *, unsigned int);
+void search_in_hash(char *);
+int hash_funktion(char *);
+struct plz *insert(char *o, unsigned int p) {
+   struct plz *pointer;
+   /* Hashwert (bucket) an hash_adresse (0–9) */
+   int hash_adresse = hash_funktion(o);
+   /* printf("%d\n",hash_adresse); */
+   /* Zeiger auf errechnete Tabellenadresse
+    * durch hash_funktion */
+   pointer = hash_tabelle[hash_adresse];
+   /* Wir suchen freien Platz f&uuml;r einen neuen Eintrag
+    * in hash_tabelle[hash_adresse] */
+   while(pointer != NULL) {
+      if(strcmp(o, pointer-&gt;ort) == 0)  /* Stadt gleich? */
+         if(pointer-&gt;postleit == p) {
+            /* Postleitzahlen gleich? */
+            printf("%s mit PLZ %d ist bereits vorhanden\n",o,p);
+            /* Doppelte Eintr&auml;ge vermeiden */
+            return pointer;
+         }
+         pointer=pointer-&gt;next;
+   }
+   /* Speicher f&uuml;r neues Element allokieren */
+   pointer = (struct plz *)malloc(sizeof(struct plz));
+   if(pointer == NULL) {
+      printf("Kein Speicher f&uuml;r neue PLZ vorhanden\n");
+      return NULL;
+   }
+   strcpy(pointer-&gt;ort, o);
+   pointer-&gt;postleit = p;
+   pointer-&gt;next = hash_tabelle[hash_adresse];
+   hash_tabelle[hash_adresse] = pointer;
+   return pointer;
+}
+/* Funktion zur Suche in der Hash-Tabelle */
+void search_in_hash(char *o) {
+   struct plz *pointer;
+  /* Hashwert (bucket) an hash_adresse (0–9) */
+   int hash_adresse = hash_funktion(o);
+   /* printf("%d\n",hash_adresse); */
+   /* Zeiger auf errechnete Tabellenadresse
+    * durch hash_funktion */
+   pointer = hash_tabelle[hash_adresse];
+   /* Jetzt wollen wir nachsehen, ob es f&uuml;r o einen
+    * Eintrag in der Tabelle gibt */
+   while(pointer != NULL) {
+      if(strcmp(pointer-&gt;ort, o) == 0)
+         printf("PLZ f&uuml;r %s ist %d\n",o,pointer-&gt;postleit);
+      pointer = pointer-&gt;next;
+   }
+}
+/* Die Hash-Funktion zur Berechnung des Hashwerts
+ * eines Strings */
+int hash_funktion(char *string) {
+   unsigned int hash_adresse;
+   unsigned char *pointer;
+   hash_adresse = 0;
+   pointer = (unsigned char *)string;
+   while(*pointer != '\0') {
+      hash_adresse = M * hash_adresse + *pointer;
+      pointer++;
+   }
+   return hash_adresse % MAX_HASH;
+}
+int main(void) {
+   /* Einf&uuml;gen */
+   insert("Friedberg", 86316);
+   insert("Augsburg", 86136);
+   insert("Stuttgart", 71345);
+   /* Suchen */
+   search_in_hash("Augsburg");
+   search_in_hash("Friedberg");
+   search_in_hash("Stuttgart");
+   return EXIT_SUCCESS;
+}</pre>
+<p>Die Suchfunktion <span class="listing">search_in_hash()</span> ist &auml;hnlich wie <span class="listing">insert()</span>. Daher wird auf eine Erkl&auml;rung verzichtet. Wichtig ist es aber auch, zu erw&auml;hnen (auch wenn dies eigentlich logisch sein sollte), dass jede Funktion, die Sie hinzuf&uuml;gen (suchen, sortieren, l&ouml;schen, einf&uuml;gen, ...), dieselbe Hash-Funktion verwenden muss.</p>
+<a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3">24.5.4 Hashing mit direkter Adressierung<a id="RxxobKap02400404002BFA1F0391D9" name="RxxobKap02400404002BFA1F0391D9"></a> 
+      <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999427" name="Xxx999427"></a>Es ist auch m&ouml;glich, die einzelnen Hashes direkt zu adressieren, sofern Sie absch&auml;tzen k&ouml;nnen, wie viele Elemente eingef&uuml;gt werden. Daf&uuml;r wird eine Tabelle verwendet, die nur Zeiger auf die anderen Stellen im Speicher abgelegter Datens&auml;tze enth&auml;lt. Die direkte Adressierung l&auml;sst sich folgenderma&szlig;en realisieren (Pseudocode):</p>
+<pre>while(Schl&uuml;ssel_stimmt_nicht_&uuml;berein) {
+   if(Schl&uuml;ssel_stimmt_&uuml;berein) {
+      printf("gefunden");
+      return;
+   }
+   else if(Speicherplatz leer) {
+      printf("nicht gefunden");
+      return;
+   }
+   weiter_an_die_n&auml;chste_Position;
+}</pre>
+<p>Der Vorteil der direkten Adressierung liegt in der gr&ouml;&szlig;eren Schnelligkeit. Der gro&szlig;e Nachteil ist aber die fixe Tabellengr&ouml;&szlig;e. Sofern Sie die Menge der Daten absch&auml;tzen k&ouml;nnen, ist diese kein Nachteil. Bei Datenbanken, bei denen die Menge der Daten vom Anwendungsfall abh&auml;ngt, ist die direkte Adressierung nicht sinnvoll.</p>
+<a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3">24.5.5 Vergleich von Hashing mit bin&auml;ren B&auml;umen<a id="RxxobKap02400404002BFA1F0391DD" name="RxxobKap02400404002BFA1F0391DD"></a> 
+      <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Vorteile des Hashings:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> einfach zu implementieren</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> schnelle Suchergebnisse</td>
+</tr>
+</table>
+<p>Vorteile bin&auml;rer B&auml;ume:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Garantie f&uuml;r Leistungsf&auml;higkeit auch im ung&uuml;nstigsten Fall</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> unterst&uuml;tzt viele weitere Operationen (z.B. Sortieren)</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> dynamisch (bei bin&auml;ren B&auml;umen ist im Gegensatz zum Hashing keine Information &uuml;ber Anzahl der Einf&uuml;gungen n&ouml;tig)</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_024_003.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_024_005.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td width="10" valign="top">&nbsp;&nbsp;</td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/899?GPP=opc">
+                                        <img src="common/643_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C von A bis Z" title="Zum Katalog: C von A bis Z">
+                                        <br /><strong>C von A bis Z</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Ihre Meinung?</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1007?GPP=opc">
+                        <img src="common/683_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Shell-Programmierung" title="Zum Katalog: Shell-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Shell-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1137?GPP=opc">
+                        <img src="common/749_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux-UNIX-Programmierung" title="Zum Katalog: Linux-UNIX-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux-UNIX-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1004?GPP=opc">
+                        <img src="common/644_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C/C++" title="Zum Katalog: C/C++"><br /><br /><br /><br /><br /><br /><br />&nbsp;C/C++</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/880?GPP=opc">
+                        <img src="common/573_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/967?GPP=opc">
+                        <img src="common/626_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Reguläre Ausdrücke" title="Zum Katalog: Reguläre Ausdrücke"><br /><br /><br /><br /><br /><br /><br />&nbsp;Reguläre Ausdrücke</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/941?GPP=opc">
+                        <img src="common/677_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Shopping</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opc"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table>
+<br /><br />
+<hr width="70%" align="center"><br />
+<div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2006</b><br>F&uuml;r Ihren privaten Gebrauch d&uuml;rfen Sie die Online-Version nat&uuml;rlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschlie&szlig;lich aller seiner Teile ist urheberrechtlich gesch&uuml;tzt. Alle Rechte vorbehalten einschlie&szlig;lich der Vervielf&auml;ltigung, &Uuml;bersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

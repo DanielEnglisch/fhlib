@@ -1,0 +1,1162 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: C von A bis Z – 19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)</title>
+<meta name="title" content="Galileo Computing :: C von A bis Z">
+<meta name="author" content="J&uuml;rgen Wolf">
+<meta name="publisher" content="Galileo Press 2006">
+<meta name="copyright" content="Galileo Press 2006">
+<meta name="description" content="C von A bis Z - Das umfassende Handbuch f&uuml;r Linux, Unix und Windows – 2., aktualisierte und erweiterte Auflage 2006, geb., mit CD und Referenzkarte – ISBN 3-89842-643-2">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="c_018_031.htm">
+<link rel="next" href="c_019_001.htm"><script type="text/javascript" language="JavaScript"><!--
+function OpenWin(url,name,height,width)
+{
+  var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+  InfoWin.focus();
+}
+//--></script></head>
+<body vlink="#000099" link="#000099" alink="#000099">
+    <table width="100%" height="74" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+        <tr>
+            <td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+            <td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opc"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger." title="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger."></a></td>
+        </tr>
+    </table>
+    <div align="right"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger.</a></div>
+    <br />
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td width="156" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
+        <tr>
+            <td colspan="2" class="nav1" align="left" valign="top" height="150">
+                <table class="tbl1" width="150" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td class="tbl2" height="25"><a class="nav" href="./index.htm">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000Vorwort_000.htm#Xxx999266">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000VorwortGutachter_000.htm#Xxx999275">Vorwort des Gutachters</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_001_000.htm#Xxx999328">1 Einstieg in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_002_000.htm#Xxx999328">2 Das erste Programm</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_003_000.htm#Xxx999328">3 Zeichens&auml;tze</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_004_000.htm#Xxx999329">4 Kommentare in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_005_000.htm#Xxx999330">5 Formatierte Eingabe mit scanf()</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_006_000.htm#Xxx999330">6 Formatierte Ausgabe mit printf</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_007_000.htm#Xxx999329">7 Elementare Datentypen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_008_000.htm#Xxx999328">8 Operatoren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_009_000.htm#Xxx999328">9 Typenumwandlung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_010_000.htm#Xxx999328">10 Kontrollstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_011_000.htm#Xxx999328">11 Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_012_000.htm#Xxx999328">12 Pr&auml;prozessor-Direktiven</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_013_000.htm#Xxx999328">13 Arrays</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_014_000.htm#Xxx999328">14 Zeiger (Pointer)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_015_000.htm#Xxx999328">15 Kommandozeilenargumente</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_016_000.htm#Xxx999328">16 Dynamische Speicherverwaltung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_017_000.htm#Xxx999328">17 Strukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_018_000.htm#Xxx999328">18 Ein-/Ausgabe-Funktionen</A></td>
+</tr>
+<tr>
+<td><A class="navh" href="./c_019_000.htm#Xxx999328">19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_020_000.htm#Xxx999328">20 Arbeiten mit variablen langen Argumentlisten – &lt;stdarg.h&gt;</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_021_000.htm#Xxx999328">21 Zeitroutinen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_022_000.htm#Xxx999328">22 Weitere Headerdateien und ihre Funktionen (ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_023_000.htm#Xxx999328">23 Dynamische Datenstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_024_000.htm#Xxx999328">24 Algorithmen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_025_000.htm#Xxx999328">25 Sicheres Programmieren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_026_000.htm#Xxx999328">26 CGI mit C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_027_000.htm#Xxx999328">27 MySQL und C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_028_000.htm#Xxx999328">28 Netzwerkprogrammierung und Cross-Plattform-Entwicklung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_029_000.htm#Xxx999328">29 Wie geht’s jetzt weiter?</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_030Anhang_000.htm#Xxx999266">A Anhang</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./stichwort.htm#Xxx512322">Index</a></td>
+</tr>
+<tr><td><br /><a class="navnav" href="http://download.galileo-press.de/openbook/c_von_a_bis_z/galileocomputing_c_von_a_bis_z.zip"><strong>Download:</strong><br />- ZIP, ca. 8,5 MB</a></td></tr>
+<tr><td><a class="navnav" href="http://www.galileocomputing.de/899?GPP=opc">Buch bestellen</a></td></tr>
+<tr><td><a class="navnav" href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)">Ihre Meinung?</a><br /><br /></td></tr>
+</table></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10"></td>
+<td width="85%" valign="top" align="center">
+    <div align="center">
+        <table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+            <tr>
+                <td width="100%" class="start" colspan="1" height="22" align="center">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_018_031.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Galileo Computing /</a><a class="navnav" href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"> &lt;openbook&gt; /</a><a href="./index.htm" class="navnav"> C von A bis Z</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_019_001.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" valign="top">
+    <table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+        <tr>
+            <td colspan="2"><a href="http://www.galileocomputing.de/899?GPP=opc" class="buchtitel">C von A bis Z</a><span class="autor"> von J&uuml;rgen Wolf</span><br><span class="untertitel">Das umfassende Handbuch f&uuml;r Linux, Unix und Windows <br />– 2., aktualisierte und erweiterte Auflage 2006</span></td>
+        </tr>
+        <tr>
+            <td valign="top" width="90"><a href="http://www.galileocomputing.de/899?GPP=opc"><img src="common/643.gif" border="0" alt="Buch: C von A bis Z" title="Buch: C von A bis Z" align="left"><br /><br /><span class="autor"><strong>C von A bis Z</strong><br />1.116 S., mit CD, Referenzkarte, 39,90 Euro<br />Galileo Computing<br />ISBN 3-89842-643-2</span></a></a></td>
+            <td width="80%">
+<table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="3" class="kap"><b>Kapitel <a class="navh" href="#RxxobKap01900004002AD71F03818C">19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a class="navh" href="#RxxobKap01900004002AD71F03818E">19.1 Attribute einer Datei ermitteln – stat()</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap01900004002AD71F0381B4">19.1.1 stat() – st_mode</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap01900004002AD71F03820C">19.1.2 stat() – st_size</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap01900004002AD71F038212">19.1.3 stat() – st_atime, st_mtime und st_ctime</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap01900004002AD71F038225">19.1.4 stat() – st_gid und st_uid</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap01900004002AD71F038228">19.1.5 stat() – st_nlink, st_ino</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap01900004002AD71F03822B">19.1.6 stat() – st_dev, st_rdev</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_019_001.htm#RxxobKap01900104002AF21F02218C">19.2 Pr&uuml;fen des Zugriffsrechts – access</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_019_002.htm#RxxobKap01900204002AF31F02C18C">19.3 Verzeichnis-Funktionen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_019_002.htm#RxxobKap01900204002AF31F02C18E">19.3.1 Verzeichnis erstellen, l&ouml;schen und wechseln – mkdir, rmdir und chdir</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_019_002.htm#RxxobKap01900204002AF31F02C1A7">19.3.2 Wechseln in das Arbeitsverzeichnis – getcwd</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_019_002.htm#RxxobKap01900204002AF31F02C1B0">19.3.3 Verzeichnisse &ouml;ffnen, lesen und schlie&szlig;en – opendir, readdir und closedir</a></b></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td>
+<h1 class="t1">Kapitel 19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)<a id="RxxobKap01900004002AD71F03818C" name="RxxobKap01900004002AD71F03818C"></a></h1>
+<p class="anleser"><i>Themen, wie das Ermitteln der Eigenschaften einer Datei oder das &Ouml;ffnen und Auslesen eines Verzeichnisses, sind systemabh&auml;ngig. Denn jedes Betriebssystem verwaltet Dateien und Verzeichnisse auf andere Art. Daher wird in B&uuml;chern oft auf dieses Thema verzichtet. In diesem Kapitel soll versucht werden, dieses Thema so universell wie m&ouml;glich zu behandeln.</i></p>
+<a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2">19.1 Attribute einer Datei ermitteln – stat()<a id="RxxobKap01900004002AD71F03818E" name="RxxobKap01900004002AD71F03818E"></a> 
+      <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"></h2>
+<p><a id="Xxx999331" name="Xxx999331"></a><a id="Xxx999332" name="Xxx999332"></a><a id="Xxx999333" name="Xxx999333"></a>Der Funktion <span class="listing">stat()</span>wird die Adresse der Struktur <span class="listing">struct</span> <span class="listing">stat</span> &uuml;bergeben. Aus dieser Struktur k&ouml;nnen die Attribute der Datei ausgelesen werden. Hierzu die Syntax:</p>
+<pre>#include &lt;sys/stat.h&gt;<a id="Xxx999335" name="Xxx999335"></a>    /* LINUX/UNIX     */
+#include &lt;sys/types.h&gt;   /* LINUX/UNIX     */
+#include &lt;sys\stat.h&gt;    /* MS-DOS/WINDOWS */
+int stat(const char *pfad, struct stat *puffer);</pre>
+<p>Mit <span class="listing">stat()</span> werden somit die Attribute der Datei, welche Sie mit <span class="listing">pfad</span> angeben, in die Adresse der Strukturvariablen <span class="listing">puffer</span> geschrieben. Ein Beispiel:</p>
+<pre>struct stat attribut;
+stat("testprogramm.txt", &amp;attribut);
+...
+if(attribut.st_mode &amp; S_IFCHR)
+   printf("Datei ist eine Ger&auml;tedatei");</pre>
+<p>Hiermit wird getestet, ob die Datei »testprogramm.txt« eine Ger&auml;tedatei ist.</p>
+<p>Es folgt eine Auflistung der einzelnen Variablen der Struktur <span class="listing">struct</span> <span class="listing">stat</span>, worin sich die jeweiligen Attribute zu einer Datei befinden. Wobei wiederum anzumerken ist, dass es Unterschiede zwischen Linux/UNIX und MS-DOS/Windows gibt. Hier die einzelnen Elemente der Struktur <span class="listing">stat</span>:<a id="Xxx999341" name="Xxx999341"></a></p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 19.1   
+    </b>Bedeutung der einzelnen Strukturvariablen in stat</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>Variable</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Bedeutung</b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">st_dev
+</td>
+<td class="tabellentext" bgcolor="#000000">Ger&auml;tenummer (Device-Nummer) des Dateisystems
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">st_ino
+</td>
+<td class="tabellentext" bgcolor="#000000">Inode-Nummer (nur Linux)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">st_mode
+</td>
+<td class="tabellentext" bgcolor="#000000">Dateimodus (Dateityp und Zugriffsrechte)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">st_nlink
+</td>
+<td class="tabellentext" bgcolor="#000000">Anzahl fester Links auf die Datei (bei MS-DOS/Windows immer 1)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">st_uid
+</td>
+<td class="tabellentext" bgcolor="#000000">Numerische UID des Dateieigent&uuml;mers
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">st_gid
+</td>
+<td class="tabellentext" bgcolor="#000000">Numerische GID des Dateieigent&uuml;mers
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">st_rdev
+</td>
+<td class="tabellentext" bgcolor="#000000">Ger&auml;te-ID (nur f&uuml;r Spezialdateien) (bei MS-DOS/Windows  <span class="listing">st_dev</span>)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">st_size
+</td>
+<td class="tabellentext" bgcolor="#000000">Gr&ouml;&szlig;e der Datei in Bytes
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">st_atime
+</td>
+<td class="tabellentext" bgcolor="#000000">Datum des letzten Zugriffs
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">st_mtime
+</td>
+<td class="tabellentext" bgcolor="#000000">Datum der letzten Ver&auml;nderung (bei MS-DOS/Windows  <span class="listing">st_atime</span>)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">st_ctime
+</td>
+<td class="tabellentext" bgcolor="#000000">Datum der Inode-&Auml;nderung (bei MS-DOS/Windows <span class="listing">st_atime</span>)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">st_blksize
+</td>
+<td class="tabellentext" bgcolor="#000000">Eingestellte Blockgr&ouml;&szlig;e (nicht &uuml;berall vorhanden)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">st_blocks
+</td>
+<td class="tabellentext" bgcolor="#000000">Anzahl der verwendeten <span class="listing">st_blksize</span>-Bl&ouml;cke (nicht &uuml;berall vorhanden)
+</td>
+</tr>
+</table><br>
+<a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3">19.1.1 stat() – st_mode<a id="RxxobKap01900004002AD71F0381B4" name="RxxobKap01900004002AD71F0381B4"></a> 
+      <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999408" name="Xxx999408"></a><a id="Xxx999409" name="Xxx999409"></a>Mit dem Strukturelement <span class="listing">short</span> <span class="listing">st_mode</span> in der Struktur <span class="listing">stat</span> k&ouml;nnen Sie die Dateiart erfragen. Dies funktioniert, indem der bitweise UND-Operator (<span class="listing">&amp;</span>) und der in <span class="listing">st_mode</span> gespeicherte Wert mit einer der folgenden Konstanten verkn&uuml;pft wird:<a id="Xxx999411" name="Xxx999411"></a></p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 19.2   
+    </b>Dateimodus (Dateityp erfragen)</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>Konstante</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Bedeutung</b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">S_IFREG<a id="Xxx999418" name="Xxx999418"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Regul&auml;re Datei
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">S_IFDIR<a id="Xxx999423" name="Xxx999423"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Verzeichnis
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">S_IFCHR<a id="Xxx999428" name="Xxx999428"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Zeichenorientierte Ger&auml;tedatei
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">S_ISBLK<a id="Xxx999433" name="Xxx999433"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Blockorientierte Ger&auml;tedatei
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">S_ISFIFO<a id="Xxx999438" name="Xxx999438"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">FIFO  (benannte Pipe)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">S_ISLINK<a id="Xxx999443" name="Xxx999443"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Symbolischer Link (nicht bei POSIX.1 oder SVR4)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">S_ISSOCK<a id="Xxx999448" name="Xxx999448"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Socket (nicht bei POSIX.1 oder SVR4)
+</td>
+</tr>
+</table><br>
+<p>POSIX schreibt diese Konstanten allerdings nicht vor. Bei Linux/UNIX-Systemen k&ouml;nnten diese Konstanten auch als entsprechende Makros in der Headerdatei <span class="listing">&lt;sys/stat.h&gt;</span> implementiert sein. Der Makroname entspricht dabei dem Konstantennamen (<span class="listing">S_IFREG()</span>, <span class="listing">S_IFDIR()</span>, <span class="listing">S_IFCHR()</span>, <span class="listing">S_ISBLK()</span>, <span class="listing">S_ISFIFO()</span>, <span class="listing">S_ISLINK()</span> und <span class="listing">S_ISSOCK()</span>). Alle diese Makros geben 1 zur&uuml;ck, wenn Entsprechendes zutrifft, ansonsten 0.</p>
+<p>Im folgenden Listing k&ouml;nnen Sie &uuml;ber Argumente aus der Kommandozeile beliebig viele Dateien dahingehend abfragen, ob es sich um eine regul&auml;re Datei (<span class="listing">S_IFREG</span>), eine zeichenorientierte Ger&auml;tedatei (<span class="listing">S_IFCHR</span>) oder ein Verzeichnis (<span class="listing">S_IFDIR</span>) handelt. Hier das Listing:</p>
+<pre>/* file_chk.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#ifdef __unix__
+      #include &lt;unistd.h&gt;
+      #include &lt;sys/stat.h&gt;
+      #include &lt;sys/types.h&gt;
+#else
+      #include &lt;sys\stat.h&gt;
+#endif
+int main(int argc, char **argv) {
+   struct stat attribut;
+   if(argc == 1) {
+      printf("%s = ",*argv);
+      if(stat(*argv, &amp;attribut) == –1) {
+         fprintf(stderr,"Fehler bei stat ...\n");
+         return EXIT_FAILURE;
+      }
+      if(attribut.st_mode &amp; S_IFREG)
+         printf("Regul&auml;re Datei\n");
+      else if(attribut.st_mode &amp; S_IFDIR)
+         printf("Directory\n");
+      else if(attribut.st_mode &amp; S_IFCHR)
+         printf("Ger&auml;tedatei\n");
+      else
+         printf("Unbekannte Datei\n");
+   }
+   else {
+      while(*++argv) {
+         printf("%s = ",*argv);
+         if(stat(*argv, &amp;attribut) == –1) {
+            fprintf(stderr,"Fehler bei stat (2)...\n");
+            return EXIT_FAILURE;
+         }
+         if(attribut.st_mode &amp; S_IFREG)
+            printf("Regul&auml;re Datei\n");
+         else if(attribut.st_mode &amp; S_IFDIR)
+            printf("Directory\n");
+         else if(attribut.st_mode &amp; S_IFCHR)
+            printf("Ger&auml;tedatei\n");
+         else
+            printf("Unbekannte Datei\n");
+      }/*Ende while*/
+   }
+   return EXIT_SUCCESS;
+}</pre>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/19_01.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein19_01.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 19.1   
+    </b>Erfragen der Dateiart mit st_mode</p>
+<p>Zuerst werden in der Schleife mit</p>
+<pre>if(stat(*argv, &amp;attribut) == –1)</pre>
+<p>die Attribute der Datei <span class="listing">*argv</span> in die Adresse der Strukturvariablen <span class="listing">attribut</span> geschrieben. Anschlie&szlig;end werden einige Attribute mit den folgenden Zeilen abgefragt, um zu ermitteln, um welche Dateiart es sich hierbei handelt.</p>
+<pre>if(attribut.st_mode &amp; S_IFREG)
+   printf("Regul&auml;re Datei\n");
+else if(attribut.st_mode &amp; S_IFDIR)
+   printf("Directory\n");
+else if(attribut.st_mode &amp; S_IFCHR)
+   printf("Ger&auml;tedatei\n");
+else
+   printf("Unbekannte Datei\n");</pre>
+<p>Danach f&auml;hrt die Programmausf&uuml;hrung mit dem n&auml;chsten Argument in der Kommandozeile fort.</p>
+<p>Wenn sich das Listing bei Ihnen nicht &uuml;bersetzen l&auml;sst und Sie unter Linux/UNIX arbeiten, sollten Sie es mit den entsprechenden Makros probieren:</p>
+<pre>if( S_IFREG(attribut.st_mode) )
+   printf("Regul&auml;re Datei\n");
+else if( S_IFDIR(attribut.st_mode) )
+   printf("Directory\n");
+else if( S_IFCHR(attribut.st_mode) )
+   printf("Ger&auml;tedatei\n");
+else
+   printf("Unbekannte Datei\n");</pre>
+<p>Mit dem Strukturelement <span class="listing">st_mode</span> in der Struktur <span class="listing">stat</span> lassen sich die Zugriffsrechte einer Datei ebenfalls abfragen. Dies funktioniert genauso wie bei der Abfrage der Dateiart. Zudem m&uuml;ssen Sie den bitweisen UND-Operator (<span class="listing">&amp;</span>) mit einer der unter Linux/UNIX vorgegebenen Konstanten verkn&uuml;pfen:<a id="Xxx999476" name="Xxx999476"></a><a id="Xxx999477" name="Xxx999477"></a></p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 19.3   
+    </b>Dateimodus (Rechte erfragen) (Linux/UNIX)</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>Konstante</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Bedeutung</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Benutzerklasse</b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">S_IRUSR<a id="Xxx999486" name="Xxx999486"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">read (Leserecht)
+</td>
+<td class="tabellentext" bgcolor="#000000">Dateieigent&uuml;mer
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">S_IWUSR<a id="Xxx999493" name="Xxx999493"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">write (Schreibrecht)
+</td>
+<td class="tabellentext" bgcolor="#000000">Dateieigent&uuml;mer
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">S_IXUSR<a id="Xxx999500" name="Xxx999500"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">execute (Ausf&uuml;hrungsrecht)
+</td>
+<td class="tabellentext" bgcolor="#000000">Dateieigent&uuml;mer 
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">S_IRGRP<a id="Xxx999507" name="Xxx999507"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">read (Leserecht)
+</td>
+<td class="tabellentext" bgcolor="#000000">Gruppe des Dateieigent&uuml;mers
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">S_IWGRP<a id="Xxx999514" name="Xxx999514"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">write (Schreibrecht)
+</td>
+<td class="tabellentext" bgcolor="#000000">Gruppe des Dateieigent&uuml;mers
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">S_IXGRP<a id="Xxx999521" name="Xxx999521"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">execute (Ausf&uuml;hrungsrecht)
+</td>
+<td class="tabellentext" bgcolor="#000000">Gruppe des Dateieigent&uuml;mers
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">S_IROTH<a id="Xxx999528" name="Xxx999528"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">read (Leserecht)
+</td>
+<td class="tabellentext" bgcolor="#000000">Alle anderen Benutzer
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">S_IWOTH<a id="Xxx999535" name="Xxx999535"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">write (Schreibrecht)
+</td>
+<td class="tabellentext" bgcolor="#000000">Alle anderen Benutzer
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">S_IXOTH<a id="Xxx999542" name="Xxx999542"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">execute (Ausf&uuml;hrungsrecht)
+</td>
+<td class="tabellentext" bgcolor="#000000">Alle anderen Benutzer
+</td>
+</tr>
+</table><br>
+<p>Bei MS-DOS/Windows gibt es zum Erfragen der Zugriffsrechte die folgenden M&ouml;glichkeiten:</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 19.4   
+    </b>Dateimodus (Rechte erfragen) (MS-DOS/Windows)</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>Konstante</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Bedeutung</b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">S_IWRITE<a id="Xxx999565" name="Xxx999565"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">nur Schreibrecht
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">S_IREAD<a id="Xxx999570" name="Xxx999570"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">nur Leserecht
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">S_IEXEC<a id="Xxx999575" name="Xxx999575"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">Ausf&uuml;hren erlaubt bzw. Verzeichnis durchsuchen erlaubt
+</td>
+</tr>
+</table><br>
+<p>Hierzu ein Beispiel f&uuml;r Linux/UNIX:</p>
+<pre>/* check_rwx.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;sys/stat.h&gt;
+#include &lt;sys/types.h&gt;
+int main(int argc, char **argv) {
+   struct stat attribut;
+   int i;
+   char l_rwx[10];
+   char rwx[] = "rwxrwxrwx";
+   int bits[] = {
+      S_IRUSR,S_IWUSR,S_IXUSR,   /* Zugriffsrechte User    */
+      S_IRGRP,S_IWGRP,S_IXGRP,   /* Zugriffsrechte Gruppe  */
+      S_IROTH,S_IWOTH,S_IXOTH    /* Zugriffrechte der Rest */
+   };
+   while(*++argv) { /*Einzelne Argumente durchlaufen*/
+      l_rwx[0]='\0';
+      printf("%18s = ",*argv);
+      if(stat(*argv, &amp;attribut) == –1) {
+         fprintf(stderr,"Fehler bei stat?!?...\n");
+         return EXIT_FAILURE;
+      }
+      for(i = 0; i &lt; 9; i++) {
+         /* Wenn nicht 0, dann gesetzt */
+         if(attribut.st_mode &amp; bits[i])
+            l_rwx[i]=rwx[i];  /*r,w oder x*/
+         else
+            l_rwx[i] = '-'; /*wenn nicht gesetzt dann '-'*/
+      }
+      l_rwx[9]='\0';
+      printf("%s\n",l_rwx);
+   }/*Ende while*/
+   return EXIT_SUCCESS;
+}</pre>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/19_02.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein19_02.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 19.2   
+    </b>Ausgabe der Zugriffsrechte unter Linux/UNIX</p>
+<p>Dieses Listing stellt eine einfache Methode dar, wie die Zugriffsrechte einer Datei oder eines Verzeichnisses Linux-gewohnt ausgegeben werden k&ouml;nnen. Bei MS-DOS/Windows k&ouml;nnnen Sie so vorgehen:</p>
+<pre>if(attribut.st_mode &amp; S_IREAD)
+ { /* Datei darf nur gelesen werden */ }
+else if(attribut.st_mode &amp; S_IWRITE)
+ { /* Datei darf beschrieben werden */ }
+else if(attribut.st_mode &amp; S_IEXEC)
+ { /* Datei ist eine ausf&uuml;hrbare (bsp. *.exe */ }</pre>
+<p>Wird hingegen bei Linux/UNIX die oktale Darstellung der Zugriffsrechte ben&ouml;tigt, k&ouml;nnen Sie dies folgenderma&szlig;en erreichen:</p>
+<pre>/* permission_oct.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;sys/stat.h&gt;
+#include &lt;sys/types.h&gt;
+int main(int argc, char **argv) {
+   struct stat attribut;
+   while(*++argv) { /*Einzelne Argumente durchlaufen*/
+      printf("%18s = ",*argv);
+      if(stat(*argv, &amp;attribut) == –1) {
+         fprintf(stderr,"Fehler bei stat?!?...\n");
+         return EXIT_FAILURE;
+      }
+      printf("%o\n", attribut.st_mode &amp; 0777);
+   }
+   return EXIT_SUCCESS;
+}</pre>
+<a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3">19.1.2 stat() – st_size<a id="RxxobKap01900004002AD71F03820C" name="RxxobKap01900004002AD71F03820C"></a> 
+      <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999599" name="Xxx999599"></a><a id="Xxx999600" name="Xxx999600"></a><a id="Xxx999601" name="Xxx999601"></a>Nun ein weiterer Parameter der Struktur <span class="listing">stat</span>. Um die Gr&ouml;&szlig;e einer Datei in Bytes zu ermitteln, kann die Strukturvariable <span class="listing">st_size</span> verwendet werden. Ein Wert wird aber nur f&uuml;r regul&auml;re Dateien und Verzeichnisse (bei MS-DOS/Windows 0 f&uuml;r Verzeichnisse) zur&uuml;ckgegeben. Beim Filesystem werden dabei nicht die einzelnen Bytes angegeben, sondern immer ganze Bl&ouml;cke von Bytes. Typische Blockgr&ouml;&szlig;en sind 512 oder 1024 Bytes. Das bedeutet, die Variable von <span class="listing">st_size</span> gibt nicht den physikalischen Speicher einer Datei aus, den diese wirklich belegt. Das folgende Programm gibt die Gr&ouml;&szlig;e aller Dateien auf dem Bildschirm aus, die Sie in der Kommandozeile angeben.</p>
+<pre>/* size.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#ifdef __unix__
+      #include &lt;sys/stat.h&gt;
+      #include &lt;sys/types.h&gt;
+#else
+      #include &lt;sys\stat.h&gt;
+#endif
+int main(int argc, char **argv) {
+   struct stat attribut;
+   unsigned long sizeofall=0;
+   if(argc == 1) {
+      if(stat(*argv, &amp;attribut) == –1) {
+         fprintf(stderr,"Fehler bei stat....\n");
+         return EXIT_FAILURE;
+      }
+      else {
+         printf("Gr&ouml;&szlig;e von %s = %ld Bytes\n",
+            *argv,attribut.st_size);
+         return EXIT_SUCCESS;
+      }
+   }
+   else {
+      while(*++argv) {
+         if(stat(*argv, &amp;attribut) == –1) {
+            fprintf(stderr,"Fehler bei stat....\n");
+            return EXIT_FAILURE;
+         }
+         else {
+            printf("Gr&ouml;&szlig;e von %s = %ld Bytes\n",
+               *argv,attribut.st_size);
+            sizeofall += attribut.st_size;
+         }
+      }
+   }
+   printf("Gr&ouml;&szlig;e aller Dateien in der "
+          " Kommandozeile = %ld Bytes",sizeofall);
+   printf("= %ld KB\n",sizeofall/=1024);
+   return EXIT_SUCCESS;
+}</pre>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/19_03.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein19_03.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 19.3   
+    </b>Gr&ouml;&szlig;e von Dateien mit st_size ermitteln</p>
+<p>Wie bereits erw&auml;hnt, unter Windows/MS-DOS gelingt es nicht, die Gr&ouml;&szlig;e eines Verzeichnisses zu erhalten. Bei UNIX/Linux hingegen schon, da Verzeichnisse hier wie normale Dateien behandelt werden.</p>
+<a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3">19.1.3 stat() – st_atime, st_mtime und st_ctime<a id="RxxobKap01900004002AD71F038212" name="RxxobKap01900004002AD71F038212"></a> 
+      <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999611" name="Xxx999611"></a><a id="Xxx999612" name="Xxx999612"></a><a id="Xxx999613" name="Xxx999613"></a><a id="Xxx999614" name="Xxx999614"></a><a id="Xxx999615" name="Xxx999615"></a><a id="Xxx999616" name="Xxx999616"></a><a id="Xxx999617" name="Xxx999617"></a><a id="Xxx999618" name="Xxx999618"></a><a id="Xxx999619" name="Xxx999619"></a>Um spezielle Zeitdaten einer Datei abzufragen, befinden sich in der Struktur <span class="listing">stat</span> folgende Variablen:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"><span class="listing"> st_atime</span> = Zeit des letzten Zugriffs</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"><span class="listing"> st_mtime</span> = Zeit der letzten &Auml;nderung des Dateiinhalts</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"><span class="listing"> st_ctime</span> = Zeit der letzten Inode-&Auml;nderung</td>
+</tr>
+</table>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard"><b>Hinweis   </b>Mit einer Inode werden unter Linux/UNIX Verwaltungsinformationen von den eigentlichen Daten getrennt gespeichert. Diese Inode-Informationen sind dabei Merkmale wie Zugriffszeit, Rechte, Gr&ouml;&szlig;e und weitere Angaben. Die einzige Information, die nicht zur Inode geh&ouml;rt, ist der Name der Datei.</p>
+</td>
+</tr>
+</table><br>
+<p>Die Unterscheidung dieser drei Zeitattribute trifft nur f&uuml;r Linux/UNIX zu. Bei MS-DOS/Windows bedeuten alle drei Zeiten dasselbe; n&auml;mlich, wann die Datei das letzte Mal ge&auml;ndert wurde. Dazu ein Beispiel: Von allen Dateien, die Sie in der Kommandozeile eingeben, wird die Zeit des letzten Zugriffs und die Zeit der letzten &Auml;nderung ausgegeben. Hier das Listing:</p>
+<pre>/* ch_time.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+#ifdef __unix__
+      #include &lt;sys/stat.h&gt;
+      #include &lt;sys/types.h&gt;
+#else
+      #include &lt;sys\stat.h&gt;
+#endif
+int main(int argc, char **argv) {
+   struct stat attribut;
+   unsigned long sizeofall=0;
+   if(argc == 1) {
+      if(stat(*argv, &amp;attribut) == –1) {
+         fprintf(stderr,"Fehler bei stat....\n");
+         return EXIT_FAILURE;
+      }
+      else {
+         printf("Gr&ouml;&szlig;e von %s = %ld Bytes\n",
+            *argv,attribut.st_size);
+         printf("letzter Zugriff : %s",
+            ctime(&amp;attribut.st_atime));
+         printf("letzte Aenderung: %s",
+            ctime(&amp;attribut.st_mtime));
+         return EXIT_SUCCESS;
+      }
+   }
+   else {
+      while(*++argv) {
+         if(stat(*argv, &amp;attribut) == –1) {
+            fprintf(stderr,"Fehler bei stat....\n");
+            return EXIT_FAILURE;
+         }
+         else {
+            printf("Gr&ouml;&szlig;e von %s = %ld Bytes\n",
+                *argv,attribut.st_size);
+            printf("letzter Zugriff : %s",
+               ctime(&amp;attribut.st_atime));
+            printf("letzte Aenderung: %s\n",
+               ctime(&amp;attribut.st_mtime));
+            sizeofall += attribut.st_size;
+         }
+      }
+   }
+   printf("Gr&ouml;&szlig;e aller Dateien in der "
+          "Kommandozeile = %ld Bytes",sizeofall);
+   printf("= %ld KB\n",sizeofall/=1024);
+   return EXIT_SUCCESS;
+}</pre>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/19_04.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein19_04.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 19.4   
+    </b>Abfragen verschiedener Zeitdaten unter Linux</p>
+<p>Das Programm wurde mit dem vorherigen Beispiel vermischt. Auf diese Weise wird gleichzeitig die Gr&ouml;&szlig;e der Datei inklusive der letzten &Auml;nderung und des letzten Zugriffs auf die Datei ausgegeben.</p>
+<p>Unter Linux l&auml;sst sich au&szlig;erdem mithilfe der Variablen <span class="listing">st_atime</span> und <span class="listing">st_mtime</span> beim Kopieren einer Datei verhindern, dass diese beiden Werte ver&auml;ndert werden. Gemeint ist damit, wenn Sie eine Datei bspw. mit <span class="listing">cp</span> kopieren, werden normalerweise alle drei Werte auf das aktuelle Datum gesetzt. Wollen Sie das Datum des Originals erhalten (letzter Zugriff und &Auml;nderung des Inhalts), k&ouml;nnen Sie folgenderma&szlig;en vorgehen:</p>
+<pre>/* manipulate_time.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;sys/stat.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;utime.h&gt;
+#include &lt;fcntl.h&gt;
+int main(int argc, char **argv) {
+   FILE *q,*z;
+   struct stat attribut;
+   char buf[1024];
+   int i;
+   struct utimbuf zeit;  /*Siehe Funktion utimes()*/
+   if(stat(argv[1],&amp;attribut) &lt; 0) {
+      fprintf(stderr, "Fehler bei stat ...\n");
+      return EXIT_FAILURE;
+   }
+   zeit.actime = attribut.st_atime;
+   zeit.modtime= attribut.st_mtime;
+   q=fopen(argv[1],"r");
+   z=fopen(argv[2],"w");
+   if(q == NULL || z == NULL) {
+      fprintf(stderr,"Fehler bei fopen ...\n");
+      return EXIT_FAILURE;
+   }
+   while( (i=fread(buf, 1, 1024, q)) &gt; 0 )
+      fwrite(buf, 1, i, z);
+   /* Wichtig!!! Ohne den Stream zu schlie&szlig;en, wird die
+    * aktuelle Zeit verwendet, da die Datei erst nach
+    * return 0 beendet wird */
+   fclose(q);
+   fclose(z);
+   /* Jetzt die Zeit von quelle in ziel eintragen */
+   if(utime(argv[2], &amp;zeit) &lt; 0) {
+      printf("Fehler bei utime() ...\n");
+      return EXIT_FAILURE;
+   }
+   return EXIT_SUCCESS;
+}</pre>
+<p>Kopieren Sie einmal eine Datei mittels <span class="listing">cp</span> und sehen Sie sich die Zeiten mit <span class="listing">ls</span> <span class="listing">–l</span> , <span class="listing">ls</span> <span class="listing">-lu</span> und <span class="listing">ls</span> <span class="listing">-lc</span> an. Bei der &Uuml;berpr&uuml;fung der Zeitangabe werden Sie feststellen, dass alle drei Zeitdaten auf dieselbe Zeit gesetzt wurden.</p>
+<p>Wiederholen Sie dies nun mit dem eben geschriebenen Programm. Bei einem erneuten Blick auf die Zeitdaten sind die Variablen <span class="listing">st_atime</span> und <span class="listing">st_mtime</span> jetzt identisch mit der Originaldatei. H&auml;tten Sie in diesem Listing <span class="listing">fclose()</span> nicht oder erst nach der Funktion <span class="listing">utime()</span> verwendet, so w&uuml;rde wieder der aktuelle Zeitstempel gesetzt, da dies den letzten Zugriff darstellt.</p>
+<p>Wollen Sie herausfinden, welche von zwei Dateien &auml;lter ist, k&ouml;nnen Sie dies mit der Strukturvariablen <span class="listing">st_mtime</span> ermitteln:</p>
+<pre>/* older_file.c */
+#include &lt;sys/stat.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;time.h&gt;
+#include &lt;stdlib.h&gt;
+time_t st_mTime(char *name) {
+   struct stat s;
+   if (stat(name, &amp;s)) {
+      perror(name);
+      exit(EXIT_FAILURE);
+   }
+   return s.st_mtime;
+}
+int main(int argc, char **argv) {
+   time_t t1, t2;
+   if (argc == 3) {
+      t1 = st_mTime(argv[1]),
+      t2 = st_mTime(argv[2]);
+      if(t1 != t2)
+         printf("%s ist %s wie %s\n"
+          ,argv[1],(t1&gt;t2?"neuer":"&auml;lter"),argv[2]);
+      else
+         printf("Beide Dateien sind gleich alt\n");
+   }
+   else {
+      fprintf(stderr, "Verwendung %s datei1 datei2\n",argv[0]);
+      return EXIT_FAILURE;
+   }
+   return EXIT_SUCCESS;
+}</pre>
+<p>In diesem Listing wurde die Headerdatei <span class="listing">&lt;time.h&gt;</span> verwendet, um den R&uuml;ckgabetyp <span class="listing">time_t</span> zu verwenden. Zu dieser Headerdatei finden Sie im Buch noch einen eigenen Abschnitt in Kapitel 21, Zeitroutinen.</p>
+<a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3">19.1.4 stat() – st_gid und st_uid<a id="RxxobKap01900004002AD71F038225" name="RxxobKap01900004002AD71F038225"></a> 
+      <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999644" name="Xxx999644"></a><a id="Xxx999645" name="Xxx999645"></a><a id="Xxx999646" name="Xxx999646"></a><a id="Xxx999647" name="Xxx999647"></a>Um herauszufinden, wer der Eigent&uuml;mer und der Gruppeneigent&uuml;mer einer Datei ist, k&ouml;nnen Sie sich der Variablen <span class="listing">st_uid</span> (Eigent&uuml;mer) und <span class="listing">st_gid</span> (Gruppeneigent&uuml;mer) bedienen. Hierzu das Listing:</p>
+<pre>/* ugid.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;sys/stat.h&gt;
+#include &lt;sys/types.h&gt;
+int main(int argc, char **argv){
+   struct stat attribut;
+   while(*++argv) {
+      if(stat(*argv,&amp;attribut) &lt; 0) {
+         fprintf(stderr, "Fehler bei stat ...\n");
+         return EXIT_FAILURE;
+      }
+      printf("\n%18s\n", *argv);
+      printf("USER-ID  : %d\n", attribut.st_uid);
+      printf("GROUP-ID : %d\n\n", attribut.st_gid);
+   }
+   return EXIT_SUCCESS;
+}</pre>
+<a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3">19.1.5 stat() – st_nlink, st_ino<a id="RxxobKap01900004002AD71F038228" name="RxxobKap01900004002AD71F038228"></a> 
+      <a href="#t2t37"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999651" name="Xxx999651"></a><a id="Xxx999652" name="Xxx999652"></a>Weitere Informationen zu einer Datei unter Linux lassen sich mit den Variablen <span class="listing">st_nlink</span> (Anzahl der Links) und <span class="listing">st_ino</span> (Inode-Nummer der Datei) ausgeben.</p>
+<pre>/* link_ino.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;sys/stat.h&gt;
+#include &lt;sys/types.h&gt;
+int main(int argc, char **argv){
+   struct stat attribut;
+   while(*++argv) {
+      if(stat(*argv,&amp;attribut) &lt; 0) {
+         fprintf(stderr, "Fehler bei stat ...\n");
+         return EXIT_FAILURE;
+       }
+       printf("\n%18s\n",*argv);
+       printf("Anzahl Links  : %d\n",attribut.st_nlink);
+       printf("Inode Nummer  : %d\n\n",attribut.st_ino);
+   }
+   return EXIT_SUCCESS;
+}</pre>
+<a name="t36"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t37"></a><h3 class="t3">19.1.6 stat() – st_dev, st_rdev<a id="RxxobKap01900004002AD71F03822B" name="RxxobKap01900004002AD71F03822B"></a> 
+      <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t36"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999656" name="Xxx999656"></a><a id="Xxx999657" name="Xxx999657"></a>Die Strukturvariablen <span class="listing">st_dev</span> und <span class="listing">st_rdev</span> sind recht n&uuml;tzlich f&uuml;r Ger&auml;tedateien. Bei MS-DOS/Windows haben beide Variablen dieselbe Bedeutung:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"><span class="listing"> st_dev</span> – enth&auml;lt f&uuml;r jeden Dateinamen die Ger&auml;tenummer des Filesystems, in dem sich diese Dateien und ihr zugeh&ouml;riger Inode befinden. (Windows/MS-DOS und Linux/UNIX).</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"><span class="listing"> st_rdev</span> – hat nur f&uuml;r Zeichen-/und blockorientierte Ger&auml;tedateien einen definierten Wert, n&auml;mlich die Ger&auml;tenummer des zugeordneten Ger&auml;ts. Die <span class="listing">majornummer</span> legt den Ger&auml;tetyp fest, w&auml;hrend der <span class="listing">minornummer</span> der entsprechende Ger&auml;tetreiber &uuml;bergeben wird. So werden verschiedene Ger&auml;te des gleichen Typs unterschieden (nur Linux/UNIX).</td>
+</tr>
+</table>
+<p>Ein Beispielprogramm nur f&uuml;r MS-DOS/Windows. Das Programm liefert zu angegebenen Dateinamen den Laufwerksnamen zur&uuml;ck:</p>
+<pre>/* lfwrk.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;sys\stat.h&gt;
+int main(int argc, char **argv) {
+   struct stat laufwerknr;
+   if(argc==1) {
+      fprintf(stderr, "usage:%s Datei1 Datei2 Datei3\n", *argv);
+      return EXIT_FAILURE;
+   }
+   while(*++argv) {
+      printf("%s = Laufwerk : ",*argv);
+      if(stat(*argv, &amp;laufwerknr) == –1) {
+         fprintf(stderr,"..Fehler bei stat...!\n");
+         return EXIT_FAILURE;
+      }
+      else
+         printf("%c (%d)\n",
+            laufwerknr.st_dev + 'A',laufwerknr.st_dev);
+   }
+   return EXIT_SUCCESS;
+}</pre>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/19_05.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein19_05.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 19.5   
+    </b>Ermittlung des Laufwerks, in welchem sich die Datei befindet</p>
+<p>Ein kurze Erkl&auml;rung zu</p>
+<pre><span class="listing">laufwerknr.st_dev + 'A'</span></pre>
+<p>Da der PC die Laufwerke nicht – wie Sie es gewohnt sind – mit</p>
+<pre>A:\ = 1. Diskettenlaufwerk
+B:\ = 2. Diskettenlaufwerk
+C:\ = 1.Festplatte
+D:\ = 2.Festplatte oder CD-ROM-Laufwerk
+................usw. bis Z:\ falls vorhanden</pre>
+<p>erkennt, sondern mit Nummern wie</p>
+<pre>0 = 1. Diskettenlaufwerk
+1 = 2. Diskettenlaufwerk
+2 = 1.Festplatte
+3 = 2.Festplatte oder CD-ROM-Laufwerk</pre>
+<p>wurde einfach die dezimale Ziffer <span class="listing">0</span> <span class="listing">+</span> <span class="listing">'A'</span> hinzuaddiert. Dies gelingt daher, weil das Zeichen <span class="listing">'A'</span> intern f&uuml;r den Wert 65 steht (siehe ASCII-Tabelle) und anschlie&szlig;end auch das Formatzeichen <span class="listing">char</span> f&uuml;r 65 (<span class="listing">%c</span> = <span class="listing">char</span>) ausgegeben wird. Somit wird z.B. f&uuml;r das Laufwerk 2 der Buchstabe C zur&uuml;ckgegeben (2+<span class="listing">'A'</span> = 67; ASCII-codiert = <span class="listing">'C'</span>).</p>
+<p>Das Beispiel dazu f&uuml;r Linux/UNIX:</p>
+<pre>/* b_c_file.c */
+#include &lt;sys/sysmacros.h&gt;
+#include &lt;sys/stat.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+int main(int argc, char **argv) {
+   struct stat statpuffer;
+   if(argc == 1) {
+      fprintf(stderr, "usage: %s Datei1 Datei2 ....\n", *argv);
+      return EXIT_FAILURE;
+   }
+   while(*++argv) {
+      printf("%s: ",*argv);
+      if(stat(*argv, &amp;statpuffer) == –1)
+         fprintf(stderr,"Fehler bei stat...\n");
+      else {
+         printf("dev = %2d/%2d",major(statpuffer.st_dev),
+                                minor(statpuffer.st_dev));
+         if(S_ISCHR(statpuffer.st_mode)||
+            S_ISBLK(statpuffer.st_mode)) {
+            printf("-&gt; rdev = %2d/%2d (%s",
+               major(statpuffer.st_rdev),
+               minor(statpuffer.st_rdev),
+               (S_ISCHR(statpuffer.st_mode))?"zeichen" :"block");
+            printf("orientiert");
+         }
+      }
+      printf("\n");
+   }
+   return EXIT_SUCCESS;
+}</pre>
+<p>Vielleicht noch ein Wort zu dieser Zeile:</p>
+<pre>if(S_ISCHR(statpuffer.st_mode)||
+   S_ISBLK(statpuffer.st_mode))</pre>
+<p>Hiermit wird &uuml;berpr&uuml;ft, ob es sich um eine zeichenorientierte (<span class="listing">S_ISCHR</span>) oder eine blockorientierte (<span class="listing">S_ISBLK</span>) Ger&auml;tedatei handelt. Wenn ja, erfolgt eine dementsprechende Ausgabe.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_018_031.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_019_001.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td width="10" valign="top">&nbsp;&nbsp;</td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/899?GPP=opc">
+                                        <img src="common/643_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C von A bis Z" title="Zum Katalog: C von A bis Z">
+                                        <br /><strong>C von A bis Z</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Ihre Meinung?</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1007?GPP=opc">
+                        <img src="common/683_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Shell-Programmierung" title="Zum Katalog: Shell-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Shell-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1137?GPP=opc">
+                        <img src="common/749_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux-UNIX-Programmierung" title="Zum Katalog: Linux-UNIX-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux-UNIX-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1004?GPP=opc">
+                        <img src="common/644_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C/C++" title="Zum Katalog: C/C++"><br /><br /><br /><br /><br /><br /><br />&nbsp;C/C++</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/880?GPP=opc">
+                        <img src="common/573_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/967?GPP=opc">
+                        <img src="common/626_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Reguläre Ausdrücke" title="Zum Katalog: Reguläre Ausdrücke"><br /><br /><br /><br /><br /><br /><br />&nbsp;Reguläre Ausdrücke</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/941?GPP=opc">
+                        <img src="common/677_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Shopping</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opc"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table>
+<br /><br />
+<hr width="70%" align="center"><br />
+<div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2006</b><br>F&uuml;r Ihren privaten Gebrauch d&uuml;rfen Sie die Online-Version nat&uuml;rlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschlie&szlig;lich aller seiner Teile ist urheberrechtlich gesch&uuml;tzt. Alle Rechte vorbehalten einschlie&szlig;lich der Vervielf&auml;ltigung, &Uuml;bersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

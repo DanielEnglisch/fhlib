@@ -1,0 +1,839 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: C von A bis Z – 13.15 Standard-Bibliothek &lt;string.h&gt;</title>
+<meta name="title" content="Galileo Computing :: C von A bis Z">
+<meta name="author" content="J&uuml;rgen Wolf">
+<meta name="publisher" content="Galileo Press 2006">
+<meta name="copyright" content="Galileo Press 2006">
+<meta name="description" content="C von A bis Z - Das umfassende Handbuch f&uuml;r Linux, Unix und Windows – 2., aktualisierte und erweiterte Auflage 2006, geb., mit CD und Referenzkarte – ISBN 3-89842-643-2">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="c_013_013.htm">
+<link rel="next" href="c_014_000.htm"><script type="text/javascript" language="JavaScript"><!--
+function OpenWin(url,name,height,width)
+{
+  var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+  InfoWin.focus();
+}
+//--></script></head>
+<body vlink="#000099" link="#000099" alink="#000099">
+    <table width="100%" height="74" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+        <tr>
+            <td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+            <td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opc"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger." title="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger."></a></td>
+        </tr>
+    </table>
+    <div align="right"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger.</a></div>
+    <br />
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td width="156" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
+        <tr>
+            <td colspan="2" class="nav1" align="left" valign="top" height="150">
+                <table class="tbl1" width="150" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td class="tbl2" height="25"><a class="nav" href="./index.htm">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000Vorwort_000.htm#Xxx999266">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000VorwortGutachter_000.htm#Xxx999275">Vorwort des Gutachters</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_001_000.htm#Xxx999328">1 Einstieg in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_002_000.htm#Xxx999328">2 Das erste Programm</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_003_000.htm#Xxx999328">3 Zeichens&auml;tze</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_004_000.htm#Xxx999329">4 Kommentare in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_005_000.htm#Xxx999330">5 Formatierte Eingabe mit scanf()</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_006_000.htm#Xxx999330">6 Formatierte Ausgabe mit printf</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_007_000.htm#Xxx999329">7 Elementare Datentypen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_008_000.htm#Xxx999328">8 Operatoren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_009_000.htm#Xxx999328">9 Typenumwandlung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_010_000.htm#Xxx999328">10 Kontrollstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_011_000.htm#Xxx999328">11 Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_012_000.htm#Xxx999328">12 Pr&auml;prozessor-Direktiven</A></td>
+</tr>
+<tr>
+<td><A class="navh" href="./c_013_000.htm#Xxx999328">13 Arrays</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_014_000.htm#Xxx999328">14 Zeiger (Pointer)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_015_000.htm#Xxx999328">15 Kommandozeilenargumente</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_016_000.htm#Xxx999328">16 Dynamische Speicherverwaltung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_017_000.htm#Xxx999328">17 Strukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_018_000.htm#Xxx999328">18 Ein-/Ausgabe-Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_019_000.htm#Xxx999328">19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_020_000.htm#Xxx999328">20 Arbeiten mit variablen langen Argumentlisten – &lt;stdarg.h&gt;</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_021_000.htm#Xxx999328">21 Zeitroutinen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_022_000.htm#Xxx999328">22 Weitere Headerdateien und ihre Funktionen (ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_023_000.htm#Xxx999328">23 Dynamische Datenstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_024_000.htm#Xxx999328">24 Algorithmen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_025_000.htm#Xxx999328">25 Sicheres Programmieren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_026_000.htm#Xxx999328">26 CGI mit C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_027_000.htm#Xxx999328">27 MySQL und C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_028_000.htm#Xxx999328">28 Netzwerkprogrammierung und Cross-Plattform-Entwicklung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_029_000.htm#Xxx999328">29 Wie geht’s jetzt weiter?</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_030Anhang_000.htm#Xxx999266">A Anhang</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./stichwort.htm#Xxx512322">Index</a></td>
+</tr>
+<tr><td><br /><a class="navnav" href="http://download.galileo-press.de/openbook/c_von_a_bis_z/galileocomputing_c_von_a_bis_z.zip"><strong>Download:</strong><br />- ZIP, ca. 8,5 MB</a></td></tr>
+<tr><td><a class="navnav" href="http://www.galileocomputing.de/899?GPP=opc">Buch bestellen</a></td></tr>
+<tr><td><a class="navnav" href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)">Ihre Meinung?</a><br /><br /></td></tr>
+</table></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10"></td>
+<td width="85%" valign="top" align="center">
+    <div align="center">
+        <table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+            <tr>
+                <td width="100%" class="start" colspan="1" height="22" align="center">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_013_013.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Galileo Computing /</a><a class="navnav" href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"> &lt;openbook&gt; /</a><a href="./index.htm" class="navnav"> C von A bis Z</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_014_000.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" valign="top">
+    <table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+        <tr>
+            <td colspan="2"><a href="http://www.galileocomputing.de/899?GPP=opc" class="buchtitel">C von A bis Z</a><span class="autor"> von J&uuml;rgen Wolf</span><br><span class="untertitel">Das umfassende Handbuch f&uuml;r Linux, Unix und Windows <br />– 2., aktualisierte und erweiterte Auflage 2006</span></td>
+        </tr>
+        <tr>
+            <td valign="top" width="90"><a href="http://www.galileocomputing.de/899?GPP=opc"><img src="common/643.gif" border="0" alt="Buch: C von A bis Z" title="Buch: C von A bis Z" align="left"><br /><br /><span class="autor"><strong>C von A bis Z</strong><br />1.116 S., mit CD, Referenzkarte, 39,90 Euro<br />Galileo Computing<br />ISBN 3-89842-643-2</span></a></a></td>
+            <td width="80%">
+<table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="3" class="kap"><b>Kapitel <a href="./c_013_000.htm#RxxobKap0130000400282B1F04118C">13 Arrays</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_000.htm#RxxobKap0130000400282B1F04118F">13.1 Arrays deklarieren</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_001.htm#RxxobKap013001040028461F01018C">13.2 Initialisierung und Zugriff auf Arrays</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_001.htm#RxxobKap013001040028461F0101BD">13.2.1 G&uuml;ltigkeitsbereich von Arrays</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_002.htm#RxxobKap013002040028471F02818C">13.3 Arrays vergleichen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_003.htm#RxxobKap013003040028481F03D18C">13.4 Anzahl der Elemente eines Arrays ermitteln</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_004.htm#RxxobKap013004040028491F03A18C">13.5 &Uuml;bergabe von Arrays an Funktionen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_005.htm#RxxobKap0130050400284A1F02618C">13.6 Arrays aus Funktionen zur&uuml;ckgeben</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_006.htm#RxxobKap0130060400284B1F03318C">13.7 Programmbeispiel zu den Arrays</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_007.htm#RxxobKap0130070400284C1F03C18C">13.8 Einlesen von Array-Werten</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_008.htm#RxxobKap0130080400284D1F03A18C">13.9 Mehrdimensionale Arrays</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_009.htm#RxxobKap0130090400284E1F01E18C">13.10 Mehrdimensionale Arrays initialisieren</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_009.htm#RxxobKap0130090400284E1F01E1AB">13.10.1 Tic Tac Toe</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_009.htm#RxxobKap0130090400284E1F01E1B5">13.10.2 Dreidimensionale Arrays</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_010.htm#RxxobKap0130100400284F1F03A18C">13.11 &Uuml;bergabe von zwei- bzw. mehrdimensionalen Arrays an Funktionen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_011.htm#RxxobKap013011040028501F02F18C">13.12 Arrays in Tabellenkalkulation einlesen (*.CSV–Dateien)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_012.htm#RxxobKap013012040028511F03818C">13.13 Strings/Zeichenketten (char Array)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_012.htm#RxxobKap013012040028511F0381AC">13.13.1 Vom String zur Bin&auml;rzahl</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_013.htm#RxxobKap013013040028521F01018C">13.14 Einlesen von Strings</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a class="navh" href="#RxxobKap013014040028531F04018C">13.15 Standard-Bibliothek &lt;string.h&gt;</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap013014040028531F040190">13.15.1 strcat() – Strings aneinander h&auml;ngen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap013014040028531F04019A">13.15.2 strchr() – ein Zeichen im String suchen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap013014040028531F0401A0">13.15.3 strcmp() – Strings vergleichen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap013014040028531F0401A5">13.15.4 strcpy() – einen String kopieren</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap013014040028531F0401AD">13.15.5 strcspn() – einen Teilstring ermitteln</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap013014040028531F0401B2">13.15.6 strlen() – L&auml;nge eines Strings ermitteln</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap013014040028531F0401B9">13.15.7 strncat() – String mit n Zeichen aneinander h&auml;ngen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap013014040028531F0401C1">13.15.8 strncmp() – n Zeichen von zwei Strings miteinander vergleichen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap013014040028531F0401C6">13.15.9 strncpy() – String mit n Zeichen kopieren</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap013014040028531F0401CB">13.15.10 strpbrk() – Auftreten bestimmter Zeichen suchen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap013014040028531F0401D0">13.15.11 strrchr() – das letzte Auftreten eines bestimmten Zeichens im String suchen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap013014040028531F0401D5">13.15.12 strspn() – erstes Auftreten eines Zeichens, das nicht vorkommt</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap013014040028531F0401DB">13.15.13 strstr() – String nach Auftreten eines Teilstrings durchsuchen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap013014040028531F0401E0">13.15.14 strtok() – String anhand bestimmter Zeichen zerlegen</a></b></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td>
+<a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2">13.15 Standard-Bibliothek &lt;string.h&gt;<a id="RxxobKap013014040028531F04018C" name="RxxobKap013014040028531F04018C"></a> 
+      <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"></h2>
+<p><a id="Xxx999329" name="Xxx999329"></a>Im weiteren Verlauf dieses Buchs werden Sie &ouml;fters Funktionen der Headerdatei <span class="listing">&lt;string.h&gt;</span> verwenden. Darin sind viele n&uuml;tzliche Funktionen enthalten, welche die Arbeit mit Strings vereinfachen. Die Headerdatei <span class="listing">&lt;string.h&gt;</span> entspricht dem ANSI C-Standard und d&uuml;rfte somit im Lieferumfang der meisten Compiler vorhanden sein, sofern sie ANSI C-kompatibel sind.</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard"><b>Hinweis   </b>Bei den String-Verbeitungsfunktionen in der Headerdatei <span class="listing">&lt;string.h&gt;</span> werden <span class="listing">char</span>-Zeiger verwendet, welche auf den Anfang des Strings, genauer auf das erste Zeichen, verweisen. Aufgrund der Zeiger kann es auch sein, dass speziell Anf&auml;nger so ihre Probleme mit dem Kapitel haben werden (besonders mit der Syntax-Beschreibung). &Uuml;ber Zeiger erfahren Sie mehr im n&auml;chsten Kapitel.</p>
+</td>
+</tr>
+</table><br>
+<a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3">13.15.1 strcat() – Strings aneinander h&auml;ngen<a id="RxxobKap013014040028531F040190" name="RxxobKap013014040028531F040190"></a> 
+      <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999336" name="Xxx999336"></a><a id="Xxx999337" name="Xxx999337"></a>Um einen String an einen anderen zu h&auml;ngen, k&ouml;nnen Sie die Funktion <span class="listing">strcat()</span> (string catenation) verwenden.</p>
+<pre>char *strcat(char *s1, const char *s2);</pre>
+<p>Damit wird <span class="listing">s2</span> an das Ende von <span class="listing">s1</span> angeh&auml;ngt, wobei (logischerweise) das Stringende-Zeichen <span class="listing">'\0'</span> am Ende von String <span class="listing">s1</span> &uuml;berschrieben wird. Voraussetzung ist auch, dass der String <span class="listing">s2</span> Platz in <span class="listing">s1</span> hat.</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/13_14.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein13_14.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 13.14   
+    </b>strcat() – zwei Strings aneinander h&auml;ngen</p>
+<p>Hier ein Beispiel zu <span class="listing">strcat()</span>:</p>
+<pre>/* stringcat.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+int main(void) {
+   char ziel[30] = "Hallo ";
+   char name[20];
+   printf("Wie heissen Sie: ");
+   fgets(name, 20, stdin);
+   strcat(ziel, name);
+   printf("%s",ziel);
+   return EXIT_SUCCESS;
+}</pre>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard"><b>Hinweis   </b>Bitte beachten Sie, dass <span class="listing">strcat()</span> eine unsichere Funktion ist. Dies deshalb, weil die L&auml;nge des Quell-Strings nicht &uuml;berpr&uuml;ft oder angegeben werden kann. Somit kann mit <span class="listing">strcat()</span> &uuml;ber den offiziellen Speicherbereich hinaus geschrieben werden. Es wird empfohlen, <span class="listing">strncat()</span> zu verwenden. Mehr dazu in Abschnitt 25.1, Buffer Overflow (Speicher&uuml;berlauf)<a id="Xxx999351" name="Xxx999351"></a>.</p>
+</td>
+</tr>
+</table><br>
+<a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3">13.15.2 strchr() – ein Zeichen im String suchen<a id="RxxobKap013014040028531F04019A" name="RxxobKap013014040028531F04019A"></a> 
+      <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999354" name="Xxx999354"></a><a id="Xxx999355" name="Xxx999355"></a>Wollen Sie in einem String nach einem bestimmten Zeichen suchen, eignet sich die Funktion <span class="listing">strchr()</span> (string char). Hier die Syntax:</p>
+<pre>char *strchr(const char *s, int ch);</pre>
+<p>Diese Funktion gibt die Position im String <span class="listing">s</span> beim ersten Auftreten von <span class="listing">ch</span> zur&uuml;ck. Tritt das Zeichen <span class="listing">ch</span> nicht auf, wird <span class="listing">NULL</span> zur&uuml;ckgegeben. Ein Beispiel:</p>
+<pre>/* strchr.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+int main(void) {
+   char str[] = "Ein String mit Worten";
+   printf("%s\n",strchr(str, (int)'W'));
+   return EXIT_SUCCESS;
+}</pre>
+<p>Hiermit wird ab Auftreten des Buchstabens <span class="listing">'W'</span> der komplette String ausgegeben.</p>
+<a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3">13.15.3 strcmp() – Strings vergleichen<a id="RxxobKap013014040028531F0401A0" name="RxxobKap013014040028531F0401A0"></a> 
+      <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>F&uuml;r das <a id="Xxx999362" name="Xxx999362"></a>lexographische Vergleichen zweier Strings kann die Funktion <span class="listing">strcmp()</span> verwendet werden. Die Syntax lautet:</p>
+<pre>int strcmp(const char *s1, const char *s2);</pre>
+<p>Sind beide Strings identisch, gibt diese Funktion 0 zur&uuml;ck. Ist der String <span class="listing">s1</span> kleiner als <span class="listing">s2</span>, ist der R&uuml;ckgabewert kleiner als 0 und ist <span class="listing">s1</span> gr&ouml;&szlig;er als <span class="listing">s2</span>, dann ist der R&uuml;ckgabewert gr&ouml;&szlig;er als 0. Ein Beispiel:</p>
+<pre>/* strcmp.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+void String_Vergleich(char s1[], char s2[]) {
+   int ret = strcmp (s1, s2);
+   if(ret == 0)
+      printf("%s == %s\n", s1, s2);
+   else
+      printf("%s %c %s\n",s1,( (ret &lt; 0) ?'&lt;' :'&gt;'), s2);
+}
+int main(void) {
+   char str1[] = "aaa";
+   char str2[] = "aab";
+   char str3[] = "abb";
+   String_Vergleich(str1, str2);
+   String_Vergleich(str1, str3);
+   String_Vergleich(str3, str2);
+   String_Vergleich(str1, str1);
+   return EXIT_SUCCESS;
+}</pre>
+<a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3">13.15.4 strcpy() – einen String kopieren<a id="RxxobKap013014040028531F0401A5" name="RxxobKap013014040028531F0401A5"></a> 
+      <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999368" name="Xxx999368"></a>Wollen Sie einen String in einen adressierten <span class="listing">char</span>-Vektor kopieren, k&ouml;nnen Sie die Funktion <span class="listing">strcpy()</span> (string copy) nutzen. Die Syntax lautet:</p>
+<pre>char *strcpy(char *s1, const char *s2);</pre>
+<p>Dass hierbei der String-Vektor <span class="listing">s1</span> gro&szlig; genug sein muss, versteht sich von selbst. Bitte beachten Sie dabei, dass das Ende-Zeichen <span class="listing">'\0'</span> auch Platz in <span class="listing">s1</span> ben&ouml;tigt. Hierzu ein Beispiel:</p>
+<pre>/* strcpy.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+int main(void) {
+   char ziel_str[50];
+   char str1[] = "Das ist ";
+   char str2[] = "ein ";
+   char str3[] = "Teststring";
+   strcpy(ziel_str, str1);
+   /* Ein umst&auml;ndliches Negativbeispiel */
+   strcpy(&amp;ziel_str[8], str2);
+   /* So ist es einfacher und sicherer */
+   strcat(ziel_str, str3);
+   printf("%s\n",ziel_str);
+   return EXIT_SUCCESS;
+}</pre>
+<p>In diesem Beispiel haben Sie gesehen, dass es auch m&ouml;glich ist, mit <span class="listing">strcpy()</span> Strings aneinander zu h&auml;ngen:</p>
+<p><span class="listing">strcpy(&amp;ziel_str[8],</span> <span class="listing">str2);</span></p>
+<p>Nur ist das umst&auml;ndlich, und schlie&szlig;lich gibt es daf&uuml;r die Funktion <span class="listing">strcat()</span>. Beim Betrachten der Funktion <span class="listing">strcpy()</span> f&auml;llt au&szlig;erdem auf, dass hierbei ebenfalls nicht &uuml;berpr&uuml;ft wird, wie viele Zeichen in den Zielstring kopiert werden, womit wieder in einen undefinierten Speicherbereich zugegriffen werden kann. Daher ist auch die Funktion <span class="listing">strcpy()</span> eine gef&auml;hrliche Funktion, wenn diese falsch eingesetzt wird. Hierzu sei wieder auf den Abschnitt 25.1<a id="Xxx999376" name="Xxx999376"></a> verwiesen.</p>
+<a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3">13.15.5 strcspn() – einen Teilstring ermitteln<a id="RxxobKap013014040028531F0401AD" name="RxxobKap013014040028531F0401AD"></a> 
+      <a href="#t2t37"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999378" name="Xxx999378"></a><a id="Xxx999379" name="Xxx999379"></a>Wollen Sie die L&auml;nge eines Teilstrings bis zum Auftreten eines bestimmten Zeichens ermitteln, eignet sich die Funktion <span class="listing">strcspn()</span>. Die Syntax lautet:</p>
+<pre>int strcspn(const char *s1, const char *s2);</pre>
+<p>Sobald ein Zeichen, welches in <span class="listing">s2</span> angegeben wurde, im String <span class="listing">s1</span> vorkommt, liefert diese Funktion die Position dazu zur&uuml;ck. Ein Beispiel:</p>
+<pre>/* strcspn.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+int main(void) {
+   char string[] = "Das ist ein Teststring";
+   int  pos;
+   pos = strcspn( string, "Ttg" );
+   printf("Erstes Auftreten von T, t oder g an Pos.: %d\n",pos);
+   return EXIT_SUCCESS;
+}</pre>
+<a name="t36"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t37"></a><h3 class="t3">13.15.6 strlen() – L&auml;nge eines Strings ermitteln<a id="RxxobKap013014040028531F0401B2" name="RxxobKap013014040028531F0401B2"></a> 
+      <a href="#t2t38"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t36"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999385" name="Xxx999385"></a>Um die L&auml;nge eines Strings zu ermitteln, kann die Funktion <span class="listing">strlen()</span> (string length) eingesetzt werden. Die Syntax lautet:</p>
+<pre>size_t strlen(const char *s1);</pre>
+<p>Damit wird die L&auml;nge des adressierten Strings <span class="listing">s1</span> ohne das abschlie&szlig;ende Stringende-Zeichen zur&uuml;ckgegeben. Das Beispiel zu <span class="listing">strlen()</span>:</p>
+<pre>/* strlen.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+int main(void) {
+   char string[] = "Das ist ein Teststring";
+   size_t laenge;
+   laenge = strlen(string);
+   printf("Der String \"%s\" hat %d Zeichen\n",string, laenge);
+   return EXIT_SUCCESS;
+}</pre>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard"><b>Hinweis   </b>Dass die Funktion <span class="listing">strlen()</span> das Stringende-Zeichen <span class="listing">'\0'</span> nicht mitz&auml;hlt, ist eine h&auml;ufige Fehlerquelle, wenn es darum geht, dynamisch Speicher f&uuml;r einen String zu reservieren. Denken Sie daran, dass Sie immer Platz f&uuml;r ein Zeichen mehr bereithalten.</p>
+</td>
+</tr>
+</table><br>
+<a name="t37"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t38"></a><h3 class="t3">13.15.7 strncat() – String mit n Zeichen aneinander h&auml;ngen<a id="RxxobKap013014040028531F0401B9" name="RxxobKap013014040028531F0401B9"></a> 
+      <a href="#t2t39"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t37"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Es ist <a id="Xxx999395" name="Xxx999395"></a>die gleiche Funktion wie <span class="listing">strcat()</span>, nur dass hiermit <span class="listing">n</span> Zeichen angeh&auml;ngt werden. Die Syntax lautet:</p>
+<pre>char *strncat(char *s1, const char *s2, size_t n);</pre>
+<p>Diese Funktion ist aus Sicherheitsgr&uuml;nden der Funktion <span class="listing">strcat()</span> vorzuziehen. Ein Beispiel:</p>
+<pre>/* strncat.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#define MAX 15
+int main(void) {
+   char string[MAX] = "Hallo ";
+   char puffer[20];
+   /* Vorhandenen Platz in string ermitteln */
+   size_t len = MAX – strlen(string)+1;
+   printf("Ihr Name: ");
+   fgets(puffer, 20, stdin);
+   strncat(string, puffer, len);
+   printf("%s",string);
+   return EXIT_SUCCESS;
+}</pre>
+<p>Damit ist sichergestellt, dass nicht mehr in einen undefinierten Speicherbereich geschrieben wird.</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard"><b>Hinweis   </b><span class="listing">size_t</span> ist ein primitiver Datentyp, der meistens als <span class="listing">unsigned</span> <span class="listing">int</span> oder <span class="listing">unsigned</span> <span class="listing">long</span> deklariert ist.</p>
+</td>
+</tr>
+</table><br>
+<a name="t38"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t39"></a><h3 class="t3">13.15.8 strncmp() – n Zeichen von zwei Strings miteinander vergleichen<a id="RxxobKap013014040028531F0401C1" name="RxxobKap013014040028531F0401C1"></a> 
+      <a href="#t2t310"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t38"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999406" name="Xxx999406"></a>Diese Funktion arbeitet genauso wie die Funktion <span class="listing">strcmp()</span>, nur mit dem Unterschied, dass <span class="listing">n</span> Zeichen miteinander verglichen werden. Die Syntax lautet:</p>
+<pre>int strncmp(const char *s1, const char *s2, size_t n);</pre>
+<p>Hiermit werden also die ersten <span class="listing">n</span> Zeichen von <span class="listing">s1</span> und die ersten <span class="listing">n</span> Zeichen von <span class="listing">s2</span> lexikographisch miteinander verglichen. Der R&uuml;ckgabewert ist dabei derselbe wie schon bei <span class="listing">strcmp()</span>. Ein Beispiel:</p>
+<pre>/* strncmp.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+int main(void) {
+   char str1[] = "aaaa";
+   char str2[] = "aabb";
+   int i;
+   for(i = strlen(str1); i &gt; 0; i--) {
+      if(strncmp( str1, str2, i) != 0)
+         printf("Die ersten %d Zeichen der Strings "
+                "sind nicht gleich\n",i);
+         else {
+            printf("Ab Zeichen %d sind "
+                   "beide Strings gleich\n",i);
+            /* Weiter vergleich sind nicht mehr n&ouml;tig */
+            break;
+         }
+   }
+   return EXIT_SUCCESS;
+}</pre>
+<a name="t39"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t310"></a><h3 class="t3">13.15.9 strncpy() – String mit n Zeichen kopieren<a id="RxxobKap013014040028531F0401C6" name="RxxobKap013014040028531F0401C6"></a> 
+      <a href="#t2t311"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t39"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999412" name="Xxx999412"></a>Die sicherere Alternative zur Funktion <span class="listing">strcpy()</span> lautet <span class="listing">strncpy()</span>, welche <span class="listing">n</span> Zeichen kopiert. Der Ablauf der Funktion ist hingegen wieder derselbe wie bei <span class="listing">strcpy()</span>. Die Syntax lautet:</p>
+<pre>char *strncpy(char *s1, const char *s2, size_t n);</pre>
+<p>Hier werden <span class="listing">n</span> Zeichen aus dem String <span class="listing">s2</span> in den String <span class="listing">s1</span> ohne das <span class="listing">'\0'</span>-Zeichen kopiert. Das Beispiel:</p>
+<pre>/* strncpy.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#define MAX 20
+int main(void) {
+   char str1[MAX];
+   char str2[] = "Ein Teststring welcher laenger"
+                 " als 20 Zeichen ist";
+   /* MAX-Zeichen in str1 kopieren */
+   strncpy(str1, str2, MAX);
+   /* Wichtig, String am Ende terminieren !! */
+   str1[MAX] = '\0';
+   printf("%s\n",str1);
+   return EXIT_SUCCESS;
+}</pre>
+<a name="t310"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t311"></a><h3 class="t3">13.15.10 strpbrk() – Auftreten bestimmter Zeichen suchen<a id="RxxobKap013014040028531F0401CB" name="RxxobKap013014040028531F0401CB"></a> 
+      <a href="#t2t312"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t310"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Diese <a id="Xxx999418" name="Xxx999418"></a><a id="Xxx999419" name="Xxx999419"></a>Funktion arbeitet &auml;hnlich wie <span class="listing">strcspn()</span>, nur dass hierbei nicht die L&auml;nge eines Teilstrings ermittelt wird, sondern das erste Auftreten eines Zeichens in einem String, welches im Suchstring enthalten ist. Die Syntax lautet:</p>
+<pre>char *strpbrk( const char *s1, const char *s2);</pre>
+<p>Ein Beispiel dazu:</p>
+<pre>/* strpbrk.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+int main(void) {
+   char str1[]="Das ist ein Teststring";
+   char str2[]="ie";
+   printf("%s\n",strpbrk(str1, str2));
+   return EXIT_SUCCESS;
+}</pre>
+<a name="t311"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t312"></a><h3 class="t3">13.15.11 strrchr() – das letzte Auftreten eines bestimmten Zeichens im String suchen<a id="RxxobKap013014040028531F0401D0" name="RxxobKap013014040028531F0401D0"></a> 
+      <a href="#t2t313"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t311"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999425" name="Xxx999425"></a><a id="Xxx999426" name="Xxx999426"></a>Diese Funktion ist der Funktion <span class="listing">strchr()</span> &auml;hnlich, nur dass hierbei das erste Auftreten des Zeichens von hinten, genauer das letzte, ermittelt wird. Die Syntax lautet:</p>
+<pre>char *strrchr(const char *s, int ch);</pre>
+<p>Die Funktion <span class="listing">fgets()</span> h&auml;ngt beim Einlesen eines Strings immer das Newline-Zeichen am Ende an. Manchmal ist das nicht erw&uuml;nscht. Wir suchen mit <span class="listing">strrchr()</span> danach und &uuml;berschreiben diese Position mit dem <span class="listing">'\0'</span>-Zeichen:</p>
+<pre>/* strrchr.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+int main(void) {
+   char string[20];
+   char *ptr;
+   printf("Eingabe machen: ");
+   fgets(string, 20 , stdin);
+   /* Zeiger auf die Adresse des Zeichens \n */
+   ptr = strrchr(string, '\n');
+   /* Zeichen mit \0 &uuml;berschreiben */
+   *ptr = '\0';
+   printf("%s",string);
+   return EXIT_SUCCESS;
+}</pre>
+<a name="t312"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t313"></a><h3 class="t3">13.15.12 strspn() – erstes Auftreten eines Zeichens, das nicht vorkommt<a id="RxxobKap013014040028531F0401D5" name="RxxobKap013014040028531F0401D5"></a> 
+      <a href="#t2t314"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t312"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999432" name="Xxx999432"></a><a id="Xxx999433" name="Xxx999433"></a>Die Funktion <span class="listing">strspn()</span> gibt die Position des ersten Auftretens eines Zeichens an, das nicht vorkommt. Die Syntax lautet:</p>
+<pre>int strspn(const char *s1, const char *s2);</pre>
+<p>Ein Beispiel dazu:</p>
+<pre>/* strspn.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+int main(void) {
+   char string[] = "75301234–2123";
+   int pos = strspn(string, "0123456789");
+   printf("Position, welche keine Ziffer ist:");
+   printf(" %d\n",pos); /* 8 */
+   return EXIT_SUCCESS;
+}</pre>
+<p>Dieses Beispiel liefert Ihnen die Position des Zeichens zur&uuml;ck, welches keine Ziffer ist.</p>
+<a name="t313"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t314"></a><h3 class="t3">13.15.13 strstr() – String nach Auftreten eines Teilstrings durchsuchen<a id="RxxobKap013014040028531F0401DB" name="RxxobKap013014040028531F0401DB"></a> 
+      <a href="#t2t315"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t313"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999440" name="Xxx999440"></a><a id="Xxx999441" name="Xxx999441"></a>Mit der Funktion <span class="listing">strstr()</span> k&ouml;nnen Sie einen String nach Auftreten eines Teilstrings durchsuchen. Die Syntax ist:</p>
+<pre>char *strstr(const char *s1, const char *s2);</pre>
+<p>Damit wird der String <span class="listing">s1</span> nach einem String mit der Teilfolge <span class="listing">s2</span> ohne <span class="listing">'\0'</span> durchsucht. Ein Beispiel:</p>
+<pre>/* strstr.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+int main(void) {
+   char string[] = "Das ist ein Teststring";
+   char suchstring[] = "ein";
+   if( strstr(string, suchstring) != NULL)
+      printf("Suchstring \"%s\" gefunden\n", suchstring);
+   return EXIT_SUCCESS;
+}</pre>
+<a name="t314"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t315"></a><h3 class="t3">13.15.14 strtok() – String anhand bestimmter Zeichen zerlegen<a id="RxxobKap013014040028531F0401E0" name="RxxobKap013014040028531F0401E0"></a> 
+      <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t314"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999447" name="Xxx999447"></a>Mit der Funktion <span class="listing">strtok()</span> k&ouml;nnen Sie einen String in einzelne Teilstrings anhand von Tokens zerlegen. Zuerst die Syntax:</p>
+<pre>char *strtok(char *s1, const char *s2);</pre>
+<p>Damit wird der String <span class="listing">s1</span> durch das Token getrennt, welches sich im <span class="listing">s2</span> befindet. Ein Token ist ein String, der keine Zeichen aus <span class="listing">s2</span> enth&auml;lt. Ein Beispiel:</p>
+<pre>/* strtok.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+int main(void) {
+   char string[] = "Ein Teststring mit mehreren Worten\n"
+                   "und mehreren Zeilen.\t Ende\n";
+   int i=1;
+   char *ptr;
+   ptr = strtok(string, "\n\t ");
+   while(ptr != NULL) {
+      printf("% d. Wort: %s\n",i++,ptr);
+      ptr = strtok(NULL, "\n\t ");
+   }
+   return EXIT_SUCCESS;
+}</pre>
+<p>Mit der Zeile</p>
+<pre>ptr = strtok(string, "\n\t ");</pre>
+<p>w&uuml;rde nur das erste Wort anhand eines der Whitspace-Zeichen Newline, Tabulator oder Space getrennt werden. Der String wird jetzt von der Funktion <span class="listing">strtok()</span> zwischengespeichert. Wollen Sie jetzt den String mit weiteren Aufrufen zerlegen, m&uuml;ssen Sie <span class="listing">NULL</span> verwenden.</p>
+<pre>ptr = strtok(NULL, "\n\t ");</pre>
+<p>Dabei gibt jeder Aufruf das Token zur&uuml;ck. Das jeweilige Trennzeichen wird dabei mit <span class="listing">'\0'</span> &uuml;berschrieben. In diesem Beispiel ist die Schleife am Ende, wenn <span class="listing">strtok()</span> den <span class="listing">NULL</span>-Zeiger zur&uuml;ckliefert.</p>
+<p>Allm&auml;hlich ist es an der Zeit, dass Sie lernen, mit Zeigern zu arbeiten.</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard"><b>Hinweis   </b>In der Headerdatei <span class="listing">&lt;string.h&gt;</span> sind noch weitere Funktionen deklariert, auf die im Verlauf des Buchs noch eingegangen wird.</p>
+</td>
+</tr>
+</table><br>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_013_013.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_014_000.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td width="10" valign="top">&nbsp;&nbsp;</td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/899?GPP=opc">
+                                        <img src="common/643_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C von A bis Z" title="Zum Katalog: C von A bis Z">
+                                        <br /><strong>C von A bis Z</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Ihre Meinung?</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1007?GPP=opc">
+                        <img src="common/683_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Shell-Programmierung" title="Zum Katalog: Shell-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Shell-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1137?GPP=opc">
+                        <img src="common/749_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux-UNIX-Programmierung" title="Zum Katalog: Linux-UNIX-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux-UNIX-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1004?GPP=opc">
+                        <img src="common/644_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C/C++" title="Zum Katalog: C/C++"><br /><br /><br /><br /><br /><br /><br />&nbsp;C/C++</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/880?GPP=opc">
+                        <img src="common/573_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/967?GPP=opc">
+                        <img src="common/626_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Reguläre Ausdrücke" title="Zum Katalog: Reguläre Ausdrücke"><br /><br /><br /><br /><br /><br /><br />&nbsp;Reguläre Ausdrücke</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/941?GPP=opc">
+                        <img src="common/677_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Shopping</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opc"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table>
+<br /><br />
+<hr width="70%" align="center"><br />
+<div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2006</b><br>F&uuml;r Ihren privaten Gebrauch d&uuml;rfen Sie die Online-Version nat&uuml;rlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschlie&szlig;lich aller seiner Teile ist urheberrechtlich gesch&uuml;tzt. Alle Rechte vorbehalten einschlie&szlig;lich der Vervielf&auml;ltigung, &Uuml;bersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

@@ -1,0 +1,917 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: C von A bis Z – 21 Zeitroutinen</title>
+<meta name="title" content="Galileo Computing :: C von A bis Z">
+<meta name="author" content="J&uuml;rgen Wolf">
+<meta name="publisher" content="Galileo Press 2006">
+<meta name="copyright" content="Galileo Press 2006">
+<meta name="description" content="C von A bis Z - Das umfassende Handbuch f&uuml;r Linux, Unix und Windows – 2., aktualisierte und erweiterte Auflage 2006, geb., mit CD und Referenzkarte – ISBN 3-89842-643-2">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="c_020_002.htm">
+<link rel="next" href="c_021_001.htm"><script type="text/javascript" language="JavaScript"><!--
+function OpenWin(url,name,height,width)
+{
+  var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+  InfoWin.focus();
+}
+//--></script></head>
+<body vlink="#000099" link="#000099" alink="#000099">
+    <table width="100%" height="74" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+        <tr>
+            <td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+            <td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opc"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger." title="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger."></a></td>
+        </tr>
+    </table>
+    <div align="right"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger.</a></div>
+    <br />
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td width="156" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
+        <tr>
+            <td colspan="2" class="nav1" align="left" valign="top" height="150">
+                <table class="tbl1" width="150" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td class="tbl2" height="25"><a class="nav" href="./index.htm">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000Vorwort_000.htm#Xxx999266">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000VorwortGutachter_000.htm#Xxx999275">Vorwort des Gutachters</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_001_000.htm#Xxx999328">1 Einstieg in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_002_000.htm#Xxx999328">2 Das erste Programm</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_003_000.htm#Xxx999328">3 Zeichens&auml;tze</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_004_000.htm#Xxx999329">4 Kommentare in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_005_000.htm#Xxx999330">5 Formatierte Eingabe mit scanf()</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_006_000.htm#Xxx999330">6 Formatierte Ausgabe mit printf</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_007_000.htm#Xxx999329">7 Elementare Datentypen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_008_000.htm#Xxx999328">8 Operatoren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_009_000.htm#Xxx999328">9 Typenumwandlung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_010_000.htm#Xxx999328">10 Kontrollstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_011_000.htm#Xxx999328">11 Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_012_000.htm#Xxx999328">12 Pr&auml;prozessor-Direktiven</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_013_000.htm#Xxx999328">13 Arrays</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_014_000.htm#Xxx999328">14 Zeiger (Pointer)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_015_000.htm#Xxx999328">15 Kommandozeilenargumente</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_016_000.htm#Xxx999328">16 Dynamische Speicherverwaltung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_017_000.htm#Xxx999328">17 Strukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_018_000.htm#Xxx999328">18 Ein-/Ausgabe-Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_019_000.htm#Xxx999328">19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_020_000.htm#Xxx999328">20 Arbeiten mit variablen langen Argumentlisten – &lt;stdarg.h&gt;</A></td>
+</tr>
+<tr>
+<td><A class="navh" href="./c_021_000.htm#Xxx999328">21 Zeitroutinen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_022_000.htm#Xxx999328">22 Weitere Headerdateien und ihre Funktionen (ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_023_000.htm#Xxx999328">23 Dynamische Datenstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_024_000.htm#Xxx999328">24 Algorithmen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_025_000.htm#Xxx999328">25 Sicheres Programmieren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_026_000.htm#Xxx999328">26 CGI mit C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_027_000.htm#Xxx999328">27 MySQL und C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_028_000.htm#Xxx999328">28 Netzwerkprogrammierung und Cross-Plattform-Entwicklung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_029_000.htm#Xxx999328">29 Wie geht’s jetzt weiter?</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_030Anhang_000.htm#Xxx999266">A Anhang</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./stichwort.htm#Xxx512322">Index</a></td>
+</tr>
+<tr><td><br /><a class="navnav" href="http://download.galileo-press.de/openbook/c_von_a_bis_z/galileocomputing_c_von_a_bis_z.zip"><strong>Download:</strong><br />- ZIP, ca. 8,5 MB</a></td></tr>
+<tr><td><a class="navnav" href="http://www.galileocomputing.de/899?GPP=opc">Buch bestellen</a></td></tr>
+<tr><td><a class="navnav" href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)">Ihre Meinung?</a><br /><br /></td></tr>
+</table></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10"></td>
+<td width="85%" valign="top" align="center">
+    <div align="center">
+        <table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+            <tr>
+                <td width="100%" class="start" colspan="1" height="22" align="center">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_020_002.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Galileo Computing /</a><a class="navnav" href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"> &lt;openbook&gt; /</a><a href="./index.htm" class="navnav"> C von A bis Z</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_021_001.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" valign="top">
+    <table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+        <tr>
+            <td colspan="2"><a href="http://www.galileocomputing.de/899?GPP=opc" class="buchtitel">C von A bis Z</a><span class="autor"> von J&uuml;rgen Wolf</span><br><span class="untertitel">Das umfassende Handbuch f&uuml;r Linux, Unix und Windows <br />– 2., aktualisierte und erweiterte Auflage 2006</span></td>
+        </tr>
+        <tr>
+            <td valign="top" width="90"><a href="http://www.galileocomputing.de/899?GPP=opc"><img src="common/643.gif" border="0" alt="Buch: C von A bis Z" title="Buch: C von A bis Z" align="left"><br /><br /><span class="autor"><strong>C von A bis Z</strong><br />1.116 S., mit CD, Referenzkarte, 39,90 Euro<br />Galileo Computing<br />ISBN 3-89842-643-2</span></a></a></td>
+            <td width="80%">
+<table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="3" class="kap"><b>Kapitel <a class="navh" href="#RxxobKap02100004002B311F01518C">21 Zeitroutinen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a class="navh" href="#RxxobKap02100004002B311F01518E">21.1 Die Headerdatei &lt;time.h&gt;</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02100004002B311F0151BF">21.1.1 Konstanten in der Headerdatei &lt;time.h&gt;</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02100004002B311F0151C3">21.1.2 Datums – und Zeitfunktionen in &lt;time.h&gt;</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_021_001.htm#RxxobKap02100104002B4C1F04618C">21.2 Laufzeitmessung (Profiling)</a></b></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td>
+<h1 class="t1">Kapitel 21 Zeitroutinen<a id="RxxobKap02100004002B311F01518C" name="RxxobKap02100004002B311F01518C"></a></h1>
+<p class="anleser"><i>In der C-Standard-Bibliothek sind einige Funktionen enthalten, mit denen Sie die Zeit bestimmen k&ouml;nnen. Die Zeit umfasst dabei das Datum und die Uhrzeit.</i></p>
+<a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2">21.1 Die Headerdatei &lt;time.h&gt;<a id="RxxobKap02100004002B311F01518E" name="RxxobKap02100004002B311F01518E"></a> 
+      <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"></h2>
+<p><a id="Xxx999331" name="Xxx999331"></a><a id="Xxx999332" name="Xxx999332"></a><a id="Xxx999333" name="Xxx999333"></a>Es folgen einige Standardfunktionen der Headerdatei <span class="listing">&lt;time.h&gt;</span>, in denen Routinen f&uuml;r Zeit und Datum deklariert sind. Dazu ein kurzer &Uuml;berblick &uuml;ber die speziellen (primitiven) Datentypen in dieser Headerdatei und ihre Bedeutungen:</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 21.1   
+    </b>(Primitive) Datentypen und Struktur f&uuml;r Datum und Zeit</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>Typ</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Bedeutung</b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">size_t<a id="Xxx999341" name="Xxx999341"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">arithmetischer Datentyp f&uuml;r Gr&ouml;&szlig;enangaben
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">clock_t<a id="Xxx999346" name="Xxx999346"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">arithmetischer Datentyp f&uuml;r CPU-Zeit
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">time_t<a id="Xxx999351" name="Xxx999351"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">arithmetischer Datentyp f&uuml;r Datum- und Zeitangabe
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">struct tm<a id="Xxx999356" name="Xxx999356"></a>
+</td>
+<td class="tabellentext" bgcolor="#000000">enth&auml;lt alle zu einer Kalenderzeit (gregorianische) relevanten Komponenten
+</td>
+</tr>
+</table><br>
+<p>Laut ANSI C-Standard sollten in der Struktur <span class="listing">tm</span> folgende Komponenten enthalten sein:<a id="Xxx999369" name="Xxx999369"></a><a id="Xxx999370" name="Xxx999370"></a></p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 21.2   
+    </b>Bedeutung der Strukturvariablen in struct tm</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>struct tm-Variable</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Bedeutung</b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">int tm_sec;
+</td>
+<td class="tabellentext" bgcolor="#000000">Sekunden (0–59)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">int tm_min;
+</td>
+<td class="tabellentext" bgcolor="#000000">Minuten (0–59)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">int tm_hour;
+</td>
+<td class="tabellentext" bgcolor="#000000">Stunden (0–23)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">int tm_mday;
+</td>
+<td class="tabellentext" bgcolor="#000000">Monatstag (1–31)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">int tm_mon;
+</td>
+<td class="tabellentext" bgcolor="#000000">Monate (0–11) (Januar = 0)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">int tm_year;
+</td>
+<td class="tabellentext" bgcolor="#000000">ab 1900
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">int tm_wday;
+</td>
+<td class="tabellentext" bgcolor="#000000">Tag seit Sonntag (0–6) (Sonntag =0)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">int tm_yday;
+</td>
+<td class="tabellentext" bgcolor="#000000">Tag seit 1. Januar (0–365) (1.Januar =0)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">int tm_isdst;
+</td>
+<td class="tabellentext" bgcolor="#000000">Sommerzeit (tm_isdst &gt; 0)
+Winterzeit (tm_istdst == 0)
+nicht verf&uuml;gbar (tm_isdst &lt; 0)
+</td>
+</tr>
+</table><br>
+<p>Auf Linux-Systemen sind au&szlig;erdem noch folgende Komponenten vorhanden:</p>
+<pre>long int tm_gmtoff;</pre>
+<p><span class="listing">tm_gmtoff</span> gibt die Sekunden &ouml;stlich von UTC bzw. den negativen Wert westlich von UTC f&uuml;r die Zeitzonen an. UTC steht f&uuml;r Universal Time Clock und dient als Bezeichnung f&uuml;r eine auf der gesamten Erde einheitliche Zeitskala. Die Universal Time ist identisch mit der Greenwich Mean Time (GMT). Diese Angabe kann aber auch unter</p>
+<pre>long int __tm_gmtoff</pre>
+<p>vorliegen. Ebenfalls nur bei Linux ist folgende Komponente enthalten:</p>
+<pre>const char *tm_zone;</pre>
+<p>Diese Variable enth&auml;lt den Namen der aktuellen Zeitzone. Diese kann auch in folgender Schreibweise gegeben sein:</p>
+<pre>const char *__tm_zone;</pre>
+<a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3">21.1.1 Konstanten in der Headerdatei &lt;time.h&gt;<a id="RxxobKap02100004002B311F0151BF" name="RxxobKap02100004002B311F0151BF"></a> 
+      <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Folgende zwei Konstanten sind in der Headerdatei <span class="listing">&lt;time.h&gt;</span> deklariert:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"><span class="listing"> CLOCKS_PER_SEC<a id="Xxx999432" name="Xxx999432"></a></span> – Konstante enth&auml;lt die Anzahl von <span class="listing">clock_t</span>-Einheiten pro Sekunde.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"><span class="listing"> NULL<a id="Xxx999434" name="Xxx999434"></a></span> – derselbe <span class="listing">NULL</span>-Zeiger, den Sie schon in der Headerdatei <span class="listing">&lt;stdio.h&gt;</span> kennen gelernt haben.</td>
+</tr>
+</table>
+<a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3">21.1.2 Datums – und Zeitfunktionen in &lt;time.h&gt;<a id="RxxobKap02100004002B311F0151C3" name="RxxobKap02100004002B311F0151C3"></a> 
+      <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Die Zeit, mit welcher der Systemkern arbeitet, ist die Anzahl vergangener Sekunden, die seit dem 1. Januar 1970, 00:00:00 Uhr vergangen sind. Diese Zeit wird immer mit dem Datentyp <span class="listing">time_t</span> dargestellt und enth&auml;lt das Datum und die Uhrzeit. Diese Zeit kann mit der Funktion<a id="Xxx999438" name="Xxx999438"></a></p>
+<pre>time_t time(time_t *zeitzeiger);</pre>
+<p>ermittelt werden. Wird f&uuml;r den Parameter <span class="listing">zeitzeiger</span> kein <span class="listing">NULL</span>-Zeiger verwendet, befindet sich an dieser Adresse die aktuelle Systemzeit. Hierzu ein kleines Listing, das die Zeit in Sekunden fortlaufend seit dem 1. Januar 1970 um 00:00:00 Uhr mithilfe der Funktion <span class="listing">time()</span> ausgibt:</p>
+<pre>/* time1.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+#ifdef  __unix__
+   #define clrscr() printf("\x1B[2J")
+#else
+   #include &lt;stdlib.h&gt;
+   #define clrscr() system("cls")
+#endif
+int main(void) {
+   time_t t;
+   time(&amp;t);
+   while(1) {
+      clrscr();
+      printf("%ld\n",t);
+      printf("Mit &lt;STRG&gt;&lt;C&gt; bzw. &lt;STRG&gt;&lt;D&gt; beenden!! ");
+      time(&amp;t);
+   }
+   return EXIT_SUCCESS;
+}</pre>
+<p>Nach dem »Jahr 2000«-Problem steht zum Jahre 2038 das n&auml;chste Problem an, sollte bis dahin noch mit 32-Bit-Rechnern gearbeitet werden. Mittlerweile steht – beim Schreiben dieses Textes – die Sekundenzahl bei etwa einer Milliarde. <span class="listing">time_t</span> ist als <span class="listing">long</span> implementiert. Es gibt also Platz f&uuml;r etwa 2 Milliarden Sekunden. Sicherlich wird dieses Problem wieder im letzten Moment angegangen.</p>
+<h4 class="t4">localtime() und gmtime() – Umwandeln von time_t in struct tm</h4>
+<p>Die Ausgabe der Sekunden als Zeitformat ist nicht gerade originell. Sie k&ouml;nnten jetzt anfangen, Funktionen zu schreiben, mit denen der R&uuml;ckgabewert der Funktion <span class="listing">time()</span> in ein entsprechendes Format umgerechnet wird. Oder Sie verwenden bereits geschriebene Standardfunktionen wie:<a id="Xxx999445" name="Xxx999445"></a><a id="Xxx999446" name="Xxx999446"></a></p>
+<pre>struct tm *localtime(time_t *zeitzeiger);
+struct tm *gmtime(time_t *zeitzeiger);</pre>
+<p>Beide Funktionen liefern als R&uuml;ckgabewert die Adresse einer Zeitangabe vom Typ <span class="listing">struct</span> <span class="listing">tm</span>. Diese Struktur wurde bereits zu Beginn dieses Kapitels behandelt. Die Funktion <span class="listing">localtime()</span> wandelt die Kalenderzeit der Adresse <span class="listing">time_t</span> <span class="listing">*zeitzeiger</span> in lokale Ortszeit um – unter der Ber&uuml;cksichtigung von Sommer- und Winterzeit. <span class="listing">gmtime()</span> dagegen wandelt die Kalenderzeit in die UTC-Zeit um.</p>
+<p>Hierzu ein Beispiel, welches die Eingabe eines Geburtsdatums erwartet und anschlie&szlig;end das Alter in Jahren, Monaten und Tagen ausgibt:</p>
+<pre>/* time2.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+struct tm *tmnow;
+void today(void) {
+   time_t tnow;
+   time(&amp;tnow);
+   tmnow = localtime(&amp;tnow);
+   printf("Heute ist der ");
+   printf("%d.%d.%d\n",
+      tmnow-&gt;tm_mday, tmnow-&gt;tm_mon + 1, tmnow-&gt;tm_year + 1900);
+}
+int main(void) {
+   int tag, monat, jahr;
+   unsigned int i=0, tmp;
+   printf("Bitte gib Deinen Geburtstag ein!\n");
+   printf("Tag : ");
+   scanf("%d", &amp;tag);
+   printf("Monat : ");
+   scanf("%d", &amp;monat);
+   printf("Jahr (jjjj) : ");
+   scanf("%d", &amp;jahr);
+   today();
+   if(tmnow-&gt;tm_mon &lt; monat) {
+      i = 1;
+      tmp=tmnow-&gt;tm_mon+1-monat;
+      monat=tmp+12;
+   }
+   else {
+      tmp=tmnow-&gt;tm_mon+1-monat;
+      monat=tmp;
+   }
+   if(monat == 12) {
+      monat = 0;
+      i = 0;
+   }
+   printf("Sie sind %d Jahre %d Monate %d Tage alt\n",
+      tmnow-&gt;tm_year+1900-jahr-i,monat, tmnow-&gt;tm_mday-tag);
+   return EXIT_SUCCESS;
+}</pre>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/21_01.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein21_01.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 21.1   
+    </b>Verwendung der Funktion localtime()</p>
+<p>Eine Anmerkung zur <span class="listing">if-else</span>-Bedingung im Programm. Diese war erforderlich, damit im Monatsdatum kein negativer Wert zur&uuml;ckgegeben wird, und Sie nicht auf einmal 1 Jahr &auml;lter sind.</p>
+<h4 class="t4">mktime() – Umwandeln von struct tm zu time_t</h4>
+<p>Jetzt zum Gegenst&uuml;ck der Funktionen <span class="listing">localtime()</span> und <span class="listing">gmtime()</span>:<a id="Xxx999458" name="Xxx999458"></a></p>
+<pre>time_t mktime(struct tm *zeitzeiger);</pre>
+<p>Auf diese Weise wird eine Zeit im <span class="listing">struct</span> <span class="listing">tm</span>-Format wieder umgewandelt in eine Zeit im <span class="listing">time_t</span>-Format. Ist die Kalenderzeit nicht darstellbar, gibt diese Funktion –1 zur&uuml;ck. Die echten Werte der Komponenten <span class="listing">tm_yday</span> und <span class="listing">tm_wday</span> in <span class="listing">zeitzeiger</span> werden ignoriert. Die urspr&uuml;nglichen Werte der Felder, <span class="listing">tm_sec</span>, <span class="listing">tm_min</span>, <span class="listing">tm_hour</span>, <span class="listing">tm_mday</span> und <span class="listing">tm_mon,</span> sind nicht auf den durch die <span class="listing">tm</span>-Struktur festgelegten Bereich beschr&auml;nkt. Befinden sich die Felder nicht im korrekten Bereich, werden diese angepasst.</p>
+<p>Das hei&szlig;t konkret: Wird z.B. das Datum 38.3.2001 eingegeben, muss die Funktion <span class="listing">mktime()</span> dieses Datum richtig setzen. Bei richtiger R&uuml;ckgabe erhalten Sie entsprechende Werte f&uuml;r <span class="listing">tm_yday</span> und <span class="listing">tm_wday</span>. Der zul&auml;ssige Bereich f&uuml;r die Kalenderzeit liegt zwischen dem 1. Januar 1970 00:00:00 und dem 19. Januar 2038 03:14:07.</p>
+<p>Ein Beispiel soll zeigen, wie Sie den genauen Wochentag durch diese Funktion ermitteln k&ouml;nnen:</p>
+<pre>/* time3.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+char *wday[] = {
+   "Sonntag", "Montag", "Dienstag", "Mittwoch",
+   "Donnerstag", "Freitag", "Samstag", "??????"
+};
+int main(void) {
+   struct tm time_check;
+   int year, month, day;
+   /* Jahr, Monat und Tag eingeben zum
+    * Herausfinden des Wochentags */
+   printf("Jahr : ");
+   scanf("%d", &amp;year);
+   printf("Monat: ");
+   scanf("%d", &amp;month);
+   printf("Tag  : ");
+   scanf("%d", &amp;day);
+   /* Wir f&uuml;llen unsere Struktur struct tm time_check
+    * mit Werten */
+   time_check.tm_year = year – 1900;
+   time_check.tm_mon = month – 1;
+   time_check.tm_mday = day;
+   /* 00:00:01 Uhr */
+   time_check.tm_hour  = 0;
+   time_check.tm_min   = 0;
+   time_check.tm_sec   = 1;
+   time_check.tm_isdst = –1;
+   if(mktime(&amp;time_check) == –1)
+      time_check.tm_wday = 7;  /* = Unbekannter Tag */
+   /* Der Tag des Datums wird ausgegeben */
+   printf("Dieser Tag ist/war ein %s\n",
+      wday[time_check.tm_wday]);
+   return EXIT_SUCCESS;
+}</pre>
+<h4 class="t4">asctime() und ctime() – Umwandeln von Zeitformaten in einen String</h4>
+<p>Mit zwei Funktionen k&ouml;nnen die beiden Zeitformen <span class="listing">struct</span> <span class="listing">tm</span> und <span class="listing">time_t</span> in einen String konvertiert werden. Hier die Syntax der beiden:<a id="Xxx999467" name="Xxx999467"></a><a id="Xxx999468" name="Xxx999468"></a></p>
+<pre>char *asctime(struct tm *zeitzeiger);
+char *ctime(time_t *zeitzeiger);</pre>
+<p>Auch dazu ein kleines Beispiel in einem Listing:</p>
+<pre>/* time4.c */
+#include &lt;stdio.h&gt;
+#include &lt;time.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+int main(int argc, char **argv) {
+   FILE *datei;
+   time_t time1;
+   struct tm *time2;
+   char zeit[25];
+   int c;
+   if(argc&lt;2) {
+      printf("Bitte Eingeben : %s textdatei.txt\n",*argv);
+      return EXIT_FAILURE;
+   }
+   if((datei = fopen(*++argv,"w+")) == NULL) {
+      printf("Konnte Datei : %s nicht &ouml;ffnen!!!!\n",*argv);
+      return EXIT_FAILURE;
+   }
+   printf("Eingabe machen (mit '#' beenden)\n&gt;");
+   /* Wir schreiben in unsere Datei und beenden diese
+    * mit dem Zeichen '#' */
+   while((c=getchar()) != '#')
+      putc(c, datei);
+   putc('\n', datei);
+   /* Zuerst time_t-Format */
+   time(&amp;time1);
+   printf("Heute ist %s und Sie haben eben die "
+          "Datei %s geschlossen\n",ctime(&amp;time1), *argv);
+   /* Jetzt struct tm-Format mit asctime() */
+   time1=time(NULL);
+   time2=localtime(&amp;time1);
+   strcpy(zeit,asctime(time2));
+   /* Das Datum schreiben wir in die Datei... */
+   fprintf(datei,"%s\n",zeit);
+   fclose(datei);
+   return EXIT_SUCCESS;
+}</pre>
+<p>Dieses Listing gibt zum einen das heutige Datum mit der Funktion <span class="listing">ctime()</span> auf dem Bildschirm aus und schreibt den R&uuml;ckgabewert der Funktion <span class="listing">asctime()</span> in eine Textdatei.</p>
+<h4 class="t4">difftime() – Differenz zweier Zeiten</h4>
+<p>Wird eine Differenz zwischen zwei Zeiten ben&ouml;tigt, l&auml;sst sich dies mit der folgenden Funktion ermitteln:<a id="Xxx999475" name="Xxx999475"></a><a id="Xxx999476" name="Xxx999476"></a></p>
+<pre>double difftime(time_t zeit1, time_t zeit0);</pre>
+<p>Diese Funktion liefert die Differenz von <span class="listing">zeit1</span> minus <span class="listing">zeit0</span> als <span class="listing">double</span>-Wert zur&uuml;ck. Hierzu ein einfaches und kurzes Beispiel:</p>
+<pre>/* time5.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+int main(void) {
+   time_t start, stop;
+   double diff;
+   printf("Einen Augenblick bitte ...\n");
+   start=time(NULL);
+   while((diff=difftime(stop=time(NULL),start)) != 5);
+   printf("%.1f sek. vorbei!!\n",diff);
+   return EXIT_SUCCESS;
+}</pre>
+<p>Das Programm wartet f&uuml;nf Sekunden, bis es einen entsprechenden Text ausgibt. Bei</p>
+<pre>while((diff=difftime(stop=time(NULL),start)) !=5);</pre>
+<p>wurde die Funktion <span class="listing">time()</span> gleich in der Funktion <span class="listing">difftime()</span> ausgef&uuml;hrt. Nat&uuml;rlich ist dies nicht so gut lesbar, aber es erf&uuml;llt denselben Zweck wie:</p>
+<pre>while((diff=difftime(stop,start)) != 5)
+   stop=time(NULL);</pre>
+<h4 class="t4">clock() – Verbrauchte CPU-Zeit f&uuml;r ein Programm</h4>
+<p>Eine weitere h&auml;ufig gestellte Frage lautet: Wie kann ich herausfinden, wie lange das Programm schon l&auml;uft? Sie k&ouml;nnen dies mit folgender Funktion herausfinden:<a id="Xxx999486" name="Xxx999486"></a></p>
+<pre>clock_t clock();</pre>
+<p>Diese Funktion liefert die verbrauchte CPU-Zeit seit dem Programmstart zur&uuml;ck. Falls die CPU-Zeit nicht verf&uuml;gbar ist, gibt diese Funktion –1 zur&uuml;ck. Wenn Sie die CPU-Zeit in Sekunden ben&ouml;tigen, muss der R&uuml;ckgabewert dieser Funktion durch <span class="listing">CLOCKS_PER_SEC<a id="Xxx999489" name="Xxx999489"></a></span> dividiert werden. Beispiel:</p>
+<pre>/* runtime.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+int main(void) {
+   clock_t prgstart, prgende;
+   int c;
+   prgstart=clock();
+   printf("Geben Sie etwas ein und beenden Sie mit #\n");
+   printf("\n &gt; ");
+   while((c=getchar())!= '#')
+      putchar(c);
+   prgende=clock();
+   printf("Die Programmlaufzeit betrug %.2f Sekunden\n",
+      (float)(prgende-prgstart) / CLOCKS_PER_SEC);
+   return EXIT_SUCCESS;
+}</pre>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/21_02.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein21_02.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 21.2   
+    </b>Verbrauchte Zeit eines Programms mit clock() ermitteln</p>
+<p>Damit d&uuml;rfte es Ihnen nicht schwer fallen, die Nutzungsdauer eines Programms herauszubekommen.</p>
+<h4 class="t4">strftime() – Umwandeln von struct tm in einen benutzerdefinierten String</h4>
+<p>Als N&auml;chstes folgt eine Funktion, welche Sie als die <span class="listing">sprintf()</span>-Funktion f&uuml;r Zeit- und Datumswerte ansehen k&ouml;nnen. Die Syntax lautet:<a id="Xxx999499" name="Xxx999499"></a></p>
+<pre>size_t strftime(char *puffer, int maxzeichen,
+                const char *format, struct tm *zeitzeiger);</pre>
+<p>So kann die Kalenderzeit aus <span class="listing">struct</span> <span class="listing">tm</span> <span class="listing">*zeitzeiger</span> in ein entsprechendes Format in die Adresse <span class="listing">puffer</span> geschrieben werden. Folgende Umwandlungsvorgaben k&ouml;nnen Sie dabei verwenden:</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 21.3   
+    </b>Formatierungszeichen f&uuml;r eine benutzerdefinierte Zeitangabe</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>Format</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>… wird ersetzt durch …</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Beispiel</b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">%a
+</td>
+<td class="tabellentext" bgcolor="#000000">Wochenname (gek&uuml;rzt)
+</td>
+<td class="tabellentext" bgcolor="#000000">Sat
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">%A
+</td>
+<td class="tabellentext" bgcolor="#000000">Wochenname (ausgeschrieben)
+</td>
+<td class="tabellentext" bgcolor="#000000">Saturday
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">%b
+</td>
+<td class="tabellentext" bgcolor="#000000">Monatsname (gek&uuml;rzt)
+</td>
+<td class="tabellentext" bgcolor="#000000">Jan
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">%B
+</td>
+<td class="tabellentext" bgcolor="#000000">Monatsname (ausgeschrieben)
+</td>
+<td class="tabellentext" bgcolor="#000000">January
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">%c
+</td>
+<td class="tabellentext" bgcolor="#000000">Entsprechende lokale Zeit- und Datumsdarstellung
+</td>
+<td class="tabellentext" bgcolor="#000000">Sat Jan 22 22:22:22 MET 2003
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">%d
+</td>
+<td class="tabellentext" bgcolor="#000000">Monatstag (1–31)
+</td>
+<td class="tabellentext" bgcolor="#000000">22
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">%H
+</td>
+<td class="tabellentext" bgcolor="#000000">Stunde im 24-Stunden-Format (0–23)
+</td>
+<td class="tabellentext" bgcolor="#000000">23
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">%I
+</td>
+<td class="tabellentext" bgcolor="#000000">Stunde im 12-Stunden-Format (1–12)
+</td>
+<td class="tabellentext" bgcolor="#000000">5
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">%j
+</td>
+<td class="tabellentext" bgcolor="#000000">Tag des Jahres (1–366)
+</td>
+<td class="tabellentext" bgcolor="#000000">133
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">%m
+</td>
+<td class="tabellentext" bgcolor="#000000">Monat (1–12)
+</td>
+<td class="tabellentext" bgcolor="#000000">5
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">%M
+</td>
+<td class="tabellentext" bgcolor="#000000">Minute (0–59)
+</td>
+<td class="tabellentext" bgcolor="#000000">40
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">%p
+</td>
+<td class="tabellentext" bgcolor="#000000">AM- oder PM-Zeitangabe; Indikator f&uuml;r das 12-Stunden-Format (USA)
+</td>
+<td class="tabellentext" bgcolor="#000000">PM
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">%S
+</td>
+<td class="tabellentext" bgcolor="#000000">Sekunden (0–69)
+</td>
+<td class="tabellentext" bgcolor="#000000">55
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">%U
+</td>
+<td class="tabellentext" bgcolor="#000000">Wochennummer (0–53) (Sonntag als erster Tag der Woche)
+</td>
+<td class="tabellentext" bgcolor="#000000">33
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">%w
+</td>
+<td class="tabellentext" bgcolor="#000000">Wochentag (0–6, Sonntag = 0)
+</td>
+<td class="tabellentext" bgcolor="#000000">3
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">%W
+</td>
+<td class="tabellentext" bgcolor="#000000">Wochennummer (0–53) (Montag als erster Tag der Woche)
+</td>
+<td class="tabellentext" bgcolor="#000000">4
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">%x
+</td>
+<td class="tabellentext" bgcolor="#000000">lokale Datumsdarstellung
+</td>
+<td class="tabellentext" bgcolor="#000000">02/20/02
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">%X
+</td>
+<td class="tabellentext" bgcolor="#000000">lokale Zeitdarstellung
+</td>
+<td class="tabellentext" bgcolor="#000000">20:15:00
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">%y
+</td>
+<td class="tabellentext" bgcolor="#000000">Jahreszahl (ohne Jahrhundertzahl 0–99)
+</td>
+<td class="tabellentext" bgcolor="#000000">01 (2001)
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">%Y
+</td>
+<td class="tabellentext" bgcolor="#000000">Jahreszahl (mit Jahrhundertzahl YYYY)
+</td>
+<td class="tabellentext" bgcolor="#000000">2001
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">%Z, %z
+</td>
+<td class="tabellentext" bgcolor="#000000">Zeitzone (gibt nichts aus, wenn Zeitzone unbekannt)
+</td>
+<td class="tabellentext" bgcolor="#000000">MET
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">%%
+</td>
+<td class="tabellentext" bgcolor="#000000">Prozentzeichen
+</td>
+<td class="tabellentext" bgcolor="#000000">%
+</td>
+</tr>
+</table><br>
+<p>Auch hierzu ein Listing, wie diese Angaben verwendet werden k&ouml;nnen:</p>
+<pre>/* time6.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+int main(void) {
+   struct tm *zeit;
+   time_t sekunde;
+   char string[80];
+   time(&amp;sekunde);
+   zeit = localtime(&amp;sekunde);
+   strftime(string, 80,
+   "Es ist %H Uhr und %M Minuten (%Z) %A, %B %Y",zeit);
+   printf("%s\n",string);
+   return EXIT_SUCCESS;
+}</pre>
+<p>Es wird &uuml;brigens empfohlen, bei der formatierten Zeitausgabe des Jahres <span class="listing">%Y</span> statt <span class="listing">%y</span> zu verwenden, um Probleme mit dem Datum ab dem Jahr 2000 zu vermeiden.</p>
+<p>Die folgende Grafik soll alle Funktionen, die Sie hier kennen gelernt haben, anhand ihrer Beziehungen zueinander zusammenfassen:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/21_03.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein21_03.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 21.3   
+    </b>Datums- und Zeitfunktionen im &Uuml;berblick</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_020_002.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_021_001.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td width="10" valign="top">&nbsp;&nbsp;</td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/899?GPP=opc">
+                                        <img src="common/643_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C von A bis Z" title="Zum Katalog: C von A bis Z">
+                                        <br /><strong>C von A bis Z</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Ihre Meinung?</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1007?GPP=opc">
+                        <img src="common/683_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Shell-Programmierung" title="Zum Katalog: Shell-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Shell-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1137?GPP=opc">
+                        <img src="common/749_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux-UNIX-Programmierung" title="Zum Katalog: Linux-UNIX-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux-UNIX-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1004?GPP=opc">
+                        <img src="common/644_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C/C++" title="Zum Katalog: C/C++"><br /><br /><br /><br /><br /><br /><br />&nbsp;C/C++</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/880?GPP=opc">
+                        <img src="common/573_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/967?GPP=opc">
+                        <img src="common/626_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Reguläre Ausdrücke" title="Zum Katalog: Reguläre Ausdrücke"><br /><br /><br /><br /><br /><br /><br />&nbsp;Reguläre Ausdrücke</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/941?GPP=opc">
+                        <img src="common/677_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Shopping</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opc"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table>
+<br /><br />
+<hr width="70%" align="center"><br />
+<div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2006</b><br>F&uuml;r Ihren privaten Gebrauch d&uuml;rfen Sie die Online-Version nat&uuml;rlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschlie&szlig;lich aller seiner Teile ist urheberrechtlich gesch&uuml;tzt. Alle Rechte vorbehalten einschlie&szlig;lich der Vervielf&auml;ltigung, &Uuml;bersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

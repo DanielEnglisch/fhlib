@@ -1,0 +1,663 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: C von A bis Z – 13.13 Strings/Zeichenketten (char Array)</title>
+<meta name="title" content="Galileo Computing :: C von A bis Z">
+<meta name="author" content="J&uuml;rgen Wolf">
+<meta name="publisher" content="Galileo Press 2006">
+<meta name="copyright" content="Galileo Press 2006">
+<meta name="description" content="C von A bis Z - Das umfassende Handbuch f&uuml;r Linux, Unix und Windows – 2., aktualisierte und erweiterte Auflage 2006, geb., mit CD und Referenzkarte – ISBN 3-89842-643-2">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="c_013_011.htm">
+<link rel="next" href="c_013_013.htm"><script type="text/javascript" language="JavaScript"><!--
+function OpenWin(url,name,height,width)
+{
+  var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+  InfoWin.focus();
+}
+//--></script></head>
+<body vlink="#000099" link="#000099" alink="#000099">
+    <table width="100%" height="74" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+        <tr>
+            <td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+            <td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opc"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger." title="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger."></a></td>
+        </tr>
+    </table>
+    <div align="right"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger.</a></div>
+    <br />
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td width="156" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
+        <tr>
+            <td colspan="2" class="nav1" align="left" valign="top" height="150">
+                <table class="tbl1" width="150" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td class="tbl2" height="25"><a class="nav" href="./index.htm">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000Vorwort_000.htm#Xxx999266">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000VorwortGutachter_000.htm#Xxx999275">Vorwort des Gutachters</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_001_000.htm#Xxx999328">1 Einstieg in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_002_000.htm#Xxx999328">2 Das erste Programm</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_003_000.htm#Xxx999328">3 Zeichens&auml;tze</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_004_000.htm#Xxx999329">4 Kommentare in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_005_000.htm#Xxx999330">5 Formatierte Eingabe mit scanf()</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_006_000.htm#Xxx999330">6 Formatierte Ausgabe mit printf</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_007_000.htm#Xxx999329">7 Elementare Datentypen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_008_000.htm#Xxx999328">8 Operatoren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_009_000.htm#Xxx999328">9 Typenumwandlung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_010_000.htm#Xxx999328">10 Kontrollstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_011_000.htm#Xxx999328">11 Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_012_000.htm#Xxx999328">12 Pr&auml;prozessor-Direktiven</A></td>
+</tr>
+<tr>
+<td><A class="navh" href="./c_013_000.htm#Xxx999328">13 Arrays</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_014_000.htm#Xxx999328">14 Zeiger (Pointer)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_015_000.htm#Xxx999328">15 Kommandozeilenargumente</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_016_000.htm#Xxx999328">16 Dynamische Speicherverwaltung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_017_000.htm#Xxx999328">17 Strukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_018_000.htm#Xxx999328">18 Ein-/Ausgabe-Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_019_000.htm#Xxx999328">19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_020_000.htm#Xxx999328">20 Arbeiten mit variablen langen Argumentlisten – &lt;stdarg.h&gt;</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_021_000.htm#Xxx999328">21 Zeitroutinen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_022_000.htm#Xxx999328">22 Weitere Headerdateien und ihre Funktionen (ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_023_000.htm#Xxx999328">23 Dynamische Datenstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_024_000.htm#Xxx999328">24 Algorithmen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_025_000.htm#Xxx999328">25 Sicheres Programmieren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_026_000.htm#Xxx999328">26 CGI mit C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_027_000.htm#Xxx999328">27 MySQL und C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_028_000.htm#Xxx999328">28 Netzwerkprogrammierung und Cross-Plattform-Entwicklung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_029_000.htm#Xxx999328">29 Wie geht’s jetzt weiter?</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_030Anhang_000.htm#Xxx999266">A Anhang</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./stichwort.htm#Xxx512322">Index</a></td>
+</tr>
+<tr><td><br /><a class="navnav" href="http://download.galileo-press.de/openbook/c_von_a_bis_z/galileocomputing_c_von_a_bis_z.zip"><strong>Download:</strong><br />- ZIP, ca. 8,5 MB</a></td></tr>
+<tr><td><a class="navnav" href="http://www.galileocomputing.de/899?GPP=opc">Buch bestellen</a></td></tr>
+<tr><td><a class="navnav" href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)">Ihre Meinung?</a><br /><br /></td></tr>
+</table></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10"></td>
+<td width="85%" valign="top" align="center">
+    <div align="center">
+        <table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+            <tr>
+                <td width="100%" class="start" colspan="1" height="22" align="center">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_013_011.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Galileo Computing /</a><a class="navnav" href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"> &lt;openbook&gt; /</a><a href="./index.htm" class="navnav"> C von A bis Z</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_013_013.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" valign="top">
+    <table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+        <tr>
+            <td colspan="2"><a href="http://www.galileocomputing.de/899?GPP=opc" class="buchtitel">C von A bis Z</a><span class="autor"> von J&uuml;rgen Wolf</span><br><span class="untertitel">Das umfassende Handbuch f&uuml;r Linux, Unix und Windows <br />– 2., aktualisierte und erweiterte Auflage 2006</span></td>
+        </tr>
+        <tr>
+            <td valign="top" width="90"><a href="http://www.galileocomputing.de/899?GPP=opc"><img src="common/643.gif" border="0" alt="Buch: C von A bis Z" title="Buch: C von A bis Z" align="left"><br /><br /><span class="autor"><strong>C von A bis Z</strong><br />1.116 S., mit CD, Referenzkarte, 39,90 Euro<br />Galileo Computing<br />ISBN 3-89842-643-2</span></a></a></td>
+            <td width="80%">
+<table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="3" class="kap"><b>Kapitel <a href="./c_013_000.htm#RxxobKap0130000400282B1F04118C">13 Arrays</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_000.htm#RxxobKap0130000400282B1F04118F">13.1 Arrays deklarieren</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_001.htm#RxxobKap013001040028461F01018C">13.2 Initialisierung und Zugriff auf Arrays</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_001.htm#RxxobKap013001040028461F0101BD">13.2.1 G&uuml;ltigkeitsbereich von Arrays</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_002.htm#RxxobKap013002040028471F02818C">13.3 Arrays vergleichen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_003.htm#RxxobKap013003040028481F03D18C">13.4 Anzahl der Elemente eines Arrays ermitteln</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_004.htm#RxxobKap013004040028491F03A18C">13.5 &Uuml;bergabe von Arrays an Funktionen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_005.htm#RxxobKap0130050400284A1F02618C">13.6 Arrays aus Funktionen zur&uuml;ckgeben</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_006.htm#RxxobKap0130060400284B1F03318C">13.7 Programmbeispiel zu den Arrays</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_007.htm#RxxobKap0130070400284C1F03C18C">13.8 Einlesen von Array-Werten</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_008.htm#RxxobKap0130080400284D1F03A18C">13.9 Mehrdimensionale Arrays</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_009.htm#RxxobKap0130090400284E1F01E18C">13.10 Mehrdimensionale Arrays initialisieren</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_009.htm#RxxobKap0130090400284E1F01E1AB">13.10.1 Tic Tac Toe</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_009.htm#RxxobKap0130090400284E1F01E1B5">13.10.2 Dreidimensionale Arrays</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_010.htm#RxxobKap0130100400284F1F03A18C">13.11 &Uuml;bergabe von zwei- bzw. mehrdimensionalen Arrays an Funktionen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_011.htm#RxxobKap013011040028501F02F18C">13.12 Arrays in Tabellenkalkulation einlesen (*.CSV–Dateien)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a class="navh" href="#RxxobKap013012040028511F03818C">13.13 Strings/Zeichenketten (char Array)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap013012040028511F0381AC">13.13.1 Vom String zur Bin&auml;rzahl</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_013.htm#RxxobKap013013040028521F01018C">13.14 Einlesen von Strings</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_013_014.htm#RxxobKap013014040028531F04018C">13.15 Standard-Bibliothek &lt;string.h&gt;</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_014.htm#RxxobKap013014040028531F040190">13.15.1 strcat() – Strings aneinander h&auml;ngen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_014.htm#RxxobKap013014040028531F04019A">13.15.2 strchr() – ein Zeichen im String suchen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_014.htm#RxxobKap013014040028531F0401A0">13.15.3 strcmp() – Strings vergleichen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_014.htm#RxxobKap013014040028531F0401A5">13.15.4 strcpy() – einen String kopieren</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_014.htm#RxxobKap013014040028531F0401AD">13.15.5 strcspn() – einen Teilstring ermitteln</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_014.htm#RxxobKap013014040028531F0401B2">13.15.6 strlen() – L&auml;nge eines Strings ermitteln</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_014.htm#RxxobKap013014040028531F0401B9">13.15.7 strncat() – String mit n Zeichen aneinander h&auml;ngen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_014.htm#RxxobKap013014040028531F0401C1">13.15.8 strncmp() – n Zeichen von zwei Strings miteinander vergleichen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_014.htm#RxxobKap013014040028531F0401C6">13.15.9 strncpy() – String mit n Zeichen kopieren</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_014.htm#RxxobKap013014040028531F0401CB">13.15.10 strpbrk() – Auftreten bestimmter Zeichen suchen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_014.htm#RxxobKap013014040028531F0401D0">13.15.11 strrchr() – das letzte Auftreten eines bestimmten Zeichens im String suchen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_014.htm#RxxobKap013014040028531F0401D5">13.15.12 strspn() – erstes Auftreten eines Zeichens, das nicht vorkommt</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_014.htm#RxxobKap013014040028531F0401DB">13.15.13 strstr() – String nach Auftreten eines Teilstrings durchsuchen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_013_014.htm#RxxobKap013014040028531F0401E0">13.15.14 strtok() – String anhand bestimmter Zeichen zerlegen</a></b></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td>
+<a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2">13.13 Strings/Zeichenketten (char Array)<a id="RxxobKap013012040028511F03818C" name="RxxobKap013012040028511F03818C"></a> 
+      <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"></h2>
+<p><a id="Xxx999329" name="Xxx999329"></a><a id="Xxx999330" name="Xxx999330"></a>Arrays vom Datentyp <span class="listing">char</span> werden Strings genannt. Ein String ist eine Kette von einzelnen <span class="listing">char</span>-Zeichen mit einer abschlie&szlig;enden 0 (nicht gleichzusetzen mit dem Zeichen <span class="listing">'0'</span>). <span class="listing">char</span>-Arrays sind typischerweise eindimensional.</p>
+<p>Viele Programmierer, die auf die Programmiersprache C sto&szlig;en, sind verwundert, dass es keinen eigenen Datentyp f&uuml;r einen String gibt. F&uuml;r ein <span class="listing">char</span>-Array gelten nicht nur die Einschr&auml;nkungen der herk&ouml;mmlichen Arrays, sondern es existiert auch das Problem der maximalen L&auml;nge von Arrays. Diese scheinbare Unflexibilit&auml;t kann sp&auml;ter, wenn sie effektiv eingesetzt wird, sehr ressourcensparend und schnell sein. Belassen Sie es aber erst einmal in den n&auml;chsten Kapiteln bei den etwas eingeschr&auml;nkten <span class="listing">char</span>-Arrays.</p>
+<p>Mit dem <span class="listing">char</span>-Array k&ouml;nnen Zeichenfolgen dargestellt und verarbeitet werden. Damit k&ouml;nnen Sie Benutzerschnittstellen und Textdateien verarbeiten und erstellen.</p>
+<p>Eine Form der Stringkonstante<a id="Xxx999334" name="Xxx999334"></a> wurde schon &ouml;fter in diesem Buch verwendet:</p>
+<pre>printf("Ich bin die Stringkonstante");</pre>
+<p>Generell l&auml;sst sich sagen: Alles, was sich zwischen zwei Hochkommata befindet, gilt als Stringkonstante.</p>
+<p>Die Deklaration eines <span class="listing">char</span>-Arrays ist identisch mit der bisher bekannten Form der Array-Deklaration:</p>
+<pre>char string_array[100];</pre>
+<p>Im obigen Beispiel wird ein Array vom Datentyp <span class="listing">char</span> angelegt, das 100 einzelne Zeichen speichern kann. Dabei muss die Gr&ouml;&szlig;e des Array-Feldes nicht mehr ausdr&uuml;cklich mit angegeben werden:</p>
+<pre>const char hallo[] = { 'H', 'a', 'l', 'l', 'o', ' ',
+                       'W', 'e', 'l', 't', '\n', '\0' };</pre>
+<p>Diese Schreibweise ist ebenfalls absolut korrekt, aber sehr umst&auml;ndlich. Daher k&ouml;nnen Sie ein <span class="listing">char</span>-Array auch anders, n&auml;mlich als einen String (dtsch. Zeichenkette), deklarieren:</p>
+<pre>const char hallo[] = { "Hallo Welt\n" };</pre>
+<p>Beide Variationen sind absolut gleichwertig. Hierzu die rechnerinterne Darstellung des Strings:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/13_12.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein13_12.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 13.12   
+    </b>Der String »Hallo Welt«  ist ein einfaches char-Array</p>
+<p>Diese Zeichenkette ben&ouml;tigt zw&ouml;lf Elemente (genauer: zw&ouml;lf Bytes). Wenn Sie aber die Deklaration zu <span class="listing">hallo[]</span> genauer betrachten, werden Sie feststellen, dass hierf&uuml;r eigentlich nur elf Zeichen erforderlich w&auml;ren. Welche Bedeutung hat das zw&ouml;lfte Zeichen? Bei einem String ben&ouml;tigen Sie immer ein Stringende-Zeichen<a id="Xxx999351" name="Xxx999351"></a>, das das Ende eines Strings anzeigt. Das ist die Bedeutung des Zeichens <span class="listing">'\0'</span>. Das versehentliche Weglassen des Zeichens ist eine h&auml;ufige Fehlerquelle, wenn beispielsweise Speicher f&uuml;r <span class="listing">n</span> Zeichen reserviert werden soll. Generell muss also bei einem Bedarf von <span class="listing">n</span> Zeichen immer f&uuml;r <span class="listing">n+1</span> Zeichen Platz im Array reserviert werden. Hierzu ein kurzes Listing:</p>
+<pre>/* string1.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+char hello1[] = { "Hallo Welt\n" };
+char output[] = { "Ich bin lesbar \0 Ich nicht mehr" };
+char deznu[]  = { "Mich siehst du 0 Mich und die Null auch" };
+int main(void) {
+   printf("%s",hello1);
+   printf("%s\n",output);
+   printf("%s\n",deznu);
+   return EXIT_SUCCESS;
+}</pre>
+<p>Dieses Beispiel zeigt auch, wie Sie f&uuml;r die formatierte Ausgabe von Zeichenketten die Formatangabe <span class="listing">%s</span> verwenden k&ouml;nnen (<span class="listing">s</span> = String). Daher ben&ouml;tigt ein String ein Ende-Kennungszeichen. Bei dem String</p>
+<pre>char output[] = {"Ich bin lesbar \0 Ich nicht mehr"};</pre>
+<p>werden nur die Zeichen bis <span class="listing">'\0'</span> angezeigt. Der hintere Teil des Strings existiert nur im Arbeitsspeicher. Da zuvor das Zeichen f&uuml;r das Ende des Strings <span class="listing">'\0'</span> steht, wird dieser Teil nie am Bildschirm ausgegeben. Im n&auml;chsten Beispiel</p>
+<pre>char deznu[] = {"Mich siehst du 0 Mich und die Null auch"};</pre>
+<p>wird der ganze String ausgegeben, weil das Zeichen <span class="listing">'0'</span> nicht gleichzusetzen ist mit dem Zeichen <span class="listing">'\0'</span>.</p>
+<p>Es wurde bereits erw&auml;hnt, dass es auch m&ouml;glich ist, auf die einzelnen Zeichen eines Strings zuzugreifen. Wenn Sie einen String beispielsweise mithilfe einer <span class="listing">for</span>-Schleife auf seine L&auml;nge hin &uuml;berpr&uuml;fen wollen, pr&uuml;fen Sie lediglich auf das Zeichen <span class="listing">'\0'</span>. Hier ein Beispiel dazu:</p>
+<pre>/* string2.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+char hello1[] = { "Hallo Welt" };
+char output[] = { "Ich bin lesbar \0 Ich nicht mehr" };
+char deznu[]  = { "Mich siehst du 0 Mich und die Null auch" };
+int main(void) {
+   int i;
+   printf("%c", output[0]);      /* I */
+   printf("%c'", hello1[9]);     /* t */
+   printf("%c ", deznu[5]);      /* s */
+   printf("%c", hello1[7]);      /* Gibt das Zeichen 'e' aus */
+   printf("%c", output[12]);     /* a */
+   printf("%c", deznu[5]);       /* s */
+   deznu[1] = 'y';               /* aus 'i' wird 'y' */
+   printf("%c\n", deznu[1]);     /* y */
+   for(i=0; hello1[i] != '\0'; i++);
+   printf("L&auml;nge von '%s' = %d Zeichen\n", hello1, i);
+   for(i=0; output[i] != '\0'; i++);
+   printf("L&auml;nge von '%s' = %d Zeichen\n", output, i);
+   for(i=0; deznu[i] != '\0'; i++);
+   printf("L&auml;nge von '%s' = %d Zeichen\n", deznu, i);
+   return EXIT_SUCCESS;
+}</pre>
+<p>Hier werden mit dem Feldindex einzelne Zeichen ausgegeben, genau wie bei den Arrays mit Zahlen. In diesem Fall wird der Text »<span class="listing">It's</span> <span class="listing">easy</span>« ausgegeben. Es ist nat&uuml;rlich auch m&ouml;glich, den Inhalt zu ver&auml;ndern, etwa wie in der Zeile</p>
+<pre>deznu[1] = 'y';</pre>
+<p>geschehen. Anschlie&szlig;end wird mit</p>
+<pre>for(i=0; hello1[i] != '\0'; i++);</pre>
+<p>die Anzahl der Zeichen hochgez&auml;hlt, die sich im String hello1[] ohne \0 befinden. Die Abbruchbedingung</p>
+<pre>hello1[i] != '\0';</pre>
+<p>ist so lange wahr, bis der Inhalt von <span class="listing">hello1[i]</span> <span class="listing">==</span> <span class="listing">'\0'</span> ist. In diesem Beispiel w&auml;re das bei <span class="listing">hello1[11]</span>der Fall, da sich hier das Zeichen <span class="listing">'\0'</span> befindet. Beachten Sie hier, dass hinter der <span class="listing">for</span>-Schleife ein Semikolon steht. Es gibt in diesem Fall keinen Anweisungsblock zur <span class="listing">for</span>-Schleife. Hier wird die Variable <span class="listing">i</span> so lange hochgez&auml;hlt, bis das Stringende-Zeichen <span class="listing">'\0'</span> erreicht wird. Gleiches gilt f&uuml;r die anderen beiden Strings.</p>
+<a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3">13.13.1 Vom String zur Bin&auml;rzahl<a id="RxxobKap013012040028511F0381AC" name="RxxobKap013012040028511F0381AC"></a> 
+      <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Oben wurde behauptet, dass es in C keine Datentypen gibt, welche Zeichen darstellen k&ouml;nnen. Die Zeichen wurden mithilfe der ASCII-Code-Tabelle kodiert. Wie verh&auml;lt sich dies jetzt mit der folgenden Stringkonstante?</p>
+<pre>char str[] = { "Hallo!\n" };</pre>
+<p>Wird dieser String in seine einzelnen Zeichen zerlegt, ergibt sich die Zeile:</p>
+<pre>/* gleichwertig zu "Hallo!\n" */
+char str[] = { 'H', 'a', 'l', 'l', 'o', '!', '\n', '\0' };</pre>
+<p>Werden die einzelnen Zeichen jetzt anhand der ASCII-Code-Tabelle dekodiert, sieht der String schon anders aus:</p>
+<pre>char str[] = { 72, 97, 108, 108, 111, 33, 10, 0 };</pre>
+<p>Theoretisch k&ouml;nnten Sie den String auch so angeben und ausgeben lassen, wie das folgende Listing demonstriert:</p>
+<pre>/* string3.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main(void) {
+   /* Hallo!\n ... */
+   char str[] = { 72, 97, 108, 108, 111, 33, 10, 0 };
+   printf("%s\n",str);
+   return EXIT_SUCCESS;
+}</pre>
+<p>Wenn Sie jetzt noch die einzelnen Werte in Bin&auml;rzahlen umrechnen, k&ouml;nnen Sie den String aus der Sicht des Computers betrachten:</p>
+<pre>0100100001100001011011000110110001101111001000010000101000000000</pre>
+<p>Diese Erkl&auml;rung soll Ihnen nur zeigen, dass Zeichenketten nicht magischer sind als ganz normale Zahlen-Arrays und in gewisser Hinsicht auch solche sind. Einen Beweis? Bitte sehr:</p>
+<pre>/* string4.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main(void) {
+   int i;
+   int str[] = { 72, 97, 108, 108, 111, 33, 10, 0 };
+   for(i = 0; i &lt; sizeof(str) / sizeof(int); i++)
+      printf("%c", str[i]);
+   return EXIT_SUCCESS;
+}</pre>
+<p>Ein kleines Programm demonstriert im Folgenden den Umgang mit Strings. Das Programm durchl&auml;uft eine Zeichenkette und wandelt alle Stringfolgen <span class="listing">"und"</span> in Gro&szlig;buchstaben um:</p>
+<pre>/* string5.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+char undbig[] = {
+   "Hund und Katze sind nicht ohne "
+   "Grund des Menschens bester Freund\n"
+};
+int main(void) {
+  int i;
+  for(i=0; undbig[i] != '\0'; i++) {
+     if(undbig[i-1]==' '&amp;&amp; (undbig[i]=='u' ||undbig[i]=='U')) {
+        if(undbig[i+1]=='n'&amp;&amp;undbig[i+2]=='d'&amp;&amp;undbig[i+3]==' '){
+           undbig[i] = 'U';
+           /* n zu Grossbuchstabe konvertieren (N) */
+           undbig[i+1] -= 32;
+           /* d zu Grossbuchstabe konvertieren  (D) */
+           undbig[i+2] -= 32;
+        }
+      }
+   }
+   printf("%s", undbig);
+   return EXIT_SUCCESS;
+}</pre>
+<p>Zu Beginn des Programms sehen Sie, wie Sie eine Stringkonstante &uuml;ber mehrere Zeilen schreiben k&ouml;nnen.</p>
+<pre>char array[] = {
+   "Eine Zeichenkette &uuml;ber"
+   "2 Zeilen\n"
+};
+/* Alternative */
+char array[] = {
+   "Eine Zeichenkette &uuml;ber \
+2 Zeilen"};</pre>
+<p>Beide Schreibweisen erf&uuml;llen den gleichen Zweck. Weiter mit der ersten <span class="listing">for</span>-Schleife des Programms:</p>
+<pre>for(i=0; undbig[i] != '\0'; i++)</pre>
+<p>Hier wird der String zeichenweise durchlaufen, bis das Stringende-Zeichen <span class="listing">'\0'</span> gefunden wird. Bei der n&auml;chsten Anweisung</p>
+<pre>if(undbig[i-1] == ' ' &amp;&amp; (undbig[i]=='u' || undbig[i]=='U'))</pre>
+<p>wird &uuml;berpr&uuml;ft, ob das Zeichen, bei dem sich der Feldindex gerade befindet, ein kleines <span class="listing">'u'</span> oder gro&szlig;es <span class="listing">'U'</span> und das Zeichen davor ein Whitespace-Zeichen (Leerzeichen) ist. Falls nicht, wird <span class="listing">i</span> in der <span class="listing">for</span>-Schleife um den Wert 1 inkrementiert. Wird ein <span class="listing">'u'</span> oder <span class="listing">'U'</span> gefunden, folgt die &Uuml;berpr&uuml;fung</p>
+<pre>if(undbig[i+1]=='n' &amp;&amp; undbig[i+2]=='d' &amp;&amp; undbig[i+3]==' ')</pre>
+<p>darauf hin, ob die n&auml;chsten beiden Zeichen <span class="listing">'n'</span> und <span class="listing">'d'</span> sind und ob sich dahinter ebenfalls ein Whitespace-Zeichen befindet. Falls dies ebenso zutrifft, wurde eine Zeichenfolge <span class="listing">"und"</span> gefunden. Dann werden die einzelnen Zeichen ge&auml;ndert:</p>
+<pre>undbig[i] = 'U';
+undbig[i+1] -= 32;  /* 'n' – 32 */
+undbig[i+2] -= 32;  /* 'd' – 32 */</pre>
+<p>Sehen Sie sich zum besseren Verst&auml;ndnis auch die ASCII-Tabelle im Anhang an. Sehen Sie nach, welche Dezimalwerte die Zeichen <span class="listing">'n'</span> und <span class="listing">'d'</span> haben. In Dezimalwerten w&uuml;rden die Subtraktionen der Werte so aussehen:</p>
+<pre>110–32=78 und 100–32=68</pre>
+<p>In der ASCII-Tabelle finden sich <span class="listing">'N'</span> <span class="listing">=</span> <span class="listing">78</span> und <span class="listing">'D'</span> <span class="listing">=</span> <span class="listing">68.</span></p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_013_011.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_013_013.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td width="10" valign="top">&nbsp;&nbsp;</td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/899?GPP=opc">
+                                        <img src="common/643_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C von A bis Z" title="Zum Katalog: C von A bis Z">
+                                        <br /><strong>C von A bis Z</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Ihre Meinung?</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1007?GPP=opc">
+                        <img src="common/683_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Shell-Programmierung" title="Zum Katalog: Shell-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Shell-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1137?GPP=opc">
+                        <img src="common/749_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux-UNIX-Programmierung" title="Zum Katalog: Linux-UNIX-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux-UNIX-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1004?GPP=opc">
+                        <img src="common/644_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C/C++" title="Zum Katalog: C/C++"><br /><br /><br /><br /><br /><br /><br />&nbsp;C/C++</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/880?GPP=opc">
+                        <img src="common/573_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/967?GPP=opc">
+                        <img src="common/626_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Reguläre Ausdrücke" title="Zum Katalog: Reguläre Ausdrücke"><br /><br /><br /><br /><br /><br /><br />&nbsp;Reguläre Ausdrücke</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/941?GPP=opc">
+                        <img src="common/677_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Shopping</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opc"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table>
+<br /><br />
+<hr width="70%" align="center"><br />
+<div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2006</b><br>F&uuml;r Ihren privaten Gebrauch d&uuml;rfen Sie die Online-Version nat&uuml;rlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschlie&szlig;lich aller seiner Teile ist urheberrechtlich gesch&uuml;tzt. Alle Rechte vorbehalten einschlie&szlig;lich der Vervielf&auml;ltigung, &Uuml;bersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

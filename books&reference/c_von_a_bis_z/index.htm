@@ -1,0 +1,901 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: C von A bis Z</title>
+<meta name="title" content="Galileo Computing :: C von A bis Z">
+<meta name="author" content="J&uuml;rgen Wolf">
+<meta name="publisher" content="Galileo Press 2006">
+<meta name="copyright" content="Galileo Press 2006">
+<meta name="description" content="C von A bis Z – Das umfassende Handbuch f&uuml;r Linux, Unix und Windows – 2., aktualisierte und erweiterte Auflage 2006, geb., mit CD und Referenzkarte – ISBN 3-89842-643-2">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="next" href="c_000Vorwort_000.htm"><script type="text/javascript" language="JavaScript"><!--
+function OpenWin(url,name,height,width)
+{
+  var InfoWin =window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+  InfoWin.focus();
+}
+--></script></head>
+<body vlink="#000099" link="#000099" alink="#000099">
+    <table width="100%" height="74" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+        <tr>
+            <td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+            <td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opc"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger." title="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger."></a></td>
+        </tr>
+    </table>
+    <div align="right"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger.</a></div>
+    <br />
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td width="156" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
+        <tr>
+            <td colspan="2" class="nav1" align="left" valign="top" height="150">
+                <table class="tbl1" width="150" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td class="tbl2" height="25"><a class="navh3" href="./index.htm">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000Vorwort_000.htm#Xxx999266">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000VorwortGutachter_000.htm#Xxx999275">Vorwort des Gutachters</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_001_000.htm#Xxx999328">1 Einstieg in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_002_000.htm#Xxx999328">2 Das erste Programm</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_003_000.htm#Xxx999328">3 Zeichens&auml;tze</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_004_000.htm#Xxx999329">4 Kommentare in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_005_000.htm#Xxx999330">5 Formatierte Eingabe mit scanf()</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_006_000.htm#Xxx999330">6 Formatierte Ausgabe mit printf</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_007_000.htm#Xxx999329">7 Elementare Datentypen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_008_000.htm#Xxx999328">8 Operatoren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_009_000.htm#Xxx999328">9 Typenumwandlung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_010_000.htm#Xxx999328">10 Kontrollstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_011_000.htm#Xxx999328">11 Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_012_000.htm#Xxx999328">12 Pr&auml;prozessor-Direktiven</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_013_000.htm#Xxx999328">13 Arrays</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_014_000.htm#Xxx999328">14 Zeiger (Pointer)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_015_000.htm#Xxx999328">15 Kommandozeilenargumente</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_016_000.htm#Xxx999328">16 Dynamische Speicherverwaltung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_017_000.htm#Xxx999328">17 Strukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_018_000.htm#Xxx999328">18 Ein-/Ausgabe-Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_019_000.htm#Xxx999328">19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_020_000.htm#Xxx999328">20 Arbeiten mit variablen langen Argumentlisten – &lt;stdarg.h&gt;</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_021_000.htm#Xxx999328">21 Zeitroutinen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_022_000.htm#Xxx999328">22 Weitere Headerdateien und ihre Funktionen (ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_023_000.htm#Xxx999328">23 Dynamische Datenstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_024_000.htm#Xxx999328">24 Algorithmen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_025_000.htm#Xxx999328">25 Sicheres Programmieren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_026_000.htm#Xxx999328">26 CGI mit C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_027_000.htm#Xxx999328">27 MySQL und C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_028_000.htm#Xxx999328">28 Netzwerkprogrammierung und Cross-Plattform-Entwicklung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_029_000.htm#Xxx999328">29 Wie geht’s jetzt weiter?</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_030Anhang_000.htm#Xxx999266">A Anhang</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./stichwort.htm#Xxx512322">Index</a></td>
+</tr>
+<tr><td><br /><a class="navnav" href="http://download.galileo-press.de/openbook/c_von_a_bis_z/galileocomputing_c_von_a_bis_z.zip"><strong>Download:</strong><br />- ZIP, ca. 8,5 MB</a></td></tr>
+<tr><td><a class="navnav" href="http://www.galileocomputing.de/899?GPP=opc">Buch bestellen</a></td></tr>
+<tr><td><a class="navnav" href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)">Ihre Meinung?</a><br /><br /></td></tr>
+</table></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10"></td>
+<td width="85%" valign="top" align="center">
+    <div align="center">
+        <table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+            <tr>
+                <td width="100%" class="start" colspan="1" height="22" align="center">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"> </td>
+<td width="49%">
+<div align="center"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Galileo Computing /</a><a class="navnav" href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"> &lt;openbook&gt; /</a><a href="./index.htm" class="navnav"> C von A bis Z</a></div>
+</td>
+<td width="25%"><div align="right"><a class="navnav" href="c_000Vorwort_000.htm">vor &gt;&gt;</a> </div></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" valign="top">
+    <table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+        <tr>
+            <td colspan="2"><a href="http://www.galileocomputing.de/899?GPP=opc" class="buchtitel">C von A bis Z</a><span class="autor"> von J&uuml;rgen Wolf</span><br><span class="untertitel">Das umfassende Handbuch f&uuml;r Linux, Unix und Windows <br />– 2., aktualisierte und erweiterte Auflage 2006</span></td>
+        </tr>
+        <tr>
+            <td valign="top" width="90"><a href="http://www.galileocomputing.de/899?GPP=opc"><img src="common/643.gif" border="0" alt="Buch: C von A bis Z" title="Buch: C von A bis Z" align="left"><br /><br /><span class="autor"><strong>C von A bis Z</strong><br />1.116 S., mit CD, Referenzkarte, 39,90 Euro<br />Galileo Computing<br />ISBN 3-89842-643-2</span></a></a></td>
+            <td width="80%">Dieses Buch bietet Programmiereinsteigern und Studenten technischer F&auml;cher einen umfassenden Einstieg in C. Auch f&uuml;r fortgeschrittene C-Programmierer ist das Buch eine ausgezeichnete Fundgrube.<br /><br />Nutzen Sie die HTML-Version des Buches zum Reinschnuppern oder als immer verf&uuml;gbare Erg&auml;nzung zu Ihrem Buch.<br /><br />Die gedruckte Version des Buches erhalten Sie in unserem Online-Shop - versandkostenfrei innerhalb Deutschlands und &Ouml;sterreichs.<br /><a href="http://www.galileocomputing.de/899?GPP=opc"><img src="common/pfeil_rechts5.gif" border="0" alt="">Zum Online-Shop</a></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td>
+<h4><a href="./c_000Vorwort_000.htm#Xxx999266">Vorwort</a></h4>
+<dt><a href="./c_000Vorwort_000.htm#Xxx999276">Vorwort zur 2. Auflage</a></dt>
+<h4><a href="./c_000VorwortGutachter_000.htm#Xxx999275">Vorwort des Gutachters</a></h4>
+<div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h4><a href="./c_001_000.htm#Xxx999328">1 Einstieg in C</a></h4>
+<dt><a href="./c_001_000.htm#Xxx999330">1.1 &Uuml;bersicht zu C</a></dt>
+<dt><a href="./c_001_001.htm#Xxx999330">1.2 Der ANSI C-Standard</a></dt>
+<dt>  <a href="./c_001_001.htm#Xxx999357">1.2.1 Der Vorteil des ANSI C-Standards</a></dt>
+<dt><a href="./c_001_002.htm#Xxx999328">1.3 Der POSIX-Standard</a></dt>
+<dt><a href="./c_001_003.htm#Xxx999328">1.4 Vor- und Nachteile der Programmiersprache C</a></dt>
+<dt><a href="./c_001_004.htm#Xxx999328">1.5 C in diesem Buch</a></dt>
+<dt><a href="./c_001_005.htm#Xxx999328">1.6 Was ben&ouml;tige ich f&uuml;r C?</a></dt>
+<dt>  <a href="./c_001_005.htm#Xxx999330">1.6.1 Texteditor</a></dt>
+<dt>  <a href="./c_001_005.htm#Xxx999332">1.6.2 Compiler</a></dt>
+<dt>  <a href="./c_001_005.htm#Xxx999340">1.6.3 All-in-one – die Entwicklungsumgebung</a></dt>
+<dt><a href="./c_001_006.htm#Xxx999328">1.7 Welcher Compiler und welches Betriebssystem?</a></dt>
+<div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h4><a href="./c_002_000.htm#Xxx999328">2 Das erste Programm</a></h4>
+<dt><a href="./c_002_000.htm#Xxx999330">2.1 Der beste Lernerfolg</a></dt>
+<dt><a href="./c_002_001.htm#Xxx999328">2.2 »Hallo Welt« in C</a></dt>
+<dt><a href="./c_002_002.htm#Xxx999328">2.3 Analyse des Programms</a></dt>
+<div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h4><a href="./c_003_000.htm#Xxx999328">3 Zeichens&auml;tze</a></h4>
+<dt><a href="./c_003_000.htm#Xxx999331">3.1 Basic-Zeichensatz</a></dt>
+<dt><a href="./c_003_001.htm#Xxx999330">3.2 Ausf&uuml;hrungszeichensatz (Steuerzeichen)</a></dt>
+<div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h4><a href="./c_004_000.htm#Xxx999329">4 Kommentare in C</a></h4>
+<dt><a href="./c_004_000.htm#Xxx999331">4.1 Wann sind Kommentare sinnvoll?</a></dt>
+<dt><a href="./c_004_001.htm#Xxx999328">4.2 Welche Kommentar-Schreibweise: // oder /*   */</a></dt>
+<div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h4><a href="./c_005_000.htm#Xxx999330">5 Formatierte Eingabe mit scanf()</a></h4>
+<dt><a href="./c_005_000.htm#Xxx999355">5.1 Der Adressoperator »&amp;«</a></dt>
+<dt><a href="./c_005_001.htm#Xxx999328">5.2 Probleme und deren Behandlung mit scanf()</a></dt>
+<dt>  <a href="./c_005_001.htm#Xxx999339">5.2.1 M&ouml;glichkeit 1</a></dt>
+<dt>  <a href="./c_005_001.htm#Xxx999343">5.2.2 M&ouml;glichkeit 2</a></dt>
+<dt>  <a href="./c_005_001.htm#Xxx999349">5.2.3 M&ouml;glichkeit 3</a></dt>
+<dt><a href="./c_005_002.htm#Xxx999328">5.3 Format pr&uuml;fen</a></dt>
+<dt><a href="./c_005_003.htm#Xxx999328">5.4 Zusammenfassung scanf()</a></dt>
+<div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h4><a href="./c_006_000.htm#Xxx999330">6 Formatierte Ausgabe mit printf</a></h4>
+<div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h4><a href="./c_007_000.htm#Xxx999329">7 Elementare Datentypen</a></h4>
+<dt><a href="./c_007_000.htm#Xxx999334">7.1 Der Datentyp int (Integer)</a></dt>
+<dt><a href="./c_007_001.htm#Xxx999329">7.2 Variablen deklarieren</a></dt>
+<dt>  <a href="./c_007_001.htm#Xxx999357">7.2.1 Erlaubte Bezeichner</a></dt>
+<dt><a href="./c_007_002.htm#Xxx999329">7.3 C versus C++ bei der Deklaration von Variablen</a></dt>
+<dt><a href="./c_007_003.htm#Xxx999330">7.4 Der Datentyp long</a></dt>
+<dt><a href="./c_007_004.htm#Xxx999330">7.5 Der Datentyp short</a></dt>
+<dt><a href="./c_007_005.htm#Xxx999329">7.6 Die Gleitpunkttypen float und double</a></dt>
+<dt>  <a href="./c_007_005.htm#Xxx999403">7.6.1 Gleitpunkttypen im Detail</a></dt>
+<dt>  <a href="./c_007_005.htm#Xxx999410">7.6.2 float im Detail</a></dt>
+<dt>  <a href="./c_007_005.htm#Xxx999421">7.6.3 double im Detail</a></dt>
+<dt>  <a href="./c_007_005.htm#Xxx999432">7.6.4 long double</a></dt>
+<dt>  <a href="./c_007_005.htm#Xxx999444">7.6.5 Einiges zu n-stelliger Genauigkeit</a></dt>
+<dt><a href="./c_007_006.htm#Xxx999329">7.7 Numerische Gleitpunktprobleme</a></dt>
+<dt><a href="./c_007_007.htm#Xxx999330">7.8 Der Datentyp char</a></dt>
+<dt><a href="./c_007_008.htm#Xxx999328">7.9 Nationale contra internationale Zeichens&auml;tze</a></dt>
+<dt><a href="./c_007_009.htm#Xxx999328">7.10 Vorzeichenlos und vorzeichenbehaftet</a></dt>
+<dt><a href="./c_007_010.htm#Xxx999328">7.11 Limits f&uuml;r Ganzzahl- und Gleitpunktdatentypen</a></dt>
+<dt><a href="./c_007_011.htm#Xxx999329">7.12 Konstanten</a></dt>
+<dt>  <a href="./c_007_011.htm#Xxx999332">7.12.1 Ganzzahlkonstanten</a></dt>
+<dt>  <a href="./c_007_011.htm#Xxx999393">7.12.2 Gleitpunktkonstanten</a></dt>
+<dt>  <a href="./c_007_011.htm#Xxx999426">7.12.3 Zeichenkonstanten</a></dt>
+<dt>  <a href="./c_007_011.htm#Xxx999433">7.12.4 String-Literale (Stringkonstante)</a></dt>
+<dt><a href="./c_007_012.htm#Xxx999329">7.13 Umwandlungsvorgaben f&uuml;r formatierte Ein–/Ausgabe</a></dt>
+<div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h4><a href="./c_008_000.htm#Xxx999328">8 Operatoren</a></h4>
+<dt><a href="./c_008_000.htm#Xxx999330">8.1 Exkurs zu Operatoren</a></dt>
+<dt><a href="./c_008_001.htm#Xxx999329">8.2 Arithmetische Operatoren</a></dt>
+<dt>  <a href="./c_008_001.htm#Xxx999376">8.2.1 Dividieren von Ganzzahlen</a></dt>
+<dt><a href="./c_008_002.htm#Xxx999328">8.3 Erweiterte Darstellung arithmetischer Operatoren</a></dt>
+<dt><a href="./c_008_003.htm#Xxx999330">8.4 Inkrement- und Dekrement-Operatoren</a></dt>
+<dt><a href="./c_008_004.htm#Xxx999329">8.5 Bit-Operatoren</a></dt>
+<dt>  <a href="./c_008_004.htm#Xxx999376">8.5.1 Bitweises UND</a></dt>
+<dt>  <a href="./c_008_004.htm#Xxx999431">8.5.2 Bitweises ODER</a></dt>
+<dt>  <a href="./c_008_004.htm#Xxx999483">8.5.3 Bitweise XOR</a></dt>
+<dt>  <a href="./c_008_004.htm#Xxx999535">8.5.4 Bitweises Komplement</a></dt>
+<dt>  <a href="./c_008_004.htm#Xxx999561">8.5.5 Linksverschiebung</a></dt>
+<dt>  <a href="./c_008_004.htm#Xxx999578">8.5.6 Rechtsverschiebung</a></dt>
+<dt>  <a href="./c_008_004.htm#Xxx999580">8.5.7 Rezept f&uuml;r Fortgeschrittene</a></dt>
+<dt><a href="./c_008_005.htm#Xxx999329">8.6 sizeof-Operator</a></dt>
+<dt>  <a href="./c_008_005.htm#Xxx999348">8.6.1 C versus C++</a></dt>
+<div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h4><a href="./c_009_000.htm#Xxx999328">9 Typenumwandlung</a></h4>
+<div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h4><a href="./c_010_000.htm#Xxx999328">10 Kontrollstrukturen</a></h4>
+<dt><a href="./c_010_000.htm#Xxx999335">10.1 Verzweigungen mit der if-Bedingung</a></dt>
+<dt>  <a href="./c_010_000.htm#Xxx999341">10.1.1 Anweisungsblock</a></dt>
+<dt><a href="./c_010_001.htm#Xxx999329">10.2 Die Verzweigung mit else if</a></dt>
+<dt><a href="./c_010_002.htm#Xxx999329">10.3 Die Verzweigung mit else</a></dt>
+<dt><a href="./c_010_003.htm#Xxx999329">10.4 Der !-Operator (logischer Operator)</a></dt>
+<dt><a href="./c_010_004.htm#Xxx999330">10.5 Logisches UND (&amp;&amp;) – Logisches ODER (||)</a></dt>
+<dt><a href="./c_010_005.htm#Xxx999329">10.6 Bedingungsoperator ?:</a></dt>
+<dt><a href="./c_010_006.htm#Xxx999329">10.7 Fallunterscheidung: die switch-Verzweigung</a></dt>
+<dt>  <a href="./c_010_006.htm#Xxx999350">10.7.1 default</a></dt>
+<dt><a href="./c_010_007.htm#Xxx999330">10.8 Die while-Schleife</a></dt>
+<dt>  <a href="./c_010_007.htm#Xxx999352">10.8.1 Endlosschleife (while)</a></dt>
+<dt>  <a href="./c_010_007.htm#Xxx999361">10.8.2 Fehlervermeidung bei while-Schleifen</a></dt>
+<dt><a href="./c_010_008.htm#Xxx999330">10.9 Die do while-Schleife</a></dt>
+<dt><a href="./c_010_009.htm#Xxx999330">10.10 Die for-Schleife</a></dt>
+<dt>  <a href="./c_010_009.htm#Xxx999352">10.10.1 Beispiele f&uuml;r eine for-Schleife</a></dt>
+<dt><a href="./c_010_010.htm#Xxx999328">10.11 Kontrollierte Spr&uuml;nge</a></dt>
+<dt>  <a href="./c_010_010.htm#Xxx999337">10.11.1 continue</a></dt>
+<dt>  <a href="./c_010_010.htm#Xxx999348">10.11.2 break</a></dt>
+<dt><a href="./c_010_011.htm#Xxx999329">10.12 Direkte Spr&uuml;nge mit goto</a></dt>
+<dt><a href="./c_010_012.htm#Xxx999329">10.13 Notationsstil</a></dt>
+<dt>  <a href="./c_010_012.htm#Xxx999331">10.13.1 K&amp;R-Stil</a></dt>
+<dt>  <a href="./c_010_012.htm#Xxx999333">10.13.2 Whitesmith-Stil</a></dt>
+<dt>  <a href="./c_010_012.htm#Xxx999335">10.13.3 Allman-Stil</a></dt>
+<dt>  <a href="./c_010_012.htm#Xxx999337">10.13.4 GNU EMACS-Stil</a></dt>
+<dt>  <a href="./c_010_012.htm#Xxx999339">10.13.5 Der Stil des Autors ;) (K&amp;R-like)</a></dt>
+<div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h4><a href="./c_011_000.htm#Xxx999328">11 Funktionen</a></h4>
+<dt><a href="./c_011_000.htm#Xxx999330">11.1 Was sind Funktionen?</a></dt>
+<dt><a href="./c_011_001.htm#Xxx999328">11.2 Wozu Funktionen?</a></dt>
+<dt><a href="./c_011_002.htm#Xxx999329">11.3 Definition von Funktionen</a></dt>
+<dt><a href="./c_011_003.htm#Xxx999328">11.4 Funktionsaufruf</a></dt>
+<dt><a href="./c_011_004.htm#Xxx999328">11.5 Funktionsdeklaration</a></dt>
+<dt><a href="./c_011_005.htm#Xxx999328">11.6 Lokale Variablen</a></dt>
+<dt><a href="./c_011_006.htm#Xxx999328">11.7 Globale Variablen</a></dt>
+<dt><a href="./c_011_007.htm#Xxx999328">11.8 Statische Variablen</a></dt>
+<dt><a href="./c_011_008.htm#Xxx999328">11.9 Schl&uuml;sselworte f&uuml;r Variablen – Speicherklassen</a></dt>
+<dt>  <a href="./c_011_008.htm#Xxx999335">11.9.1 auto</a></dt>
+<dt>  <a href="./c_011_008.htm#Xxx999342">11.9.2 extern</a></dt>
+<dt>  <a href="./c_011_008.htm#Xxx999345">11.9.3 register</a></dt>
+<dt>  <a href="./c_011_008.htm#Xxx999348">11.9.4 static</a></dt>
+<dt><a href="./c_011_009.htm#Xxx999328">11.10 Typ-Qualifizierer</a></dt>
+<dt>  <a href="./c_011_009.htm#Xxx999332">11.10.1 volatile</a></dt>
+<dt>  <a href="./c_011_009.htm#Xxx999338">11.10.2 const</a></dt>
+<dt><a href="./c_011_010.htm#Xxx999328">11.11 Geltungsbereich von Variablen</a></dt>
+<dt><a href="./c_011_011.htm#Xxx999328">11.12 Speicherklassen-Spezifizierer f&uuml;r Funktionen</a></dt>
+<dt>  <a href="./c_011_011.htm#Xxx999332">11.12.1 extern</a></dt>
+<dt>  <a href="./c_011_011.htm#Xxx999335">11.12.2 static</a></dt>
+<dt>  <a href="./c_011_011.htm#Xxx999338">11.12.3 volatile</a></dt>
+<dt><a href="./c_011_012.htm#Xxx999328">11.13 Datenaustausch zwischen Funktionen</a></dt>
+<dt><a href="./c_011_013.htm#Xxx999328">11.14 Wert&uuml;bergabe an Funktionen (call-by-value)</a></dt>
+<dt><a href="./c_011_014.htm#Xxx999328">11.15 R&uuml;ckgabewert von Funktionen</a></dt>
+<dt><a href="./c_011_015.htm#Xxx999328">11.16 Die Hauptfunktion main()</a></dt>
+<dt><a href="./c_011_016.htm#Xxx999328">11.17 R&uuml;ckgabewert beim Beenden eines Programms</a></dt>
+<dt><a href="./c_011_017.htm#Xxx999328">11.18 Funktionen der Laufzeitbibliothek</a></dt>
+<dt><a href="./c_011_018.htm#Xxx999328">11.19 Getrenntes Compilieren von Quelldateien</a></dt>
+<dt><a href="./c_011_019.htm#Xxx999328">11.20 Rekursive Funktionen</a></dt>
+<dt>  <a href="./c_011_019.htm#Xxx999332">11.20.1 Exkurs: Stack</a></dt>
+<dt>  <a href="./c_011_019.htm#Xxx999338">11.20.2 Rekursionen und der Stack</a></dt>
+<dt>  <a href="./c_011_019.htm#Xxx999396">11.20.3 Fakult&auml;t</a></dt>
+<dt>  <a href="./c_011_019.htm#Xxx999403">11.20.4 Fibonacci-Zahlen</a></dt>
+<dt>  <a href="./c_011_019.htm#Xxx999410">11.20.5 Gr&ouml;&szlig;ter gemeinsamer Teiler (GGT)</a></dt>
+<div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h4><a href="./c_012_000.htm#Xxx999328">12 Pr&auml;prozessor-Direktiven</a></h4>
+<dt><a href="./c_012_000.htm#Xxx999345">12.1 Einkopieren von Dateien mittels #include</a></dt>
+<dt><a href="./c_012_001.htm#Xxx999328">12.2 Makros und Konstanten – #define</a></dt>
+<dt>  <a href="./c_012_001.htm#Xxx999334">12.2.1 Symbolische Konstanten mit #define</a></dt>
+<dt>  <a href="./c_012_001.htm#Xxx999368">12.2.2 Makros mit #define</a></dt>
+<dt><a href="./c_012_002.htm#Xxx999328">12.3 Bedingte Kompilierung</a></dt>
+<dt><a href="./c_012_003.htm#Xxx999328">12.4 Vordefinierte Pr&auml;prozessor-Direktiven (ANSI C)</a></dt>
+<dt><a href="./c_012_004.htm#Xxx999328">12.5 Ersetzung eines Makroparameters durch einen String</a></dt>
+<dt><a href="./c_012_005.htm#Xxx999328">12.6 #undef – Makronamen wieder aufheben</a></dt>
+<dt><a href="./c_012_006.htm#Xxx999328">12.7 Ausgeben von Fehlermeldungen – #error</a></dt>
+<dt><a href="./c_012_007.htm#Xxx999328">12.8 #pragma</a></dt>
+<div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h4><a href="./c_013_000.htm#Xxx999328">13 Arrays</a></h4>
+<dt><a href="./c_013_000.htm#Xxx999331">13.1 Arrays deklarieren</a></dt>
+<dt><a href="./c_013_001.htm#Xxx999328">13.2 Initialisierung und Zugriff auf Arrays</a></dt>
+<dt>  <a href="./c_013_001.htm#Xxx999391">13.2.1 G&uuml;ltigkeitsbereich von Arrays</a></dt>
+<dt><a href="./c_013_002.htm#Xxx999328">13.3 Arrays vergleichen</a></dt>
+<dt><a href="./c_013_003.htm#Xxx999328">13.4 Anzahl der Elemente eines Arrays ermitteln</a></dt>
+<dt><a href="./c_013_004.htm#Xxx999328">13.5 &Uuml;bergabe von Arrays an Funktionen</a></dt>
+<dt><a href="./c_013_005.htm#Xxx999328">13.6 Arrays aus Funktionen zur&uuml;ckgeben</a></dt>
+<dt><a href="./c_013_006.htm#Xxx999328">13.7 Programmbeispiel zu den Arrays</a></dt>
+<dt><a href="./c_013_007.htm#Xxx999328">13.8 Einlesen von Array-Werten</a></dt>
+<dt><a href="./c_013_008.htm#Xxx999328">13.9 Mehrdimensionale Arrays</a></dt>
+<dt><a href="./c_013_009.htm#Xxx999328">13.10 Mehrdimensionale Arrays initialisieren</a></dt>
+<dt>  <a href="./c_013_009.htm#Xxx999368">13.10.1 Tic Tac Toe</a></dt>
+<dt>  <a href="./c_013_009.htm#Xxx999384">13.10.2 Dreidimensionale Arrays</a></dt>
+<dt><a href="./c_013_010.htm#Xxx999328">13.11 &Uuml;bergabe von zwei- bzw. mehrdimensionalen Arrays an Funktionen</a></dt>
+<dt><a href="./c_013_011.htm#Xxx999328">13.12 Arrays in Tabellenkalkulation einlesen (*.CSV–Dateien)</a></dt>
+<dt><a href="./c_013_012.htm#Xxx999328">13.13 Strings/Zeichenketten (char Array)</a></dt>
+<dt>  <a href="./c_013_012.htm#Xxx999367">13.13.1 Vom String zur Bin&auml;rzahl</a></dt>
+<dt><a href="./c_013_013.htm#Xxx999328">13.14 Einlesen von Strings</a></dt>
+<dt><a href="./c_013_014.htm#Xxx999328">13.15 Standard-Bibliothek &lt;string.h&gt;</a></dt>
+<dt>  <a href="./c_013_014.htm#Xxx999335">13.15.1 strcat() – Strings aneinander h&auml;ngen</a></dt>
+<dt>  <a href="./c_013_014.htm#Xxx999353">13.15.2 strchr() – ein Zeichen im String suchen</a></dt>
+<dt>  <a href="./c_013_014.htm#Xxx999361">13.15.3 strcmp() – Strings vergleichen</a></dt>
+<dt>  <a href="./c_013_014.htm#Xxx999367">13.15.4 strcpy() – einen String kopieren</a></dt>
+<dt>  <a href="./c_013_014.htm#Xxx999377">13.15.5 strcspn() – einen Teilstring ermitteln</a></dt>
+<dt>  <a href="./c_013_014.htm#Xxx999384">13.15.6 strlen() – L&auml;nge eines Strings ermitteln</a></dt>
+<dt>  <a href="./c_013_014.htm#Xxx999394">13.15.7 strncat() – String mit n Zeichen aneinander h&auml;ngen</a></dt>
+<dt>  <a href="./c_013_014.htm#Xxx999405">13.15.8 strncmp() – n Zeichen von zwei Strings miteinander vergleichen</a></dt>
+<dt>  <a href="./c_013_014.htm#Xxx999411">13.15.9 strncpy() – String mit n Zeichen kopieren</a></dt>
+<dt>  <a href="./c_013_014.htm#Xxx999417">13.15.10 strpbrk() – Auftreten bestimmter Zeichen suchen</a></dt>
+<dt>  <a href="./c_013_014.htm#Xxx999424">13.15.11 strrchr() – das letzte Auftreten eines bestimmten Zeichens im String suchen</a></dt>
+<dt>  <a href="./c_013_014.htm#Xxx999431">13.15.12 strspn() – erstes Auftreten eines Zeichens, das nicht vorkommt</a></dt>
+<dt>  <a href="./c_013_014.htm#Xxx999439">13.15.13 strstr() – String nach Auftreten eines Teilstrings durchsuchen</a></dt>
+<dt>  <a href="./c_013_014.htm#Xxx999446">13.15.14 strtok() – String anhand bestimmter Zeichen zerlegen</a></dt>
+<div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h4><a href="./c_014_000.htm#Xxx999328">14 Zeiger (Pointer)</a></h4>
+<dt><a href="./c_014_000.htm#Xxx999339">14.1 Zeiger deklarieren</a></dt>
+<dt><a href="./c_014_001.htm#Xxx999328">14.2 Zeiger initialisieren</a></dt>
+<dt>  <a href="./c_014_001.htm#Xxx999464">14.2.1 Speichergr&ouml;&szlig;e von Zeigern</a></dt>
+<dt><a href="./c_014_002.htm#Xxx999328">14.3 Zeigerarithmetik</a></dt>
+<dt><a href="./c_014_003.htm#Xxx999328">14.4 Zeiger, die auf andere Zeiger verweisen</a></dt>
+<dt>  <a href="./c_014_003.htm#Xxx999345">14.4.1 Subtraktion zweier Zeiger</a></dt>
+<dt><a href="./c_014_004.htm#Xxx999328">14.5 Typensicherung bei der Dereferenzierung</a></dt>
+<dt><a href="./c_014_005.htm#Xxx999328">14.6 Zeiger als Funktionsparameter (call–by–reference)</a></dt>
+<dt>  <a href="./c_014_005.htm#Xxx999363">14.6.1 Zeiger als R&uuml;ckgabewert</a></dt>
+<dt><a href="./c_014_006.htm#Xxx999328">14.7 Array und Zeiger</a></dt>
+<dt><a href="./c_014_007.htm#Xxx999328">14.8 Zeiger auf Strings</a></dt>
+<dt>  <a href="./c_014_007.htm#Xxx999335">14.8.1 Zeiger auf konstante Objekte (Read-only-Zeiger)</a></dt>
+<dt><a href="./c_014_008.htm#Xxx999328">14.9 Zeiger auf Zeiger und Stringtabellen</a></dt>
+<dt>  <a href="./c_014_008.htm#Xxx999342">14.9.1 Stringtabellen</a></dt>
+<dt><a href="./c_014_009.htm#Xxx999328">14.10 Zeiger auf Funktionen</a></dt>
+<dt><a href="./c_014_010.htm#Xxx999328">14.11 void-Zeiger</a></dt>
+<dt><a href="./c_014_011.htm#Xxx999328">14.12 &Auml;quivalenz zwischen Zeigern und Arrays</a></dt>
+<div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h4><a href="./c_015_000.htm#Xxx999328">15 Kommandozeilenargumente</a></h4>
+<dt><a href="./c_015_000.htm#Xxx999337">15.1 Argumente an die Hauptfunktion</a></dt>
+<dt><a href="./c_015_001.htm#Xxx999328">15.2 Optionen (Schalter) aus der Kommandozeile auswerten</a></dt>
+<div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h4><a href="./c_016_000.htm#Xxx999328">16 Dynamische Speicherverwaltung</a></h4>
+<dt><a href="./c_016_000.htm#Xxx999335">16.1 Das Speicherkonzept</a></dt>
+<dt><a href="./c_016_001.htm#Xxx999328">16.2 Speicheralloziierung mit malloc()</a></dt>
+<dt><a href="./c_016_002.htm#Xxx999328">16.3 Die Mysterie von NULL</a></dt>
+<dt>  <a href="./c_016_002.htm#Xxx999331">16.3.1 NULL f&uuml;r Fortgeschrittene</a></dt>
+<dt>  <a href="./c_016_002.htm#Xxx999348">16.3.2 Was jetzt – NULL, 0 oder \0 ... ?</a></dt>
+<dt>  <a href="./c_016_002.htm#Xxx999357">16.3.3 Zusammengefasst</a></dt>
+<dt><a href="./c_016_003.htm#Xxx999328">16.4 Speicherreservierung und ihre Probleme</a></dt>
+<dt><a href="./c_016_004.htm#Xxx999328">16.5 free() – Speicher wieder freigeben</a></dt>
+<dt><a href="./c_016_005.htm#Xxx999328">16.6 Die Freispeicherverwaltung</a></dt>
+<dt>  <a href="./c_016_005.htm#Xxx999346">16.6.1 Prozessinterne Freispeicherverwaltung</a></dt>
+<dt><a href="./c_016_006.htm#Xxx999328">16.7 Dynamisches Array</a></dt>
+<dt><a href="./c_016_007.htm#Xxx999328">16.8 Speicher dynamisch reservieren mit realloc und calloc</a></dt>
+<dt><a href="./c_016_008.htm#Xxx999328">16.9 Speicher vom Stack anfordern mit alloca (nicht ANSI C)</a></dt>
+<dt><a href="./c_016_009.htm#Xxx999328">16.10 free – Speicher wieder freigeben</a></dt>
+<dt><a href="./c_016_010.htm#Xxx999328">16.11 Zweidimensionale dynamische Arrays</a></dt>
+<dt><a href="./c_016_011.htm#Xxx999328">16.12 Wenn die Speicheralloziierung fehlschl&auml;gt</a></dt>
+<dt>  <a href="./c_016_011.htm#Xxx999332">16.12.1 Speicheranforderung reduzieren</a></dt>
+<dt>  <a href="./c_016_011.htm#Xxx999336">16.12.2 Speicheranforderungen aufteilen</a></dt>
+<dt>  <a href="./c_016_011.htm#Xxx999340">16.12.3 Einen Puffer konstanter Gr&ouml;&szlig;e verwenden</a></dt>
+<dt>  <a href="./c_016_011.htm#Xxx999342">16.12.4 Zwischenspeichern auf Festplatte vor der Alloziierung</a></dt>
+<dt>  <a href="./c_016_011.htm#Xxx999344">16.12.5 Nur so viel Speicher anfordern wie n&ouml;tig</a></dt>
+<div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h4><a href="./c_017_000.htm#Xxx999328">17 Strukturen</a></h4>
+<dt><a href="./c_017_000.htm#Xxx999330">17.1 Struktur deklarieren</a></dt>
+<dt><a href="./c_017_001.htm#Xxx999328">17.2 Initialisierung und Zugriff auf Strukturen</a></dt>
+<dt><a href="./c_017_002.htm#Xxx999328">17.3 Strukturen als Wert&uuml;bergabe an eine Funktion</a></dt>
+<dt><a href="./c_017_003.htm#Xxx999328">17.4 Strukturen als R&uuml;ckgabewert einer Funktion</a></dt>
+<dt><a href="./c_017_004.htm#Xxx999328">17.5 Strukturen vergleichen</a></dt>
+<dt><a href="./c_017_005.htm#Xxx999328">17.6 Arrays von Strukturen</a></dt>
+<dt><a href="./c_017_006.htm#Xxx999328">17.7 Strukturen in Strukturen (Nested Structures)</a></dt>
+<dt><a href="./c_017_007.htm#Xxx999328">17.8 Kurze Zusammenfassung zu den Strukturen</a></dt>
+<dt><a href="./c_017_008.htm#Xxx999328">17.9 Union</a></dt>
+<dt><a href="./c_017_009.htm#Xxx999328">17.10 Aufz&auml;hlungstyp enum</a></dt>
+<dt><a href="./c_017_010.htm#Xxx999328">17.11 Typendefinition mit typedef</a></dt>
+<dt><a href="./c_017_011.htm#Xxx999328">17.12 Attribute von Strukturen ver&auml;ndern (nicht ANSI C)</a></dt>
+<dt><a href="./c_017_012.htm#Xxx999328">17.13 Bitfelder</a></dt>
+<dt><a href="./c_017_013.htm#Xxx999328">17.14 Das offsetof-Makro</a></dt>
+<div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h4><a href="./c_018_000.htm#Xxx999328">18 Ein-/Ausgabe-Funktionen</a></h4>
+<dt><a href="./c_018_000.htm#Xxx999330">18.1 Was ist eine Datei?</a></dt>
+<dt><a href="./c_018_001.htm#Xxx999328">18.2 Formatierte und unformatierte Ein-/Ausgabe</a></dt>
+<dt><a href="./c_018_002.htm#Xxx999328">18.3 Streams</a></dt>
+<dt><a href="./c_018_003.htm#Xxx999328">18.4 H&ouml;here Ein-/Ausgabe-Funktionen</a></dt>
+<dt><a href="./c_018_004.htm#Xxx999328">18.5 Datei (Stream) &ouml;ffnen – fopen</a></dt>
+<dt>  <a href="./c_018_004.htm#Xxx999391">18.5.1 Modus f&uuml;r fopen()</a></dt>
+<dt>  <a href="./c_018_004.htm#Xxx999558">18.5.2 Maximale Anzahl ge&ouml;ffneter Dateien – FOPEN_MAX</a></dt>
+<dt><a href="./c_018_005.htm#Xxx999328">18.6 Zeichenweise Lesen und Schreiben – getchar und putchar</a></dt>
+<dt>  <a href="./c_018_005.htm#Xxx999354">18.6.1 Ein etwas portableres getch()</a></dt>
+<dt><a href="./c_018_006.htm#Xxx999328">18.7 Zeichenweise Lesen und Schreiben – putc/fputc und getc/fgetc</a></dt>
+<dt><a href="./c_018_007.htm#Xxx999328">18.8 Datei (Stream) schlie&szlig;en – fclose</a></dt>
+<dt><a href="./c_018_008.htm#Xxx999328">18.9 Formatiertes Einlesen/Ausgeben von Streams mit fprintf und fscanf</a></dt>
+<dt><a href="./c_018_009.htm#Xxx999328">18.10 Standard-Streams in C</a></dt>
+<dt>  <a href="./c_018_009.htm#Xxx999347">18.10.1 Standard-Streams umleiten</a></dt>
+<dt><a href="./c_018_010.htm#Xxx999328">18.11 Fehlerbehandlung von Streams – feof, ferror und clearerr</a></dt>
+<dt><a href="./c_018_011.htm#Xxx999328">18.12 Gelesenes Zeichen in die Eingabe zur&uuml;ck-schieben – ungetc</a></dt>
+<dt><a href="./c_018_012.htm#Xxx999328">18.13 (Tastatur-)Puffer leeren – fflush</a></dt>
+<dt>  <a href="./c_018_012.htm#Xxx999338">18.13.1 Pufferung</a></dt>
+<dt><a href="./c_018_013.htm#Xxx999328">18.14 Stream positionieren – fseek, rewind und ftell</a></dt>
+<dt><a href="./c_018_014.htm#Xxx999328">18.15 Stream positionieren – fsetpos, fgetpos</a></dt>
+<dt><a href="./c_018_015.htm#Xxx999328">18.16 Zeilenweise Ein-/Ausgabe von Streams</a></dt>
+<dt>  <a href="./c_018_015.htm#Xxx999330">18.16.1 Zeilenweise Lesen mit gets/fgets</a></dt>
+<dt>  <a href="./c_018_015.htm#Xxx999353">18.16.2 Zeilenweise Schreiben mit puts/fputs</a></dt>
+<dt>  <a href="./c_018_015.htm#Xxx999362">18.16.3 Zeilenweise Einlesen vom Stream mit getline() (nicht ANSI C)</a></dt>
+<dt>  <a href="./c_018_015.htm#Xxx999374">18.16.4 Rezepte f&uuml;r zeilenweises Einlesen und Ausgeben</a></dt>
+<dt><a href="./c_018_016.htm#Xxx999328">18.17 Blockweise Lesen und Schreiben – fread und fwrite</a></dt>
+<dt>  <a href="./c_018_016.htm#Xxx999342">18.17.1 Blockweises Lesen – fread()</a></dt>
+<dt>  <a href="./c_018_016.htm#Xxx999359">18.17.2 Blockweises Schreiben – fwrite()</a></dt>
+<dt>  <a href="./c_018_016.htm#Xxx999391">18.17.3 Big-Endian und Little-Endian</a></dt>
+<dt><a href="./c_018_017.htm#Xxx999328">18.18 Datei (Stream) erneut &ouml;ffnen – freopen</a></dt>
+<dt><a href="./c_018_018.htm#Xxx999328">18.19 Datei l&ouml;schen oder umbenennen – remove und rename</a></dt>
+<dt>  <a href="./c_018_018.htm#Xxx999330">18.19.1 remove()</a></dt>
+<dt>  <a href="./c_018_018.htm#Xxx999344">18.19.2 rename()</a></dt>
+<dt><a href="./c_018_019.htm#Xxx999328">18.20 Pufferung einstellen – setbuf und setvbuf</a></dt>
+<dt><a href="./c_018_020.htm#Xxx999328">18.21 Tempor&auml;re Dateien erzeugen – tmpfile und tmpnam</a></dt>
+<dt>  <a href="./c_018_020.htm#Xxx999359">18.21.1 mkstemp() – Sichere Alternative f&uuml;r Linux/UNIX (nicht ANSI C)</a></dt>
+<dt><a href="./c_018_021.htm#Xxx999328">18.22 Fehlerausgabe mit strerror und perror</a></dt>
+<dt><a href="./c_018_022.htm#Xxx999328">18.23 Formatiert in einem String schreiben und formatiert aus einem String lesen – sscanf und sprintf</a></dt>
+<dt><a href="./c_018_023.htm#Xxx999328">18.24 Fortgeschrittenes Thema</a></dt>
+<dt><a href="./c_018_024.htm#Xxx999328">18.25 Low-Level-Datei-I/O-Funktionen (nicht ANSI C)</a></dt>
+<dt><a href="./c_018_025.htm#Xxx999328">18.26 Datei &ouml;ffnen – open</a></dt>
+<dt><a href="./c_018_026.htm#Xxx999328">18.27 Datei schlie&szlig;en – close</a></dt>
+<dt><a href="./c_018_027.htm#Xxx999328">18.28 Datei erzeugen – creat</a></dt>
+<dt><a href="./c_018_028.htm#Xxx999328">18.29 Schreiben und Lesen – write und read</a></dt>
+<dt><a href="./c_018_029.htm#Xxx999328">18.30 File-Deskriptor positionieren – lseek</a></dt>
+<dt><a href="./c_018_030.htm#Xxx999328">18.31 File-Deskriptor von einem Stream – fileno</a></dt>
+<dt><a href="./c_018_031.htm#Xxx999328">18.32 Stream von File-Deskriptor – fdopen</a></dt>
+<div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h4><a href="./c_019_000.htm#Xxx999328">19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)</a></h4>
+<dt><a href="./c_019_000.htm#Xxx999330">19.1 Attribute einer Datei ermitteln – stat()</a></dt>
+<dt>  <a href="./c_019_000.htm#Xxx999407">19.1.1 stat() – st_mode</a></dt>
+<dt>  <a href="./c_019_000.htm#Xxx999598">19.1.2 stat() – st_size</a></dt>
+<dt>  <a href="./c_019_000.htm#Xxx999610">19.1.3 stat() – st_atime, st_mtime und st_ctime</a></dt>
+<dt>  <a href="./c_019_000.htm#Xxx999643">19.1.4 stat() – st_gid und st_uid</a></dt>
+<dt>  <a href="./c_019_000.htm#Xxx999650">19.1.5 stat() – st_nlink, st_ino</a></dt>
+<dt>  <a href="./c_019_000.htm#Xxx999655">19.1.6 stat() – st_dev, st_rdev</a></dt>
+<dt><a href="./c_019_001.htm#Xxx999328">19.2 Pr&uuml;fen des Zugriffsrechts – access</a></dt>
+<dt><a href="./c_019_002.htm#Xxx999328">19.3 Verzeichnis-Funktionen</a></dt>
+<dt>  <a href="./c_019_002.htm#Xxx999331">19.3.1 Verzeichnis erstellen, l&ouml;schen und wechseln – mkdir, rmdir und chdir</a></dt>
+<dt>  <a href="./c_019_002.htm#Xxx999364">19.3.2 Wechseln in das Arbeitsverzeichnis – getcwd</a></dt>
+<dt>  <a href="./c_019_002.htm#Xxx999375">19.3.3 Verzeichnisse &ouml;ffnen, lesen und schlie&szlig;en – opendir, readdir und closedir</a></dt>
+<div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h4><a href="./c_020_000.htm#Xxx999328">20 Arbeiten mit variablen langen Argumentlisten – &lt;stdarg.h&gt;</a></h4>
+<dt><a href="./c_020_000.htm#Xxx999339">20.1 Makros in &lt;stdarg.h&gt; – va_list, va_arg, va_start und va_end</a></dt>
+<dt><a href="./c_020_001.htm#Xxx999328">20.2 Argumentliste am Anfang oder Ende kennzeichnen</a></dt>
+<dt><a href="./c_020_002.htm#Xxx999328">20.3 vprintf, vsprintf und vfsprintf</a></dt>
+<div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h4><a href="./c_021_000.htm#Xxx999328">21 Zeitroutinen</a></h4>
+<dt><a href="./c_021_000.htm#Xxx999330">21.1 Die Headerdatei &lt;time.h&gt;</a></dt>
+<dt>  <a href="./c_021_000.htm#Xxx999430">21.1.1 Konstanten in der Headerdatei &lt;time.h&gt;</a></dt>
+<dt>  <a href="./c_021_000.htm#Xxx999436">21.1.2 Datums – und Zeitfunktionen in &lt;time.h&gt;</a></dt>
+<dt><a href="./c_021_001.htm#Xxx999328">21.2 Laufzeitmessung (Profiling)</a></dt>
+<div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h4><a href="./c_022_000.htm#Xxx999328">22 Weitere Headerdateien und ihre Funktionen (ANSI C)</a></h4>
+<dt><a href="./c_022_000.htm#Xxx999330">22.1 &lt;assert.h&gt; -– Testm&ouml;glichkeiten und Fehlersuche</a></dt>
+<dt><a href="./c_022_001.htm#Xxx999328">22.2 &lt;ctype.h&gt; – Zeichenklassifizierung und Umwandlung</a></dt>
+<dt><a href="./c_022_002.htm#Xxx999328">22.3 Mathematische Funktionen – &lt;math.h&gt;</a></dt>
+<dt><a href="./c_022_003.htm#Xxx999328">22.4 &lt;stdlib.h&gt;</a></dt>
+<dt>  <a href="./c_022_003.htm#Xxx999331">22.4.1 Programmbeendigung – exit(), _exit(), atexit() und abort()</a></dt>
+<dt>  <a href="./c_022_003.htm#Xxx999363">22.4.2 Konvertieren von Strings in numerische Werte</a></dt>
+<dt>  <a href="./c_022_003.htm#Xxx999385">22.4.3 Bessere Alternative –  Konvertieren von Strings in numerische Werte</a></dt>
+<dt>  <a href="./c_022_003.htm#Xxx999410">22.4.4 Zufallszahlen</a></dt>
+<dt>  <a href="./c_022_003.htm#Xxx999427">22.4.5 Absolutwerte, Quotient und Rest von Divisionen</a></dt>
+<dt>  <a href="./c_022_003.htm#Xxx999449">22.4.6 Suchen und Sortieren – qsort() und bsearch()</a></dt>
+<dt>  <a href="./c_022_003.htm#Xxx999463">22.4.7 system()</a></dt>
+<dt><a href="./c_022_004.htm#Xxx999328">22.5 &lt;locale.h&gt; – L&auml;nderspezifische Eigenheiten</a></dt>
+<dt><a href="./c_022_005.htm#Xxx999328">22.6 &lt;setjmp.h&gt;</a></dt>
+<dt><a href="./c_022_006.htm#Xxx999328">22.7 &lt;signal.h&gt;</a></dt>
+<dt><a href="./c_022_007.htm#Xxx999328">22.8 &lt;string.h&gt; – Die mem…-Funktionen zur Speichermanipulation</a></dt>
+<dt>  <a href="./c_022_007.htm#Xxx999331">22.8.1 memchr() – Suche nach einzelnen Zeichen</a></dt>
+<dt>  <a href="./c_022_007.htm#Xxx999337">22.8.2 memcmp() – Bestimmte Anzahl von Bytes vergleichen</a></dt>
+<dt>  <a href="./c_022_007.htm#Xxx999343">22.8.3 memcpy() – Bestimmte Anzahl von Bytes kopieren</a></dt>
+<dt>  <a href="./c_022_007.htm#Xxx999349">22.8.4 memmove() – Bestimmte Anzahl von Bytes kopieren</a></dt>
+<dt>  <a href="./c_022_007.htm#Xxx999355">22.8.5 memset() – Speicherbereich mit bestimmten Zeichen auff&uuml;llen</a></dt>
+<dt><a href="./c_022_008.htm#Xxx999328">22.9 Erweiterter ANSI C-Standard (ANSI C99)</a></dt>
+<dt>  <a href="./c_022_008.htm#Xxx999336">22.9.1 Neue elementare Datentypen</a></dt>
+<dt>  <a href="./c_022_008.htm#Xxx999376">22.9.2 &lt;stdint.h&gt; – Ganzzahlige Typen mit vorgegebener Breite</a></dt>
+<dt>  <a href="./c_022_008.htm#Xxx999413">22.9.3 Komplexe Gleitpunkttypen</a></dt>
+<dt>  <a href="./c_022_008.htm#Xxx999418">22.9.4 &lt;iso646.h&gt; – Symbolische Konstanten f&uuml;r Operatoren</a></dt>
+<dt>  <a href="./c_022_008.htm#Xxx999478">22.9.5 Deklaration von Bezeichnern</a></dt>
+<dt>  <a href="./c_022_008.htm#Xxx999480">22.9.6 inline-Funktionen</a></dt>
+<dt>  <a href="./c_022_008.htm#Xxx999486">22.9.7 Vordefinierte Makros</a></dt>
+<dt>  <a href="./c_022_008.htm#Xxx999519">22.9.8 &lt;math.h&gt; – Neue Funktionen</a></dt>
+<dt>  <a href="./c_022_008.htm#Xxx999667">22.9.9 &lt;wchar.h&gt; – (NA1)</a></dt>
+<dt>  <a href="./c_022_008.htm#Xxx999674">22.9.10 &lt;wctype.h&gt; (NA1)</a></dt>
+<dt>  <a href="./c_022_008.htm#Xxx999678">22.9.11 &lt;fenv.h&gt; – Kontrolle der Gleitpunkzahlen-Umgebung</a></dt>
+<dt>  <a href="./c_022_008.htm#Xxx999682">22.9.12 &lt;inttypes.h&gt; – F&uuml;r genauere Integer-Typen</a></dt>
+<dt>  <a href="./c_022_008.htm#Xxx999685">22.9.13 &lt;tgmath.h&gt; – Typengenerische Mathematik-Funktionen</a></dt>
+<dt>  <a href="./c_022_008.htm#Xxx999689">22.9.14 Zusammenfassung</a></dt>
+<div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h4><a href="./c_023_000.htm#Xxx999328">23 Dynamische Datenstrukturen</a></h4>
+<dt><a href="./c_023_000.htm#Xxx999330">23.1 Lineare Listen (einfach verkettete Listen)</a></dt>
+<dt>  <a href="./c_023_000.htm#Xxx999382">23.1.1 Erstes Element der Liste l&ouml;schen</a></dt>
+<dt>  <a href="./c_023_000.htm#Xxx999407">23.1.2 Beliebiges Element in der Liste l&ouml;schen</a></dt>
+<dt>  <a href="./c_023_000.htm#Xxx999442">23.1.3 Elemente der Liste ausgeben</a></dt>
+<dt>  <a href="./c_023_000.htm#Xxx999450">23.1.4 Eine vollst&auml;ndige Liste auf einmal l&ouml;schen</a></dt>
+<dt>  <a href="./c_023_000.htm#Xxx999484">23.1.5 Element in die Liste einf&uuml;gen</a></dt>
+<dt><a href="./c_023_001.htm#Xxx999328">23.2 Doppelt verkettete Listen</a></dt>
+<dt><a href="./c_023_002.htm#Xxx999328">23.3 Stacks nach dem LIFO (Last-in-First-out)-Prinzip</a></dt>
+<dt><a href="./c_023_003.htm#Xxx999328">23.4 Queues nach dem FIFO-Prinzip</a></dt>
+<div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h4><a href="./c_024_000.htm#Xxx999328">24 Algorithmen</a></h4>
+<dt><a href="./c_024_000.htm#Xxx999332">24.1 Was sind Algorithmen?</a></dt>
+<dt><a href="./c_024_001.htm#Xxx999328">24.2 Wie setze ich Algorithmen ein?</a></dt>
+<dt><a href="./c_024_002.htm#Xxx999328">24.3 Sortieralgorithmen</a></dt>
+<dt>  <a href="./c_024_002.htm#Xxx999337">24.3.1 Selektion Sort – Sortieren durch Ausw&auml;hlen</a></dt>
+<dt>  <a href="./c_024_002.htm#Xxx999352">24.3.2 Insertion Sort</a></dt>
+<dt>  <a href="./c_024_002.htm#Xxx999371">24.3.3 Bubble Sort</a></dt>
+<dt>  <a href="./c_024_002.htm#Xxx999386">24.3.4 Shellsort</a></dt>
+<dt>  <a href="./c_024_002.htm#Xxx999405">24.3.5 Quicksort</a></dt>
+<dt>  <a href="./c_024_002.htm#Xxx999491">24.3.6 qsort()</a></dt>
+<dt>  <a href="./c_024_002.htm#Xxx999498">24.3.7 Zusammenfassung der Sortieralgorithmen</a></dt>
+<dt><a href="./c_024_003.htm#Xxx999328">24.4 Suchalgorithmen – Grundlage zur Suche</a></dt>
+<dt>  <a href="./c_024_003.htm#Xxx999341">24.4.1 Lineare Suche</a></dt>
+<dt>  <a href="./c_024_003.htm#Xxx999353">24.4.2 Bin&auml;re Suche</a></dt>
+<dt>  <a href="./c_024_003.htm#Xxx999362">24.4.3 Bin&auml;re (Such-)B&auml;ume</a></dt>
+<dt>  <a href="./c_024_003.htm#Xxx999408">24.4.4 Elemente im bin&auml;ren Baum einordnen</a></dt>
+<dt>  <a href="./c_024_003.htm#Xxx999462">24.4.5 Bin&auml;re B&auml;ume travesieren</a></dt>
+<dt>  <a href="./c_024_003.htm#Xxx999474">24.4.6 L&ouml;schen eines Elements im bin&auml;ren Baum</a></dt>
+<dt>  <a href="./c_024_003.htm#Xxx999496">24.4.7 Ein bin&auml;rer Suchbaum in der Praxis</a></dt>
+<dt>  <a href="./c_024_003.htm#Xxx999518">24.4.8 Bin&auml;re Suchb&auml;ume mit Eltern-Zeiger und Threads</a></dt>
+<dt>  <a href="./c_024_003.htm#Xxx999528">24.4.9 Ausgeglichene Bin&auml;rb&auml;ume</a></dt>
+<dt>  <a href="./c_024_003.htm#Xxx999542">24.4.10 Algorithmen f&uuml;r ausgeglichene B&auml;ume – eine &Uuml;bersicht</a></dt>
+<dt><a href="./c_024_004.htm#Xxx999328">24.5 Hashing (Zerhacken)</a></dt>
+<dt>  <a href="./c_024_004.htm#Xxx999332">24.5.1 Wann wird Hashing verwendet?</a></dt>
+<dt>  <a href="./c_024_004.htm#Xxx999335">24.5.2 Was ist f&uuml;r das Hashing erforderlich?</a></dt>
+<dt>  <a href="./c_024_004.htm#Xxx999394">24.5.3 Hash-Funktion</a></dt>
+<dt>  <a href="./c_024_004.htm#Xxx999426">24.5.4 Hashing mit direkter Adressierung</a></dt>
+<dt>  <a href="./c_024_004.htm#Xxx999431">24.5.5 Vergleich von Hashing mit bin&auml;ren B&auml;umen</a></dt>
+<dt><a href="./c_024_005.htm#Xxx999328">24.6 String-Matching</a></dt>
+<dt>  <a href="./c_024_005.htm#Xxx999342">24.6.1 Brute-Force-Algorithmus</a></dt>
+<dt>  <a href="./c_024_005.htm#Xxx999354">24.6.2 Der Algorithmus von Knuth/Morris/Pratt (KMP)</a></dt>
+<dt>  <a href="./c_024_005.htm#Xxx999408">24.6.3 Weitere String-Matching-Algorithmen</a></dt>
+<dt><a href="./c_024_006.htm#Xxx999328">24.7 Pattern Matching (regul&auml;re Ausdr&uuml;cke)</a></dt>
+<dt><a href="./c_024_007.htm#Xxx999328">24.8 Backtracking</a></dt>
+<dt>  <a href="./c_024_007.htm#Xxx999332">24.8.1 Der Weg durch den Irrgarten</a></dt>
+<dt>  <a href="./c_024_007.htm#Xxx999404">24.8.2 Das 8-Dame-Problem</a></dt>
+<div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h4><a href="./c_025_000.htm#Xxx999328">25 Sicheres Programmieren</a></h4>
+<dt><a href="./c_025_000.htm#Xxx999339">25.1 Buffer Overflow (Speicher&uuml;berlauf)</a></dt>
+<dt>  <a href="./c_025_000.htm#Xxx999356">25.1.1 Speicherverwaltung von Programmen</a></dt>
+<dt>  <a href="./c_025_000.htm#Xxx999368">25.1.2 Der Stack-Frame</a></dt>
+<dt>  <a href="./c_025_000.htm#Xxx999379">25.1.3 R&uuml;cksprungadresse manipulieren</a></dt>
+<dt>  <a href="./c_025_000.htm#Xxx999435">25.1.4 Gegenma&szlig;nahmen zum Buffer Overflow w&auml;hrend der Programmerstellung</a></dt>
+<dt>  <a href="./c_025_000.htm#Xxx999602">25.1.5 Gegenma&szlig;nahmen zum Buffer Overflow, wenn das Programm fertig ist</a></dt>
+<dt>  <a href="./c_025_000.htm#Xxx999614">25.1.6 Programme und Tools zum Buffer Overflow</a></dt>
+<dt>  <a href="./c_025_000.htm#Xxx999628">25.1.7 Ausblick</a></dt>
+<dt><a href="./c_025_001.htm#Xxx999328">25.2 Memory Leaks (Speicherlecks)</a></dt>
+<dt>  <a href="./c_025_001.htm#Xxx999354">25.2.1 Bibliotheken und Tools zu Memory Leaks</a></dt>
+<dt><a href="./c_025_002.htm#Xxx999328">25.3 Tipps zu Sicherheitsproblemen</a></dt>
+<div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h4><a href="./c_026_000.htm#Xxx999328">26 CGI mit C</a></h4>
+<dt><a href="./c_026_000.htm#Xxx999330">26.1 Was ist CGI?</a></dt>
+<dt><a href="./c_026_001.htm#Xxx999328">26.2 Vorteile von CGIs in C</a></dt>
+<dt><a href="./c_026_002.htm#Xxx999328">26.3 Andere Techniken der Webprogrammierung</a></dt>
+<dt><a href="./c_026_003.htm#Xxx999328">26.4 Das dreistufige Webanwendungsdesign</a></dt>
+<dt>  <a href="./c_026_003.htm#Xxx999329">26.4.1 Darstellungsschicht</a></dt>
+<dt>  <a href="./c_026_003.htm#Xxx999342">26.4.2 Verarbeitungsschicht</a></dt>
+<dt>  <a href="./c_026_003.htm#Xxx999344">26.4.3 Speicherschicht</a></dt>
+<dt><a href="./c_026_004.htm#Xxx999328">26.5 Clientseitige Programmierung</a></dt>
+<dt>  <a href="./c_026_004.htm#Xxx999331">26.5.1 JavaScript</a></dt>
+<dt>  <a href="./c_026_004.htm#Xxx999334">26.5.2 Java-Applets</a></dt>
+<dt><a href="./c_026_005.htm#Xxx999328">26.6 Serverseitige Programmierung</a></dt>
+<dt><a href="./c_026_006.htm#Xxx999328">26.7 Der Webserver</a></dt>
+<dt>  <a href="./c_026_006.htm#Xxx999329">26.7.1 Das Client/Server-Modell des Internets</a></dt>
+<dt>  <a href="./c_026_006.htm#Xxx999342">26.7.2 Serverimplementierung</a></dt>
+<dt>  <a href="./c_026_006.htm#Xxx999347">26.7.3 Hosting-Services</a></dt>
+<dt>  <a href="./c_026_006.htm#Xxx999351">26.7.4 Schl&uuml;sselfertige L&ouml;sung</a></dt>
+<dt>  <a href="./c_026_006.htm#Xxx999353">26.7.5 Weitere M&ouml;glichkeiten</a></dt>
+<dt>  <a href="./c_026_006.htm#Xxx999364">26.7.6 Apache</a></dt>
+<dt><a href="./c_026_007.htm#Xxx999328">26.8 Das HTTP-Protokoll</a></dt>
+<dt>  <a href="./c_026_007.htm#Xxx999332">26.8.1 Web-Protokolle</a></dt>
+<dt>  <a href="./c_026_007.htm#Xxx999334">26.8.2 Wozu Protokolle?</a></dt>
+<dt>  <a href="./c_026_007.htm#Xxx999336">26.8.3 Was ist ein Protokoll?</a></dt>
+<dt>  <a href="./c_026_007.htm#Xxx999339">26.8.4 Normen f&uuml;r die Netzwerktechnik</a></dt>
+<dt>  <a href="./c_026_007.htm#Xxx999343">26.8.5 Das OSI-Schichtenmodell</a></dt>
+<dt>  <a href="./c_026_007.htm#Xxx999352">26.8.6 Die Elemente einer URL</a></dt>
+<dt>  <a href="./c_026_007.htm#Xxx999428">26.8.7 Client-Anfrage – HTTP Request (Browser-Request)</a></dt>
+<dt>  <a href="./c_026_007.htm#Xxx999519">26.8.8 Serverantwort (Server-Response)</a></dt>
+<dt>  <a href="./c_026_007.htm#Xxx999695">26.8.9 Zusammenfassung</a></dt>
+<dt><a href="./c_026_008.htm#Xxx999328">26.9 Das Common Gateway Interface (CGI)</a></dt>
+<dt>  <a href="./c_026_008.htm#Xxx999331">26.9.1 Filehandles</a></dt>
+<dt>  <a href="./c_026_008.htm#Xxx999338">26.9.2 CGI-Umgebungsvariablen</a></dt>
+<dt>  <a href="./c_026_008.htm#Xxx999491">26.9.3 CGI-Ausgabe</a></dt>
+<dt><a href="./c_026_009.htm#Xxx999328">26.10 HTML-Formulare</a></dt>
+<dt>  <a href="./c_026_009.htm#Xxx999332">26.10.1 Die Tags und ihre Bedeutung</a></dt>
+<dt><a href="./c_026_010.htm#Xxx999328">26.11 CGI-Eingabe</a></dt>
+<dt>  <a href="./c_026_010.htm#Xxx999329">26.11.1 Die Anfrage des Clients an den Server</a></dt>
+<dt>  <a href="./c_026_010.htm#Xxx999366">26.11.2 Eingabe parsen</a></dt>
+<dt><a href="./c_026_011.htm#Xxx999328">26.12 Ein G&auml;stebuch</a></dt>
+<dt>  <a href="./c_026_011.htm#Xxx999335">26.12.1 Das HTML-Formular (guestbook.html)</a></dt>
+<dt>  <a href="./c_026_011.htm#Xxx999344">26.12.2 Das CGI-Programm (auswert.cgi)</a></dt>
+<dt>  <a href="./c_026_011.htm#Xxx999355">26.12.3 Das HTML-G&auml;stebuch (gaeste.html)</a></dt>
+<dt>  <a href="./c_026_011.htm#Xxx999358">26.12.4 Das Beispiel ausf&uuml;hren</a></dt>
+<dt><a href="./c_026_012.htm#Xxx999328">26.13 Ausblick</a></dt>
+<div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h4><a href="./c_027_000.htm#Xxx999328">27 MySQL und C</a></h4>
+<dt><a href="./c_027_000.htm#Xxx999334">27.1 Aufbau eines Datenbanksystems</a></dt>
+<dt>  <a href="./c_027_000.htm#Xxx999340">27.1.1 Warum wurde ein Datenbanksystem (DBS) entwickelt?</a></dt>
+<dt>  <a href="./c_027_000.htm#Xxx999349">27.1.2 Das Datenbank-Management-System (DBMS)</a></dt>
+<dt>  <a href="./c_027_000.htm#Xxx999370">27.1.3 Relationale Datenbank</a></dt>
+<dt>  <a href="./c_027_000.htm#Xxx999406">27.1.4 Eigene Clients mit C f&uuml;r SQL mit der ODBC-API entwickeln</a></dt>
+<dt><a href="./c_027_001.htm#Xxx999328">27.2 MySQL installieren</a></dt>
+<dt>  <a href="./c_027_001.htm#Xxx999329">27.2.1 Linux</a></dt>
+<dt>  <a href="./c_027_001.htm#Xxx999338">27.2.2 Windows</a></dt>
+<dt>  <a href="./c_027_001.htm#Xxx999345">27.2.3 Den Client mysql starten</a></dt>
+<dt><a href="./c_027_002.htm#Xxx999328">27.3 Crashkurs (My)SQL</a></dt>
+<dt>  <a href="./c_027_002.htm#Xxx999331">27.3.1 Was ist SQL?</a></dt>
+<dt>  <a href="./c_027_002.htm#Xxx999337">27.3.2 Die Datentypen von (My)SQL</a></dt>
+<dt>  <a href="./c_027_002.htm#Xxx999531">27.3.3 Eine Datenbank erzeugen</a></dt>
+<dt>  <a href="./c_027_002.htm#Xxx999554">27.3.4 Eine Datenbank l&ouml;schen</a></dt>
+<dt>  <a href="./c_027_002.htm#Xxx999571">27.3.5 Datenbank wechseln</a></dt>
+<dt>  <a href="./c_027_002.htm#Xxx999576">27.3.6 Eine Tabelle erstellen</a></dt>
+<dt>  <a href="./c_027_002.htm#Xxx999587">27.3.7 Die Tabelle anzeigen</a></dt>
+<dt>  <a href="./c_027_002.htm#Xxx999592">27.3.8 Tabellendefinition &uuml;berpr&uuml;fen</a></dt>
+<dt>  <a href="./c_027_002.htm#Xxx999606">27.3.9 Tabelle l&ouml;schen</a></dt>
+<dt>  <a href="./c_027_002.htm#Xxx999615">27.3.10 Struktur einer Tabelle &auml;ndern</a></dt>
+<dt>  <a href="./c_027_002.htm#Xxx999627">27.3.11 Datens&auml;tze eingeben</a></dt>
+<dt>  <a href="./c_027_002.htm#Xxx999637">27.3.12 Datens&auml;tze ausw&auml;hlen</a></dt>
+<dt>  <a href="./c_027_002.htm#Xxx999658">27.3.13 Ein fortgeschrittenes Szenario</a></dt>
+<dt>  <a href="./c_027_002.htm#Xxx999674">27.3.14 Datensatz l&ouml;schen</a></dt>
+<dt>  <a href="./c_027_002.htm#Xxx999679">27.3.15 Datensatz &auml;ndern</a></dt>
+<dt>  <a href="./c_027_002.htm#Xxx999689">27.3.16 Zugriffsrechte in MySQL</a></dt>
+<dt>  <a href="./c_027_002.htm#Xxx999740">27.3.17 &Uuml;bersicht &uuml;ber einige SQL-Kommandos</a></dt>
+<dt><a href="./c_027_003.htm#Xxx999328">27.4 Die MySQL C-API</a></dt>
+<dt>  <a href="./c_027_003.htm#Xxx999337">27.4.1 Grundlagen zur Programmierung eines MySQL-Clients</a></dt>
+<dt>  <a href="./c_027_003.htm#Xxx999352">27.4.2 Client-Programm mit dem gcc- unter Linux und dem Cygwin gcc-Compiler unter Windows</a></dt>
+<dt>  <a href="./c_027_003.htm#Xxx999365">27.4.3 MySQL Client-Programme mit dem VC++ Compiler und dem Borland Freeware Compiler</a></dt>
+<dt>  <a href="./c_027_003.htm#Xxx999388">27.4.4 Troubleshooting</a></dt>
+<dt>  <a href="./c_027_003.htm#Xxx999397">27.4.5 Das erste Client-Programm – Verbindung mit dem MySQL-Server herstellen</a></dt>
+<dt>  <a href="./c_027_003.htm#Xxx999490">27.4.6 MySQL-Kommandozeilen-Optionen</a></dt>
+<dt>  <a href="./c_027_003.htm#Xxx999563">27.4.7 Anfrage an den Server</a></dt>
+<dt><a href="./c_027_004.htm#Xxx999328">27.5 MySQL und C mit CGI</a></dt>
+<dt>  <a href="./c_027_004.htm#Xxx999335">27.5.1 HTML-Eingabeformular</a></dt>
+<dt>  <a href="./c_027_004.htm#Xxx999344">27.5.2 CGI-Anwendung add_db.cgi</a></dt>
+<dt>  <a href="./c_027_004.htm#Xxx999349">27.5.3 CGI-Anwendung search_db.cgi</a></dt>
+<dt><a href="./c_027_005.htm#Xxx999328">27.6 Funktions&uuml;bersicht</a></dt>
+<dt><a href="./c_027_006.htm#Xxx999328">27.7 Datentypen&uuml;bersicht der C-API</a></dt>
+<div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h4><a href="./c_028_000.htm#Xxx999328">28 Netzwerkprogrammierung und Cross-Plattform-Entwicklung</a></h4>
+<dt><a href="./c_028_000.htm#Xxx999338">28.1 Begriffe zur Netzwerktechnik</a></dt>
+<dt>  <a href="./c_028_000.htm#Xxx999340">28.1.1 IP-Nummern</a></dt>
+<dt>  <a href="./c_028_000.htm#Xxx999358">28.1.2 Portnummer</a></dt>
+<dt>  <a href="./c_028_000.htm#Xxx999364">28.1.3 Host- und Domainname</a></dt>
+<dt>  <a href="./c_028_000.htm#Xxx999372">28.1.4 Nameserver</a></dt>
+<dt>  <a href="./c_028_000.htm#Xxx999376">28.1.5 Das IP-Protokoll</a></dt>
+<dt>  <a href="./c_028_000.htm#Xxx999385">28.1.6 TCP und UDP</a></dt>
+<dt>  <a href="./c_028_000.htm#Xxx999397">28.1.7 Was sind Sockets?</a></dt>
+<dt><a href="./c_028_001.htm#Xxx999328">28.2 Headerdateien zur Socketprogrammierung</a></dt>
+<dt>  <a href="./c_028_001.htm#Xxx999331">28.2.1 Linux/UNIX</a></dt>
+<dt>  <a href="./c_028_001.htm#Xxx999340">28.2.2 Windows</a></dt>
+<dt><a href="./c_028_002.htm#Xxx999328">28.3 Client-/Server-Prinzip</a></dt>
+<dt>  <a href="./c_028_002.htm#Xxx999334">28.3.1 Loopback-Interface</a></dt>
+<dt><a href="./c_028_003.htm#Xxx999328">28.4 Erstellen einer Client-Anwendung</a></dt>
+<dt>  <a href="./c_028_003.htm#Xxx999331">28.4.1 socket() – Erzeugen eines Kommunikationsendpunktes</a></dt>
+<dt>  <a href="./c_028_003.htm#Xxx999389">28.4.2 connect() – Client stellt Verbindung zum Server her</a></dt>
+<dt>  <a href="./c_028_003.htm#Xxx999454">28.4.3 Senden und Empfangen von Daten</a></dt>
+<dt>  <a href="./c_028_003.htm#Xxx999491">28.4.4 close(), closesocket()</a></dt>
+<dt><a href="./c_028_004.htm#Xxx999328">28.5 Erstellen einer Server-Anwendung</a></dt>
+<dt>  <a href="./c_028_004.htm#Xxx999331">28.5.1 bind() – Festlegen einer Adresse aus dem Namensraum</a></dt>
+<dt>  <a href="./c_028_004.htm#Xxx999346">28.5.2 listen() – Warteschlange f&uuml;r eingehende Verbindungen einrichten</a></dt>
+<dt>  <a href="./c_028_004.htm#Xxx999358">28.5.3 accept() und die Serverhauptschleife</a></dt>
+<dt><a href="./c_028_005.htm#Xxx999328">28.6 (Cross-Plattform)TCP-Echo-Server</a></dt>
+<dt>  <a href="./c_028_005.htm#Xxx999334">28.6.1 Der Client</a></dt>
+<dt>  <a href="./c_028_005.htm#Xxx999337">28.6.2 Der Server</a></dt>
+<dt><a href="./c_028_006.htm#Xxx999328">28.7 Cross-Plattform-Development</a></dt>
+<dt>  <a href="./c_028_006.htm#Xxx999330">28.7.1 Abstraktion Layer</a></dt>
+<dt>  <a href="./c_028_006.htm#Xxx999333">28.7.2 Headerdatei Linux/UNIX</a></dt>
+<dt>  <a href="./c_028_006.htm#Xxx999335">28.7.3 Linux/UNIX-Quelldatei</a></dt>
+<dt>  <a href="./c_028_006.htm#Xxx999341">28.7.4 Headerdatei MS-Windows</a></dt>
+<dt>  <a href="./c_028_006.htm#Xxx999343">28.7.5 Windows-Quelldatei</a></dt>
+<dt>  <a href="./c_028_006.htm#Xxx999345">28.7.6 All together – die main-Funktionen</a></dt>
+<dt>  <a href="./c_028_006.htm#Xxx999379">28.7.7 Ein UDP-Beispiel</a></dt>
+<dt>  <a href="./c_028_006.htm#Xxx999400">28.7.8 Mehrere Clients gleichzeitig behandeln</a></dt>
+<dt><a href="./c_028_007.htm#Xxx999328">28.8 Weitere Anmerkungen zur Netzwerkprogrammierung</a></dt>
+<dt>  <a href="./c_028_007.htm#Xxx999330">28.8.1 Das Datenformat</a></dt>
+<dt>  <a href="./c_028_007.htm#Xxx999336">28.8.2 Der Puffer</a></dt>
+<dt>  <a href="./c_028_007.htm#Xxx999345">28.8.3 Portabilit&auml;t</a></dt>
+<dt>  <a href="./c_028_007.htm#Xxx999348">28.8.4 Von IPv4 nach IPv6</a></dt>
+<dt>  <a href="./c_028_007.htm#Xxx999366">28.8.5 RFC-Dokumente  (Request for Comments)</a></dt>
+<dt>  <a href="./c_028_007.htm#Xxx999369">28.8.6 Sicherheit</a></dt>
+<div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h4><a href="./c_029_000.htm#Xxx999328">29 Wie geht’s jetzt weiter?</a></h4>
+<dt><a href="./c_029_000.htm#Xxx999340">29.1 GUI-Programmierung – Grafische Oberfl&auml;chen</a></dt>
+<dt>  <a href="./c_029_000.htm#Xxx999342">29.1.1 Low-Level-Grafikprogrammierung</a></dt>
+<dt>  <a href="./c_029_000.htm#Xxx999348">29.1.2 High-Level-Grafikprogrammierung</a></dt>
+<dt>  <a href="./c_029_000.htm#Xxx999356">29.1.3 Mutimedia-Grafikprogrammierung</a></dt>
+<div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h4><a href="./c_030Anhang_000.htm#Xxx999266">A Anhang</a></h4>
+<dt><a href="./c_030Anhang_000.htm#Xxx999268">A.1 Rangfolge der Operatoren</a></dt>
+<dt><a href="./c_030Anhang_001.htm#Xxx999266">A.2 ASCII-Code-Tabelle</a></dt>
+<dt><a href="./c_030Anhang_002.htm#Xxx999266">A.3 Reservierte Schl&uuml;sselw&ouml;rter in C</a></dt>
+<dt><a href="./c_030Anhang_003.htm#Xxx999266">A.4 Standard-Headerdateien der ANSI C-Bibliothek</a></dt>
+<dt><a href="./c_030Anhang_004.htm#Xxx999266">A.5 Weiterf&uuml;hrende Links</a></dt>
+<dt><a href="./c_030Anhang_005.htm#Xxx999266">A.6 Weiterf&uuml;hrende Literatur</a></dt>
+<dt>  <a href="./c_030Anhang_005.htm#Xxx999268">A.6.1 B&uuml;cher zum ANSI C-Standard</a></dt>
+<dt>  <a href="./c_030Anhang_005.htm#Xxx999273">A.6.2 Algorithmen und Datenstrukturen</a></dt>
+<dt>  <a href="./c_030Anhang_005.htm#Xxx999279">A.6.3 HTML, CGI-Webprogrammierung</a></dt>
+<dt>  <a href="./c_030Anhang_005.htm#Xxx999284">A.6.4 Linux/UNIX</a></dt>
+<dt>  <a href="./c_030Anhang_005.htm#Xxx999289">A.6.5 MySQL</a></dt>
+<div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h4><a href="./stichwort.htm#Xxx512322">Index</a></h4>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"> </td>
+<td width="49%">
+<div align="center"><a class="navnav" href="#"> &lt;top&gt;</a></div>
+</td>
+<td width="25%"><div align="right"><a class="navnav" href="c_000Vorwort_000.htm">vor &gt;&gt;</a> </div></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td width="10" valign="top">&nbsp;&nbsp;</td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/899?GPP=opc">
+                                        <img src="common/643_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C von A bis Z" title="Zum Katalog: C von A bis Z">
+                                        <br /><strong>C von A bis Z</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Ihre Meinung?</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1007?GPP=opc">
+                        <img src="common/683_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Shell-Programmierung" title="Zum Katalog: Shell-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Shell-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1137?GPP=opc">
+                        <img src="common/749_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux-UNIX-Programmierung" title="Zum Katalog: Linux-UNIX-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux-UNIX-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1004?GPP=opc">
+                        <img src="common/644_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C/C++" title="Zum Katalog: C/C++"><br /><br /><br /><br /><br /><br /><br />&nbsp;C/C++</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/880?GPP=opc">
+                        <img src="common/573_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/967?GPP=opc">
+                        <img src="common/626_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Reguläre Ausdrücke" title="Zum Katalog: Reguläre Ausdrücke"><br /><br /><br /><br /><br /><br /><br />&nbsp;Reguläre Ausdrücke</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/941?GPP=opc">
+                        <img src="common/677_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Shopping</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opc"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table>
+<br /><br />
+<hr width="70%" align="center"><br />
+<div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2006</b><br>F&uuml;r Ihren privaten Gebrauch d&uuml;rfen Sie die Online-Version nat&uuml;rlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschlie&szlig;lich aller seiner Teile ist urheberrechtlich gesch&uuml;tzt. Alle Rechte vorbehalten einschlie&szlig;lich der Vervielf&auml;ltigung, &Uuml;bersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

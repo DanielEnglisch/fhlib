@@ -1,0 +1,774 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: C von A bis Z – 19.3 Verzeichnis-Funktionen</title>
+<meta name="title" content="Galileo Computing :: C von A bis Z">
+<meta name="author" content="J&uuml;rgen Wolf">
+<meta name="publisher" content="Galileo Press 2006">
+<meta name="copyright" content="Galileo Press 2006">
+<meta name="description" content="C von A bis Z - Das umfassende Handbuch f&uuml;r Linux, Unix und Windows – 2., aktualisierte und erweiterte Auflage 2006, geb., mit CD und Referenzkarte – ISBN 3-89842-643-2">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="c_019_001.htm">
+<link rel="next" href="c_020_000.htm"><script type="text/javascript" language="JavaScript"><!--
+function OpenWin(url,name,height,width)
+{
+  var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+  InfoWin.focus();
+}
+//--></script></head>
+<body vlink="#000099" link="#000099" alink="#000099">
+    <table width="100%" height="74" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+        <tr>
+            <td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+            <td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opc"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger." title="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger."></a></td>
+        </tr>
+    </table>
+    <div align="right"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger.</a></div>
+    <br />
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td width="156" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
+        <tr>
+            <td colspan="2" class="nav1" align="left" valign="top" height="150">
+                <table class="tbl1" width="150" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td class="tbl2" height="25"><a class="nav" href="./index.htm">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000Vorwort_000.htm#Xxx999266">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000VorwortGutachter_000.htm#Xxx999275">Vorwort des Gutachters</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_001_000.htm#Xxx999328">1 Einstieg in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_002_000.htm#Xxx999328">2 Das erste Programm</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_003_000.htm#Xxx999328">3 Zeichens&auml;tze</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_004_000.htm#Xxx999329">4 Kommentare in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_005_000.htm#Xxx999330">5 Formatierte Eingabe mit scanf()</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_006_000.htm#Xxx999330">6 Formatierte Ausgabe mit printf</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_007_000.htm#Xxx999329">7 Elementare Datentypen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_008_000.htm#Xxx999328">8 Operatoren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_009_000.htm#Xxx999328">9 Typenumwandlung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_010_000.htm#Xxx999328">10 Kontrollstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_011_000.htm#Xxx999328">11 Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_012_000.htm#Xxx999328">12 Pr&auml;prozessor-Direktiven</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_013_000.htm#Xxx999328">13 Arrays</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_014_000.htm#Xxx999328">14 Zeiger (Pointer)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_015_000.htm#Xxx999328">15 Kommandozeilenargumente</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_016_000.htm#Xxx999328">16 Dynamische Speicherverwaltung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_017_000.htm#Xxx999328">17 Strukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_018_000.htm#Xxx999328">18 Ein-/Ausgabe-Funktionen</A></td>
+</tr>
+<tr>
+<td><A class="navh" href="./c_019_000.htm#Xxx999328">19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_020_000.htm#Xxx999328">20 Arbeiten mit variablen langen Argumentlisten – &lt;stdarg.h&gt;</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_021_000.htm#Xxx999328">21 Zeitroutinen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_022_000.htm#Xxx999328">22 Weitere Headerdateien und ihre Funktionen (ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_023_000.htm#Xxx999328">23 Dynamische Datenstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_024_000.htm#Xxx999328">24 Algorithmen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_025_000.htm#Xxx999328">25 Sicheres Programmieren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_026_000.htm#Xxx999328">26 CGI mit C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_027_000.htm#Xxx999328">27 MySQL und C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_028_000.htm#Xxx999328">28 Netzwerkprogrammierung und Cross-Plattform-Entwicklung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_029_000.htm#Xxx999328">29 Wie geht’s jetzt weiter?</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_030Anhang_000.htm#Xxx999266">A Anhang</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./stichwort.htm#Xxx512322">Index</a></td>
+</tr>
+<tr><td><br /><a class="navnav" href="http://download.galileo-press.de/openbook/c_von_a_bis_z/galileocomputing_c_von_a_bis_z.zip"><strong>Download:</strong><br />- ZIP, ca. 8,5 MB</a></td></tr>
+<tr><td><a class="navnav" href="http://www.galileocomputing.de/899?GPP=opc">Buch bestellen</a></td></tr>
+<tr><td><a class="navnav" href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)">Ihre Meinung?</a><br /><br /></td></tr>
+</table></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10"></td>
+<td width="85%" valign="top" align="center">
+    <div align="center">
+        <table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+            <tr>
+                <td width="100%" class="start" colspan="1" height="22" align="center">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_019_001.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Galileo Computing /</a><a class="navnav" href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"> &lt;openbook&gt; /</a><a href="./index.htm" class="navnav"> C von A bis Z</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_020_000.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" valign="top">
+    <table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+        <tr>
+            <td colspan="2"><a href="http://www.galileocomputing.de/899?GPP=opc" class="buchtitel">C von A bis Z</a><span class="autor"> von J&uuml;rgen Wolf</span><br><span class="untertitel">Das umfassende Handbuch f&uuml;r Linux, Unix und Windows <br />– 2., aktualisierte und erweiterte Auflage 2006</span></td>
+        </tr>
+        <tr>
+            <td valign="top" width="90"><a href="http://www.galileocomputing.de/899?GPP=opc"><img src="common/643.gif" border="0" alt="Buch: C von A bis Z" title="Buch: C von A bis Z" align="left"><br /><br /><span class="autor"><strong>C von A bis Z</strong><br />1.116 S., mit CD, Referenzkarte, 39,90 Euro<br />Galileo Computing<br />ISBN 3-89842-643-2</span></a></a></td>
+            <td width="80%">
+<table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="3" class="kap"><b>Kapitel <a href="./c_019_000.htm#RxxobKap01900004002AD71F03818C">19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_019_000.htm#RxxobKap01900004002AD71F03818E">19.1 Attribute einer Datei ermitteln – stat()</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_019_000.htm#RxxobKap01900004002AD71F0381B4">19.1.1 stat() – st_mode</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_019_000.htm#RxxobKap01900004002AD71F03820C">19.1.2 stat() – st_size</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_019_000.htm#RxxobKap01900004002AD71F038212">19.1.3 stat() – st_atime, st_mtime und st_ctime</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_019_000.htm#RxxobKap01900004002AD71F038225">19.1.4 stat() – st_gid und st_uid</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_019_000.htm#RxxobKap01900004002AD71F038228">19.1.5 stat() – st_nlink, st_ino</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_019_000.htm#RxxobKap01900004002AD71F03822B">19.1.6 stat() – st_dev, st_rdev</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_019_001.htm#RxxobKap01900104002AF21F02218C">19.2 Pr&uuml;fen des Zugriffsrechts – access</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a class="navh" href="#RxxobKap01900204002AF31F02C18C">19.3 Verzeichnis-Funktionen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap01900204002AF31F02C18E">19.3.1 Verzeichnis erstellen, l&ouml;schen und wechseln – mkdir, rmdir und chdir</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap01900204002AF31F02C1A7">19.3.2 Wechseln in das Arbeitsverzeichnis – getcwd</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap01900204002AF31F02C1B0">19.3.3 Verzeichnisse &ouml;ffnen, lesen und schlie&szlig;en – opendir, readdir und closedir</a></b></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td>
+<a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2">19.3 Verzeichnis-Funktionen<a id="RxxobKap01900204002AF31F02C18C" name="RxxobKap01900204002AF31F02C18C"></a> 
+      <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"></h2>
+<p><a id="Xxx999329" name="Xxx999329"></a>Bei den bisherigen ANSI C-Funktionen konnte es Ihnen egal sein, wie ein Dateisystem aufgebaut ist. Es gibt zwar einige systemabh&auml;ngige Faktoren, die zu beachten sind (bspw. das Trennzeichen von Verzeichnisnamen), aber meistens sind diese Funktionen so universell implementiert, dass es dennoch nicht zu Problemen kommt. Bei einem Zugriff auf Verzeichnisse ist es leider nicht mehr so einfach. Hierbei werden meist POSIX-konforme Funktionen verwendet, welche vorwiegend in der UNIX-Welt beheimatet sind. Keine Sorge, auch MS-Windows-Anwender k&ouml;nnen diese Funktionen nutzen. In vielen Compilern unter diesem System sind diese Funktionen integriert.</p>
+<a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3">19.3.1 Verzeichnis erstellen, l&ouml;schen und wechseln – mkdir, rmdir und chdir<a id="RxxobKap01900204002AF31F02C18E" name="RxxobKap01900204002AF31F02C18E"></a> 
+      <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<pre>#include &lt;sys/types.h&gt;  /* Linux/UNIX */
+#include &lt;sys/stat.h&gt;   /* Linux/UNIX */
+#include &lt;dir.h&gt;        /* MS-DOS/WIN */
+int mkdir(const char *pfad, [int modus]);</pre>
+<p><a id="Xxx999333" name="Xxx999333"></a><a id="Xxx999334" name="Xxx999334"></a>Mit der Funktion <span class="listing">mkdir()</span> wird ein neues Verzeichnis mit dem Namen <span class="listing">pfad</span> angelegt. Zus&auml;tzlich werden in dem neuen Verzeichnis automatisch auch das Arbeitsverzeichnis (Working Directory) (<span class="listing">.</span>) und das Eltern-Verzeichnis (Parent Directory) (<span class="listing">..</span>) mit angelegt. Die Zugriffsrechte k&ouml;nnen &uuml;ber <span class="listing">modus</span> vergeben werden. Dies gilt aber nur f&uuml;r Linux/UNIX und nicht f&uuml;r Windows/MS-DOS. Die Modi unter Linux/UNIX entnehmen Sie bitte der man-Page von <span class="listing">chmod()</span>.</p>
+<p>Hierzu ein Listing, mit dem ein neues Verzeichnis erstellt wird.</p>
+<pre>/* create_dir.c */
+#ifdef __unix__
+   #include &lt;sys/types.h&gt;
+   #include &lt;sys/stat.h&gt;
+   #define MODUS ,0711)
+#elif __WIN32__ || _MS_DOS_
+    #include &lt;dir.h&gt;
+    #define MODUS )
+#else
+    #include &lt;direct.h&gt;  /* Visual C++ */
+    #define MODUS )
+#endif
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main(void) {
+   char pfadname[200];
+   printf("Wie soll der neue Ordner heissen: ");
+   scanf("%199s",pfadname);
+   if(mkdir(pfadname MODUS == –1) /*Nicht sch&ouml;n, aber portabler*/
+      printf("Konnte kein neues Verzeichnis erstellen\n");
+   else
+      printf("Neues Verzeichnis namens %s erstellt\n",pfadname);
+   return EXIT_SUCCESS;
+}</pre>
+<p>Wurde das Programm ausgef&uuml;hrt, sollte sich im benannten Verzeichnis ein neuer Ordner mit dem eingegebenen Namen befinden. Unter Linux/UNIX muss au&szlig;erdem beachtet werden, dass f&uuml;r den <span class="listing">modus</span> auch die Ausf&uuml;hrrechte (execute-Bits) gesetzt sind, um auch Zugriff auf das neue Verzeichnis zu haben.</p>
+<p>Sofern versucht wird, ein Verzeichnis zu erstellen, welches bereits existiert, wird dies fehlschlagen. <span class="listing">errno</span> wird dann auf einen entsprechenden Wert gesetzt (<span class="listing">EEXIST</span>).</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard"><b>Hinweis   </b>Es sollte hierbei nicht unerw&auml;hnt bleiben, dass Sie unter Linux/UNIX nicht einfach die Zugriffsrechte f&uuml;r ein neues Verzeichnis bzw. eine neue Datei vergeben k&ouml;nnen, wie es Ihnen gerade passt. Sie sind dabei von einer gewissen Bit-Einschr&auml;nkungsmaske abh&auml;ngig, welche Sie allerdings mit der Funktion <span class="listing">umask()</span> ver&auml;ndern k&ouml;nnen. Dies ist allerdings sehr systemspezifisch und daher sei auf mein anderes Buch »Linux-UNIX-Programmierung« hingewiesen, welches Sie auch zum Probelesen auf meiner Homepage vorfinden.</p>
+</td>
+</tr>
+</table><br>
+<p>Als N&auml;chstes soll in das eben erstellte Verzeichnis gewechselt werden. Dies gelingt mit der Funktion <span class="listing">chdir()</span>. Die Syntax von <span class="listing">chdir()</span>:</p>
+<pre>#include &lt;unistd.h&gt; /* Linux/UNIX */
+#include &lt;dir.h&gt;    /* MS-DOS/WIN */
+int chdir(const char *pfad);</pre>
+<p><a id="Xxx999346" name="Xxx999346"></a><a id="Xxx999347" name="Xxx999347"></a>Mit <span class="listing">chdir()</span> wird in das Arbeitsverzeichnis, welches jedes ablaufende Programm besitzt, gewechselt. Bei einem Fehler gibt diese Funktion –1 zur&uuml;ck, ansonsten 0. In dem folgenden Listing wird erst ein neues Verzeichnis erstellt, danach wird mit <span class="listing">chdir()</span> in das erstellte Verzeichnis gewechselt und darin eine Textdatei erzeugt.</p>
+<pre>/* change_dir.c */
+#ifdef __linux__
+   #include &lt;sys/types.h&gt;
+   #include &lt;sys/stat.h&gt;
+   #include &lt;unistd.h&gt;
+   #define MODUS ,0711)
+#elif _WIN32__ || _MS_DOS_
+    #include &lt;dir.h&gt;
+    #define MODUS )
+#else
+    #include &lt;direct.h&gt;
+    #define MODUS )
+#endif
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;errno.h&gt;
+int main(void) {
+   char pfadname[200];
+   printf("Wie soll der neue Ordner heissen : ");
+   scanf("%199s",pfadname);
+   if(mkdir(pfadname MODUS == –1)
+      printf("Konnte kein neues Verzeichnis erstellen\n");
+   else {
+      printf("Neues Verzeichnis namens %s erstellt\n", pfadname);
+      printf(" --&gt; (%s)\n", strerror(errno));
+   }
+   /* Jetzt wollen wir in das neue Verzeichnis wechseln */
+   if(chdir(pfadname) == –1) {
+      printf("Konnte nicht in das Verzeichnis wechseln\n");
+      return EXIT_FAILURE;
+   }
+   else
+      printf("Erfolgreich nach %s gewechselt!\n", pfadname);
+   /* testfile im Verzeichnis erstellen*/
+   fopen("testfile", "w");
+   return EXIT_SUCCESS;
+}</pre>
+<p>Jetzt sollte sich in dem eben erzeugten Verzeichnis eine Datei namens »testfile« befinden. Es d&uuml;rfte Ihnen aufgefallen sein, dass wenn sich das Programm beendet, es automatisch wieder in das Verzeichnis des Elternprozesses zur&uuml;ckwechselt.</p>
+<p>Wenn Sie mehrmals in einem Programm Verzeichnisse erstellen m&uuml;ssen und in diese wechseln, schreiben Sie besser eine Funktion wie z.B.:</p>
+<pre>int makedir(char *dir) {
+   if(mkdir(dir, 0755) != –1) /*Windos/MS-DOS ohne 0755*/
+      if(chdir(dir) != –1)
+         return OK;
+   return ERROR;
+}</pre>
+<p>Wollen Sie ein Verzeichnis wieder l&ouml;schen, k&ouml;nnen Sie die Funktion <span class="listing">rmdir()</span> verwenden. Die Syntax von <span class="listing">rmdir()</span> lautet:<a id="Xxx999354" name="Xxx999354"></a></p>
+<pre>#include &lt;unistd.h&gt;   /* UNIX/Linux */
+#include &lt;dir.h&gt;      /* MS-DOS     */
+int rmdir(const char *pfad);</pre>
+<p><a id="Xxx999356" name="Xxx999356"></a>Mit <span class="listing">rmdir()</span> kann ein Verzeichnis (<span class="listing">rmdir</span> = remove directory) gel&ouml;scht werden. Unter Linux/UNIX setzt dies allerdings voraus, dass dieses Verzeichnis au&szlig;er dem (<span class="listing">.</span>) und (<span class="listing">..</span>) keinen anderen Eintrag mehr beinhaltet. Bei Erfolg gibt diese Funktion 0 und bei einem Fehler –1 zur&uuml;ck.</p>
+<p>Dazu soll das Programm, welches eben verwendet wurde, erweitert werden. Das Verzeichnis, welches erstellt, in das gewechselt und in dem eine Datei erzeugt wurde, soll am Ende des Programms wieder gel&ouml;scht werden. Hier das Listing:</p>
+<pre>/* remove_dir.c */
+#ifdef __linux__
+   #include &lt;sys/types.h&gt;
+   #include &lt;sys/stat.h&gt;
+   #include &lt;unistd.h&gt;
+   #define MODUS ,0711)
+#elif _WIN32__ || _MS_DOS_
+    #include &lt;dir.h&gt;
+    #define MODUS )
+#else
+    #include &lt;direct.h&gt;
+    #define MODUS )
+#endif
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;errno.h&gt;
+int makedir(char *dir) {
+   if(mkdir(dir MODUS != –1)
+      if(chdir(dir) != –1)
+         return 0;
+   return –1;
+}
+int main(void) {
+   char pfadname[200];
+   printf("Wie soll der neue Ordner heissen : ");
+   scanf("%199s",pfadname);
+   if(makedir(pfadname) == –1) {
+      printf("Konnte kein neues Verzeichnis erstellen\n");
+      printf(" --&gt; (%s)\n", strerror(errno));
+   }
+   /* testfile im Verzeichnis erstellen */
+   fopen("testfile","w");
+   if(rmdir(pfadname) == –1) {
+     printf("Konnte Verzeichnis %s nicht l&ouml;schen!!\n",pfadname);
+     printf(" --&gt; (%s)\n", strerror(errno));
+   }
+   return EXIT_SUCCESS;
+}</pre>
+<p>Unter MS-DOS/Windows wird das Listing problemlos funktionieren. Mit Linux/UNIX kann das Verzeichnis nicht gel&ouml;scht werden, da sich dort noch eine Datei befindet. Das Verzeichnis muss also zuvor leer sein. Das vollst&auml;ndige Verzeichnis l&auml;sst sich mit folgendem Shellaufruf leeren:</p>
+<pre>rmdir Verzeichnis | rm -rf Verzeichnis</pre>
+<p>Im Listing kann dieser Aufruf folgenderma&szlig;en eingesetzt werden:</p>
+<pre>/* remove_dir_unix.c */
+#include &lt;sys/types.h&gt;
+#include &lt;sys/stat.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;errno.h&gt;
+int main(void) {
+   char pfadname[200];
+   char deletefiles[200];
+   printf("Welchen Ordner wollen Sie l&ouml;schen : ");
+   scanf("%189s",pfadname);
+   strcpy(deletefiles,"rm -rf ");
+   strcat(deletefiles,pfadname);
+   strcat(deletefiles,"/*");
+   printf("%s\n",deletefiles);
+   system(deletefiles);
+   if(rmdir(pfadname) == –1) {
+      printf("Konnte Verzeichnis %s nicht l&ouml;schen!!\n",pfadname);
+      printf(" --&gt; (%s)\n", strerror(errno));
+   }
+   return EXIT_SUCCESS;
+}</pre>
+<a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3">19.3.2 Wechseln in das Arbeitsverzeichnis – getcwd<a id="RxxobKap01900204002AF31F02C1A7" name="RxxobKap01900204002AF31F02C1A7"></a> 
+      <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999365" name="Xxx999365"></a><a id="Xxx999366" name="Xxx999366"></a>Mit der Funktion <span class="listing">getcwd()</span> l&auml;sst sich der Name des Arbeitsverzeichnisses (Working Directory) ermitteln. Hier die Syntax von <span class="listing">getcwd()</span>:</p>
+<pre>#include &lt;unistd.h&gt;    /* Linux/UNIX */
+#include &lt;dir.h&gt;       /* MS-DOS/WIN */
+char *getcwd(char *puffer, int puffergr&ouml;sse);</pre>
+<p>Die Funktion schreibt in die Speicheradresse <span class="listing">puffer</span> den Pfadnamen des Arbeitsverzeichnisses mit abschlie&szlig;endem <span class="listing">'\0'</span>. Mit <span class="listing">puffergr&ouml;sse</span> wird die Gr&ouml;&szlig;e des Puffers angegeben. Die Funktion gibt bei Erfolg den Pfadnamen des Arbeitsverzeichnisses an <span class="listing">puffer</span> zur&uuml;ck oder bei einem Fehler <span class="listing">NULL</span>. Hier ein Beispiel, wie diese Funktion verwendet wird:</p>
+<pre>/* working_D.c */
+#ifdef __unix__
+    #include &lt;unistd.h&gt;
+#elif __WIN32__ || _MS_DOS_
+    #include &lt;dir.h&gt;
+#else
+    #include &lt;direct.h&gt; /* Visual C++ */
+#endif
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main(void) {
+   char puffer[200];
+   if(getcwd(puffer,sizeof(puffer)) == NULL) {
+      fprintf(stderr, "Fehler bei getcwd ...\n");
+      return EXIT_FAILURE;
+   }
+   printf("Working-Directory: %s\n", puffer);
+   return EXIT_SUCCESS;
+}</pre>
+<p>F&uuml;r Linux/UNIX gilt au&szlig;erdem: Wechseln Sie in ein Verzeichnis, welches ein symbolischer Link auf ein anderes Verzeichnis ist, so wird in das Verzeichnis gewechselt, auf das der symbolische Link zeigt.</p>
+<p>Ein praktisches Beispiel unter Linux: Der User hat den Namen seines Home-Verzeichnisses vergessen. Er muss aber jetzt wieder in das Verzeichnis wechseln. Welches das ist, kann er herausfinden mit der Eingabe des Shellbefehls <span class="listing">env</span> (Environment) oder mit der C-Funktion <span class="listing">getenv()</span>. Hier das Listing:</p>
+<pre>/* go_home.c */
+#ifdef __unix__
+    #include &lt;unistd.h&gt;
+#elif __WIN32__ || _MS_DOS_
+    #include &lt;dir.h&gt;
+#else
+    #include &lt;direct.h&gt; /* Visual C++ */
+#endif
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+int main(void) {
+   char puffer[200];
+   char home[200];
+   /* Das Heimatverzeichnis nach home */
+   strncpy(home,getenv("HOME"),199);
+   /* Working Directory lesen */
+   if(getcwd(puffer,sizeof(puffer)) == NULL) {
+      fprintf(stderr, "Fehler bei getcwd ...\n");
+      return EXIT_FAILURE;
+   }
+   /* Sind wir schon im Heimatverzeichnis? */
+   if(strcmp(home,puffer) == 0)
+      printf("Wir sind daheim : %s\n",puffer);
+   else { /* Nicht! Dann wechseln wir in Heimatverzeichnis */
+      chdir(home);
+      /* Der Beweis: */
+      printf("back at home: %s \n",
+         getcwd(puffer,sizeof(puffer)));
+   }
+   return EXIT_SUCCESS;
+}</pre>
+<a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3">19.3.3 Verzeichnisse &ouml;ffnen, lesen und schlie&szlig;en – opendir, readdir und closedir<a id="RxxobKap01900204002AF31F02C1B0" name="RxxobKap01900204002AF31F02C1B0"></a> 
+      <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Um Verzeichnisse zu lesen, ist in der Headerdatei <span class="listing">#include</span> <span class="listing">&lt;dirent.h&gt;</span> eine interne Struktur namens <span class="listing">DIR</span> deklariert. Der Inhalt dieser Struktur ist hier jetzt nicht von Interesse, sondern die folgenden Funktionen, die mit der Struktur arbeiten.</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard"><b>Hinweis   </b>Die folgenden Funktionen sind leider nicht mit dem Microsoft Visual C++ Compiler ausf&uuml;hrbar. Daf&uuml;r wird aber am Ende des Kapitels ein extra Listing angefertigt, das zeigt, wie auch mit dem Visual C++ Compiler Programme erstellt werden k&ouml;nnen, die ein Verzeichnis auslesen.</p>
+</td>
+</tr>
+</table><br>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard"><b>Tipp   </b>Wollen Sie die folgenden Beispiele mit der kostenlosen Entwicklungsumgebung Bloodshed Dev-C++ durchf&uuml;hren, m&uuml;ssen Sie im Men&uuml; &uuml;ber <b>Projekt </b><b>•</b> <b>Projektoptionen</b> in der Liste <b>Linker</b> die Bibliothek <span class="listing">–lmingwex</span> eintragen. Eventuell kann dies aber auch &uuml;ber das Men&uuml; <b>Werkzeuge </b><b>•</b> <b>Compiler </b><b>•</b> <b>Optionen</b> in die Liste <b>Linker</b> eingetragen werden. Hierf&uuml;r gen&uuml;gt aber dann folgender Eintrag: <span class="listing">mingwex</span></p>
+</td>
+</tr>
+</table><br>
+<h4 class="t4">opendir() – ein Verzeichnis &ouml;ffnen</h4>
+<p><a id="Xxx999395" name="Xxx999395"></a><a id="Xxx999396" name="Xxx999396"></a>Zuerst die Funktion <span class="listing">opendir()</span>:</p>
+<pre>#include &lt;sys/types.h&gt;
+#include &lt;dirent.h&gt;
+DIR *opendir(const char *dirname);</pre>
+<p>Bei Erfolg wird mit dieser Funktion das Verzeichnis <span class="listing">dirname</span> ge&ouml;ffnet, auf dessen Adresse dann der <span class="listing">DIR</span>-Zeiger verweist. Ansonsten wird bei einem Fehler <span class="listing">NULL</span> zur&uuml;ckgegeben.</p>
+<p>Der <span class="listing">DIR</span>-Zeiger wird jetzt verwendet, um den Inhalt eines Verzeichnisses auszulesen. Dies wird jetzt gleich mit der Funktion <span class="listing">readdir()</span> vorgenommen.</p>
+<h4 class="t4">readdir() – aus einem Verzeichnis lesen</h4>
+<p><a id="Xxx999402" name="Xxx999402"></a><a id="Xxx999403" name="Xxx999403"></a>Hier die Syntax:</p>
+<pre>#include &lt;sys/types.h&gt;
+#include &lt;dirent.h&gt;
+struct dirent *readdir(DIR *dir);</pre>
+<p>Bei einem Fehler gibt diese Funktion ebenfalls <span class="listing">NULL</span> zur&uuml;ck. Ansonsten eine Adresse der Struktur <span class="listing">dirent</span>, welche Folgendes beinhaltet:<a id="Xxx999407" name="Xxx999407"></a></p>
+<pre>struct dirent {
+   long d_ino;      /*i-node Nr. (bei Windows/MS-DOS immer 0)*/
+   unsigned short d_reclen;   /* (bei Windows/MS-DOS immer 0)*/
+   unsigned short d_namlen;   /* L&auml;nge des Namens in d_name  */
+   char *d_name;              /* Dateiname mit abschl. '\0'  */
+};</pre>
+<p>In der Praxis kann die Funktion <span class="listing">readdir()</span> so verwendet werden:</p>
+<pre>DIR *dir;
+struct dirent *dirzeiger;
+/* Verzeichnis &ouml;ffnen */
+if((dir=opendir(dirname)) != NULL)
+/* komplettes Verzeichnis Eintrag f&uuml;r Eintrag auslesen */
+while((dirzeiger=readdir(dir)) != NULL)
+    printf("%s\n",(*dirzeiger).d_name);</pre>
+<p>Es wird zuerst mit <span class="listing">opendir()</span> ein Verzeichnis ge&ouml;ffnet und danach mit <span class="listing">readdir()</span> der komplette Inhalt des Verzeichnisses ausgegeben.</p>
+<h4 class="t4">rewinddir() – Verzeichnis-Zeiger zur&uuml;cksetzen auf den Anfang</h4>
+<p><a id="Xxx999413" name="Xxx999413"></a>Mit der Funktion <span class="listing">rewinddir()</span> wird der Lesezeiger wieder an den Anfang der Namensliste des Verzeichnisses zur&uuml;ckgesetzt. Die Syntax von <span class="listing">rewinddir()</span>:</p>
+<pre>#include &lt;sys/types.h&gt;
+#include &lt;dirent.h&gt;
+void rewinddir(DIR *dir);</pre>
+<h4 class="t4">closedir() – Verzeichnis schlie&szlig;en</h4>
+<p><a id="Xxx999417" name="Xxx999417"></a>Am Ende wird dann mit der Funktion <span class="listing">closedir()</span> das Verzeichnis geschlossen, welches mit <span class="listing">opendir()</span> ge&ouml;ffnet wurde. Bei Erfolg gibt diese Funktion 0 und bei Fehler –1 zur&uuml;ck. Die Syntax lautet:</p>
+<pre>#include &lt;sys/types.h&gt;
+#inlcude &lt;dirent.h&gt;
+int closedir(DIR *dir);</pre>
+<p>Es folgt ein ausf&uuml;hrbares Beispiel, welches alle Funktionen in Aktion demonstriert:</p>
+<pre>/* read_dir.c */
+#include &lt;sys/types.h&gt;
+#include &lt;dirent.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main(int argc, char **argv) {
+   DIR *dir;
+   struct dirent *dirzeiger;
+   if(argc != 2) {
+      fprintf(stderr,"Benutzung : %s Directory\n", argv[0]);
+      return EXIT_FAILURE;
+   }
+   /* Das Verzeichnis &ouml;ffnen */
+   if((dir=opendir(argv[1])) == NULL) {
+      fprintf(stderr,"Fehler bei opendir ...\n");
+      return EXIT_FAILURE;
+   }
+   /* Das komplette Verzeichnis auslesen */
+   while((dirzeiger=readdir(dir)) != NULL)
+      printf("%s\n",(*dirzeiger).d_name);
+   /* Lesezeiger wieder schliessen */
+   if(closedir(dir) == –1)
+      printf("Fehler beim Schliessen von %s\n", argv[1]);
+   return EXIT_SUCCESS;
+}</pre>
+<p>Mit diesem Programm wird das vollst&auml;ndige Verzeichnis ausgegeben, welches Sie &uuml;ber die Kommandozeile angeben.</p>
+<h4 class="t4">telldir() und seekdir() – Positionierung im Verzeichnis</h4>
+<p><a id="Xxx999424" name="Xxx999424"></a><a id="Xxx999425" name="Xxx999425"></a><a id="Xxx999426" name="Xxx999426"></a>Auf einigen Systemen gibt es zus&auml;tzlich noch die Funktion <span class="listing">telldir()</span>:</p>
+<pre>#include &lt;sys/types.h&gt;
+#include &lt;sys/dirent.h&gt;
+off_t telldir(DIR *dirptr)</pre>
+<p>Diese Funktion liefert zu einem mit <span class="listing">readdir()</span> gelesenen Verzeichnis die Position des Lesezeigers zur&uuml;ck.</p>
+<p>Mit der Funktion <span class="listing">seekdir()</span> l&auml;sst sich die Position des <span class="listing">DIR</span>-Zeigers verschieben:</p>
+<pre>#include &lt;sys/types.h&gt;
+#include &lt;sys/dirent.h&gt;
+void seekdir(DIR *dirptr, off_t pos)</pre>
+<p>Damit wird der mit <span class="listing">opendir()</span> ge&ouml;ffnete Lesezeiger (<span class="listing">dirptr</span>) auf die Position <span class="listing">pos</span> gesetzt, welche Sie zuvor mit der Funktion <span class="listing">telldir()</span> ermittelt haben. Hierzu noch ein kurzer Ausschnitt dieser beiden Funktionen:</p>
+<pre>off_t pos;
+/* aktuelle Position im Verzeichnis ermitteln */
+pos = telldir(dir_ptr);
+/* viele Funktionen */
+...
+/* zur aktuellen Position zur&uuml;ckspringen */
+seekdir(dir_ptr, pos);</pre>
+<h4 class="t4">Probleme mit der Portabilit&auml;t</h4>
+<p><a id="Xxx999435" name="Xxx999435"></a>Ein Problem bei den Funktionen wie <span class="listing">opendir()</span>, <span class="listing">readdir()</span> oder <span class="listing">closedir()</span> ist, dass diese Funktionen POSIX-konform und aus diesem Grund h&auml;ufig nicht bei Compilern f&uuml;r MS-Windows implementiert sind. Unter UNIX-artigen Systemen m&uuml;ssen Sie sich wegen dieser Funktionen keine Gedanken machen. Um also unter MS-Windows, genauer unter WIN32, ein vollst&auml;ndiges Verzeichnis auszugeben, m&uuml;ssen Sie auf die Windows-Systemprogrammierung zur&uuml;ckgreifen. Die Windows-Programmierung hier genauer zu erl&auml;utern, w&uuml;rde den Rahmen des Kapitels, gar des Buchs, sprengen. Aber zu Anschauungszwecken folgt hier eine portablere L&ouml;sung, mit der Sie ein vollst&auml;ndiges Verzeichnis ausgeben lassen k&ouml;nnen.</p>
+<pre>/* portabel_readdir.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#ifdef __unix__
+#include &lt;dirent.h&gt;
+#include &lt;sys/types.h&gt;
+/* UNIX-Funktion zum Ausgeben des kompl. Verzeichnisses */
+void list_dir(const char *path) {
+   DIR *dirptr;
+   struct dirent *dir;
+   if ((dirptr=opendir(path)) == NULL)
+      return;
+   while((dir=readdir(dirptr)) != NULL)
+      printf("%s\n",dir-&gt;d_name);
+   closedir(dirptr);
+}
+#elif __WIN32__ || _MSC_VER
+#include &lt;windows.h&gt;
+/* Win32-Funktion zum Ausgeben des kompl. Verzeichnisses */
+void list_dir(const char *path) {
+   WIN32_FIND_DATA dir;
+   HANDLE fhandle;
+   char directory[256];
+   /* Unsicher, besser w&auml;re falls vorhanden snprintf() */
+   sprintf(directory,"%s\\*.*",path);
+   /* Handle auf das Verzeichnis director */
+   if ((fhandle=FindFirstFile(directory,&amp;dir)) !=
+                             INVALID_HANDLE_VALUE) {
+      do {  /* Verzeichnis auslesen */
+         printf("%s\n", dir.cFileName);
+      } while(FindNextFile(fhandle,&amp;dir));
+   }
+   FindClose(fhandle);
+}
+#endif
+int main(int argc,char **argv) {
+   if (argc &lt; 2)
+      list_dir(".");
+   else
+      list_dir(argv[1]);
+   return EXIT_SUCCESS;
+}</pre>
+<p>Bei der Win32-Funktion wurden hier die MS-DOS-&auml;hnlichen Funktionen <span class="listing">findfirst()</span> und <span class="listing">findnext()</span> verwendet. Die Funktion <span class="listing">FindFirstFile()</span> gibt einen Filehandle auf die erste Datei im Verzeichnis zur&uuml;ck. W&auml;hrend <span class="listing">FindNextFile()</span> den Handle immer um eine Position weitersetzt, bis keine Dateien mehr im Verzeichnis zum Lesen vorhanden sind. <span class="listing">FindClose()</span> schlie&szlig;t den Filehandle wieder.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_019_001.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_020_000.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td width="10" valign="top">&nbsp;&nbsp;</td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/899?GPP=opc">
+                                        <img src="common/643_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C von A bis Z" title="Zum Katalog: C von A bis Z">
+                                        <br /><strong>C von A bis Z</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Ihre Meinung?</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1007?GPP=opc">
+                        <img src="common/683_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Shell-Programmierung" title="Zum Katalog: Shell-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Shell-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1137?GPP=opc">
+                        <img src="common/749_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux-UNIX-Programmierung" title="Zum Katalog: Linux-UNIX-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux-UNIX-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1004?GPP=opc">
+                        <img src="common/644_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C/C++" title="Zum Katalog: C/C++"><br /><br /><br /><br /><br /><br /><br />&nbsp;C/C++</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/880?GPP=opc">
+                        <img src="common/573_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/967?GPP=opc">
+                        <img src="common/626_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Reguläre Ausdrücke" title="Zum Katalog: Reguläre Ausdrücke"><br /><br /><br /><br /><br /><br /><br />&nbsp;Reguläre Ausdrücke</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/941?GPP=opc">
+                        <img src="common/677_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Shopping</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opc"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table>
+<br /><br />
+<hr width="70%" align="center"><br />
+<div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2006</b><br>F&uuml;r Ihren privaten Gebrauch d&uuml;rfen Sie die Online-Version nat&uuml;rlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschlie&szlig;lich aller seiner Teile ist urheberrechtlich gesch&uuml;tzt. Alle Rechte vorbehalten einschlie&szlig;lich der Vervielf&auml;ltigung, &Uuml;bersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

@@ -1,0 +1,405 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: C von A bis Z – 29 Wie geht’s jetzt weiter?</title>
+<meta name="title" content="Galileo Computing :: C von A bis Z">
+<meta name="author" content="J&uuml;rgen Wolf">
+<meta name="publisher" content="Galileo Press 2006">
+<meta name="copyright" content="Galileo Press 2006">
+<meta name="description" content="C von A bis Z - Das umfassende Handbuch f&uuml;r Linux, Unix und Windows – 2., aktualisierte und erweiterte Auflage 2006, geb., mit CD und Referenzkarte – ISBN 3-89842-643-2">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="c_028_007.htm">
+<link rel="next" href="c_030Anhang_000.htm"><script type="text/javascript" language="JavaScript"><!--
+function OpenWin(url,name,height,width)
+{
+  var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+  InfoWin.focus();
+}
+//--></script></head>
+<body vlink="#000099" link="#000099" alink="#000099">
+    <table width="100%" height="74" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+        <tr>
+            <td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+            <td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opc"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger." title="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger."></a></td>
+        </tr>
+    </table>
+    <div align="right"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger.</a></div>
+    <br />
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td width="156" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
+        <tr>
+            <td colspan="2" class="nav1" align="left" valign="top" height="150">
+                <table class="tbl1" width="150" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td class="tbl2" height="25"><a class="nav" href="./index.htm">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000Vorwort_000.htm#Xxx999266">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000VorwortGutachter_000.htm#Xxx999275">Vorwort des Gutachters</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_001_000.htm#Xxx999328">1 Einstieg in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_002_000.htm#Xxx999328">2 Das erste Programm</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_003_000.htm#Xxx999328">3 Zeichens&auml;tze</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_004_000.htm#Xxx999329">4 Kommentare in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_005_000.htm#Xxx999330">5 Formatierte Eingabe mit scanf()</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_006_000.htm#Xxx999330">6 Formatierte Ausgabe mit printf</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_007_000.htm#Xxx999329">7 Elementare Datentypen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_008_000.htm#Xxx999328">8 Operatoren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_009_000.htm#Xxx999328">9 Typenumwandlung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_010_000.htm#Xxx999328">10 Kontrollstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_011_000.htm#Xxx999328">11 Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_012_000.htm#Xxx999328">12 Pr&auml;prozessor-Direktiven</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_013_000.htm#Xxx999328">13 Arrays</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_014_000.htm#Xxx999328">14 Zeiger (Pointer)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_015_000.htm#Xxx999328">15 Kommandozeilenargumente</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_016_000.htm#Xxx999328">16 Dynamische Speicherverwaltung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_017_000.htm#Xxx999328">17 Strukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_018_000.htm#Xxx999328">18 Ein-/Ausgabe-Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_019_000.htm#Xxx999328">19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_020_000.htm#Xxx999328">20 Arbeiten mit variablen langen Argumentlisten – &lt;stdarg.h&gt;</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_021_000.htm#Xxx999328">21 Zeitroutinen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_022_000.htm#Xxx999328">22 Weitere Headerdateien und ihre Funktionen (ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_023_000.htm#Xxx999328">23 Dynamische Datenstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_024_000.htm#Xxx999328">24 Algorithmen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_025_000.htm#Xxx999328">25 Sicheres Programmieren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_026_000.htm#Xxx999328">26 CGI mit C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_027_000.htm#Xxx999328">27 MySQL und C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_028_000.htm#Xxx999328">28 Netzwerkprogrammierung und Cross-Plattform-Entwicklung</A></td>
+</tr>
+<tr>
+<td><A class="navh" href="./c_029_000.htm#Xxx999328">29 Wie geht’s jetzt weiter?</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_030Anhang_000.htm#Xxx999266">A Anhang</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./stichwort.htm#Xxx512322">Index</a></td>
+</tr>
+<tr><td><br /><a class="navnav" href="http://download.galileo-press.de/openbook/c_von_a_bis_z/galileocomputing_c_von_a_bis_z.zip"><strong>Download:</strong><br />- ZIP, ca. 8,5 MB</a></td></tr>
+<tr><td><a class="navnav" href="http://www.galileocomputing.de/899?GPP=opc">Buch bestellen</a></td></tr>
+<tr><td><a class="navnav" href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)">Ihre Meinung?</a><br /><br /></td></tr>
+</table></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10"></td>
+<td width="85%" valign="top" align="center">
+    <div align="center">
+        <table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+            <tr>
+                <td width="100%" class="start" colspan="1" height="22" align="center">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_028_007.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Galileo Computing /</a><a class="navnav" href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"> &lt;openbook&gt; /</a><a href="./index.htm" class="navnav"> C von A bis Z</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_030Anhang_000.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" valign="top">
+    <table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+        <tr>
+            <td colspan="2"><a href="http://www.galileocomputing.de/899?GPP=opc" class="buchtitel">C von A bis Z</a><span class="autor"> von J&uuml;rgen Wolf</span><br><span class="untertitel">Das umfassende Handbuch f&uuml;r Linux, Unix und Windows <br />– 2., aktualisierte und erweiterte Auflage 2006</span></td>
+        </tr>
+        <tr>
+            <td valign="top" width="90"><a href="http://www.galileocomputing.de/899?GPP=opc"><img src="common/643.gif" border="0" alt="Buch: C von A bis Z" title="Buch: C von A bis Z" align="left"><br /><br /><span class="autor"><strong>C von A bis Z</strong><br />1.116 S., mit CD, Referenzkarte, 39,90 Euro<br />Galileo Computing<br />ISBN 3-89842-643-2</span></a></a></td>
+            <td width="80%">
+<table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="3" class="kap"><b>Kapitel <a class="navh" href="#RxxobKap02900004002D4D1F03D18C">29 Wie geht’s jetzt weiter?</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a class="navh" href="#RxxobKap02900004002D4D1F03D194">29.1 GUI-Programmierung – Grafische Oberfl&auml;chen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02900004002D4D1F03D196">29.1.1 Low-Level-Grafikprogrammierung</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02900004002D4D1F03D19C">29.1.2 High-Level-Grafikprogrammierung</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02900004002D4D1F03D1A4">29.1.3 Mutimedia-Grafikprogrammierung</a></b></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td>
+<h1 class="t1">Kapitel 29 Wie geht’s jetzt weiter?<a id="RxxobKap02900004002D4D1F03D18C" name="RxxobKap02900004002D4D1F03D18C"></a></h1>
+<p class="anleser"><i>Jetzt haben Sie das Buch gelesen und &uuml;berlegen sich, wie Sie jetzt wohl weitermachen k&ouml;nnen. Ein paar Tipps dazu kann ich Ihnen auf dieser Seite geben.</i></p>
+<p>Wenn Sie das Buch ganz gelesen und durchgearbeitet haben, k&ouml;nnen Sie sich jetzt als fortgeschrittener Programmierer in C bezeichnen. Der Weg zum Guru ist also nicht mehr weit.</p>
+<p>Mit der Sprache C haben Sie sich jetzt die allgemeinen Grundlagen der Programmierung angeeignet, doch was kommt jetzt? Mit C allein wird sich wohl kaum jemand noch seinen Lebensunterhalt verdienen. Gew&ouml;hnlich werden im Anschluss folgende Wege gegangen:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Sie steigen ein in die Systemprogrammierung von Linux oder Windows (besonders Wissensdurstige k&ouml;nnen nat&uuml;rlich auch gleich mit beiden Systemen anfangen). Dabei wird vorausgesetzt, dass Sie die Sprache C beherrschen (dies d&uuml;rfte nach dem Buch kein Problem mehr sein) und dass Sie sich mit dem entsprechenden Betriebssystem auch auskennen. Sofern Sie ein Linux-Fetischist sind, kann ich Ihnen mein aktuelles Buch »Linux-UNIX-Programmierung« empfehlen.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Sie lernen C++. Um mit der Programmiersprache C++ anzufangen, kann es von Vorteil sein, dass Sie die Sprache C bereits beherrschen. Es ist aber nicht unbedingt notwendig. C++ kann auch unabh&auml;ngig von C erlernt werden.</td>
+</tr>
+</table>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard"><b>Hinweis   </b>Die Systemprogrammierung<a id="Xxx999336" name="Xxx999336"></a> ist &uuml;brigens nicht gleichzusetzen mit der Programmierung eines Betriebssystems. Wenn Sie sich auf den Spuren von Herrn Gates oder Herrn Torvald begeben wollen, m&uuml;ssen Sie sich auch mit der Hardwareprogrammierung und Assembler auseinander setzen (Stichwort: Kernelprogrammierung).</p>
+</td>
+</tr>
+</table><br>
+<a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2">29.1 GUI-Programmierung<a id="Xxx999339" name="Xxx999339"></a> – Grafische Oberfl&auml;che<a id="RxxobKap02900004002D4D1F03D194" name="RxxobKap02900004002D4D1F03D194"></a>n 
+      <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"></h2>
+<p>Da Ihnen nach diesem Buch nun T&uuml;r und Tor offen stehen, werden sich einige Programmierer auch gerne mal an die »grafische« Programmierung heranwagen wollen, was ohne weiteres zu Empfehlen ist. Allerdings ist aller Anfang auch hier schwer. »Schwer« ist hierbei nicht die Verwendung einer entsprechenden Bibliothek, sondern eher den &Uuml;berblick zu wahren bzw. den Einstieg zu finden. Bevor Sie sich an die »grafische« Programmierung heranwagen, sollten Sie erst mal &uuml;berdenken, welche Art von »grafischer« Programmierung Sie einsetzen wollen. Generell unterscheide ich hierbei drei verschiedene Arten, der »grafischen« Programmierung.</p>
+<a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3">29.1.1 Low-Level-Grafikprogrammierung<a id="RxxobKap02900004002D4D1F03D196" name="RxxobKap02900004002D4D1F03D196"></a> 
+      <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Damit bezeichne ich die tiefste Ebene der »grafischen« Programmierung. Hierbei m&uuml;ssen Sie sich um alle Details selbst k&uuml;mmern. Sie wollen praktisch jeden Punkt, jede Linie und jedes kleine Detail (genauer die Grafik-Primitiven) selbst zeichnen.</p>
+<p>Gew&ouml;hnlich greifen Sie dabei auf die systemnaheste Grafikschnittstelle des Betriebssystems zu. Unter MS-Windows w&auml;re dies die Win32-API und unter Linux/UNIX ist es die Xlib (auch als X11 bekannt). Fast alle h&ouml;heren Grafik-Bibliotheken bauen auf dieser Ebene auf. H&auml;ufig wird hierbei als Programmiersprache C verwendet.</p>
+<p>Sehr gut geeignet ist diese systemnahe Grafikschnittstelle zum Entwickeln einer eigenen Spiele-Bibliothek oder einem Windowsmanager, womit Sie Ihrer Oberfl&auml;che ein eigenes Look &amp; Feel verpassen k&ouml;nnen (bspw. KDE oder GNOME unter Linux).</p>
+<p>Der Nachteil, wenn Sie diese niedrige Ebene verwenden, ist, eine sehr lange Einarbeitungszeit, langer und komplizierter Quellcode, gute Mathematikkenntnisse sind erforderlich und sie ist systemabh&auml;ngig. Also f&uuml;r Anf&auml;nger nur bedingt geeignet.</p>
+<p>Nat&uuml;rlich haben sie hiermit den Vorteil, dass Sie eine eigene schlanke Bibliothek entwickeln k&ouml;nnen, die Ihren Vorstellungen entspricht. Des Weiteren lernen Sie dabei, wie grafische Oberfl&auml;chen aufgebaut sind, was Ihnen auf jeden Fall zum besseren Verst&auml;ndnis beim Verwenden einer anderen grafischen Bibliothek hilft. Dabei werden Sie feststellen, dass das Prinzip einer grafischen Bibliothek immer dasselbe bleibt.</p>
+<a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3">29.1.2 High-Level-Grafikprogrammierung<a id="RxxobKap02900004002D4D1F03D19C" name="RxxobKap02900004002D4D1F03D19C"></a> 
+      <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Alle Grafikbibliotheken der h&ouml;heren Ebene basieren meistens auf der niedrigeren Ebene (Win32 bzw. X11). Bei solchen Bibliotheken k&ouml;nnen Sie vieles mit lediglich einem Funktionsaufruf erledigen. Alle unangenehmen Arbeiten werden Ihnen abgenommen. H&auml;ufig wird dabei auch Systemabh&auml;ngiges versteckt bzw. eine Cross-Plattform-Bibliothek daf&uuml;r angeboten. Damit lassen sich viele Bibliotheken der h&ouml;heren Ebene auch auf mehreren Systemen verwenden.</p>
+<p>Vorwiegend werden solche Bibliotheken verwendet, um die auf dem System basierenden typischen Look &amp; Feel-Anwendungen wie »Outlook« bzw. »Kmail« zu entwickeln – also typische fensterbasierende Anwendungen. Hierbei ist die Programmiersprache nicht mehr von prim&auml;rer Bedeutung, da es h&auml;ufig Schnittstellen f&uuml;r mehrere Sprachen gibt (f&uuml;r C bzw. C++ gibt es generell immer eine Schnittstelle). Meistens wird einer solchen Bibliothek auch eine Dokumentation mitgegeben, womit die Einarbeitung wesentlich leichter f&auml;llt.</p>
+<p>Platzhirsche einer solchen Bibliothek w&auml;ren unter MS-Windows MFC (Microsoft Foundation Classes) eine objektorientierte Version der Win32-API und OWL, die Borland-Alternative zu MFC. Wobei es unter MS-Windows eine Menge freier Bibliotheken hierzu gibt (bspw. GTK+, Qt usw.). Unter Linux werden vorwiegend die Bibliotheken GTK+ und die GNOME-Lib (f&uuml;r GNOME) oder Qt f&uuml;r den KDE-Desktop verwendet. Allerdings gibt es auch hier eine Menge Alternativen.</p>
+<p>Der Nachteil von solchen h&ouml;heren Bibliotheken ist, dass die Anwendungen manchmal etwas »fett« werden und eine Menge unn&ouml;tigen Ballast mit sich herumtragen.</p>
+<p>Allerdings &uuml;berwiegt der Vorteil, dass die Erstellungszeit einer Anwendung wesentlich schneller und komfortabler von der Hand geht (ein wenig Einarbeitungszeit vorausgesetzt). Vorraussetzung ist allerdings immer, dass sich der Programmierer mit seinem Werkzeug (besonders dem Compiler und Linker) auskennt. Dies ist bspw. nicht gegeben, wenn dieser schon daran scheitert, eine einfachste (Hallo-Welt) Anwendung mit dieser Bibliothek zu &uuml;bersetzen.</p>
+<h4 class="t4">RAD-Tools</h4>
+<p>Noch einfacher wird es dem Programmierer mit so genannten RAD-Tools (RAD = Rapid Application Development) oder auch GUI-Designer gemacht. Hierbei ist es fast m&ouml;glich, ohne Programmierkenntnisse eine grafische Anwendung zusammen zu klicken. Die GTK+-Bibliothek bietet bspw. mit GLADE ein solches Tool an. Ebenfalls in den meisten C#-Compilern ist ein solches Tool vorhanden. Zwar werden die RAD-Tools immer besser und nehmen dem Programmierer eine Menge Arbeit ab, aber wenn es um Details geht, sind weiterhin Programmierkenntnisse notwendig. Ein Mix aus beidem (RAD-Tool und »von Hand« programmieren) f&uuml;hrt wohl zum besten Ergebnis.</p>
+<a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3">29.1.3 Mutimedia-Grafikprogrammierung<a id="RxxobKap02900004002D4D1F03D1A4" name="RxxobKap02900004002D4D1F03D1A4"></a> 
+      <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Ebenfalls basierend auf der niedrigen Ebene sind so genannte Multimedia-Bibliotheken aufgebaut. Multimedia-Bibliotheken werden vorwiegend zur Programmierung von Spielen, Demos aber auch in der Filmindustrie zum Einf&uuml;gen von Spezial-Effekten verwendet. Bei diesen Bibliotheken werden dem Programmierer eine Menge Arbeiten abgenommen – und vieles l&auml;sst sich mit einem Funktionsaufruf realisieren. Auch bei diesen Bibliotheken gibt es einige »systemunabh&auml;ngige« Vertreter wie bspw. OpenGL, Allegro oder SDL, welche auf vielen Plattformen vorhanden sind.</p>
+<p>Die Programmiersprache ist nicht unbedingt von Bedeutung, da es h&auml;ufig die eine oder andere Schnittstelle zu anderen Sprachen gibt, aber in der Praxis werden die meisten Spiele, Demos bzw. Multimediaanwendungen in C/C++ erstellt. Viele dieser Bibliotheken sind sehr gut dokumentiert und es sind h&auml;ufig auch eine Menge Quellcodes und Demos zum Studieren vorhanden. Zu DirectX (dem Platzhirsch, womit sehr viele (nicht nur) Spiele programmiert werden) gibt es mittlerweile eine Menge deutschsprachiger Literatur, weshalb hier der Einstieg besonders leicht f&auml;llt. Allerdings ist DirectX eine Microsoft-eigene Bibliothek und eben nur unter diesem System ausf&uuml;hrbar.</p>
+<p>Vorraussetzung f&uuml;r die Multimedia-Programmierung sind sehr gute Mathematikkenntnisse (lineare Algebra), r&auml;umliches Denken (sofern Sie sich f&uuml;r die 3D-Programmierung interessieren) und sehr viel Zeit zur Verf&uuml;gung ;-).</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_028_007.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_030Anhang_000.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td width="10" valign="top">&nbsp;&nbsp;</td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/899?GPP=opc">
+                                        <img src="common/643_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C von A bis Z" title="Zum Katalog: C von A bis Z">
+                                        <br /><strong>C von A bis Z</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Ihre Meinung?</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1007?GPP=opc">
+                        <img src="common/683_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Shell-Programmierung" title="Zum Katalog: Shell-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Shell-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1137?GPP=opc">
+                        <img src="common/749_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux-UNIX-Programmierung" title="Zum Katalog: Linux-UNIX-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux-UNIX-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1004?GPP=opc">
+                        <img src="common/644_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C/C++" title="Zum Katalog: C/C++"><br /><br /><br /><br /><br /><br /><br />&nbsp;C/C++</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/880?GPP=opc">
+                        <img src="common/573_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/967?GPP=opc">
+                        <img src="common/626_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Reguläre Ausdrücke" title="Zum Katalog: Reguläre Ausdrücke"><br /><br /><br /><br /><br /><br /><br />&nbsp;Reguläre Ausdrücke</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/941?GPP=opc">
+                        <img src="common/677_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Shopping</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opc"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table>
+<br /><br />
+<hr width="70%" align="center"><br />
+<div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2006</b><br>F&uuml;r Ihren privaten Gebrauch d&uuml;rfen Sie die Online-Version nat&uuml;rlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschlie&szlig;lich aller seiner Teile ist urheberrechtlich gesch&uuml;tzt. Alle Rechte vorbehalten einschlie&szlig;lich der Vervielf&auml;ltigung, &Uuml;bersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

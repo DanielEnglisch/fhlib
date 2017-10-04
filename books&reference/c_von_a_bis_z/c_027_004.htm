@@ -1,0 +1,1239 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: C von A bis Z – 27.5 MySQL und C mit CGI</title>
+<meta name="title" content="Galileo Computing :: C von A bis Z">
+<meta name="author" content="J&uuml;rgen Wolf">
+<meta name="publisher" content="Galileo Press 2006">
+<meta name="copyright" content="Galileo Press 2006">
+<meta name="description" content="C von A bis Z - Das umfassende Handbuch f&uuml;r Linux, Unix und Windows – 2., aktualisierte und erweiterte Auflage 2006, geb., mit CD und Referenzkarte – ISBN 3-89842-643-2">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="c_027_003.htm">
+<link rel="next" href="c_027_005.htm"><script type="text/javascript" language="JavaScript"><!--
+function OpenWin(url,name,height,width)
+{
+  var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+  InfoWin.focus();
+}
+//--></script></head>
+<body vlink="#000099" link="#000099" alink="#000099">
+    <table width="100%" height="74" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+        <tr>
+            <td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+            <td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opc"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger." title="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger."></a></td>
+        </tr>
+    </table>
+    <div align="right"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger.</a></div>
+    <br />
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td width="156" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
+        <tr>
+            <td colspan="2" class="nav1" align="left" valign="top" height="150">
+                <table class="tbl1" width="150" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td class="tbl2" height="25"><a class="nav" href="./index.htm">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000Vorwort_000.htm#Xxx999266">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000VorwortGutachter_000.htm#Xxx999275">Vorwort des Gutachters</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_001_000.htm#Xxx999328">1 Einstieg in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_002_000.htm#Xxx999328">2 Das erste Programm</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_003_000.htm#Xxx999328">3 Zeichens&auml;tze</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_004_000.htm#Xxx999329">4 Kommentare in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_005_000.htm#Xxx999330">5 Formatierte Eingabe mit scanf()</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_006_000.htm#Xxx999330">6 Formatierte Ausgabe mit printf</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_007_000.htm#Xxx999329">7 Elementare Datentypen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_008_000.htm#Xxx999328">8 Operatoren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_009_000.htm#Xxx999328">9 Typenumwandlung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_010_000.htm#Xxx999328">10 Kontrollstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_011_000.htm#Xxx999328">11 Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_012_000.htm#Xxx999328">12 Pr&auml;prozessor-Direktiven</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_013_000.htm#Xxx999328">13 Arrays</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_014_000.htm#Xxx999328">14 Zeiger (Pointer)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_015_000.htm#Xxx999328">15 Kommandozeilenargumente</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_016_000.htm#Xxx999328">16 Dynamische Speicherverwaltung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_017_000.htm#Xxx999328">17 Strukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_018_000.htm#Xxx999328">18 Ein-/Ausgabe-Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_019_000.htm#Xxx999328">19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_020_000.htm#Xxx999328">20 Arbeiten mit variablen langen Argumentlisten – &lt;stdarg.h&gt;</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_021_000.htm#Xxx999328">21 Zeitroutinen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_022_000.htm#Xxx999328">22 Weitere Headerdateien und ihre Funktionen (ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_023_000.htm#Xxx999328">23 Dynamische Datenstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_024_000.htm#Xxx999328">24 Algorithmen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_025_000.htm#Xxx999328">25 Sicheres Programmieren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_026_000.htm#Xxx999328">26 CGI mit C</A></td>
+</tr>
+<tr>
+<td><A class="navh" href="./c_027_000.htm#Xxx999328">27 MySQL und C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_028_000.htm#Xxx999328">28 Netzwerkprogrammierung und Cross-Plattform-Entwicklung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_029_000.htm#Xxx999328">29 Wie geht’s jetzt weiter?</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_030Anhang_000.htm#Xxx999266">A Anhang</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./stichwort.htm#Xxx512322">Index</a></td>
+</tr>
+<tr><td><br /><a class="navnav" href="http://download.galileo-press.de/openbook/c_von_a_bis_z/galileocomputing_c_von_a_bis_z.zip"><strong>Download:</strong><br />- ZIP, ca. 8,5 MB</a></td></tr>
+<tr><td><a class="navnav" href="http://www.galileocomputing.de/899?GPP=opc">Buch bestellen</a></td></tr>
+<tr><td><a class="navnav" href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)">Ihre Meinung?</a><br /><br /></td></tr>
+</table></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10"></td>
+<td width="85%" valign="top" align="center">
+    <div align="center">
+        <table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+            <tr>
+                <td width="100%" class="start" colspan="1" height="22" align="center">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_027_003.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Galileo Computing /</a><a class="navnav" href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"> &lt;openbook&gt; /</a><a href="./index.htm" class="navnav"> C von A bis Z</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_027_005.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" valign="top">
+    <table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+        <tr>
+            <td colspan="2"><a href="http://www.galileocomputing.de/899?GPP=opc" class="buchtitel">C von A bis Z</a><span class="autor"> von J&uuml;rgen Wolf</span><br><span class="untertitel">Das umfassende Handbuch f&uuml;r Linux, Unix und Windows <br />– 2., aktualisierte und erweiterte Auflage 2006</span></td>
+        </tr>
+        <tr>
+            <td valign="top" width="90"><a href="http://www.galileocomputing.de/899?GPP=opc"><img src="common/643.gif" border="0" alt="Buch: C von A bis Z" title="Buch: C von A bis Z" align="left"><br /><br /><span class="autor"><strong>C von A bis Z</strong><br />1.116 S., mit CD, Referenzkarte, 39,90 Euro<br />Galileo Computing<br />ISBN 3-89842-643-2</span></a></a></td>
+            <td width="80%">
+<table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="3" class="kap"><b>Kapitel <a href="./c_027_000.htm#RxxobKap02700004002CBD1F02018C">27 MySQL und C</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_027_000.htm#RxxobKap02700004002CBD1F020190">27.1 Aufbau eines Datenbanksystems</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_000.htm#RxxobKap02700004002CBD1F020193">27.1.1 Warum wurde ein Datenbanksystem (DBS) entwickelt?</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_000.htm#RxxobKap02700004002CBD1F02019C">27.1.2 Das Datenbank-Management-System (DBMS)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_000.htm#RxxobKap02700004002CBD1F0201A9">27.1.3 Relationale Datenbank</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_000.htm#RxxobKap02700004002CBD1F0201BA">27.1.4 Eigene Clients mit C f&uuml;r SQL mit der ODBC-API entwickeln</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_027_001.htm#RxxobKap02700104002CD81F02218C">27.2 MySQL installieren</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_001.htm#RxxobKap02700104002CD81F02218D">27.2.1 Linux</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_001.htm#RxxobKap02700104002CD81F022194">27.2.2 Windows</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_001.htm#RxxobKap02700104002CD81F022199">27.2.3 Den Client mysql starten</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F04418C">27.3 Crashkurs (My)SQL</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F04418E">27.3.1 Was ist SQL?</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F044192">27.3.2 Die Datentypen von (My)SQL</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F0441F1">27.3.3 Eine Datenbank erzeugen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F0441FE">27.3.4 Eine Datenbank l&ouml;schen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F044208">27.3.5 Datenbank wechseln</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F04420B">27.3.6 Eine Tabelle erstellen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F044214">27.3.7 Die Tabelle anzeigen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F044217">27.3.8 Tabellendefinition &uuml;berpr&uuml;fen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F04421E">27.3.9 Tabelle l&ouml;schen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F044225">27.3.10 Struktur einer Tabelle &auml;ndern</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F04422F">27.3.11 Datens&auml;tze eingeben</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F044237">27.3.12 Datens&auml;tze ausw&auml;hlen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F044247">27.3.13 Ein fortgeschrittenes Szenario</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F044257">27.3.14 Datensatz l&ouml;schen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F04425A">27.3.15 Datensatz &auml;ndern</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F044260">27.3.16 Zugriffsrechte in MySQL</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_002.htm#RxxobKap02700204002CD91F04427D">27.3.17 &Uuml;bersicht &uuml;ber einige SQL-Kommandos</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_027_003.htm#RxxobKap02700304002CDA1F04D18C">27.4 Die MySQL C-API</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_003.htm#RxxobKap02700304002CDA1F04D191">27.4.1 Grundlagen zur Programmierung eines MySQL-Clients</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_003.htm#RxxobKap02700304002CDA1F04D19B">27.4.2 Client-Programm mit dem gcc- unter Linux und dem Cygwin gcc-Compiler unter Windows</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_003.htm#RxxobKap02700304002CDA1F04D1A6">27.4.3 MySQL Client-Programme mit dem VC++ Compiler und dem Borland Freeware Compiler</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_003.htm#RxxobKap02700304002CDA1F04D1B8">27.4.4 Troubleshooting</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_003.htm#RxxobKap02700304002CDA1F04D1C0">27.4.5 Das erste Client-Programm – Verbindung mit dem MySQL-Server herstellen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_003.htm#RxxobKap02700304002CDA1F04D1F7">27.4.6 MySQL-Kommandozeilen-Optionen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_027_003.htm#RxxobKap02700304002CDA1F04D21F">27.4.7 Anfrage an den Server</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a class="navh" href="#RxxobKap02700404002CDB1F03A18C">27.5 MySQL und C mit CGI</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02700404002CDB1F03A191">27.5.1 HTML-Eingabeformular</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02700404002CDB1F03A197">27.5.2 CGI-Anwendung add_db.cgi</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02700404002CDB1F03A19B">27.5.3 CGI-Anwendung search_db.cgi</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_027_005.htm#RxxobKap02700504002CDC1F03618C">27.6 Funktions&uuml;bersicht</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_027_006.htm#RxxobKap02700604002CDD1F03B18C">27.7 Datentypen&uuml;bersicht der C-API</a></b></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td>
+<a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2">27.5 MySQL und C mit CGI<a id="RxxobKap02700404002CDB1F03A18C" name="RxxobKap02700404002CDB1F03A18C"></a> 
+      <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"></h2>
+<p>Zum Abschluss soll wie versprochen ein<a id="Xxx999329" name="Xxx999329"></a><a id="Xxx999330" name="Xxx999330"></a> Beispiel erstellt werden, bei dem Sie mithilfe eines CGI-Webformulars eine Datenbank mit E-Mail-Adressen f&uuml;ttern. Auf diese Weise erstellen Sie quasi eine grafische Oberfl&auml;che zum Bedienen einer Datenbank mithilfe des Webbrowsers. Erzeugen Sie eine neue Datenbank mit dem Namen <span class="listing">mail_archiv</span>. Geben Sie dazu im <span class="listing">mysql</span>-Client Folgendes ein:</p>
+<pre>CREATE DATABASE mail_archiv;</pre>
+<p>Wechseln Sie in diese Datenbank mit <span class="listing">USE</span> und erstellen Sie eine Tabelle mit folgendem SQL-Kommando:</p>
+<pre>CREATE TABLE daten (adresse CHAR(255), name CHAR(255));</pre>
+<a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3">27.5.1 HTML-Eingabeformular<a id="RxxobKap02700404002CDB1F03A191" name="RxxobKap02700404002CDB1F03A191"></a> 
+      <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Als N&auml;chstes sollten Sie die HTML-Datei erstellen, mit der Sie die Daten eingeben k&ouml;nnen. Hier die Datei:</p>
+<pre>&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Datenbank&lt;/title&gt;
+&lt;/head&gt;
+&lt;body text="#000000" bgcolor="#FFFFFF" link="#FF0000" 
+alink="#FF0000" vlink="#FF0000"&gt;
+&lt;h3&gt;Datenbank (E-Mail-Adressen)&lt;/h3&gt;
+&lt;hr&gt;&lt;br&gt;
+&lt;form action="http://localhost/cgi-bin/add_db.cgi" method=post&gt;
+Neuen Datensatz hinzuf&uuml;gen:
+&lt;pre&gt;Name  : &lt;input value="IhrName" name="Name" size="20"&gt;
+E-Mail : &lt;input value="adr@mail" name="E-Mail" size="20"&gt;&lt;/pre&gt;
+&lt;input type=submit value="Hinzuf&uuml;gen"&gt;
+&lt;/form&gt;
+&lt;hr&gt;&lt;br&gt;
+&lt;form action=http://localhost/cgi-bin/search_db.cgi
+      method=post&gt;
+In der Datenbank suchen:
+&lt;pre&gt;Name   : &lt;input value="IhrName" name="Name" size="20"&gt;&lt;/pre&gt;
+&lt;input type=submit value="Suchen"&gt;
+&lt;/form&gt;
+&lt;hr&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<p>Bei diesem HTML-Formular k&ouml;nnen zwei CGI-Anwendungen gestartet werden: zum einen das Einf&uuml;gen neuer Daten in die Datenbank (<span class="listing">add_db.cgi</span>) und zum anderen das Suchen darin (<span class="listing">search_db.cgi</span>).</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/27_09.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein27_09.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 27.9   
+    </b>HTML-Formular zur Eingabe oder Suche von Datens&auml;tzen</p>
+<a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3">27.5.2 CGI-Anwendung add_db.cgi<a id="RxxobKap02700404002CDB1F03A197" name="RxxobKap02700404002CDB1F03A197"></a> 
+      <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Zuerst wird die CGI-Anwendung zum Hinzuf&uuml;gen neuer Datens&auml;tze in die Datenbank geschrieben. Dabei finden Sie wieder alte bekannte Funktionen aus den Abschnitten zu CGI und C. Ich habe mich entschlossen, das Listing hier vollst&auml;ndig zu schreiben, da ich es auch nicht mag, st&auml;ndig in einem Buch hin- und her zu bl&auml;ttern.<a id="Xxx999346" name="Xxx999346"></a></p>
+<pre>/* add_db.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#if defined __WIN32__ || _MSC_VER
+    #include &lt;windows.h&gt;
+#endif
+#include &lt;mysql.h&gt;
+// F&uuml;r VC++:
+//#include "c:\mysql\include\mysql.h"
+#define MAX_PAARE 255
+#define BUF 255
+struct CGI_DATEN {
+   char *variable;
+   char *wert;
+   struct CGI_DATEN *next;
+};
+struct CGI_DATEN *ende = NULL;
+MYSQL *mysql;
+void print_html(void);
+char *getdata(void);
+char *Strdup(const char *);
+void hex2ascii(char *);
+char convert(char *);
+void loeschen(struct CGI_DATEN *);
+struct CGI_DATEN *erstellen(char *);
+void check_error(void);
+void verbinden(void);
+void verbindung_schliessen(void);
+/* Weiterleitung zu einer URL
+ * url ist die URL, wo Sie den User weiterleiten
+ */
+void print_html(void) {
+   printf("&lt;html&gt;&lt;head&gt;\n");
+   printf("&lt;title&gt;Eintragsbest&auml;tigung&lt;/title&gt;\n");
+   printf("&lt;/head&gt;&lt;body&gt;\n");
+   printf("Eintragung erfolgreich. Zur&uuml;ck gehts"
+          " &lt;a href=\"javascript:history.back()\"&gt;hier&lt;/a&gt;");
+   printf("&lt;/body&gt;&lt;/html&gt;\n");
+}
+/*  Funktion liest Daten in der POST oder GET-Methode ein.
+ *  R&uuml;ckgabewert: Stringpuffer mit den Daten
+ *  bei Fehler  : NULL
+ */
+char *getdata(void) {
+   unsigned long size;
+   char *puffer = NULL;
+   char *request = getenv("REQUEST_METHOD");
+   char *cont_len;
+   char *cgi_string;
+   /* Zuerst die Request-Methode &uuml;berpr&uuml;fen */
+   if(  NULL == request )
+      return NULL;
+   else if( strcmp(request, "GET") == 0 ) {
+      /* Die Methode GET -&gt; Query String abholen */
+      cgi_string = getenv("QUERY_STRING");
+      if( NULL == cgi_string )
+         return NULL;
+      else {
+         puffer =(char *) Strdup(cgi_string);
+         return puffer; /* R&uuml;ckgabewert an den Aufrufer */
+      }
+   }
+   else if( strcmp(request, "POST") == 0 ) {
+      /* Die Methode POST -&gt; L&auml;nge des Strings
+       * ermitteln (CONTENT_LENGTH) */
+      cont_len = getenv("CONTENT_LENGTH");
+      if( NULL == cont_len)
+         return NULL;
+      else {  /* String CONTENT_LENGTH in
+               * unsigned long umwandeln */
+         size = (unsigned long) atoi(cont_len);
+         if(size &lt;= 0)
+            return NULL; /* Keine Eingabe!?!? */
+      }
+      /* Jetzt lesen wir die Daten von stdin ein */
+      puffer =(char *) malloc(size+1);
+      if( NULL == puffer )
+         return NULL;
+      else {
+         if( NULL == fgets(puffer, size+1, stdin) ) {
+            free(puffer);
+            return NULL;
+         }
+         else   /* R&uuml;ckgabewerte an den Ausrufer */
+            return puffer;
+      }
+   }
+   /* Weder GET-Methode noch die POST-Methode wurden verwendet */
+   else
+      return NULL;
+}
+/*  Da die Funktion strdup() in der Headerdatei &lt;string.h&gt; keine
+ *  ANSI C-Funktion ist, schreiben wir eine eigene
+ */
+char *Strdup(const char *str) {
+   char *p;
+   if(NULL == str)
+       return NULL;
+   else {
+      p =(char *) malloc(strlen(str)+1);
+      if(NULL == p)
+         return NULL;
+      else
+         strcpy(p, str);
+   }
+   return p;
+}
+/* Wandelt einzelne Hexzeichen (%xx) in ASCII-Zeichen
+ * und kodierte Leerzeichen (+) in echte Leerzeichen um */
+void hex2ascii(char *str) {
+   int x, y;
+   for(x=0,y=0; str[y] != '\0'; ++x,++y) {
+      str[x] = str[y];
+      /* Ein hexadezimales Zeichen ? */
+      if(str[x] == '%') {
+         str[x] = convert(&amp;str[y+1]);
+         y += 2;
+      }
+      /* Ein Leerzeichen ? */
+      else if( str[x] == '+')
+         str[x]=' ';
+   }
+   /* Geparsten String sauber terminieren */
+   str[x] = '\0';
+}
+/* Funktion konvertiert einen String von zwei hexadezimalen
+ * Zeichen und gibt das einzelne daf&uuml;r stehende Zeichen zur&uuml;ck
+ */
+char convert(char *hex) {
+   char ascii;
+   /* erster Hexawert */
+   ascii =
+   (hex[0] &gt;= 'A' ? ((hex[0] &amp; 0xdf) – 'A')+10 : (hex[0] – '0'));
+   ascii &lt;&lt;= 4; /* Bitverschiebung schneller als ascii*=16 */
+   /* zweiter Hexawert */
+   ascii +=
+   (hex[1] &gt;= 'A' ? ((hex[1] &amp; 0xdf) – 'A')+10 : (hex[1] – '0'));
+   return ascii;
+}
+/* Liste aus Variable/Wert-Paaren erstellen
+ * R&uuml;ckgabewert: Anfangsadresse der Liste
+ * Bei Fehler: NULL
+ */
+struct CGI_DATEN *erstellen(char *str) {
+   char* s;
+   char* res;
+   /* Irgendwo gibt es auch eine Grenze, hier sind
+      MAX_PAARE erlaubt */
+   char *paare[MAX_PAARE];
+   struct CGI_DATEN *ptr_daten = NULL;
+   struct CGI_DATEN *ptr_anfang = NULL;
+   int i=0, j=0;
+   /* Zuerst werden die Variablen/Werte-Paare anhand des Zeichens
+    * '&amp;' getrennt, sofern es mehrere sind */
+   s=str;
+   res=strtok(s,"&amp;");
+   while( res != NULL &amp;&amp; i &lt; MAX_PAARE) {
+      /* Wert von res dynamisch in char **pair speichern */
+      paare[i] = (char *)malloc(strlen(res)+1);
+      if(paare[i] == NULL)
+         return NULL;
+      paare[i] = res;
+      res=strtok(NULL,"&amp;");
+      i++;
+   }
+   /* Jetzt werden die Variablen von den Werten getrennt und
+    * an die Struktur CGI_DATEN &uuml;bergeben */
+   while ( i &gt; j ) {  /* Das erste Element ? */
+      if(ptr_anfang == NULL) {
+         ptr_anfang =(struct CGI_DATEN *)
+           malloc(sizeof (struct CGI_DATEN *));
+         if( ptr_anfang == NULL )
+            return NULL;
+         res = strtok( paare[j], "=");
+         if(res == NULL)
+            return NULL;
+         ptr_anfang-&gt;variable =(char *) malloc(strlen(res)+1);
+         if( ptr_anfang-&gt;variable == NULL )
+            return NULL;
+         ptr_anfang-&gt;variable = res;
+         res = strtok(NULL, "\0");
+         if(res == NULL)
+            return NULL;
+         ptr_anfang-&gt;wert =(char *) malloc(strlen(res)+1);
+         if( ptr_anfang-&gt;wert == NULL )
+            return NULL;
+         ptr_anfang-&gt;wert = res;
+         /* printf("%s %s&lt;br&gt;",
+          * ptr_anfang-&gt;variable, ptr_anfang-&gt;wert); */
+         ptr_anfang-&gt;next = (struct CGI_DATEN *)
+            malloc(sizeof (struct CGI_DATEN *));
+         if(ptr_anfang-&gt;next == NULL)
+            return NULL;
+         ptr_daten = ptr_anfang-&gt;next;
+         j++;
+      }
+      else { /* Die restlichen Elemente */
+         res = strtok( paare[j], "=");
+         if(res == NULL)
+            return NULL;
+         ptr_daten-&gt;variable =(char *) malloc(strlen(res)+1);
+         if(ptr_daten-&gt;variable == NULL)
+            return NULL;
+         ptr_daten-&gt;variable = res;
+         res = strtok(NULL, "\0");
+         if(res == NULL)
+            return NULL;
+         ptr_daten-&gt;wert =(char *) malloc(strlen(res)+1);
+         if(ptr_daten-&gt;wert == NULL)
+            return NULL;
+         ptr_daten-&gt;wert = res;
+         /* printf("%s %s&lt;br&gt;",
+          * ptr_daten-&gt;variable, ptr_daten-&gt;wert); */
+         ptr_daten-&gt;next = (struct CGI_DATEN *)
+            malloc(sizeof (struct CGI_DATEN *));
+         if( ptr_daten-&gt;next == NULL )
+            return NULL;
+         ptr_daten = ptr_daten-&gt;next;
+         j++;
+      }
+   }
+   ende = ptr_daten;
+   /* Anfangsadresse der Liste struct CGI_DATEN zur&uuml;ckgeben */
+   return ptr_anfang;
+}
+/* Bricht bei Fehler (mysql_error != 0) das Programm ab */
+void check_error(void)  {
+   if (mysql_errno(mysql) != 0) {
+      fprintf(stderr, "Fehler: %s\n", mysql_error(mysql));
+      exit(EXIT_FAILURE);
+   }
+}
+/* Baut eine Verbindung zum Datenbankserver auf.
+ * Passen Sie ggf. Usernamen und Passwort und, sofern
+ * andere Parameter ben&ouml;tigt werden, diese Ihren Umst&auml;nden
+ * selbst an
+ */
+void verbinden(void)  {
+   mysql= mysql_init(mysql);
+   check_error();
+   mysql_real_connect(mysql, "localhost", "root",
+      NULL, NULL, 0, NULL, 0);
+   check_error();
+}
+/* Serververbindung wieder schlie&szlig;en und den Speicher f&uuml;r die
+ * Struktur MYSQL wieder freigeben */
+void verbindung_schliessen(void)  {
+   mysql_close(mysql);
+}
+/* Falls Datenbank bei der Funktion verbinden() nicht angegeben
+ * wurde oder Sie die Datenbank wechseln wollen, dann verwenden
+ * Sie diese Funktion */
+void db_waehlen(char *db) {
+   mysql_select_db(mysql, db);
+   check_error();
+}
+/* Daten mit mysql_real_query() in die Datenbank schreiben */
+void daten_anfuegen(struct CGI_DATEN *daten) {
+   char buf[BUF] = "INSERT INTO daten (name, adresse) VALUES ('";
+   strcat(buf, daten-&gt;wert);
+   strcat(buf, "', '");
+   daten = daten-&gt;next;
+   strcat(buf, daten-&gt;wert);
+   strcat(buf, "');");
+   /* Jetzt die Anfrage an den Datenbankserver */
+   mysql_real_query(mysql, buf, strlen(buf));
+   check_error();
+}
+int main(void) {
+   char *str;
+   struct CGI_DATEN *cgi;
+   struct CGI_DATEN *free_cgi;
+   /* F&uuml;r Fehlermeldungen */
+   printf("Content-Type: text/html\n\n");
+   /* Eingabe einlesen */
+   str = getdata();
+   if(str == NULL) {
+      printf("Fehler beim Einlesen von der Formulareingabe");
+      return EXIT_FAILURE;
+   }
+   /* Hexzeichen in ASCII-Zeichen konvertieren und aus '+'
+    * Leerzeichen machen */
+   hex2ascii(str);
+   /* Liste der Formualar-Daten erstellen */
+   cgi = erstellen(str);
+   free_cgi = cgi;
+   if (cgi == NULL) {
+      printf("Fehler beim Erstellen der "
+             "Variablen/Werte-Liste!!\n");
+      return EXIT_FAILURE;
+   }
+   verbinden();
+   db_waehlen("mail_archiv");
+   daten_anfuegen(cgi);
+   verbindung_schliessen();
+   print_html();
+   return EXIT_SUCCESS;
+}</pre>
+<p>&Uuml;bersetzen Sie den Quellcode wieder wie gewohnt, &auml;ndern Sie die Extension (<span class="listing">*.cgi</span>) und speichern Sie die ausf&uuml;hrbare Datei im <span class="listing">cgi-bin</span>-Verzeichnis des (Apache-)Webservers. Unter Linux werden daf&uuml;r teilweise root-Rechte ben&ouml;tigt. &Auml;ndern Sie au&szlig;erdem unter Linux die Zugriffsrechte f&uuml;r diese Datei (<span class="listing">chmod</span> <span class="listing">go+rx</span> <span class="listing">add_db.cgi</span>). Weiteres finden Sie in Kapitel 26, CGI mit C, welches Sie bereits durchgenommen haben sollten, bevor Sie sich an dieses Programm wagen.</p>
+<a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3">27.5.3 CGI-Anwendung search_db.cgi<a id="RxxobKap02700404002CDB1F03A19B" name="RxxobKap02700404002CDB1F03A19B"></a> 
+      <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999350" name="Xxx999350"></a>Als N&auml;chstes folgt die CGI-Anwendung zur Suche in der Datenbank <span class="listing">mail_archiv</span>, welche im Gro&szlig;en und Ganzen ebenfalls nichts Neues mehr enth&auml;lt, was nicht bereits besprochen wurde.</p>
+<pre>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#if defined __WIN32__ || _MSC_VER
+    #include &lt;windows.h&gt;
+#endif
+#include &lt;mysql.h&gt;
+// F&uuml;r VC++:
+//#include "c:\mysql\include\mysql.h"
+#define MAX_PAARE 255
+#define BUF 255
+struct CGI_DATEN {
+   char *variable;
+   char *wert;
+   struct CGI_DATEN *next;
+};
+struct CGI_DATEN *ende = NULL;
+MYSQL *mysql;
+void print_html(void);
+char *getdata(void);
+char *Strdup(const char *);
+void hex2ascii(char *);
+char convert(char *);
+void loeschen(struct CGI_DATEN *);
+struct CGI_DATEN *erstellen(char *);
+void check_error(void);
+void verbinden(void);
+void verbindung_schliessen(void);
+/* Weiterleitung zu einer URL
+ * url ist die URL, wo Sie den User weiterleiten
+ */
+void print_html(void) {
+   printf("&lt;html&gt;&lt;head&gt;\n");
+   printf("&lt;title&gt;Suchergebniss&lt;/title&gt;\n");
+   printf("&lt;/head&gt;&lt;body&gt;\n");
+   printf("&lt;br&gt;&lt;br&gt;Zur&uuml;ck gehts "
+          "&lt;a href=\"javascript:history.back()\"&gt;hier&lt;/a&gt;");
+   printf("&lt;/body&gt;&lt;/html&gt;\n");
+}
+/*  Funktion liest Daten in der POST oder GET-Methode ein.
+ *  R&uuml;ckgabewert: Stringpuffer mit den Daten
+ *  bei Fehler  : NULL
+ */
+char *getdata(void) {
+   unsigned long size;
+   char *puffer = NULL;
+   char *request = getenv("REQUEST_METHOD");
+   char *cont_len;
+   char *cgi_string;
+   /* Zuerst die Request-Methode &uuml;berpr&uuml;fen */
+   if(  NULL == request )
+      return NULL;
+   else if( strcmp(request, "GET") == 0 ) {
+      /* Die Methode GET -&gt; Query String abholen */
+      cgi_string = getenv("QUERY_STRING");
+      if( NULL == cgi_string )
+         return NULL;
+      else {
+         puffer =(char *) Strdup(cgi_string);
+         return puffer; /* R&uuml;ckgabewert an den Aufrufer */
+      }
+   }
+   else if( strcmp(request, "POST") == 0 ) {
+      /* Die Methode POST -&gt; L&auml;nge des Strings
+       * ermitteln (CONTENT_LENGTH) */
+      cont_len = getenv("CONTENT_LENGTH");
+      if( NULL == cont_len)
+         return NULL;
+      /* String CONTENT_LENGTH in unsigned long umwandeln */
+      else {
+         size = (unsigned long) atoi(cont_len);
+         if(size &lt;= 0)
+            return NULL; /* Keine Eingabe!?!? */
+      }
+      /* Jetzt lesen wir die Daten von stdin ein */
+      puffer =(char *) malloc(size+1);
+      if( NULL == puffer )
+         return NULL;
+      else {
+         if( NULL == fgets(puffer, size+1, stdin) ) {
+            free(puffer);
+            return NULL;
+         }
+         else   /* R&uuml;ckgabewerte an den Ausrufer */
+            return puffer;
+      }
+   }
+   /* Weder GET-Methode noch die POST-Methode wurden verwendet */
+   else
+      return NULL;
+}
+/*  Da die Funktion strdup() in der Headerdatei &lt;string.h&gt; keine
+ *  ANSI C-Funktion ist, schreiben wir eine eigene
+ */
+char *Strdup(const char *str) {
+   char *p;
+   if(NULL == str)
+      return NULL;
+   else {
+      p = (char *)malloc(strlen(str)+1);
+      if(NULL == p)
+         return NULL;
+      else
+         strcpy(p, str);
+   }
+   return p;
+}
+/* Wandelt einzelne Hexzeichen (%xx) in ASCII-Zeichen
+   und kodierte Leerzeichen (+) in echte Leerzeichen um */
+void hex2ascii(char *str) {
+   int x, y;
+   for(x=0,y=0; str[y] != '\0'; ++x,++y) {
+      str[x] = str[y];
+      /* Ein hexadezimales Zeichen ? */
+      if(str[x] == '%') {
+         str[x] = convert(&amp;str[y+1]);
+         y += 2;
+      }
+      /* Ein Leerzeichen ? */
+      else if( str[x] == '+')
+         str[x]=' ';
+   }
+   /* Geparsten String sauber terminieren */
+   str[x] = '\0';
+}
+/* Funktion konvertiert einen String von zwei hexadezimalen
+ * Zeichen und gibt das einzelne daf&uuml;r stehende Zeichen zur&uuml;ck
+ */
+char convert(char *hex) {
+   char ascii;
+   /* erster Hexawert */
+   ascii =
+   (hex[0] &gt;= 'A' ? ((hex[0] &amp; 0xdf) – 'A')+10 : (hex[0] – '0'));
+   ascii &lt;&lt;= 4; /* Bitverschiebung schneller als ascii*=16 */
+   /* zweiter Hexawert */
+   ascii +=
+   (hex[1] &gt;= 'A' ? ((hex[1] &amp; 0xdf) – 'A')+10 : (hex[1] – '0'));
+   return ascii;
+}
+/* Liste aus Variable/Wert-Paaren erstellen
+ * R&uuml;ckgabewert: Anfangsadresse der Liste
+ * Bei Fehler: NULL
+ */
+struct CGI_DATEN *erstellen(char *str) {
+   char* s;
+   char* res;
+   /* Irgendwo gibt es auch eine Grenze, hier
+      sind MAX_PAARE erlaubt */
+   char *paare[MAX_PAARE];
+   struct CGI_DATEN *ptr_daten = NULL;
+   struct CGI_DATEN *ptr_anfang = NULL;
+   int i=0, j=0;
+   /* Zuerst werden die Variablen/Werte-Paare anhand des Zeichens
+    * '&amp;' getrennt, sofern es mehrere sind */
+   s=str;
+   res=strtok(s,"&amp;");
+   while( res != NULL &amp;&amp; i &lt; MAX_PAARE) {
+      /* Wert von res dynamisch in char **pair speichern */
+      paare[i] = (char *)malloc(strlen(res)+1);
+      if(paare[i] == NULL)
+         return NULL;
+      paare[i] = res;
+      res=strtok(NULL,"&amp;");
+      i++;
+   }
+   /* Jetzt werden die Variablen von den Werten getrennt und
+    * an die Struktur CGI_DATEN &uuml;bergeben */
+   while ( i &gt; j )  { /* Das erste Element ? */
+      if(ptr_anfang == NULL) {
+         ptr_anfang =(struct CGI_DATEN *) malloc
+            (sizeof (struct CGI_DATEN *));
+         if( ptr_anfang == NULL )
+            return NULL;
+         res = strtok( paare[j], "=");
+         if(res == NULL)
+            return NULL;
+         ptr_anfang-&gt;variable = (char *) malloc(strlen(res)+1);
+         if( ptr_anfang-&gt;variable == NULL )
+            return NULL;
+         ptr_anfang-&gt;variable = res;
+         res = strtok(NULL, "\0");
+         if(res == NULL)
+            return NULL;
+         ptr_anfang-&gt;wert = (char *) malloc(strlen(res)+1);
+         if( ptr_anfang-&gt;wert == NULL )
+            return NULL;
+         ptr_anfang-&gt;wert = res;
+         /* printf("%s %s&lt;br&gt;",
+          * ptr_anfang-&gt;variable, ptr_anfang-&gt;wert); */
+         ptr_anfang-&gt;next = (struct CGI_DATEN *)
+            malloc(sizeof (struct CGI_DATEN *));
+         if(ptr_anfang-&gt;next == NULL)
+            return NULL;
+         ptr_daten = ptr_anfang-&gt;next;
+         j++;
+      }
+      else { /* Die restlichen Elemente */
+         res = strtok( paare[j], "=");
+         if(res == NULL)
+            return NULL;
+         ptr_daten-&gt;variable =(char *) malloc(strlen(res)+1);
+         if(ptr_daten-&gt;variable == NULL)
+            return NULL;
+         ptr_daten-&gt;variable = res;
+         res = strtok(NULL, "\0");
+         if(res == NULL)
+            return NULL;
+         ptr_daten-&gt;wert = (char *)malloc(strlen(res)+1);
+         if(ptr_daten-&gt;wert == NULL)
+            return NULL;
+         ptr_daten-&gt;wert = res;
+         /* printf("%s %s&lt;br&gt;",
+          * ptr_daten-&gt;variable, ptr_daten-&gt;wert); */
+         ptr_daten-&gt;next = (struct CGI_DATEN *)
+            malloc(sizeof (struct CGI_DATEN *));
+         if( ptr_daten-&gt;next == NULL )
+            return NULL;
+         ptr_daten = ptr_daten-&gt;next;
+         j++;
+      }
+   }
+   ende = ptr_daten;
+   /* Anfangsadresse der Liste struct CGI_DATEN zur&uuml;ckgeben */
+   return ptr_anfang;
+}
+/* Bricht bei Fehler (mysql_error != 0) das Programm ab */
+void check_error(void) {
+   if (mysql_errno(mysql) != 0) {
+      fprintf(stderr, "Fehler: %s\n", mysql_error(mysql));
+      exit(EXIT_FAILURE);
+   }
+}
+/* Baut eine Verbindung zum Datenbankserver auf.
+ * Passen Sie ggf. Usernamen und Passwort und, sofern
+ * andere Parameter ben&ouml;tigt werden, diese Ihren Umst&auml;nden
+ * selbst an
+ */
+void verbinden(void)  {
+   mysql= mysql_init(mysql);
+   check_error();
+   mysql_real_connect(mysql, "localhost", "root",
+                      NULL, NULL, 0, NULL, 0);
+   check_error();
+}
+/* Serververbindung wieder schlie&szlig;en und den Speicher f&uuml;r die
+ * Struktur MYSQL wieder freigeben */
+void verbindung_schliessen(void)  {
+   mysql_close(mysql);
+}
+/* Falls Datenbank bei der Funktion verbinden() nicht angegeben
+ * wurde oder Sie die Datenbank wechseln wollen, dann verwenden
+ * Sie diese Funktion */
+void db_waehlen(char *db) {
+   mysql_select_db(mysql, db);
+   check_error();
+}
+/* Daten mit mysql_real_query() in die Datenbank schreiben */
+void daten_suchen(struct CGI_DATEN *daten) {
+   MYSQL_ROW  row;
+   MYSQL_RES  *mysql_res;
+   unsigned long  anzahl_reihen;
+   unsigned int i;
+   char buf[BUF] = "SELECT adresse FROM daten WHERE name='";
+   strcat(buf, daten-&gt;wert);
+   strcat(buf, "';");
+   mysql_real_query(mysql, buf, strlen(buf));
+   check_error();
+   /* Daten der Anfrage abholen */
+   mysql_res = mysql_store_result(mysql);
+   check_error();
+   /* Anzahl der gefundenen Datens&auml;tze ermitteln */
+   anzahl_reihen = (unsigned long) mysql_num_rows (mysql_res);
+   printf ("Anzahl gefunden: %lu\n\n&lt;br&gt;&lt;br&gt;", anzahl_reihen);
+   /* Gefundenen Datensatz bzw. Datens&auml;tze ausgeben */
+   while ((row = mysql_fetch_row (mysql_res)) != NULL) {
+      /* Einzelne Spalten der Zeile ausgeben */
+      for (i = 0;  i &lt; mysql_num_fields(mysql_res);  i ++)
+         printf ("Addresse zu %s lautet %s&lt;br&gt; ",
+           daten-&gt;wert,row[i]);
+         printf("\n");
+   }
+   /* Speicherplatz wieder freigeben */
+   mysql_free_result(mysql_res);
+}
+int main(void) {
+   char *str;
+   struct CGI_DATEN *cgi;
+   struct CGI_DATEN *free_cgi;
+   /* F&uuml;r Fehlermeldungen */
+   printf("Content-Type: text/html\n\n");
+   /* Eingabe einlesen */
+   str = getdata();
+   if(str == NULL) {
+      printf("Fehler beim Einlesen von der Formulareingabe");
+      return EXIT_FAILURE;
+   }
+   /* Hexzeichen in ASCII-Zeichen konvertieren und aus '+'
+    * Leerzeichen machen */
+   hex2ascii(str);
+   /* Liste der Formualar-Daten erstellen */
+   cgi = erstellen(str);
+   free_cgi = cgi;
+   if (cgi == NULL) {
+      printf("Fehler beim Erstellen der "
+             "Variablen/Werte-Liste!!\n");
+      return EXIT_FAILURE;
+   }
+   verbinden();
+   db_waehlen("mail_archiv");
+   daten_suchen(cgi);
+   verbindung_schliessen();
+   print_html();
+   return EXIT_FAILURE;
+}</pre>
+<p>Nat&uuml;rlich gilt auch hier: &Uuml;bersetzen Sie den Quellcode wie gewohnt, &auml;ndern Sie die Extension (<span class="listing">*.cgi</span>) und speichern Sie die ausf&uuml;hrbare Datei im <span class="listing">cgi-bin</span>-Verzeichnis des (Apache-)Webservers. Unter Linux werden daf&uuml;r teilweise root-Rechte ben&ouml;tigt. &Auml;ndern Sie au&szlig;erdem unter Linux die Zugriffsrechte f&uuml;r diese Datei (<span class="listing">chmod</span> <span class="listing">go+rx</span> <span class="listing">search_db.cgi</span>).</p>
+<p>Das war es. Wenn Sie jetzt wollen, k&ouml;nnen Sie die CGI-Anwendungen mit MySQL in der Praxis testen. &Ouml;ffnen Sie dazu mit Ihrem Webrowser das erstellte HTML-Formular. Jetzt k&ouml;nnen Sie munter Datens&auml;tze in die Datenbank einf&uuml;gen oder in den Datens&auml;tzen suchen. Voraussetzung daf&uuml;r, dass dies auch funktioniert, ist, dass der (Apache-)Webserver und der Datenbankserver MySQL gestartet wurden.</p>
+<p>Mit diesem Beispiel haben Sie jetzt die Grundlagen f&uuml;r komplexere Aufgaben mit der MySQL-Datenbank geschaffen.</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard"><b>Hinweis   </b>Noch mehr zur MySQL C-API (und auch der PostgreSQL C-API) finden Sie in meinem Buch <a href="http://www.galileocomputing.de/1137?GPP=opc" target="_blank">»Linux-UNIX-Programmmierung«</a> bzw. auf meiner Homepage und <a href="http://www.pronix.de/" target="_blank">www.pronix.de</a>.</p>
+</td>
+</tr>
+</table><br>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_027_003.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_027_005.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td width="10" valign="top">&nbsp;&nbsp;</td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/899?GPP=opc">
+                                        <img src="common/643_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C von A bis Z" title="Zum Katalog: C von A bis Z">
+                                        <br /><strong>C von A bis Z</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Ihre Meinung?</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1007?GPP=opc">
+                        <img src="common/683_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Shell-Programmierung" title="Zum Katalog: Shell-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Shell-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1137?GPP=opc">
+                        <img src="common/749_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux-UNIX-Programmierung" title="Zum Katalog: Linux-UNIX-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux-UNIX-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1004?GPP=opc">
+                        <img src="common/644_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C/C++" title="Zum Katalog: C/C++"><br /><br /><br /><br /><br /><br /><br />&nbsp;C/C++</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/880?GPP=opc">
+                        <img src="common/573_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/967?GPP=opc">
+                        <img src="common/626_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Reguläre Ausdrücke" title="Zum Katalog: Reguläre Ausdrücke"><br /><br /><br /><br /><br /><br /><br />&nbsp;Reguläre Ausdrücke</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/941?GPP=opc">
+                        <img src="common/677_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Shopping</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opc"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table>
+<br /><br />
+<hr width="70%" align="center"><br />
+<div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2006</b><br>F&uuml;r Ihren privaten Gebrauch d&uuml;rfen Sie die Online-Version nat&uuml;rlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschlie&szlig;lich aller seiner Teile ist urheberrechtlich gesch&uuml;tzt. Alle Rechte vorbehalten einschlie&szlig;lich der Vervielf&auml;ltigung, &Uuml;bersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

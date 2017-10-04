@@ -1,0 +1,799 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: C von A bis Z – 23.2 Doppelt verkettete Listen</title>
+<meta name="title" content="Galileo Computing :: C von A bis Z">
+<meta name="author" content="J&uuml;rgen Wolf">
+<meta name="publisher" content="Galileo Press 2006">
+<meta name="copyright" content="Galileo Press 2006">
+<meta name="description" content="C von A bis Z - Das umfassende Handbuch f&uuml;r Linux, Unix und Windows – 2., aktualisierte und erweiterte Auflage 2006, geb., mit CD und Referenzkarte – ISBN 3-89842-643-2">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="c_023_000.htm">
+<link rel="next" href="c_023_002.htm"><script type="text/javascript" language="JavaScript"><!--
+function OpenWin(url,name,height,width)
+{
+  var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+  InfoWin.focus();
+}
+//--></script></head>
+<body vlink="#000099" link="#000099" alink="#000099">
+    <table width="100%" height="74" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+        <tr>
+            <td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+            <td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opc"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger." title="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger."></a></td>
+        </tr>
+    </table>
+    <div align="right"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger.</a></div>
+    <br />
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td width="156" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
+        <tr>
+            <td colspan="2" class="nav1" align="left" valign="top" height="150">
+                <table class="tbl1" width="150" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td class="tbl2" height="25"><a class="nav" href="./index.htm">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000Vorwort_000.htm#Xxx999266">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000VorwortGutachter_000.htm#Xxx999275">Vorwort des Gutachters</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_001_000.htm#Xxx999328">1 Einstieg in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_002_000.htm#Xxx999328">2 Das erste Programm</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_003_000.htm#Xxx999328">3 Zeichens&auml;tze</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_004_000.htm#Xxx999329">4 Kommentare in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_005_000.htm#Xxx999330">5 Formatierte Eingabe mit scanf()</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_006_000.htm#Xxx999330">6 Formatierte Ausgabe mit printf</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_007_000.htm#Xxx999329">7 Elementare Datentypen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_008_000.htm#Xxx999328">8 Operatoren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_009_000.htm#Xxx999328">9 Typenumwandlung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_010_000.htm#Xxx999328">10 Kontrollstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_011_000.htm#Xxx999328">11 Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_012_000.htm#Xxx999328">12 Pr&auml;prozessor-Direktiven</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_013_000.htm#Xxx999328">13 Arrays</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_014_000.htm#Xxx999328">14 Zeiger (Pointer)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_015_000.htm#Xxx999328">15 Kommandozeilenargumente</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_016_000.htm#Xxx999328">16 Dynamische Speicherverwaltung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_017_000.htm#Xxx999328">17 Strukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_018_000.htm#Xxx999328">18 Ein-/Ausgabe-Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_019_000.htm#Xxx999328">19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_020_000.htm#Xxx999328">20 Arbeiten mit variablen langen Argumentlisten – &lt;stdarg.h&gt;</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_021_000.htm#Xxx999328">21 Zeitroutinen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_022_000.htm#Xxx999328">22 Weitere Headerdateien und ihre Funktionen (ANSI C)</A></td>
+</tr>
+<tr>
+<td><A class="navh" href="./c_023_000.htm#Xxx999328">23 Dynamische Datenstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_024_000.htm#Xxx999328">24 Algorithmen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_025_000.htm#Xxx999328">25 Sicheres Programmieren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_026_000.htm#Xxx999328">26 CGI mit C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_027_000.htm#Xxx999328">27 MySQL und C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_028_000.htm#Xxx999328">28 Netzwerkprogrammierung und Cross-Plattform-Entwicklung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_029_000.htm#Xxx999328">29 Wie geht’s jetzt weiter?</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_030Anhang_000.htm#Xxx999266">A Anhang</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./stichwort.htm#Xxx512322">Index</a></td>
+</tr>
+<tr><td><br /><a class="navnav" href="http://download.galileo-press.de/openbook/c_von_a_bis_z/galileocomputing_c_von_a_bis_z.zip"><strong>Download:</strong><br />- ZIP, ca. 8,5 MB</a></td></tr>
+<tr><td><a class="navnav" href="http://www.galileocomputing.de/899?GPP=opc">Buch bestellen</a></td></tr>
+<tr><td><a class="navnav" href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)">Ihre Meinung?</a><br /><br /></td></tr>
+</table></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10"></td>
+<td width="85%" valign="top" align="center">
+    <div align="center">
+        <table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+            <tr>
+                <td width="100%" class="start" colspan="1" height="22" align="center">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_023_000.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Galileo Computing /</a><a class="navnav" href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"> &lt;openbook&gt; /</a><a href="./index.htm" class="navnav"> C von A bis Z</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_023_002.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" valign="top">
+    <table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+        <tr>
+            <td colspan="2"><a href="http://www.galileocomputing.de/899?GPP=opc" class="buchtitel">C von A bis Z</a><span class="autor"> von J&uuml;rgen Wolf</span><br><span class="untertitel">Das umfassende Handbuch f&uuml;r Linux, Unix und Windows <br />– 2., aktualisierte und erweiterte Auflage 2006</span></td>
+        </tr>
+        <tr>
+            <td valign="top" width="90"><a href="http://www.galileocomputing.de/899?GPP=opc"><img src="common/643.gif" border="0" alt="Buch: C von A bis Z" title="Buch: C von A bis Z" align="left"><br /><br /><span class="autor"><strong>C von A bis Z</strong><br />1.116 S., mit CD, Referenzkarte, 39,90 Euro<br />Galileo Computing<br />ISBN 3-89842-643-2</span></a></a></td>
+            <td width="80%">
+<table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="3" class="kap"><b>Kapitel <a href="./c_023_000.htm#RxxobKap02300004002BA91F01018C">23 Dynamische Datenstrukturen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_023_000.htm#RxxobKap02300004002BA91F01018E">23.1 Lineare Listen (einfach verkettete Listen)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_023_000.htm#RxxobKap02300004002BA91F0101B8">23.1.1 Erstes Element der Liste l&ouml;schen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_023_000.htm#RxxobKap02300004002BA91F0101C8">23.1.2 Beliebiges Element in der Liste l&ouml;schen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_023_000.htm#RxxobKap02300004002BA91F0101DF">23.1.3 Elemente der Liste ausgeben</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_023_000.htm#RxxobKap02300004002BA91F0101E7">23.1.4 Eine vollst&auml;ndige Liste auf einmal l&ouml;schen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_023_000.htm#RxxobKap02300004002BA91F0101FD">23.1.5 Element in die Liste einf&uuml;gen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a class="navh" href="#RxxobKap02300104002BC41F03518C">23.2 Doppelt verkettete Listen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_023_002.htm#RxxobKap02300204002BC51F03B18C">23.3 Stacks nach dem LIFO (Last-in-First-out)-Prinzip</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_023_003.htm#RxxobKap02300304002BC61F02B18C">23.4 Queues nach dem FIFO-Prinzip</a></b></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td>
+<a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2">23.2 Doppelt verkettete Listen<a id="RxxobKap02300104002BC41F03518C" name="RxxobKap02300104002BC41F03518C"></a> 
+      <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"></h2>
+<p><a id="Xxx999329" name="Xxx999329"></a><a id="Xxx999330" name="Xxx999330"></a>Im Gegensatz zu den einfach verketteten Listen haben doppelt verkettete zus&auml;tzlich noch einen Zeiger auf den Vorg&auml;nger. Soll z.B. erst ein Element in der Liste gel&ouml;scht werden, und gleich darauf wird auf den Vorg&auml;nger des gel&ouml;schten Elements zugegriffen, m&uuml;sste bei der einfach verketteten Liste der vollst&auml;ndige Satz von neuem durchlaufen werden. Mit der doppelt verketteten Liste kann hingegen sofort auf den Vorg&auml;nger zugegriffen werden.</p>
+<p>Zur Realisierung doppelt verketteter Listen muss nur der Struktur bei der Deklaration ein weiterer Zeiger hinzugef&uuml;gt werden:</p>
+<pre>struct angestellt{
+   char name[20];
+   char vorname[20];
+   struct datum alter;
+   struct datum eingest;
+   long gehalt;
+   struct angestellt *next;       /* Nachfolger */
+   struct angestellt *previous;   /* Vorg&auml;nger */
+};</pre>
+<p>Au&szlig;erdem sollten Sie noch einen Zeiger auf das letzte Element definieren. Wird z.B. nach einem Namen mit dem Anfangsbuchstaben »Z« gesucht, w&auml;re es doch reine Zeitverschwendung, die Liste von vorn zu durchlaufen. Also g&auml;be es noch folgende Angaben:</p>
+<pre>struct angestellt *anfang;
+struct angestellt *ende;</pre>
+<p>Die Initialisierung mit NULL soll gleich in eine Funktion verpackt werden:</p>
+<pre>void start(void) {
+   anfang = ende = NULL;
+}</pre>
+<p>So sieht die Struktur jetzt mit dem Extra-Zeiger auf seinen Vorg&auml;nger aus:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/23_22.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein23_22.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 23.22   
+    </b>Struktur einer doppelt verketteten Liste</p>
+<p>Bevor all dies in die Praxis umgesetzt wird, noch schnell ein Bild dazu, wie Sie sich eine doppelt verkettete Liste vorstellen k&ouml;nnen:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/23_23.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein23_23.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 23.23   
+    </b>Doppelt verkettete Liste</p>
+<p>Auf den kommenden Seiten werden die Funktionen, die im Abschnitt &uuml;ber die einfach verketteten Listen verwendet wurden, umgeschrieben, damit diese mit doppelt verketteten Listen eingesetzt werden k&ouml;nnen. Es muss dabei immer darauf geachtet werden, dass jetzt jedes Element in der Liste auch einen Vorg&auml;nger besitzt. Es soll mit der Funktion <span class="listing">anhaengen()</span> angefangen werden:</p>
+<pre>void anhaengen(char *n, char *v, int at, int am, int aj,
+               int eint, int einm, int einj, long g) {
+   /* Zeiger zum Zugriff auf die einzelnen Elemente
+    * der Struktur */
+   struct angestellt *zeiger, *zeiger1;
+   /* Wurde schon Speicher f&uuml;r den ende-Zeiger bereitgestellt? */
+   if(ende == NULL) {
+      if((ende=(struct angestellt *)
+        malloc(sizeof(struct angestellt))) == NULL) {
+         printf("Konnte keinen Speicherplatz f&uuml;r ende "
+                "reservieren\n");
+                return;
+      }
+   }
+   /* Wir fragen ab, ob es schon ein Element in der Liste gibt.
+    * Wir suchen das Element, auf das unser Zeiger *anfang
+    * zeigt. Falls *anfang immer noch auf NULL zeigt, bekommt
+    * *anfang die Adresse unseres 1. Elements und ist somit der
+    * Kopf (Anfang) unserer Liste */
+   if(anfang == NULL) {
+      /* Wir reservieren Speicherplatz f&uuml;r unsere
+       * Struktur f&uuml;r das erste Element der Liste */
+      if((anfang =(struct angestellt *)
+        malloc(sizeof(struct angestellt))) == NULL) {
+         fprintf(stderr,"Kein Speicherplatz vorhanden "
+                        "f&uuml;r anfang\n");
+         return;
+      }
+      strcpy(anfang-&gt;name,strtok(n, "\n"));
+      strcpy(anfang-&gt;vorname,strtok(v, "\n"));
+      anfang-&gt;alter.tag=at;
+      anfang-&gt;alter.monat=am;
+      anfang-&gt;alter.jahr=aj;
+      anfang-&gt;eingest.tag=eint;
+      anfang-&gt;eingest.monat=einm;
+      anfang-&gt;eingest.jahr=einj;
+      anfang-&gt;gehalt=g;</pre>
+<p>Bis hierhin stellt diese Funktion nichts Neues dar. Es wird davon ausgegangen, dass sich noch kein Element in der Liste befindet, und Sie f&uuml;gen nun das erste Element ein:</p>
+<pre>      anfang-&gt;next=NULL;
+      ende=anfang;
+      ende-&gt;previous=NULL;
+   }</pre>
+<p>Der <span class="listing">next</span>-Zeiger vom ersten Element zeigt zun&auml;chst auf gar nichts (<span class="listing">NULL</span>). Der <span class="listing">ende</span>-Zeiger, der auf das letzte Element verweist, zeigt am Anfang zun&auml;chst auf das erste Element, das gleichzeitig ja auch das letzte der Liste ist. Der <span class="listing">previous</span>-Zeiger, der auf den Vorg&auml;nger zeigen soll, verweist ebenso auf <span class="listing">NULL</span>. Genauso gut h&auml;tten Sie anstatt <span class="listing">ende-&gt;previous=NULL</span> auch <span class="listing">anfang-&gt;previous=NULL</span> schreiben k&ouml;nnen. Beides h&auml;tte denselben Effekt gehabt.</p>
+<p>Jetzt zur zweiten M&ouml;glichkeit – das neue Element wird hinten angeh&auml;ngt:</p>
+<pre>   else {
+      zeiger=anfang;    /* Wir zeigen auf das 1. Element */
+      while(zeiger-&gt;next != NULL)
+         zeiger=zeiger-&gt;next;
+      /* Wir reservieren einen Speicherplatz f&uuml;r das letzte
+       * Element der Liste und h&auml;ngen es an. */
+      if((zeiger-&gt;next =(struct angestellt *)
+        malloc(sizeof(struct angestellt))) == NULL) {
+         fprintf(stderr, "Kein Speicherplatz f&uuml;r "
+                         "letztes Element\n");
+         return;
+      }
+      zeiger1=zeiger;
+      zeiger=zeiger-&gt;next; /* zeiger auf neuen Speicherplatz */
+      strcpy(zeiger-&gt;name,strtok(n, "\n"));
+      strcpy(zeiger-&gt;vorname,strtok(v, "\n"));
+      zeiger-&gt;alter.tag=at;
+      zeiger-&gt;alter.monat=am;
+      zeiger-&gt;alter.jahr=aj;
+      zeiger-&gt;eingest.tag=eint;
+      zeiger-&gt;eingest.monat=einm;
+      zeiger-&gt;eingest.jahr=einj;
+      zeiger-&gt;gehalt=g;</pre>
+<p>Auch am Anfang bleibt beim hinten Anh&auml;ngen alles beim Alten bis auf den <span class="listing">zeiger1</span>, der wie <span class="listing">zeiger</span> auf das momentan (noch) letzte Element zeigt. Anschlie&szlig;end verweist man den Zeiger <span class="listing">zeiger</span> auf den neuen Speicherplatz, der zuvor mit <span class="listing">malloc()</span> reserviert wurde:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/23_24.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein23_24.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 23.24   
+    </b>Neues Element wurde hinten angef&uuml;gt mit einfacher Verkettung</p>
+<p>Die weiteren Schritte zum Einf&uuml;gen des neuen Elements sind:</p>
+<pre>      zeiger-&gt;next=NULL;
+      ende=zeiger;
+      zeiger-&gt;previous=zeiger1;
+      zeiger1-&gt;next=zeiger;
+    }</pre>
+<p>Der <span class="listing">next</span>-Zeiger des neuen Elements bekommt den <span class="listing">NULL</span>-Zeiger. Der <span class="listing">ende</span>-Zeiger verweist auf das neue Element, da es das letzte Element in der Liste ist. Zus&auml;tzlich bekommt das neue Element auch die Adresse des Vorg&auml;ngers, auf die <span class="listing">zeiger1</span> verweist. Und <span class="listing">zeiger1-&gt;next</span> bekommt noch die Adresse des neuen Elements <span class="listing">zeiger</span> &uuml;bergeben. Somit ergibt sich folgendes Bild:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/23_25.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein23_25.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 23.25   
+    </b>Neues Element wurde hinten angef&uuml;gt mit doppelter Verkettung</p>
+<p>Schwieriger wird die n&auml;chste Funktion, n&auml;mlich das L&ouml;schen eines Elements in der Liste:</p>
+<pre>void loesche(char *wen) {
+   struct angestellt *zeiger, *zeiger1, *zeiger2;
+   /* Ist &uuml;berhaupt ein Element vorhanden? */
+   if(anfang != NULL) {
+      /* Ist unser 1. Element das von uns gesuchte (wen[])? */
+      if(strcmp(anfang-&gt;name,wen) == 0) {
+         zeiger=anfang-&gt;next;
+         if(zeiger == NULL) {
+            free(anfang);
+            anfang=NULL;
+            ende=NULL;
+            return;
+         }
+         zeiger-&gt;previous=NULL;
+         free(anfang);
+         anfang=zeiger;
+      }</pre>
+<p>Die erste M&ouml;glichkeit: Das erste Element ist das gesuchte und soll gel&ouml;scht werden. Als Erstes lassen Sie einen Zeiger auf die zuk&uuml;nftige Anfangsdatei zeigen. Nat&uuml;rlich vorausgesetzt, es ist mehr als ein Element vorhanden. Falls nicht (<span class="listing">if(zeiger</span> <span class="listing">==</span> <span class="listing">NULL)</span>), wird die Anweisung der <span class="listing">if</span>-Bedingung aktiv. Der momentane Stand:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/23_26.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein23_26.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 23.26   
+    </b>Erstes Element in der Liste (anfang) soll gel&ouml;scht werden</p>
+<p>Es wird davon ausgegangen, dass bereits mehrere Elemente in der Liste vorhanden sind. Also folgt nur noch:</p>
+<pre>zeiger-&gt;previous=NULL;
+free(anfang);
+anfang=zeiger;</pre>
+<p>und schon ist das erste Element in der Liste gel&ouml;scht:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/23_27.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein23_27.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 23.27   
+    </b>Erstes Element in der Liste wurde gel&ouml;scht</p>
+<p>Die zweite M&ouml;glichkeit ist, dass das zu l&ouml;schende Element das letzte in der Liste ist:</p>
+<pre>      else if(strcmp(ende-&gt;name,wen) == 0) {
+         zeiger=ende-&gt;previous;
+         zeiger-&gt;next=NULL;
+         zeiger1=ende;
+         ende=zeiger;
+         free(zeiger1);
+      }</pre>
+<p>Da der Vorgang &auml;hnlich wie beim ersten Element abl&auml;uft, kann dieser auf einem Blatt Papier zur &Uuml;bung selbst aufgezeichnet werden.</p>
+<p>Weiter geht es mit der dritten M&ouml;glichkeit: Das zu l&ouml;schende Element ist irgendwo zwischendrin:</p>
+<pre>      zeiger=anfang;
+      while(zeiger-&gt;next != NULL) {
+         zeiger1=zeiger-&gt;next;
+      /* Ist die Adresse von zeiger1 der gesuchte Name? */
+      if(strcmp(zeiger1-&gt;name,wen) == 0) {
+         /* Falls ja, dann ... */
+         zeiger-&gt;next=zeiger1-&gt;next;
+         zeiger2=zeiger1-&gt;next;
+         zeiger2-&gt;previous=zeiger;
+         free(zeiger1);
+         break;
+      }
+      zeiger=zeiger1;
+   }</pre>
+<p>Es sei hier wieder angenommen, das zu l&ouml;schende Element wurde gefunden, und es ist das zweite Element (im Bild mit del gekennzeichnet):</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/23_28.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein23_28.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 23.28   
+    </b>Element, auf das zeiger1 verweist, soll gel&ouml;scht werden</p>
+<p><span class="listing">zeiger1</span> verweist auf das zu l&ouml;schende Element. Dieses Element muss jetzt ausgeh&auml;ngt werden. Die weiteren Schritte sind somit:</p>
+<pre>zeiger-&gt;next=zeiger1-&gt;next;</pre>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/23_29.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein23_29.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 23.29   
+    </b>Zu l&ouml;schendes Element zum Teil aush&auml;ngen</p>
+<pre>zeiger2=zeiger1-&gt;next;</pre>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/23_30.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein23_30.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 23.30   
+    </b>Ein Zeiger auf den Vorg&auml;nger des zu l&ouml;schenden Elements</p>
+<pre>zeiger2-&gt;previous=zeiger;</pre>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/23_31.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein23_31.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 23.31   
+    </b>Zu l&ouml;schendes Element komplett ausgeh&auml;ngt</p>
+<pre>free(zeiger1);</pre>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/23_32.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein23_32.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 23.32   
+    </b>Speicherplatz freigegeben</p>
+<p>Der Vorgang l&auml;sst sich anhand der Grafiken recht einfach nachvollziehen. Hier nochmals die vollst&auml;ndige Funktion zur &Uuml;bersicht:</p>
+<pre>/* Funktion zum L&ouml;schen einer Datei */
+void loesche(char *wen) {
+   struct angestellt *zeiger, *zeiger1, *zeiger2;
+   /* Ist &uuml;berhaupt ein Element vorhanden? */
+   if(anfang != NULL) {
+      /* Ist unser 1. Element das von uns gesuchte (wen[])? */
+      if(strcmp(anfang-&gt;name,wen) == 0) {
+         zeiger=anfang-&gt;next;
+         if(zeiger == NULL) {
+            free(anfang);
+            anfang=NULL;
+            ende=NULL;
+            return;
+         }
+         zeiger-&gt;previous=NULL;
+         free(anfang);
+         anfang=zeiger;
+      }
+      /* Ist das letzte Element das von uns gesuchte? */
+      else if(strcmp(ende-&gt;name,wen) == 0) {
+         zeiger=ende-&gt;previous;
+         zeiger-&gt;next=NULL;
+         zeiger1=ende;
+         ende=zeiger;
+         free(zeiger1);
+      }
+      else {
+         /* Es ist nicht das 1. Element zu l&ouml;schen.
+          * Wir suchen in der weiteren Kette, ob das zu
+          * l&ouml;schende Element vorhanden ist */
+         zeiger=anfang;
+         while(zeiger-&gt;next != NULL) {
+            zeiger1=zeiger-&gt;next;
+            /* Ist die Adresse von zeiger1
+             * der gesuchte Name? */
+            if(strcmp(zeiger1-&gt;name,wen) == 0) {
+               /* Falls ja dann ... */
+               zeiger-&gt;next=zeiger1-&gt;next;
+               zeiger2=zeiger1-&gt;next;
+               zeiger2-&gt;previous=zeiger;
+               free(zeiger1);
+               break;
+            }
+            zeiger=zeiger1;
+         }
+      }
+   }
+   else
+      printf("Es sind keine Daten zum L&ouml;schen vorhanden!!!\n");
+}</pre>
+<p>Die Funktionen <span class="listing">eingabe()</span> und <span class="listing">ausgabe()</span> m&uuml;ssen nicht ver&auml;ndert werden.</p>
+<p>Die Funktion <span class="listing">loesche_alles()</span> ist ebenfalls relativ einfach umzuschreiben. Es muss lediglich die ganze Liste durchlaufen werden, und dabei m&uuml;ssen alle bis auf das erste und letzte Element gel&ouml;scht werden:</p>
+<pre>void loesche_alles(void) {
+   struct angestellt *zeiger, *zeiger1;
+   /* Ist &uuml;berhaupt eine Liste zum L&ouml;schen vorhanden? */
+   if(anfang != NULL) {
+      /* Es ist eine vorhanden ... */
+      zeiger=anfang-&gt;next;
+      while(zeiger != NULL) {
+         zeiger1=anfang-&gt;next-&gt;next;
+         if(zeiger1 == NULL)
+            break;
+         anfang-&gt;next=zeiger1;
+         zeiger1-&gt;previous=anfang;
+         free(zeiger);
+         zeiger=zeiger1;
+      }</pre>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/23_33.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein23_33.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 23.33   
+    </b>Momentane Zeigerstellung der Funktion loesche_alles()</p>
+<p>Die <span class="listing">if</span>-Abrage, ob der Zeiger <span class="listing">zeiger1</span> auf <span class="listing">NULL</span> zeigt, wird als Abbruchbedingung benutzt, da – falls das wahr sein sollte – nur noch zwei Elemente in der Liste vorhanden sind. Genauso gut h&auml;tten Sie dies mit der <span class="listing">while</span>-Abfrage vornehmen k&ouml;nnen: <span class="listing">while(zeiger-&gt;next</span> <span class="listing">!=</span> <span class="listing">NULL)</span> Zu dieser Funktion noch ein kleiner bildlicher Ablauf. Zuerst wird das Element, auf das <span class="listing">zeiger</span> verweist, ausgeh&auml;ngt:</p>
+<pre>      anfang-&gt;next=zeiger1;
+      zeiger1-&gt;previous=anfang;</pre>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/23_34.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein23_34.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 23.34   
+    </b>Zu l&ouml;schendes Element aush&auml;ngen</p>
+<p>Danach kann der Speicherplatz, auf den <span class="listing">zeiger</span> zeigt, mit <span class="listing">free()</span> freigegeben werden. Es ergibt sich folgendes Bild:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/23_35.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein23_35.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 23.35   
+    </b>Speicherplatz freigegeben</p>
+<p>Hier endet die <span class="listing">while</span>-Schleife, da <span class="listing">zeiger1=anfang-&gt;next-&gt;next</span> jetzt auf <span class="listing">NULL</span> zeigt. Jetzt m&uuml;ssen nur noch die letzten beiden Elemente in der Liste gel&ouml;scht werden:</p>
+<pre>      free(anfang);
+      free(ende);
+      anfang=NULL;
+      ende=NULL;</pre>
+<p>Dazu m&uuml;ssen Sie den Speicherplatz, auf den <span class="listing">anfang</span> und <span class="listing">ende</span> zeigen, freigeben. Anschlie&szlig;end bekommen die Zeiger <span class="listing">anfang</span> und <span class="listing">ende</span> den <span class="listing">NULL</span>-Zeiger. Die Funktion <span class="listing">loesche_alles()</span> komplett:</p>
+<pre>void loesche_alles(void) {
+   struct angestellt *zeiger, *zeiger1;
+   /* Ist &uuml;berhaupt eine Liste zum L&ouml;schen vorhanden? */
+   if(anfang != NULL) {
+      /* Es ist eine vorhanden ... */
+      zeiger=anfang-&gt;next;
+      while(zeiger != NULL) {
+         zeiger1=anfang-&gt;next-&gt;next;
+         if(zeiger1 == NULL)
+            break;
+         anfang-&gt;next=zeiger1;
+         zeiger1-&gt;previous=anfang;
+         free(zeiger);
+         zeiger=zeiger1;
+      }
+      /* Jetzt l&ouml;schen wir erst den Anfang der Liste und
+       * das Ende der Liste */
+      free(anfang);
+      free(ende);
+      anfang=NULL;
+      ende=NULL;
+      printf("Liste erfolgreich gel&ouml;scht!!\n");
+   }
+   else
+      fprintf(stderr, "Keine Liste zum L&ouml;schen vorhanden!!\n");
+}</pre>
+<p>Als N&auml;chstes soll die Funktion <span class="listing">sortiert_eingeben()</span> umgeschrieben werden, damit diese f&uuml;r doppelt verkettete Listen verwendet werden kann:</p>
+<pre>void sortiert_eingeben(char *n, char *v, int at, int am,
+                       int aj, int et, int em, int ej,
+                       long geh) {
+   struct angestellt *zeiger, *zeiger1;
+   /* Ist es das 1. Element der Liste? */
+   if(anfang==NULL)
+      anhaengen(n,v,at,am,aj,et,em,ej,geh);
+   /* Es ist nicht das 1. Element. Wir suchen nun so lange, bis
+    * das gesuchte Element gefunden wird oder wir auf NULL
+    * sto&szlig;en */
+   else {
+      zeiger=anfang;
+      while(zeiger != NULL &amp;&amp; (strcmp(zeiger-&gt;name,n) &lt; 0 ) )
+         zeiger=zeiger-&gt;next;
+      /* Falls der Zeiger auf NULL zeigt, k&ouml;nnen wir
+       * unser Element hinten anh&auml;ngen, da unser neues Element
+       * das "gr&ouml;sste" zu sein scheint */
+      if(zeiger==NULL)
+         anhaengen(n,v,at,am,aj,et,em,ej,geh);
+      /* Ist unser neues Element das kleinste und somit
+       * kleiner als das 1. Element, so m&uuml;ssen wir es an den
+       * Anfang h&auml;ngen */
+      else if(zeiger == anfang) {
+         anfang=(struct angestellt *)
+           malloc(sizeof(struct angestellt));
+         if(NULL == anfang) {
+            fprintf(stderr, "Kein Speicherplatz vorhanden!!!\n");
+            return;
+         }
+         strcpy(anfang-&gt;name,strtok(n, "\n") );
+         strcpy(anfang-&gt;vorname,strtok(v, "\n") );
+         anfang-&gt;alter.tag=at;
+         anfang-&gt;alter.monat=am;
+         anfang-&gt;alter.jahr=aj;
+         anfang-&gt;eingest.tag=et;
+         anfang-&gt;eingest.monat=em;
+         anfang-&gt;eingest.jahr=ej;
+         anfang-&gt;gehalt=geh;
+         anfang-&gt;next=zeiger;
+         anfang-&gt;previous=NULL;
+      }</pre>
+<p>Die Erkl&auml;rung, ob es sich hier um das einzige, das erste oder das letzte Element der Liste handelt, kann bei der Funktion <span class="listing">anhaengen()</span> in Abschnitt 23.1, Lineare Listen (einfach verkettete Listen), nachgelesen werden. Viel interessanter ist es, wie ein Element irgendwo dazwischen eingef&uuml;gt wird. Hierzu zun&auml;chst der weitere Codeverlauf:</p>
+<pre>      else {
+         zeiger1=anfang;
+         /* Wir suchen das Element, das vor dem
+          * Zeiger zeiger steht */
+         while(zeiger1-&gt;next != zeiger)
+            zeiger1=zeiger1-&gt;next;
+         zeiger=(struct angestellt *)
+           malloc(sizeof(struct angestellt));
+         if(NULL == zeiger) {
+            fprintf(stderr, "Kein Speicherplatz vorhanden!!!\n");
+            return;
+         }
+         strcpy(zeiger-&gt;name, strtok(n, "\n") );
+         strcpy(zeiger-&gt;vorname, strtok(v, "\n") );
+         zeiger-&gt;alter.tag=at;
+         zeiger-&gt;alter.monat=am;
+         zeiger-&gt;alter.jahr=aj;
+         zeiger-&gt;eingest.tag=et;
+         zeiger-&gt;eingest.monat=em;
+         zeiger-&gt;eingest.jahr=ej;
+         zeiger-&gt;gehalt=geh;
+         /* Wir f&uuml;gen das neue Element ein */
+         zeiger-&gt;next=zeiger1-&gt;next;
+         zeiger-&gt;previous=zeiger1;
+         zeiger1-&gt;next=zeiger;
+         zeiger1-&gt;next-&gt;previous=zeiger;
+      } /*Ende else*/</pre>
+<p>Es wird davon ausgegangen, dass die Position f&uuml;r das neue Element bereits ermittelt wurde, und sich <span class="listing">zeiger1</span> vor diesem Element befindet. Somit ergibt sich folgender Zustand:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/23_36.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein23_36.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 23.36   
+    </b>Neues Element einf&uuml;gen</p>
+<p>Jetzt soll das neue Element, auf welches <span class="listing">zeiger</span> verweist, zwischen dem zweiten und dem dritten Element eingef&uuml;gt werden. Hierzu die weiteren Schritte:</p>
+<pre><span class="listing">zeiger-&gt;next=zeiger1-&gt;next;</span></pre>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/23_37.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein23_37.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 23.37   
+    </b>Zeiger auf den Nachfolger des neuen Elements</p>
+<pre>zeiger-&gt;previous=zeiger1;</pre>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/23_38.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein23_38.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 23.38   
+    </b>Zeiger auf den Vorg&auml;nger des neuen Elements</p>
+<pre>zeiger1-&gt;next=zeiger;
+zeiger1-&gt;next-&gt;previous=zeiger;</pre>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/23_39.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein23_39.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 23.39   
+    </b>Zeiger vom Vorg&auml;nger und Nachfolger zum neuen Element</p>
+<p>Das soll es vorerst mit dem Abschnitt »Doppelt verkettete Listen« gewesen sein. Wenn folgende Ratschl&auml;ge zu diesem Thema beherzigt werden, d&uuml;rften keine Probleme zu erwarten sein:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Wenn Sie Zeiger benutzen, ist immer darauf zu achten, dass diese auf einen g&uuml;ltigen Speicherbereich (Adresse) zeigen. Ein h&auml;ufiges Missverst&auml;ndnis bei Zeigern ist es, dass z.B. mit: <span class="listing">zeiger1=zeiger</span> kein Wert an <span class="listing">zeiger1</span> &uuml;bergeben wird, sondern die Adresse, auf die <span class="listing">zeiger</span> verweist. Daher empfiehlt es sich, so oft wie m&ouml;glich Fehler&uuml;berpr&uuml;fungen einzubauen.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Sie sollten aussagekr&auml;ftige Namen f&uuml;r einen Zeiger verwenden. Beispiele: <span class="listing">next</span>, <span class="listing">previous</span>, <span class="listing">anfang</span> oder <span class="listing">ende</span>. Dies ist eine enorme Erleichterung, wenn das Programm Fehler hat und nach ihnen gesucht werden muss. Denn unter <span class="listing">anfang-&gt;next=ende</span> k&ouml;nnen Sie sich mehr vorstellen als unter <span class="listing">a–&gt;n=e</span>.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Einer der h&auml;ufigsten Fehler ist ein Zeiger, der auf einen unerlaubten Speicherplatz zeigt. Daher lohnt es, sich die Zeit zu nehmen, den Ablauf des Programms auf einem St&uuml;ck Papier zu zeichnen, um ihn besser nachvollziehen zu k&ouml;nnen. Gerade bei doppelt verketteten Listen ist es ziemlich schnell passiert, dass Sie ein Glied der Kette vergessen. Meist wird dieser Fehler am Anfang gar nicht bemerkt, denn der Compiler kann bei &Uuml;bersetzung des Programms ja noch nicht wissen, ob ein Zeiger ins Nirwana verweist.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> And last but not least. Sie sollten immer den R&uuml;ckgabewert &uuml;berpr&uuml;fen, wenn Speicherplatz reserviert wird. Denn alles, was schief gehen kann, wird irgendwann einmal schief gehen.</td>
+</tr>
+</table>
+<p>Das vollst&auml;ndige Listing (<span class="listing">double_list.c</span>) kann unter der Adresse <a href="http://www.pronix.de/" target="_blank">http://www.pronix.de/</a> heruntergeladen werden. Dem Listing wurden noch einige Funktionen, u.a. das Laden oder Speichern von Daten auf der Festplatte, hinzugef&uuml;gt.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_023_000.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_023_002.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td width="10" valign="top">&nbsp;&nbsp;</td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/899?GPP=opc">
+                                        <img src="common/643_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C von A bis Z" title="Zum Katalog: C von A bis Z">
+                                        <br /><strong>C von A bis Z</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Ihre Meinung?</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1007?GPP=opc">
+                        <img src="common/683_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Shell-Programmierung" title="Zum Katalog: Shell-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Shell-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1137?GPP=opc">
+                        <img src="common/749_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux-UNIX-Programmierung" title="Zum Katalog: Linux-UNIX-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux-UNIX-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1004?GPP=opc">
+                        <img src="common/644_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C/C++" title="Zum Katalog: C/C++"><br /><br /><br /><br /><br /><br /><br />&nbsp;C/C++</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/880?GPP=opc">
+                        <img src="common/573_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/967?GPP=opc">
+                        <img src="common/626_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Reguläre Ausdrücke" title="Zum Katalog: Reguläre Ausdrücke"><br /><br /><br /><br /><br /><br /><br />&nbsp;Reguläre Ausdrücke</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/941?GPP=opc">
+                        <img src="common/677_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Shopping</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opc"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table>
+<br /><br />
+<hr width="70%" align="center"><br />
+<div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2006</b><br>F&uuml;r Ihren privaten Gebrauch d&uuml;rfen Sie die Online-Version nat&uuml;rlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschlie&szlig;lich aller seiner Teile ist urheberrechtlich gesch&uuml;tzt. Alle Rechte vorbehalten einschlie&szlig;lich der Vervielf&auml;ltigung, &Uuml;bersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

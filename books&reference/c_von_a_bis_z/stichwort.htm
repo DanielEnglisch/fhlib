@@ -1,0 +1,4331 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: C von A bis Z</title>
+<meta name="title" content="Galileo Computing :: C von A bis Z">
+<meta name="author" content="J&uuml;rgen Wolf">
+<meta name="publisher" content="Galileo Press 2006">
+<meta name="copyright" content="Galileo Press 2006">
+<meta name="description" content="C von A bis Z – Das umfassende Handbuch f&uuml;r Linux, Unix und Windows – 2., aktualisierte und erweiterte Auflage 2006, geb., mit CD und Referenzkarte – ISBN 3-89842-643-2">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="c_030Anhang_005.htm"><script type="text/javascript" language="JavaScript"><!--
+function OpenWin(url,name,height,width)
+{
+  var InfoWin =window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+  InfoWin.focus();
+}
+--></script></head>
+<body vlink="#000099" link="#000099" alink="#000099">
+    <table width="100%" height="74" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+        <tr>
+            <td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+            <td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opc"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger." title="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger."></a></td>
+        </tr>
+    </table>
+    <div align="right"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger.</a></div>
+    <br />
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td width="156" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
+        <tr>
+            <td colspan="2" class="nav1" align="left" valign="top" height="150">
+                <table class="tbl1" width="150" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td class="tbl2" height="25"><a class="nav" href="./index.htm">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000Vorwort_000.htm#Xxx999266">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000VorwortGutachter_000.htm#Xxx999275">Vorwort des Gutachters</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_001_000.htm#Xxx999328">1 Einstieg in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_002_000.htm#Xxx999328">2 Das erste Programm</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_003_000.htm#Xxx999328">3 Zeichens&auml;tze</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_004_000.htm#Xxx999329">4 Kommentare in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_005_000.htm#Xxx999330">5 Formatierte Eingabe mit scanf()</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_006_000.htm#Xxx999330">6 Formatierte Ausgabe mit printf</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_007_000.htm#Xxx999329">7 Elementare Datentypen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_008_000.htm#Xxx999328">8 Operatoren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_009_000.htm#Xxx999328">9 Typenumwandlung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_010_000.htm#Xxx999328">10 Kontrollstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_011_000.htm#Xxx999328">11 Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_012_000.htm#Xxx999328">12 Pr&auml;prozessor-Direktiven</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_013_000.htm#Xxx999328">13 Arrays</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_014_000.htm#Xxx999328">14 Zeiger (Pointer)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_015_000.htm#Xxx999328">15 Kommandozeilenargumente</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_016_000.htm#Xxx999328">16 Dynamische Speicherverwaltung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_017_000.htm#Xxx999328">17 Strukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_018_000.htm#Xxx999328">18 Ein-/Ausgabe-Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_019_000.htm#Xxx999328">19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_020_000.htm#Xxx999328">20 Arbeiten mit variablen langen Argumentlisten – &lt;stdarg.h&gt;</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_021_000.htm#Xxx999328">21 Zeitroutinen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_022_000.htm#Xxx999328">22 Weitere Headerdateien und ihre Funktionen (ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_023_000.htm#Xxx999328">23 Dynamische Datenstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_024_000.htm#Xxx999328">24 Algorithmen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_025_000.htm#Xxx999328">25 Sicheres Programmieren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_026_000.htm#Xxx999328">26 CGI mit C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_027_000.htm#Xxx999328">27 MySQL und C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_028_000.htm#Xxx999328">28 Netzwerkprogrammierung und Cross-Plattform-Entwicklung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_029_000.htm#Xxx999328">29 Wie geht’s jetzt weiter?</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_030Anhang_000.htm#Xxx999266">A Anhang</A></td>
+</tr>
+<tr>
+<td><a class="navh" href="./stichwort.htm#Xxx512322">Index</a></td>
+</tr>
+<tr><td><br /><a class="navnav" href="http://download.galileo-press.de/openbook/c_von_a_bis_z/galileocomputing_c_von_a_bis_z.zip"><strong>Download:</strong><br />- ZIP, ca. 8,5 MB</a></td></tr>
+<tr><td><a class="navnav" href="http://www.galileocomputing.de/899?GPP=opc">Buch bestellen</a></td></tr>
+<tr><td><a class="navnav" href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)">Ihre Meinung?</a><br /><br /></td></tr>
+</table></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10"></td>
+<td width="85%" valign="top" align="center">
+    <div align="center">
+        <table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+            <tr>
+                <td width="100%" class="start" colspan="1" height="22" align="center">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_030Anhang_005.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Galileo Computing /</a><a class="navnav" href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"> &lt;openbook&gt; /</a><a href="./index.htm" class="navnav"> C von A bis Z</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"> </div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" valign="top">
+    <table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+        <tr>
+            <td colspan="2"><a href="http://www.galileocomputing.de/899?GPP=opc" class="buchtitel">C von A bis Z</a><span class="autor"> von J&uuml;rgen Wolf</span><br><span class="untertitel">Das umfassende Handbuch f&uuml;r Linux, Unix und Windows <br />– 2., aktualisierte und erweiterte Auflage 2006</span></td>
+        </tr>
+        <tr>
+            <td valign="top" width="90"><a href="http://www.galileocomputing.de/899?GPP=opc"><img src="common/643.gif" border="0" alt="Buch: C von A bis Z" title="Buch: C von A bis Z" align="left"><br /><br /><span class="autor"><strong>C von A bis Z</strong><br />1.116 S., mit CD, Referenzkarte, 39,90 Euro<br />Galileo Computing<br />ISBN 3-89842-643-2</span></a></a></td>
+            <td width="80%">
+<table>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><a href="#grp1"><b>A</b></a></td>
+<td valign="baseline"><a href="#grp2"><b>B</b></a></td>
+<td valign="baseline"><a href="#grp3"><b>C</b></a></td>
+<td valign="baseline"><a href="#grp4"><b>D</b></a></td>
+<td valign="baseline"><a href="#grp5"><b>E</b></a></td>
+<td valign="baseline"><a href="#grp6"><b>F</b></a></td>
+<td valign="baseline"><a href="#grp7"><b>G</b></a></td>
+<td valign="baseline"><a href="#grp8"><b>H</b></a></td>
+<td valign="baseline"><a href="#grp9"><b>I</b></a></td>
+<td valign="baseline"><a href="#grp10"><b>J</b></a></td>
+<td valign="baseline"><a href="#grp11"><b>K</b></a></td>
+<td valign="baseline"><a href="#grp12"><b>L</b></a></td>
+<td valign="baseline"><a href="#grp13"><b>M</b></a></td>
+<td valign="baseline"><a href="#grp14"><b>N</b></a></td>
+<td valign="baseline"><a href="#grp15"><b>O</b></a></td>
+<td valign="baseline"><a href="#grp16"><b>P</b></a></td>
+<td valign="baseline"><a href="#grp17"><b>Q</b></a></td>
+<td valign="baseline"><a href="#grp18"><b>R</b></a></td>
+<td valign="baseline"><a href="#grp19"><b>S</b></a></td>
+<td valign="baseline"><a href="#grp20"><b>T</b></a></td>
+<td valign="baseline"><a href="#grp21"><b>U</b></a></td>
+<td valign="baseline"><a href="#grp22"><b>V</b></a></td>
+<td valign="baseline"><a href="#grp23"><b>W</b></a></td>
+<td valign="baseline"><a href="#grp24"><b>Z</b></a></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td>
+<h1 class="t1">Index</h1>
+<dt>- (Operator)  <a href="./c_008_001.htm#Xxx999342">
+              [1]
+            </a></dt>
+<dt>-- (Operator)  <a href="./c_008_003.htm#Xxx999343">
+              [1]
+            </a></dt>
+<dt>! (Operator)  <a href="./c_010_003.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>!= (Operator)  <a href="./c_010_000.htm#Xxx999392">
+              [1]
+            </a></dt>
+<dt>#define-Anweisung  <a href="./c_012_001.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>#elif-Anweisung  <a href="./c_012_002.htm#Xxx999347">
+              [1]
+            </a></dt>
+<dt>#else-Anweisung  <a href="./c_012_002.htm#Xxx999351">
+              [1]
+            </a></dt>
+<dt>#endif-Anweisung  <a href="./c_012_002.htm#Xxx999354">
+              [1]
+            </a></dt>
+<dt>#error-Anweisung  <a href="./c_012_006.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>#ifdef-Anweisung  <a href="./c_012_002.htm#Xxx999339">
+              [1]
+            </a></dt>
+<dt>#include-Anweisung  <a href="./c_012_000.htm#Xxx999347">
+              [1]
+            </a></dt>
+<dt>#line-Anweisung  <a href="./c_012_003.htm#Xxx999378">
+              [1]
+            </a></dt>
+<dt>#pragma pack  <a href="./c_017_011.htm#Xxx999349">
+              [1]
+            </a></dt>
+<dt>#pragma-Anweisung  <a href="./c_012_007.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>#undef-Anweisung  <a href="./c_012_001.htm#Xxx999397">
+              [1]
+            </a>, <a href="./c_012_005.htm#Xxx999330">
+              [2]
+            </a></dt>
+<dt>% (Operator)  <a href="./c_008_001.htm#Xxx999357">
+              [1]
+            </a></dt>
+<dt>%= (Operator)  <a href="./c_008_002.htm#Xxx999356">
+              [1]
+            </a></dt>
+<dt>&amp; (Operator)  <a href="./c_005_000.htm#Xxx999354">
+              [1]
+            </a>, <a href="./c_008_004.htm#Xxx999375">
+              [2]
+            </a></dt>
+<dt>&amp;&amp; (Operator)  <a href="./c_010_004.htm#Xxx999328">
+              [1]
+            </a></dt>
+<dt>(type)Operator  <a href="./c_009_000.htm#Xxx999338">
+              [1]
+            </a></dt>
+<dt>* (Operator)  <a href="./c_008_001.htm#Xxx999347">
+              [1]
+            </a></dt>
+<dt>*= (Operator)  <a href="./c_008_002.htm#Xxx999346">
+              [1]
+            </a></dt>
+<dt>+ (Operator)  <a href="./c_008_001.htm#Xxx999337">
+              [1]
+            </a></dt>
+<dt>++ (Operator)  <a href="./c_008_003.htm#Xxx999338">
+              [1]
+            </a></dt>
+<dt>+= (Operator)  <a href="./c_008_002.htm#Xxx999336">
+              [1]
+            </a></dt>
+<dt>. (Operator)  <a href="./c_017_001.htm#Xxx999332">
+              [1]
+            </a></dt>
+<dt>/ (Operator)  <a href="./c_008_001.htm#Xxx999352">
+              [1]
+            </a></dt>
+<dt>/= (Operator)  <a href="./c_008_002.htm#Xxx999351">
+              [1]
+            </a></dt>
+<dt>&lt; (Operator)  <a href="./c_010_000.htm#Xxx999367">
+              [1]
+            </a></dt>
+<dt>&lt;&lt; (Operator)  <a href="./c_008_004.htm#Xxx999560">
+              [1]
+            </a></dt>
+<dt>&lt;= (Operator)  <a href="./c_010_000.htm#Xxx999372">
+              [1]
+            </a></dt>
+<dt>-= (Operator)  <a href="./c_008_002.htm#Xxx999341">
+              [1]
+            </a></dt>
+<dt>== (Operator)  <a href="./c_010_000.htm#Xxx999387">
+              [1]
+            </a></dt>
+<dt>-&gt; (Operator)  <a href="./c_017_002.htm#Xxx999342">
+              [1]
+            </a>, <a href="./c_023_000.htm#Xxx999358">
+              [2]
+            </a></dt>
+<dt>&gt; (Operator)  <a href="./c_010_000.htm#Xxx999377">
+              [1]
+            </a></dt>
+<dt>&gt;= (Operator)  <a href="./c_010_000.htm#Xxx999382">
+              [1]
+            </a></dt>
+<dt>&gt;&gt; (Operator)  <a href="./c_008_004.htm#Xxx999577">
+              [1]
+            </a></dt>
+<dt>?: (Operator)  <a href="./c_010_005.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>^ (Operator)  <a href="./c_008_004.htm#Xxx999482">
+              [1]
+            </a></dt>
+<dt>__attribut__  <a href="./c_017_011.htm#Xxx999344">
+              [1]
+            </a></dt>
+<dt>__cplusplus Makro  <a href="./c_012_003.htm#Xxx999361">
+              [1]
+            </a></dt>
+<dt>__DATE__ Makro  <a href="./c_012_003.htm#Xxx999346">
+              [1]
+            </a></dt>
+<dt>__FILE__  <a href="./c_022_000.htm#Xxx999338">
+              [1]
+            </a></dt>
+<dt>__FILE__ Makro  <a href="./c_012_003.htm#Xxx999341">
+              [1]
+            </a></dt>
+<dt>__func__ (C99)  <a href="./c_012_003.htm#Xxx999387">
+              [1]
+            </a>, <a href="./c_022_008.htm#Xxx999495">
+              [2]
+            </a></dt>
+<dt>__LINE__  <a href="./c_022_000.htm#Xxx999339">
+              [1]
+            </a></dt>
+<dt>__LINE__ Makro  <a href="./c_012_003.htm#Xxx999336">
+              [1]
+            </a></dt>
+<dt>__STD_HOSTED__ (C 99)  <a href="./c_012_003.htm#Xxx999392">
+              [1]
+            </a>, <a href="./c_022_008.htm#Xxx999500">
+              [2]
+            </a></dt>
+<dt>__STD_VERSION__ (C 99)  <a href="./c_012_003.htm#Xxx999397">
+              [1]
+            </a>, <a href="./c_022_008.htm#Xxx999505">
+              [2]
+            </a></dt>
+<dt>__STDC__ Makro  <a href="./c_012_003.htm#Xxx999356">
+              [1]
+            </a></dt>
+<dt>__TIME__ Makro  <a href="./c_012_003.htm#Xxx999351">
+              [1]
+            </a></dt>
+<dt>_exit()  <a href="./c_022_003.htm#Xxx999341">
+              [1]
+            </a></dt>
+<dt>_IOFBF  <a href="./c_018_019.htm#Xxx999381">
+              [1]
+            </a></dt>
+<dt>_IOLBF  <a href="./c_018_019.htm#Xxx999371">
+              [1]
+            </a></dt>
+<dt>_IONBF  <a href="./c_018_019.htm#Xxx999376">
+              [1]
+            </a></dt>
+<dt>| (Operator)  <a href="./c_008_004.htm#Xxx999430">
+              [1]
+            </a></dt>
+<dt>|| (Operator)  <a href="./c_010_004.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>~ (Operator)  <a href="./c_008_004.htm#Xxx999534">
+              [1]
+            </a></dt>
+<dt>0 EXCL  <a href="./c_018_020.htm#Xxx999364">
+              [1]
+            </a></dt>
+<h3><a name="grp1"></a>A  
+          <a href="#grp2"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"></h3>
+<dt>abnormale Programmbeendigung  <a href="./c_022_003.htm#Xxx999355">
+              [1]
+            </a></dt>
+<dt>abort()  <a href="./c_022_000.htm#Xxx999340">
+              [1]
+            </a>, <a href="./c_022_003.htm#Xxx999354">
+              [2]
+            </a></dt>
+<dt>abs()  <a href="./c_022_003.htm#Xxx999431">
+              [1]
+            </a></dt>
+<dt>Absolutwert  <a href="./c_022_002.htm#Xxx999429">
+              [1]
+            </a>, <a href="./c_022_003.htm#Xxx999428">
+              [2]
+            </a></dt>
+<dt>accept()  <a href="./c_028_004.htm#Xxx999361">
+              [1]
+            </a></dt>
+<dt>access()  <a href="./c_019_001.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>acos()  <a href="./c_022_002.htm#Xxx999343">
+              [1]
+            </a></dt>
+<dt>Adressoperator  <a href="./c_005_000.htm#Xxx999353">
+              [1]
+            </a>, <a href="./c_014_001.htm#Xxx999350">
+              [2]
+            </a></dt>
+<dt>AF_BLUETOOTH  <a href="./c_028_003.htm#Xxx999369">
+              [1]
+            </a></dt>
+<dt>AF_INET  <a href="./c_028_003.htm#Xxx999354">
+              [1]
+            </a></dt>
+<dt>AF_INET6  <a href="./c_028_003.htm#Xxx999359">
+              [1]
+            </a></dt>
+<dt>AF_IRDA  <a href="./c_028_003.htm#Xxx999364">
+              [1]
+            </a></dt>
+<dt>AF_UNIX  <a href="./c_028_003.htm#Xxx999349">
+              [1]
+            </a></dt>
+<dt>Algorithmen  <a href="./c_024_000.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>alloca()  <a href="./c_016_008.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>ALTER TABLE  <a href="./c_027_002.htm#Xxx999618">
+              [1]
+            </a></dt>
+<dt>ANSI  <a href="./c_001_001.htm#Xxx999338">
+              [1]
+            </a></dt>
+<dt>ANSI C</dt>
+<dt>– C99  <a href="./c_022_008.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>ANSI C Standard</dt>
+<dt>– C89 Standard  <a href="./c_001_001.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– C99 Standard  <a href="./c_001_001.htm#Xxx999328">
+              [1]
+            </a></dt>
+<dt>Anweisungsblock  <a href="./c_002_002.htm#Xxx999343">
+              [1]
+            </a>, <a href="./c_010_000.htm#Xxx999340">
+              [2]
+            </a></dt>
+<dt>Apache Webserver  <a href="./c_026_006.htm#Xxx999366">
+              [1]
+            </a></dt>
+<dt>– htdocs-Verzeichnis  <a href="./c_026_006.htm#Xxx999443">
+              [1]
+            </a></dt>
+<dt>– installieren  <a href="./c_026_006.htm#Xxx999377">
+              [1]
+            </a></dt>
+<dt>– Konfiguration  <a href="./c_026_006.htm#Xxx999519">
+              [1]
+            </a></dt>
+<dt>– starten und stoppen  <a href="./c_026_006.htm#Xxx999448">
+              [1]
+            </a></dt>
+<dt>Arcuscosinus  <a href="./c_022_002.htm#Xxx999346">
+              [1]
+            </a></dt>
+<dt>Arcussinus  <a href="./c_022_002.htm#Xxx999352">
+              [1]
+            </a></dt>
+<dt>Arcustangens  <a href="./c_022_002.htm#Xxx999358">
+              [1]
+            </a></dt>
+<dt>Array</dt>
+<dt>– Anzahl der Elemente ermitteln  <a href="./c_013_003.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– Bereichs&uuml;berschreitung  <a href="./c_013_001.htm#Xxx999335">
+              [1]
+            </a></dt>
+<dt>– Deklarieren  <a href="./c_013_000.htm#Xxx999332">
+              [1]
+            </a></dt>
+<dt>– dynamisch  <a href="./c_016_006.htm#Xxx999330">
+              [1]
+            </a>, <a href="./c_016_010.htm#Xxx999330">
+              [2]
+            </a></dt>
+<dt>– Funktions&uuml;bergabe  <a href="./c_013_004.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>– Funktions&uuml;bergabe als Kopie  <a href="./c_013_004.htm#Xxx999344">
+              [1]
+            </a></dt>
+<dt>– G&uuml;ltigkeitsbereich  <a href="./c_013_001.htm#Xxx999392">
+              [1]
+            </a></dt>
+<dt>– Indizierungsoperator  <a href="./c_013_001.htm#Xxx999333">
+              [1]
+            </a></dt>
+<dt>– Initialisierung und Zugriff  <a href="./c_013_001.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– mehrdimensional  <a href="./c_013_008.htm#Xxx999329">
+              [1]
+            </a>, <a href="./c_016_010.htm#Xxx999331">
+              [2]
+            </a></dt>
+<dt>– R&uuml;ckgabe aus Funktion  <a href="./c_013_005.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– Strukturen  <a href="./c_017_005.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>– Vergleichen  <a href="./c_013_002.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– von Tastatur einlesen  <a href="./c_013_007.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>Array und Zeiger  <a href="./c_014_006.htm#Xxx999329">
+              [1]
+            </a>, <a href="./c_014_011.htm#Xxx999330">
+              [2]
+            </a>, <a href="./c_016_010.htm#Xxx999356">
+              [3]
+            </a></dt>
+<dt>ASCII-Zeichensatz  <a href="./c_007_008.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>asctime()  <a href="./c_021_000.htm#Xxx999467">
+              [1]
+            </a></dt>
+<dt>asin()  <a href="./c_022_002.htm#Xxx999349">
+              [1]
+            </a></dt>
+<dt>assert()  <a href="./c_022_000.htm#Xxx999332">
+              [1]
+            </a></dt>
+<dt>atan()  <a href="./c_022_002.htm#Xxx999355">
+              [1]
+            </a></dt>
+<dt>atan2()  <a href="./c_022_002.htm#Xxx999361">
+              [1]
+            </a></dt>
+<dt>atexit()  <a href="./c_022_003.htm#Xxx999346">
+              [1]
+            </a></dt>
+<dt>atof()  <a href="./c_022_003.htm#Xxx999372">
+              [1]
+            </a></dt>
+<dt>atoi()  <a href="./c_022_003.htm#Xxx999366">
+              [1]
+            </a></dt>
+<dt>atol()  <a href="./c_022_003.htm#Xxx999368">
+              [1]
+            </a></dt>
+<dt>Attribute einer Datei  <a href="./c_019_000.htm#Xxx999333">
+              [1]
+            </a></dt>
+<dt>Aufz&auml;hlungstyp</dt>
+<dt>– enum  <a href="./c_017_009.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>ausgeglichener Bin&auml;rbaum  <a href="./c_024_003.htm#Xxx999530">
+              [1]
+            </a></dt>
+<dt>auto  <a href="./c_011_008.htm#Xxx999336">
+              [1]
+            </a></dt>
+<dt>AVL-Baum  <a href="./c_024_003.htm#Xxx999545">
+              [1]
+            </a></dt>
+<br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp2"></a>B  
+          <a href="#grp3"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp1"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<dt>Backtracking  <a href="./c_024_007.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>B&auml;ume  <a href="./c_024_003.htm#Xxx999366">
+              [1]
+            </a></dt>
+<dt>B-Baum  <a href="./c_024_003.htm#Xxx999553">
+              [1]
+            </a></dt>
+<dt>bedingte Compilierung  <a href="./c_012_002.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>Bedingung</dt>
+<dt>– else  <a href="./c_010_002.htm#Xxx999328">
+              [1]
+            </a></dt>
+<dt>– else if  <a href="./c_010_001.htm#Xxx999328">
+              [1]
+            </a></dt>
+<dt>– if  <a href="./c_010_000.htm#Xxx999334">
+              [1]
+            </a></dt>
+<dt>Bedingungsoperator  <a href="./c_010_005.htm#Xxx999328">
+              [1]
+            </a></dt>
+<dt>Bezeichner  <a href="./c_007_001.htm#Xxx999356">
+              [1]
+            </a></dt>
+<dt>Big Endian  <a href="./c_018_016.htm#Xxx999392">
+              [1]
+            </a></dt>
+<dt>Bildschirm l&ouml;schen  <a href="./c_012_002.htm#Xxx999340">
+              [1]
+            </a></dt>
+<dt>Bin&auml;re B&auml;ume  <a href="./c_024_003.htm#Xxx999364">
+              [1]
+            </a></dt>
+<dt>– Ast, Kante  <a href="./c_024_003.htm#Xxx999390">
+              [1]
+            </a></dt>
+<dt>– ausgleichen  <a href="./c_024_003.htm#Xxx999529">
+              [1]
+            </a></dt>
+<dt>– AVL-Baum  <a href="./c_024_003.htm#Xxx999546">
+              [1]
+            </a></dt>
+<dt>– B-Baum  <a href="./c_024_003.htm#Xxx999554">
+              [1]
+            </a></dt>
+<dt>– Blatt  <a href="./c_024_003.htm#Xxx999394">
+              [1]
+            </a></dt>
+<dt>– Elternzeiger  <a href="./c_024_003.htm#Xxx999520">
+              [1]
+            </a></dt>
+<dt>– Entartet  <a href="./c_024_003.htm#Xxx999537">
+              [1]
+            </a></dt>
+<dt>– Knoten  <a href="./c_024_003.htm#Xxx999392">
+              [1]
+            </a></dt>
+<dt>– Teilbaum  <a href="./c_024_003.htm#Xxx999396">
+              [1]
+            </a></dt>
+<dt>– Threads  <a href="./c_024_003.htm#Xxx999525">
+              [1]
+            </a></dt>
+<dt>– Tiefe  <a href="./c_024_003.htm#Xxx999398">
+              [1]
+            </a></dt>
+<dt>– Wurzel  <a href="./c_024_003.htm#Xxx999388">
+              [1]
+            </a></dt>
+<dt>bin&auml;re Suche  <a href="./c_024_003.htm#Xxx999355">
+              [1]
+            </a></dt>
+<dt>bind()  <a href="./c_028_004.htm#Xxx999333">
+              [1]
+            </a></dt>
+<dt>Bitfelder  <a href="./c_017_012.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>– anonym  <a href="./c_017_012.htm#Xxx999365">
+              [1]
+            </a></dt>
+<dt>Bitmanipulationen</dt>
+<dt>– Bits abfragen  <a href="./c_008_004.htm#Xxx999581">
+              [1]
+            </a></dt>
+<dt>– Bits l&ouml;schen  <a href="./c_008_004.htm#Xxx999583">
+              [1]
+            </a></dt>
+<dt>– Bits setzen  <a href="./c_008_004.htm#Xxx999582">
+              [1]
+            </a></dt>
+<dt>Bitweise Operatoren  <a href="./c_008_004.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>Blockweise (bin&auml;r)</dt>
+<dt>– lesen  <a href="./c_018_016.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>– schreiben  <a href="./c_018_016.htm#Xxx999332">
+              [1]
+            </a></dt>
+<dt>Boyer-Moore-Algorithmus  <a href="./c_024_005.htm#Xxx999411">
+              [1]
+            </a></dt>
+<dt>break  <a href="./c_010_010.htm#Xxx999347">
+              [1]
+            </a></dt>
+<dt>bsearch()  <a href="./c_022_003.htm#Xxx999459">
+              [1]
+            </a></dt>
+<dt>Bubble Sort  <a href="./c_024_002.htm#Xxx999373">
+              [1]
+            </a></dt>
+<dt>Buffer Overflow  <a href="./c_025_000.htm#Xxx999341">
+              [1]
+            </a></dt>
+<dt>– anf&auml;llige Funktionen  <a href="./c_025_000.htm#Xxx999439">
+              [1]
+            </a></dt>
+<dt>– fgets()  <a href="./c_013_013.htm#Xxx999347">
+              [1]
+            </a></dt>
+<dt>– Gegenma&szlig;nahmen  <a href="./c_025_000.htm#Xxx999436">
+              [1]
+            </a></dt>
+<dt>– gets()  <a href="./c_018_015.htm#Xxx999340">
+              [1]
+            </a>, <a href="./c_025_000.htm#Xxx999451">
+              [2]
+            </a></dt>
+<dt>– printf()  <a href="./c_006_000.htm#Xxx999348">
+              [1]
+            </a>, <a href="./c_025_000.htm#Xxx999564">
+              [2]
+            </a></dt>
+<dt>– Programme und Tools  <a href="./c_025_000.htm#Xxx999615">
+              [1]
+            </a></dt>
+<dt>– scanf()  <a href="./c_005_001.htm#Xxx999359">
+              [1]
+            </a>, <a href="./c_025_000.htm#Xxx999473">
+              [2]
+            </a></dt>
+<dt>– sprintf()  <a href="./c_025_000.htm#Xxx999541">
+              [1]
+            </a></dt>
+<dt>– strcat()  <a href="./c_013_014.htm#Xxx999351">
+              [1]
+            </a>, <a href="./c_025_000.htm#Xxx999519">
+              [2]
+            </a></dt>
+<dt>– strcpy()  <a href="./c_013_014.htm#Xxx999376">
+              [1]
+            </a>, <a href="./c_025_000.htm#Xxx999347">
+              [2]
+            </a>, <a href="./c_025_000.htm#Xxx999496">
+              [3]
+            </a></dt>
+<dt>– Wrapper-Funktion  <a href="./c_025_000.htm#Xxx999606">
+              [1]
+            </a></dt>
+<dt>BUFSIZ  <a href="./c_018_019.htm#Xxx999335">
+              [1]
+            </a></dt>
+<dt>Byte stream  <a href="./c_018_000.htm#Xxx999332">
+              [1]
+            </a></dt>
+<br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp3"></a>C  
+          <a href="#grp4"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp2"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<dt>C89 Standard  <a href="./c_001_001.htm#Xxx999344">
+              [1]
+            </a></dt>
+<dt>C99  <a href="./c_022_008.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>C99 Standard  <a href="./c_001_001.htm#Xxx999348">
+              [1]
+            </a></dt>
+<dt>call by reference  <a href="./c_013_004.htm#Xxx999335">
+              [1]
+            </a>, <a href="./c_014_005.htm#Xxx999331">
+              [2]
+            </a></dt>
+<dt>call by value  <a href="./c_011_013.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>calloc()  <a href="./c_016_007.htm#Xxx999332">
+              [1]
+            </a></dt>
+<dt>C-API</dt>
+<dt>– MySQL  <a href="./c_027_003.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>Casting  <a href="./c_009_000.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>ceil()  <a href="./c_022_002.htm#Xxx999421">
+              [1]
+            </a></dt>
+<dt>CGI  <a href="./c_026_000.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>– Anwendung ausf&uuml;hren  <a href="./c_026_006.htm#Xxx999525">
+              [1]
+            </a></dt>
+<dt>– Anwendung erstellen  <a href="./c_026_006.htm#Xxx999524">
+              [1]
+            </a></dt>
+<dt>– Ausgabe  <a href="./c_026_008.htm#Xxx999492">
+              [1]
+            </a></dt>
+<dt>– CGI-Schnittstelle  <a href="./c_026_000.htm#Xxx999333">
+              [1]
+            </a>, <a href="./c_026_008.htm#Xxx999329">
+              [2]
+            </a></dt>
+<dt>– CONTENT_LENGTH  <a href="./c_026_010.htm#Xxx999355">
+              [1]
+            </a></dt>
+<dt>– Eingabe  <a href="./c_026_010.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>– Eingabe dekodieren  <a href="./c_026_010.htm#Xxx999368">
+              [1]
+            </a></dt>
+<dt>– Eingabe parsen  <a href="./c_026_010.htm#Xxx999367">
+              [1]
+            </a></dt>
+<dt>– Filehandle  <a href="./c_026_008.htm#Xxx999332">
+              [1]
+            </a></dt>
+<dt>– Formular-Tags  <a href="./c_026_009.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>– G&auml;stebuch  <a href="./c_026_011.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– getenv()  <a href="./c_026_008.htm#Xxx999472">
+              [1]
+            </a></dt>
+<dt>– GET-Methode  <a href="./c_026_007.htm#Xxx999440">
+              [1]
+            </a>, <a href="./c_026_010.htm#Xxx999341">
+              [2]
+            </a></dt>
+<dt>– HTTP Request  <a href="./c_026_007.htm#Xxx999429">
+              [1]
+            </a></dt>
+<dt>– HTTP-Protokoll  <a href="./c_026_007.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>– Methode auswerten  <a href="./c_026_010.htm#Xxx999358">
+              [1]
+            </a></dt>
+<dt>– mit der MySQL C-API  <a href="./c_027_004.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>– POST-Methode  <a href="./c_026_007.htm#Xxx999456">
+              [1]
+            </a>, <a href="./c_026_010.htm#Xxx999349">
+              [2]
+            </a></dt>
+<dt>– QUERY_STRING  <a href="./c_026_010.htm#Xxx999345">
+              [1]
+            </a></dt>
+<dt>– Query-String  <a href="./c_026_007.htm#Xxx999424">
+              [1]
+            </a></dt>
+<dt>– Request Header  <a href="./c_026_007.htm#Xxx999470">
+              [1]
+            </a></dt>
+<dt>– Server Response  <a href="./c_026_007.htm#Xxx999520">
+              [1]
+            </a></dt>
+<dt>– Statuscode  <a href="./c_026_007.htm#Xxx999524">
+              [1]
+            </a></dt>
+<dt>– Umgebungsvariablen  <a href="./c_026_008.htm#Xxx999339">
+              [1]
+            </a></dt>
+<dt>– Zugriffsrechte  <a href="./c_026_006.htm#Xxx999529">
+              [1]
+            </a></dt>
+<dt>char  <a href="./c_007_007.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>CHAR_BIT  <a href="./c_007_010.htm#Xxx999342">
+              [1]
+            </a></dt>
+<dt>CHAR_MAX  <a href="./c_007_010.htm#Xxx999377">
+              [1]
+            </a></dt>
+<dt>CHAR_MIN  <a href="./c_007_010.htm#Xxx999370">
+              [1]
+            </a></dt>
+<dt>chdir()  <a href="./c_019_002.htm#Xxx999347">
+              [1]
+            </a></dt>
+<dt>clock()  <a href="./c_021_000.htm#Xxx999486">
+              [1]
+            </a>, <a href="./c_021_001.htm#Xxx999331">
+              [2]
+            </a></dt>
+<dt>clock_t  <a href="./c_021_000.htm#Xxx999346">
+              [1]
+            </a></dt>
+<dt>CLOCKS_PER_SEC  <a href="./c_021_000.htm#Xxx999432">
+              [1]
+            </a>, <a href="./c_021_000.htm#Xxx999489">
+              [2]
+            </a></dt>
+<dt>close()  <a href="./c_018_026.htm#Xxx999332">
+              [1]
+            </a>, <a href="./c_028_003.htm#Xxx999493">
+              [2]
+            </a></dt>
+<dt>closedir()  <a href="./c_019_002.htm#Xxx999417">
+              [1]
+            </a></dt>
+<dt>closesocket()  <a href="./c_028_003.htm#Xxx999494">
+              [1]
+            </a></dt>
+<dt>clrearerr()  <a href="./c_018_010.htm#Xxx999353">
+              [1]
+            </a></dt>
+<dt>clrscr()  <a href="./c_012_002.htm#Xxx999341">
+              [1]
+            </a></dt>
+<dt>connect()  <a href="./c_028_003.htm#Xxx999391">
+              [1]
+            </a></dt>
+<dt>const  <a href="./c_011_009.htm#Xxx999337">
+              [1]
+            </a></dt>
+<dt>continue  <a href="./c_010_010.htm#Xxx999336">
+              [1]
+            </a></dt>
+<dt>cos()  <a href="./c_022_002.htm#Xxx999366">
+              [1]
+            </a></dt>
+<dt>cosh()  <a href="./c_022_002.htm#Xxx999384">
+              [1]
+            </a></dt>
+<dt>Cosinus  <a href="./c_022_002.htm#Xxx999369">
+              [1]
+            </a></dt>
+<dt>creat()  <a href="./c_018_027.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>CREATE DATABASE  <a href="./c_027_002.htm#Xxx999535">
+              [1]
+            </a></dt>
+<dt>CREATE TABLE  <a href="./c_027_002.htm#Xxx999579">
+              [1]
+            </a></dt>
+<dt>Cross-Plattform-Entwicklung  <a href="./c_028_005.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– Abstraktion Layer  <a href="./c_028_006.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>CSV-Datei  <a href="./c_013_011.htm#Xxx999329">
+              [1]
+            </a>, <a href="./c_018_008.htm#Xxx999343">
+              [2]
+            </a></dt>
+<dt>ctime()  <a href="./c_021_000.htm#Xxx999468">
+              [1]
+            </a></dt>
+<br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp4"></a>D  
+          <a href="#grp5"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp3"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<dt>Datei</dt>
+<dt>– &Auml;nderungszeit  <a href="./c_019_000.htm#Xxx999612">
+              [1]
+            </a></dt>
+<dt>– Attribute  <a href="./c_019_000.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>– Bin&auml;rmodus  <a href="./c_018_004.htm#Xxx999548">
+              [1]
+            </a></dt>
+<dt>– Eigent&uuml;mer  <a href="./c_019_000.htm#Xxx999644">
+              [1]
+            </a></dt>
+<dt>– EOF-Flag  <a href="./c_018_010.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>– erstellen (Low Level)  <a href="./c_018_025.htm#Xxx999372">
+              [1]
+            </a>, <a href="./c_018_027.htm#Xxx999329">
+              [2]
+            </a></dt>
+<dt>– Fehler-Flag  <a href="./c_018_010.htm#Xxx999344">
+              [1]
+            </a></dt>
+<dt>– Gr&ouml;&szlig;e  <a href="./c_019_000.htm#Xxx999599">
+              [1]
+            </a></dt>
+<dt>– Gruppeneigent&uuml;mer  <a href="./c_019_000.htm#Xxx999645">
+              [1]
+            </a></dt>
+<dt>– Inode-&Auml;nderung  <a href="./c_019_000.htm#Xxx999613">
+              [1]
+            </a></dt>
+<dt>– Lesen (blockweise, bin&auml;r)  <a href="./c_018_016.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– Lesen (formatiert)  <a href="./c_018_008.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– Lesen (Low Level)  <a href="./c_018_028.htm#Xxx999347">
+              [1]
+            </a></dt>
+<dt>– Lesen einer Zeile  <a href="./c_018_015.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>– Lesen eines Zeichen  <a href="./c_018_005.htm#Xxx999329">
+              [1]
+            </a>, <a href="./c_018_006.htm#Xxx999331">
+              [2]
+            </a></dt>
+<dt>– l&ouml;schen  <a href="./c_018_018.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>– neu anlegen  <a href="./c_018_004.htm#Xxx999394">
+              [1]
+            </a></dt>
+<dt>– &ouml;ffnen  <a href="./c_018_004.htm#Xxx999329">
+              [1]
+            </a>, <a href="./c_018_004.htm#Xxx999392">
+              [2]
+            </a>, <a href="./c_018_004.htm#Xxx999559">
+              [3]
+            </a></dt>
+<dt>– &ouml;ffnen (Low Level)  <a href="./c_018_025.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– positionieren  <a href="./c_018_013.htm#Xxx999329">
+              [1]
+            </a>, <a href="./c_018_014.htm#Xxx999329">
+              [2]
+            </a></dt>
+<dt>– positionieren (Low Level)  <a href="./c_018_029.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– Pufferung  <a href="./c_018_012.htm#Xxx999339">
+              [1]
+            </a>, <a href="./c_018_019.htm#Xxx999329">
+              [2]
+            </a></dt>
+<dt>– schlie&szlig;en  <a href="./c_018_007.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– schlie&szlig;en (Low Level)  <a href="./c_018_026.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– schreiben (blockweise, bin&auml;r)  <a href="./c_018_016.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>– schreiben (formatiert)  <a href="./c_018_008.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>– schreiben (Low Level)  <a href="./c_018_028.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– schreiben einer Zeile  <a href="./c_018_015.htm#Xxx999354">
+              [1]
+            </a></dt>
+<dt>– schreiben eines Zeichen  <a href="./c_018_005.htm#Xxx999334">
+              [1]
+            </a>, <a href="./c_018_006.htm#Xxx999332">
+              [2]
+            </a></dt>
+<dt>– tempor&auml;re  <a href="./c_018_020.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– Textmodus  <a href="./c_018_004.htm#Xxx999549">
+              [1]
+            </a></dt>
+<dt>– umbenennen  <a href="./c_018_018.htm#Xxx999345">
+              [1]
+            </a></dt>
+<dt>– Zugriffsrechte  <a href="./c_018_025.htm#Xxx999462">
+              [1]
+            </a>, <a href="./c_019_000.htm#Xxx999476">
+              [2]
+            </a>, <a href="./c_019_001.htm#Xxx999329">
+              [3]
+            </a></dt>
+<dt>– Zugriffszeit  <a href="./c_019_000.htm#Xxx999611">
+              [1]
+            </a></dt>
+<dt>Dateiarten  <a href="./c_019_000.htm#Xxx999411">
+              [1]
+            </a></dt>
+<dt>– S_IFCHR  <a href="./c_019_000.htm#Xxx999428">
+              [1]
+            </a></dt>
+<dt>– S_IFDIR  <a href="./c_019_000.htm#Xxx999423">
+              [1]
+            </a></dt>
+<dt>– S_IFREG  <a href="./c_019_000.htm#Xxx999418">
+              [1]
+            </a></dt>
+<dt>– S_ISBLK  <a href="./c_019_000.htm#Xxx999433">
+              [1]
+            </a></dt>
+<dt>– S_ISFIFO  <a href="./c_019_000.htm#Xxx999438">
+              [1]
+            </a></dt>
+<dt>– S_ISLINK  <a href="./c_019_000.htm#Xxx999443">
+              [1]
+            </a></dt>
+<dt>– S_ISSOCK  <a href="./c_019_000.htm#Xxx999448">
+              [1]
+            </a></dt>
+<dt>– st_mode  <a href="./c_019_000.htm#Xxx999408">
+              [1]
+            </a></dt>
+<dt>Datenbanksystem  <a href="./c_027_000.htm#Xxx999337">
+              [1]
+            </a></dt>
+<dt>– relationales Modell  <a href="./c_027_000.htm#Xxx999371">
+              [1]
+            </a></dt>
+<dt>Datentyp</dt>
+<dt>– char  <a href="./c_007_007.htm#Xxx999328">
+              [1]
+            </a></dt>
+<dt>– double  <a href="./c_007_005.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>– float  <a href="./c_007_005.htm#Xxx999328">
+              [1]
+            </a></dt>
+<dt>– int  <a href="./c_007_000.htm#Xxx999332">
+              [1]
+            </a></dt>
+<dt>– long  <a href="./c_007_003.htm#Xxx999328">
+              [1]
+            </a></dt>
+<dt>– long double  <a href="./c_007_005.htm#Xxx999435">
+              [1]
+            </a></dt>
+<dt>– long long  <a href="./c_022_008.htm#Xxx999338">
+              [1]
+            </a></dt>
+<dt>– short  <a href="./c_007_004.htm#Xxx999328">
+              [1]
+            </a></dt>
+<dt>Datum  <a href="./c_021_000.htm#Xxx999332">
+              [1]
+            </a></dt>
+<dt>– tm-Struktur  <a href="./c_021_000.htm#Xxx999369">
+              [1]
+            </a></dt>
+<dt>DBL_DIG  <a href="./c_007_010.htm#Xxx999497">
+              [1]
+            </a></dt>
+<dt>DBL_EPSILON  <a href="./c_007_010.htm#Xxx999587">
+              [1]
+            </a></dt>
+<dt>DBL_MANT_DIG  <a href="./c_007_010.htm#Xxx999482">
+              [1]
+            </a></dt>
+<dt>DBL_MAX  <a href="./c_007_010.htm#Xxx999572">
+              [1]
+            </a></dt>
+<dt>DBL_MAX_10_EXP  <a href="./c_007_010.htm#Xxx999557">
+              [1]
+            </a></dt>
+<dt>DBL_MAX_EXP  <a href="./c_007_010.htm#Xxx999542">
+              [1]
+            </a></dt>
+<dt>DBL_MIN  <a href="./c_007_010.htm#Xxx999602">
+              [1]
+            </a></dt>
+<dt>DBL_MIN_10_EXP  <a href="./c_007_010.htm#Xxx999527">
+              [1]
+            </a></dt>
+<dt>DBL_MIN_EXP  <a href="./c_007_010.htm#Xxx999512">
+              [1]
+            </a></dt>
+<dt>DBMS  <a href="./c_027_000.htm#Xxx999350">
+              [1]
+            </a></dt>
+<dt>– Drei-Schichten-Modell  <a href="./c_027_000.htm#Xxx999352">
+              [1]
+            </a></dt>
+<dt>Deadlock  <a href="./c_023_003.htm#Xxx999348">
+              [1]
+            </a></dt>
+<dt>default  <a href="./c_010_006.htm#Xxx999349">
+              [1]
+            </a></dt>
+<dt>Deklaration und Definition  <a href="./c_007_001.htm#Xxx999340">
+              [1]
+            </a></dt>
+<dt>DELETE FROM  <a href="./c_027_002.htm#Xxx999677">
+              [1]
+            </a></dt>
+<dt>Dennis Ritchie  <a href="./c_001_001.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>Dereferenzierungsoperator  <a href="./c_014_001.htm#Xxx999382">
+              [1]
+            </a></dt>
+<dt>Differenzen C und C++</dt>
+<dt>– Deklaration von Variablen  <a href="./c_007_002.htm#Xxx999328">
+              [1]
+            </a></dt>
+<dt>– sizeof-Operator  <a href="./c_008_005.htm#Xxx999347">
+              [1]
+            </a></dt>
+<dt>difftime()  <a href="./c_021_000.htm#Xxx999476">
+              [1]
+            </a></dt>
+<dt>dirent-Struktur  <a href="./c_019_002.htm#Xxx999407">
+              [1]
+            </a></dt>
+<dt>div()  <a href="./c_022_003.htm#Xxx999436">
+              [1]
+            </a></dt>
+<dt>div_t  <a href="./c_022_003.htm#Xxx999438">
+              [1]
+            </a></dt>
+<dt>do while-Schleife  <a href="./c_010_008.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>Domainname  <a href="./c_028_000.htm#Xxx999368">
+              [1]
+            </a></dt>
+<dt>doppelt verkettete Listen  <a href="./c_023_001.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>double im Detail  <a href="./c_007_005.htm#Xxx999420">
+              [1]
+            </a></dt>
+<dt>DROP DATABASE  <a href="./c_027_002.htm#Xxx999565">
+              [1]
+            </a></dt>
+<dt>DROP TABLE  <a href="./c_027_002.htm#Xxx999609">
+              [1]
+            </a></dt>
+<dt>dynamische Datenstrukturen  <a href="./c_023_000.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>dynamische Speicherverwaltung  <a href="./c_016_000.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>dynamisches Array  <a href="./c_016_006.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>dynamisches Array zweidimensional  <a href="./c_016_010.htm#Xxx999329">
+              [1]
+            </a></dt>
+<br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp5"></a>E  
+          <a href="#grp6"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp4"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<dt>EDOM  <a href="./c_018_021.htm#Xxx999341">
+              [1]
+            </a></dt>
+<dt>Ein-/Ausgabe-Funktionen</dt>
+<dt>– h&ouml;here Ebene  <a href="./c_018_003.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>– niedrigere Ebene  <a href="./c_018_024.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>einfach verkettete Listen  <a href="./c_023_000.htm#Xxx999333">
+              [1]
+            </a></dt>
+<dt>elementare Datentypen  <a href="./c_007_000.htm#Xxx999328">
+              [1]
+            </a></dt>
+<dt>Elementkennzeichnungsoperator  <a href="./c_017_002.htm#Xxx999341">
+              [1]
+            </a></dt>
+<dt>else if-Bedingung  <a href="./c_010_001.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>else-Bedingung  <a href="./c_010_002.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>Endlosschleife  <a href="./c_010_007.htm#Xxx999350">
+              [1]
+            </a></dt>
+<dt>entarteter Bin&auml;rbaum  <a href="./c_024_003.htm#Xxx999538">
+              [1]
+            </a></dt>
+<dt>Entwicklungsumgebung  <a href="./c_001_005.htm#Xxx999339">
+              [1]
+            </a></dt>
+<dt>enum  <a href="./c_017_009.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>EOF  <a href="./c_018_005.htm#Xxx999343">
+              [1]
+            </a>, <a href="./c_018_010.htm#Xxx999334">
+              [2]
+            </a></dt>
+<dt>ERANGE  <a href="./c_018_021.htm#Xxx999346">
+              [1]
+            </a></dt>
+<dt>errno  <a href="./c_018_021.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>exit()  <a href="./c_022_003.htm#Xxx999335">
+              [1]
+            </a></dt>
+<dt>EXIT_FAILURE  <a href="./c_011_016.htm#Xxx999334">
+              [1]
+            </a></dt>
+<dt>EXIT_SUCCESS  <a href="./c_011_016.htm#Xxx999332">
+              [1]
+            </a></dt>
+<dt>exp()  <a href="./c_022_002.htm#Xxx999399">
+              [1]
+            </a></dt>
+<dt>EXPLAIN  <a href="./c_027_002.htm#Xxx999595">
+              [1]
+            </a></dt>
+<dt>extern  <a href="./c_011_008.htm#Xxx999343">
+              [1]
+            </a>, <a href="./c_011_011.htm#Xxx999331">
+              [2]
+            </a></dt>
+<br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp6"></a>F  
+          <a href="#grp7"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp5"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<dt>fabs()  <a href="./c_022_002.htm#Xxx999426">
+              [1]
+            </a></dt>
+<dt>Fakult&auml;t  <a href="./c_011_019.htm#Xxx999397">
+              [1]
+            </a></dt>
+<dt>fclose()  <a href="./c_018_007.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>FD_CLR()  <a href="./c_028_006.htm#Xxx999433">
+              [1]
+            </a></dt>
+<dt>FD_ISSET()  <a href="./c_028_006.htm#Xxx999434">
+              [1]
+            </a></dt>
+<dt>FD_SET()  <a href="./c_028_006.htm#Xxx999432">
+              [1]
+            </a></dt>
+<dt>FD_ZERO()  <a href="./c_028_006.htm#Xxx999431">
+              [1]
+            </a></dt>
+<dt>fdopen()  <a href="./c_018_031.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>Fehlerausgabe  <a href="./c_018_021.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– perror()  <a href="./c_018_021.htm#Xxx999479">
+              [1]
+            </a></dt>
+<dt>– strerror()  <a href="./c_018_021.htm#Xxx999491">
+              [1]
+            </a></dt>
+<dt>feof()  <a href="./c_018_010.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>ferror()  <a href="./c_018_010.htm#Xxx999345">
+              [1]
+            </a></dt>
+<dt>fflush()  <a href="./c_005_001.htm#Xxx999340">
+              [1]
+            </a>, <a href="./c_018_012.htm#Xxx999330">
+              [2]
+            </a></dt>
+<dt>fgetc()  <a href="./c_018_006.htm#Xxx999335">
+              [1]
+            </a></dt>
+<dt>fgetpos()  <a href="./c_018_014.htm#Xxx999332">
+              [1]
+            </a></dt>
+<dt>fgets()  <a href="./c_013_013.htm#Xxx999345">
+              [1]
+            </a>, <a href="./c_018_015.htm#Xxx999334">
+              [2]
+            </a></dt>
+<dt>Fibonacci-Zahlen  <a href="./c_011_019.htm#Xxx999404">
+              [1]
+            </a></dt>
+<dt>File-Deskriptor  <a href="./c_018_024.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>fileno()  <a href="./c_018_030.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>FILE-Struktur  <a href="./c_018_004.htm#Xxx999337">
+              [1]
+            </a></dt>
+<dt>float im Detail  <a href="./c_007_005.htm#Xxx999409">
+              [1]
+            </a></dt>
+<dt>floor()  <a href="./c_022_002.htm#Xxx999432">
+              [1]
+            </a></dt>
+<dt>FLT_DIG  <a href="./c_007_010.htm#Xxx999492">
+              [1]
+            </a></dt>
+<dt>FLT_EPSILON  <a href="./c_007_010.htm#Xxx999582">
+              [1]
+            </a></dt>
+<dt>FLT_MANT_DIG  <a href="./c_007_010.htm#Xxx999477">
+              [1]
+            </a></dt>
+<dt>FLT_MAX  <a href="./c_007_010.htm#Xxx999567">
+              [1]
+            </a></dt>
+<dt>FLT_MAX_10_EXP  <a href="./c_007_010.htm#Xxx999552">
+              [1]
+            </a></dt>
+<dt>FLT_MAX_EXP  <a href="./c_007_010.htm#Xxx999537">
+              [1]
+            </a></dt>
+<dt>FLT_MIN  <a href="./c_007_010.htm#Xxx999597">
+              [1]
+            </a></dt>
+<dt>FLT_MIN_10_EXP  <a href="./c_007_010.htm#Xxx999522">
+              [1]
+            </a></dt>
+<dt>FLT_MIN_EXP  <a href="./c_007_010.htm#Xxx999507">
+              [1]
+            </a></dt>
+<dt>FLT_RADIX  <a href="./c_007_010.htm#Xxx999472">
+              [1]
+            </a></dt>
+<dt>fmod()  <a href="./c_022_002.htm#Xxx999452">
+              [1]
+            </a></dt>
+<dt>fopen()  <a href="./c_018_004.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>FOPEN_MAX  <a href="./c_018_004.htm#Xxx999561">
+              [1]
+            </a>, <a href="./c_018_007.htm#Xxx999333">
+              [2]
+            </a></dt>
+<dt>formatierte Ausgabe</dt>
+<dt>– fprintf()  <a href="./c_018_008.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>– printf()  <a href="./c_006_000.htm#Xxx999328">
+              [1]
+            </a></dt>
+<dt>– sprintf()  <a href="./c_018_022.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>formatierte Ein-/Ausgabe  <a href="./c_018_001.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– Umwandlungsvorgaben  <a href="./c_007_012.htm#Xxx999328">
+              [1]
+            </a></dt>
+<dt>formatierte Eingabe</dt>
+<dt>– fscanf()  <a href="./c_018_008.htm#Xxx999332">
+              [1]
+            </a></dt>
+<dt>– scanf()  <a href="./c_005_000.htm#Xxx999328">
+              [1]
+            </a></dt>
+<dt>– sscanf()  <a href="./c_018_022.htm#Xxx999342">
+              [1]
+            </a></dt>
+<dt>Formatierungsanweisung  <a href="./c_007_012.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>Formatstring von printf()  <a href="./c_006_000.htm#Xxx999342">
+              [1]
+            </a></dt>
+<dt>Formular</dt>
+<dt>– Auswahlliste  <a href="./c_026_009.htm#Xxx999505">
+              [1]
+            </a></dt>
+<dt>– Beginn und Ende  <a href="./c_026_009.htm#Xxx999343">
+              [1]
+            </a></dt>
+<dt>– Checkbox  <a href="./c_026_009.htm#Xxx999441">
+              [1]
+            </a></dt>
+<dt>– Eingabefeld  <a href="./c_026_009.htm#Xxx999352">
+              [1]
+            </a></dt>
+<dt>– Passwort-Feld  <a href="./c_026_009.htm#Xxx999389">
+              [1]
+            </a></dt>
+<dt>– Radiobutton  <a href="./c_026_009.htm#Xxx999410">
+              [1]
+            </a></dt>
+<dt>– Reset-Button  <a href="./c_026_009.htm#Xxx999463">
+              [1]
+            </a></dt>
+<dt>– Submit-Button  <a href="./c_026_009.htm#Xxx999462">
+              [1]
+            </a></dt>
+<dt>– Textfeld  <a href="./c_026_009.htm#Xxx999484">
+              [1]
+            </a></dt>
+<dt>for-Schleife  <a href="./c_010_009.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>fpos_t  <a href="./c_018_014.htm#Xxx999333">
+              [1]
+            </a></dt>
+<dt>fprintf()  <a href="./c_018_008.htm#Xxx999333">
+              [1]
+            </a></dt>
+<dt>fputc()  <a href="./c_018_006.htm#Xxx999348">
+              [1]
+            </a></dt>
+<dt>fputs()  <a href="./c_018_015.htm#Xxx999357">
+              [1]
+            </a></dt>
+<dt>fread()  <a href="./c_018_016.htm#Xxx999343">
+              [1]
+            </a></dt>
+<dt>free()  <a href="./c_016_004.htm#Xxx999330">
+              [1]
+            </a>, <a href="./c_016_009.htm#Xxx999330">
+              [2]
+            </a></dt>
+<dt>– Makro  <a href="./c_016_004.htm#Xxx999350">
+              [1]
+            </a></dt>
+<dt>Freispeicherverwaltung  <a href="./c_016_005.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– Best-Fit-Verfahren  <a href="./c_016_005.htm#Xxx999369">
+              [1]
+            </a></dt>
+<dt>– Buddy-Verfahren  <a href="./c_016_005.htm#Xxx999388">
+              [1]
+            </a></dt>
+<dt>– First-Fit-Verfahren  <a href="./c_016_005.htm#Xxx999358">
+              [1]
+            </a></dt>
+<dt>– Next-Fit-Verfahren  <a href="./c_016_005.htm#Xxx999366">
+              [1]
+            </a></dt>
+<dt>– Quick-Fit-Verfahren  <a href="./c_016_005.htm#Xxx999385">
+              [1]
+            </a></dt>
+<dt>– Worst-Fit-Verfahren  <a href="./c_016_005.htm#Xxx999377">
+              [1]
+            </a></dt>
+<dt>freopen()  <a href="./c_018_017.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>frexp()  <a href="./c_022_002.htm#Xxx999437">
+              [1]
+            </a></dt>
+<dt>fscanf()  <a href="./c_018_008.htm#Xxx999334">
+              [1]
+            </a></dt>
+<dt>fseek()  <a href="./c_018_013.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>fsetpos()  <a href="./c_018_014.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>ftell()  <a href="./c_018_013.htm#Xxx999388">
+              [1]
+            </a></dt>
+<dt>Funktion</dt>
+<dt>– Argument  <a href="./c_011_013.htm#Xxx999338">
+              [1]
+            </a></dt>
+<dt>– Array als R&uuml;ckgabewert  <a href="./c_013_005.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>– call by reference  <a href="./c_014_005.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– call by value  <a href="./c_011_013.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– Definition von Funktionen  <a href="./c_011_002.htm#Xxx999328">
+              [1]
+            </a></dt>
+<dt>– Funktionsaufruf  <a href="./c_011_003.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– Funktionsdeklaration  <a href="./c_011_004.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– main()  <a href="./c_011_015.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– Parameter  <a href="./c_011_013.htm#Xxx999334">
+              [1]
+            </a></dt>
+<dt>– Rekursion  <a href="./c_011_019.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– R&uuml;ckgabewert  <a href="./c_011_014.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– Speicherklassen  <a href="./c_011_010.htm#Xxx999331">
+              [1]
+            </a>, <a href="./c_011_011.htm#Xxx999329">
+              [2]
+            </a></dt>
+<dt>– Struktur (call by reference)  <a href="./c_017_002.htm#Xxx999334">
+              [1]
+            </a></dt>
+<dt>– Struktur (call by value)  <a href="./c_017_002.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>– Struktur als R&uuml;ckgabewert  <a href="./c_017_003.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>– &Uuml;bergabe eines Arrays  <a href="./c_013_004.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– Vorw&auml;rtsdeklaration  <a href="./c_011_004.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>– Zeiger als R&uuml;ckgabewert  <a href="./c_014_005.htm#Xxx999365">
+              [1]
+            </a></dt>
+<dt>Funktionen</dt>
+<dt>– mehrdimensionale Arrays  <a href="./c_013_010.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>fwrite()  <a href="./c_018_016.htm#Xxx999358">
+              [1]
+            </a></dt>
+<br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp7"></a>G  
+          <a href="#grp8"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp6"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<dt>Ganzzahlen</dt>
+<dt>– char  <a href="./c_007_007.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>– int  <a href="./c_007_000.htm#Xxx999336">
+              [1]
+            </a></dt>
+<dt>– long  <a href="./c_007_003.htm#Xxx999332">
+              [1]
+            </a></dt>
+<dt>– short  <a href="./c_007_004.htm#Xxx999332">
+              [1]
+            </a></dt>
+<dt>Ganzzahlkonstanten  <a href="./c_007_011.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>Geltungsbereich von Variablen  <a href="./c_011_010.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>Genauigkeit von Gleitpunktzahlen  <a href="./c_007_005.htm#Xxx999443">
+              [1]
+            </a></dt>
+<dt>getc()  <a href="./c_018_006.htm#Xxx999334">
+              [1]
+            </a></dt>
+<dt>getch()  <a href="./c_018_005.htm#Xxx999355">
+              [1]
+            </a></dt>
+<dt>getchar()  <a href="./c_018_005.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>getcwd()  <a href="./c_019_002.htm#Xxx999366">
+              [1]
+            </a></dt>
+<dt>getenv()  <a href="./c_026_008.htm#Xxx999474">
+              [1]
+            </a>, <a href="./c_027_003.htm#Xxx999561">
+              [2]
+            </a></dt>
+<dt>gethostbyname()  <a href="./c_028_003.htm#Xxx999433">
+              [1]
+            </a></dt>
+<dt>gets()  <a href="./c_018_015.htm#Xxx999333">
+              [1]
+            </a></dt>
+<dt>getservbyname()  <a href="./c_028_003.htm#Xxx999420">
+              [1]
+            </a></dt>
+<dt>Gleitpunktkonstanten  <a href="./c_007_011.htm#Xxx999392">
+              [1]
+            </a></dt>
+<dt>Gleitpunktzahlen</dt>
+<dt>– double  <a href="./c_007_005.htm#Xxx999332">
+              [1]
+            </a></dt>
+<dt>– float  <a href="./c_007_005.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>– Genauigkeit  <a href="./c_007_005.htm#Xxx999445">
+              [1]
+            </a></dt>
+<dt>– long double  <a href="./c_007_005.htm#Xxx999433">
+              [1]
+            </a></dt>
+<dt>– numerische Gleitpunktprobleme  <a href="./c_007_006.htm#Xxx999328">
+              [1]
+            </a></dt>
+<dt>Gleitpunktzahlen-Umgebung  <a href="./c_022_008.htm#Xxx999679">
+              [1]
+            </a></dt>
+<dt>gmtime()  <a href="./c_021_000.htm#Xxx999446">
+              [1]
+            </a></dt>
+<dt>goto  <a href="./c_010_011.htm#Xxx999328">
+              [1]
+            </a></dt>
+<dt>Gr&ouml;&szlig;e</dt>
+<dt>– Datei (st_size)  <a href="./c_019_000.htm#Xxx999600">
+              [1]
+            </a></dt>
+<dt>gr&ouml;&szlig;ter gemeinsamer Teiler  <a href="./c_011_019.htm#Xxx999411">
+              [1]
+            </a></dt>
+<dt>GUI-Programmierung  <a href="./c_029_000.htm#Xxx999339">
+              [1]
+            </a></dt>
+<br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp8"></a>H  
+          <a href="#grp9"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp7"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<dt>Hashing  <a href="./c_024_004.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– direkte Adressierung  <a href="./c_024_004.htm#Xxx999427">
+              [1]
+            </a></dt>
+<dt>– Hash-Funktion  <a href="./c_024_004.htm#Xxx999395">
+              [1]
+            </a></dt>
+<dt>– Hashfunktion  <a href="./c_024_004.htm#Xxx999336">
+              [1]
+            </a></dt>
+<dt>– Hash-Tabelle  <a href="./c_024_004.htm#Xxx999338">
+              [1]
+            </a></dt>
+<dt>– von Strings  <a href="./c_024_004.htm#Xxx999415">
+              [1]
+            </a></dt>
+<dt>&lt;assert.h&gt;-Headerdatei  <a href="./c_022_000.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>&lt;ctype.h&gt;-Headerdatei  <a href="./c_022_001.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>&lt;errno.h&gt;-Headerdatei  <a href="./c_018_021.htm#Xxx999333">
+              [1]
+            </a></dt>
+<dt>&lt;fenv.h&gt;-Headerdatei  <a href="./c_022_008.htm#Xxx999677">
+              [1]
+            </a></dt>
+<dt>&lt;float.h&gt;-Headerdatei  <a href="./c_007_010.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>&lt;inttypes.h&gt;-Headerdatei  <a href="./c_022_008.htm#Xxx999681">
+              [1]
+            </a></dt>
+<dt>&lt;iso646.h&gt;-Headerdatei (C 99)  <a href="./c_022_008.htm#Xxx999419">
+              [1]
+            </a></dt>
+<dt>&lt;limits.h&gt;-Headerdatei  <a href="./c_007_010.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>&lt;locale.h&gt;-Headerdatei  <a href="./c_022_004.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>&lt;math.h&gt;-Headerdatei  <a href="./c_022_002.htm#Xxx999329">
+              [1]
+            </a>, <a href="./c_022_008.htm#Xxx999520">
+              [2]
+            </a></dt>
+<dt>&lt;setjmp.h&gt;-Headerdatei  <a href="./c_022_005.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>&lt;signal.h&gt;-Headerdatei  <a href="./c_022_006.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>&lt;stdarg.h&gt;-Headerdatei  <a href="./c_020_000.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>&lt;stdint.h&gt;-Headerdatei (C 99)  <a href="./c_022_008.htm#Xxx999377">
+              [1]
+            </a></dt>
+<dt>&lt;stdio.h&gt;-Headerdatei  <a href="./c_018_003.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>&lt;stdlib.h&gt;-Headerdatei  <a href="./c_022_003.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>&lt;string.h&gt;-Headerdatei  <a href="./c_013_014.htm#Xxx999329">
+              [1]
+            </a>, <a href="./c_022_007.htm#Xxx999329">
+              [2]
+            </a></dt>
+<dt>&lt;sys/stat.h&gt;-Headerdatei  <a href="./c_018_025.htm#Xxx999496">
+              [1]
+            </a>, <a href="./c_019_000.htm#Xxx999335">
+              [2]
+            </a></dt>
+<dt>&lt;tgmath.h&gt;-Headerdatei  <a href="./c_022_008.htm#Xxx999684">
+              [1]
+            </a></dt>
+<dt>&lt;time.h&gt;-Headerdatei  <a href="./c_021_000.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>&lt;wchar.h&gt;-Headerdatei  <a href="./c_022_008.htm#Xxx999666">
+              [1]
+            </a></dt>
+<dt>&lt;wctype.h&gt;-Headerdatei  <a href="./c_022_008.htm#Xxx999673">
+              [1]
+            </a></dt>
+<dt>Heap  <a href="./c_016_000.htm#Xxx999373">
+              [1]
+            </a>, <a href="./c_025_000.htm#Xxx999428">
+              [2]
+            </a>, <a href="./c_025_001.htm#Xxx999335">
+              [3]
+            </a></dt>
+<dt>Hostname  <a href="./c_028_000.htm#Xxx999367">
+              [1]
+            </a></dt>
+<dt>HTML  <a href="./c_026_003.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>– Formular-Tags  <a href="./c_026_009.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– Tag  <a href="./c_026_009.htm#Xxx999334">
+              [1]
+            </a></dt>
+<dt>htonl()  <a href="./c_028_003.htm#Xxx999411">
+              [1]
+            </a></dt>
+<dt>htons()  <a href="./c_028_003.htm#Xxx999410">
+              [1]
+            </a></dt>
+<dt>HTTP-Protokoll  <a href="./c_026_006.htm#Xxx999332">
+              [1]
+            </a>, <a href="./c_026_007.htm#Xxx999329">
+              [2]
+            </a></dt>
+<dt>HUGE_VAL  <a href="./c_022_002.htm#Xxx999468">
+              [1]
+            </a></dt>
+<br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp9"></a>I  
+          <a href="#grp10"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp8"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<dt>IEEE-Standard 754  <a href="./c_007_005.htm#Xxx999405">
+              [1]
+            </a></dt>
+<dt>if-Bedingung  <a href="./c_010_000.htm#Xxx999336">
+              [1]
+            </a></dt>
+<dt>INADDR_ANY  <a href="./c_028_004.htm#Xxx999341">
+              [1]
+            </a></dt>
+<dt>Indizierungsoperator  <a href="./c_013_001.htm#Xxx999332">
+              [1]
+            </a>, <a href="./c_017_005.htm#Xxx999332">
+              [2]
+            </a></dt>
+<dt>inline  <a href="./c_012_001.htm#Xxx999394">
+              [1]
+            </a>, <a href="./c_022_008.htm#Xxx999481">
+              [2]
+            </a></dt>
+<dt>INSERT INTO  <a href="./c_027_002.htm#Xxx999629">
+              [1]
+            </a></dt>
+<dt>Insertion Sort  <a href="./c_024_002.htm#Xxx999354">
+              [1]
+            </a></dt>
+<dt>int  <a href="./c_007_000.htm#Xxx999333">
+              [1]
+            </a></dt>
+<dt>INT_MAX  <a href="./c_007_010.htm#Xxx999419">
+              [1]
+            </a></dt>
+<dt>INT_MIN  <a href="./c_007_010.htm#Xxx999412">
+              [1]
+            </a></dt>
+<dt>IP-Nummer  <a href="./c_028_000.htm#Xxx999342">
+              [1]
+            </a></dt>
+<dt>– dynamisch  <a href="./c_028_000.htm#Xxx999346">
+              [1]
+            </a></dt>
+<dt>– statisch  <a href="./c_028_000.htm#Xxx999345">
+              [1]
+            </a></dt>
+<dt>IP-Protokoll  <a href="./c_028_000.htm#Xxx999378">
+              [1]
+            </a></dt>
+<dt>IPv4  <a href="./c_028_000.htm#Xxx999352">
+              [1]
+            </a></dt>
+<dt>IPv6  <a href="./c_028_000.htm#Xxx999353">
+              [1]
+            </a></dt>
+<dt>isalnum()  <a href="./c_022_001.htm#Xxx999338">
+              [1]
+            </a></dt>
+<dt>isalpha()  <a href="./c_022_001.htm#Xxx999343">
+              [1]
+            </a></dt>
+<dt>isascii()  <a href="./c_022_001.htm#Xxx999393">
+              [1]
+            </a></dt>
+<dt>isblank()  <a href="./c_022_001.htm#Xxx999398">
+              [1]
+            </a></dt>
+<dt>iscntrl()  <a href="./c_022_001.htm#Xxx999348">
+              [1]
+            </a></dt>
+<dt>isdigit()  <a href="./c_022_001.htm#Xxx999353">
+              [1]
+            </a></dt>
+<dt>isgraph()  <a href="./c_022_001.htm#Xxx999358">
+              [1]
+            </a></dt>
+<dt>islower()  <a href="./c_022_001.htm#Xxx999363">
+              [1]
+            </a></dt>
+<dt>isprint()  <a href="./c_022_001.htm#Xxx999368">
+              [1]
+            </a></dt>
+<dt>ispunct()  <a href="./c_022_001.htm#Xxx999373">
+              [1]
+            </a></dt>
+<dt>isspace()  <a href="./c_022_001.htm#Xxx999378">
+              [1]
+            </a></dt>
+<dt>isupper()  <a href="./c_022_001.htm#Xxx999383">
+              [1]
+            </a></dt>
+<dt>isxdigit()  <a href="./c_022_001.htm#Xxx999388">
+              [1]
+            </a></dt>
+<dt>itoa()  <a href="./c_022_003.htm#Xxx999407">
+              [1]
+            </a></dt>
+<br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp10"></a>J  
+          <a href="#grp11"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp9"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<dt>jmp_buf  <a href="./c_022_005.htm#Xxx999343">
+              [1]
+            </a></dt>
+<br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp11"></a>K  
+          <a href="#grp12"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp10"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<dt>Karp-Rabin-Algorithmus  <a href="./c_024_005.htm#Xxx999417">
+              [1]
+            </a></dt>
+<dt>KMP-Algorithmus  <a href="./c_024_005.htm#Xxx999356">
+              [1]
+            </a></dt>
+<dt>Kommandozeile  <a href="./c_015_000.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>– Argumente  <a href="./c_015_000.htm#Xxx999338">
+              [1]
+            </a></dt>
+<dt>– Optionen  <a href="./c_015_001.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>Kommandozeilenprozessor  <a href="./c_022_003.htm#Xxx999468">
+              [1]
+            </a></dt>
+<dt>Kommentar  <a href="./c_004_000.htm#Xxx999328">
+              [1]
+            </a></dt>
+<dt>Komplexe Gleitpunktzahlen  <a href="./c_022_008.htm#Xxx999414">
+              [1]
+            </a></dt>
+<dt>Konstante  <a href="./c_007_011.htm#Xxx999328">
+              [1]
+            </a></dt>
+<dt>– Betriebssystem  <a href="./c_012_002.htm#Xxx999423">
+              [1]
+            </a></dt>
+<dt>– Compiler  <a href="./c_012_002.htm#Xxx999371">
+              [1]
+            </a></dt>
+<br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp12"></a>L  
+          <a href="#grp13"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp11"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<dt>labs()  <a href="./c_022_003.htm#Xxx999430">
+              [1]
+            </a></dt>
+<dt>Laufzeitmessung  <a href="./c_021_001.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>lconv-Struktur  <a href="./c_022_004.htm#Xxx999405">
+              [1]
+            </a></dt>
+<dt>LDBL_DIG  <a href="./c_007_010.htm#Xxx999502">
+              [1]
+            </a></dt>
+<dt>LDBL_EPSILON  <a href="./c_007_010.htm#Xxx999592">
+              [1]
+            </a></dt>
+<dt>LDBL_MANT_DIG  <a href="./c_007_010.htm#Xxx999487">
+              [1]
+            </a></dt>
+<dt>LDBL_MAX  <a href="./c_007_010.htm#Xxx999577">
+              [1]
+            </a></dt>
+<dt>LDBL_MAX_10_EXP  <a href="./c_007_010.htm#Xxx999562">
+              [1]
+            </a></dt>
+<dt>LDBL_MAX_EXP  <a href="./c_007_010.htm#Xxx999547">
+              [1]
+            </a></dt>
+<dt>LDBL_MIN  <a href="./c_007_010.htm#Xxx999607">
+              [1]
+            </a></dt>
+<dt>LDBL_MIN_10_EXP  <a href="./c_007_010.htm#Xxx999532">
+              [1]
+            </a></dt>
+<dt>LDBL_MIN_EXP  <a href="./c_007_010.htm#Xxx999517">
+              [1]
+            </a></dt>
+<dt>ldiv()  <a href="./c_022_003.htm#Xxx999437">
+              [1]
+            </a></dt>
+<dt>ldiv_t  <a href="./c_022_003.htm#Xxx999442">
+              [1]
+            </a></dt>
+<dt>LIFO-Prinzip  <a href="./c_023_002.htm#Xxx999332">
+              [1]
+            </a></dt>
+<dt>lineare Suche  <a href="./c_024_003.htm#Xxx999343">
+              [1]
+            </a></dt>
+<dt>Linksassoziativit&auml;t  <a href="./c_008_000.htm#Xxx999340">
+              [1]
+            </a></dt>
+<dt>listen()  <a href="./c_028_004.htm#Xxx999348">
+              [1]
+            </a></dt>
+<dt>Little-Endian  <a href="./c_018_016.htm#Xxx999393">
+              [1]
+            </a></dt>
+<dt>load_defaults()  <a href="./c_027_003.htm#Xxx999544">
+              [1]
+            </a></dt>
+<dt>localeconv()  <a href="./c_022_004.htm#Xxx999403">
+              [1]
+            </a></dt>
+<dt>localtime()  <a href="./c_021_000.htm#Xxx999445">
+              [1]
+            </a></dt>
+<dt>log()  <a href="./c_022_002.htm#Xxx999404">
+              [1]
+            </a></dt>
+<dt>log10()  <a href="./c_022_002.htm#Xxx999410">
+              [1]
+            </a></dt>
+<dt>Logarithmus  <a href="./c_022_002.htm#Xxx999407">
+              [1]
+            </a></dt>
+<dt>logische Operatoren  <a href="./c_010_003.htm#Xxx999330">
+              [1]
+            </a>, <a href="./c_010_004.htm#Xxx999331">
+              [2]
+            </a></dt>
+<dt>long  <a href="./c_007_003.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>long double  <a href="./c_007_005.htm#Xxx999366">
+              [1]
+            </a>, <a href="./c_007_005.htm#Xxx999431">
+              [2]
+            </a></dt>
+<dt>long long  <a href="./c_022_008.htm#Xxx999354">
+              [1]
+            </a></dt>
+<dt>long long (C99)  <a href="./c_007_003.htm#Xxx999380">
+              [1]
+            </a></dt>
+<dt>LONG_MAX  <a href="./c_007_010.htm#Xxx999440">
+              [1]
+            </a></dt>
+<dt>LONG_MIN  <a href="./c_007_010.htm#Xxx999433">
+              [1]
+            </a></dt>
+<dt>longjmp()  <a href="./c_022_005.htm#Xxx999342">
+              [1]
+            </a></dt>
+<dt>Loopback-Interface  <a href="./c_028_002.htm#Xxx999336">
+              [1]
+            </a></dt>
+<dt>lseek()  <a href="./c_018_029.htm#Xxx999330">
+              [1]
+            </a></dt>
+<br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp13"></a>M  
+          <a href="#grp14"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp12"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<dt>main()  <a href="./c_015_000.htm#Xxx999339">
+              [1]
+            </a></dt>
+<dt>main()-Funktion  <a href="./c_011_015.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>MAKEWORD()  <a href="./c_028_001.htm#Xxx999369">
+              [1]
+            </a></dt>
+<dt>Makro  <a href="./c_012_001.htm#Xxx999369">
+              [1]
+            </a>, <a href="./c_022_008.htm#Xxx999487">
+              [2]
+            </a></dt>
+<dt>malloc()  <a href="./c_016_001.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>– Typen-Casting  <a href="./c_016_001.htm#Xxx999341">
+              [1]
+            </a></dt>
+<dt>Maschinencode  <a href="./c_025_000.htm#Xxx999393">
+              [1]
+            </a></dt>
+<dt>mathematische Funktionen  <a href="./c_022_002.htm#Xxx999330">
+              [1]
+            </a>, <a href="./c_022_008.htm#Xxx999521">
+              [2]
+            </a></dt>
+<dt>MB_LEN_MAX  <a href="./c_007_010.htm#Xxx999384">
+              [1]
+            </a></dt>
+<dt>memchr()  <a href="./c_022_007.htm#Xxx999332">
+              [1]
+            </a></dt>
+<dt>memcmp()  <a href="./c_013_002.htm#Xxx999337">
+              [1]
+            </a>, <a href="./c_022_007.htm#Xxx999338">
+              [2]
+            </a></dt>
+<dt>memcpy()  <a href="./c_022_007.htm#Xxx999344">
+              [1]
+            </a></dt>
+<dt>memmove()  <a href="./c_022_007.htm#Xxx999350">
+              [1]
+            </a></dt>
+<dt>Memory Leak  <a href="./c_016_000.htm#Xxx999334">
+              [1]
+            </a>, <a href="./c_016_009.htm#Xxx999337">
+              [2]
+            </a>, <a href="./c_025_001.htm#Xxx999330">
+              [3]
+            </a></dt>
+<dt>– Bibliotheken und Tools  <a href="./c_025_001.htm#Xxx999355">
+              [1]
+            </a></dt>
+<dt>– Gegenma&szlig;nahmen  <a href="./c_025_001.htm#Xxx999342">
+              [1]
+            </a></dt>
+<dt>memset()  <a href="./c_013_001.htm#Xxx999372">
+              [1]
+            </a>, <a href="./c_022_007.htm#Xxx999356">
+              [2]
+            </a></dt>
+<dt>mkdir()  <a href="./c_019_002.htm#Xxx999334">
+              [1]
+            </a></dt>
+<dt>mktime()  <a href="./c_021_000.htm#Xxx999458">
+              [1]
+            </a></dt>
+<dt>modf()  <a href="./c_022_002.htm#Xxx999442">
+              [1]
+            </a></dt>
+<dt>Modulo-Operator  <a href="./c_008_001.htm#Xxx999375">
+              [1]
+            </a></dt>
+<dt>MSQL_UNIX_SOCKET  <a href="./c_027_003.htm#Xxx999560">
+              [1]
+            </a></dt>
+<dt>MySQL  <a href="./c_027_000.htm#Xxx999335">
+              [1]
+            </a></dt>
+<dt>– Befehle  <a href="./c_027_002.htm#Xxx999742">
+              [1]
+            </a></dt>
+<dt>– Bibliothek  <a href="./c_027_003.htm#Xxx999342">
+              [1]
+            </a></dt>
+<dt>– C-API  <a href="./c_027_003.htm#Xxx999329">
+              [1]
+            </a>, <a href="./c_027_003.htm#Xxx999399">
+              [2]
+            </a></dt>
+<dt>– Datentypen  <a href="./c_027_002.htm#Xxx999338">
+              [1]
+            </a></dt>
+<dt>– eigene Clientprogramme  <a href="./c_027_003.htm#Xxx999338">
+              [1]
+            </a></dt>
+<dt>– Headerdateien  <a href="./c_027_003.htm#Xxx999343">
+              [1]
+            </a></dt>
+<dt>– Installation  <a href="./c_027_001.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>– libmysql.dll  <a href="./c_027_003.htm#Xxx999349">
+              [1]
+            </a></dt>
+<dt>– libmysql.lib  <a href="./c_027_003.htm#Xxx999340">
+              [1]
+            </a></dt>
+<dt>– mysql-Client starten  <a href="./c_027_001.htm#Xxx999346">
+              [1]
+            </a></dt>
+<dt>– Server starten  <a href="./c_027_001.htm#Xxx999333">
+              [1]
+            </a></dt>
+<dt>MySQL C-API</dt>
+<dt>– Anfrage an den Server  <a href="./c_027_003.htm#Xxx999564">
+              [1]
+            </a></dt>
+<dt>– CGI-Anwendung  <a href="./c_027_004.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– Daten ausgeben  <a href="./c_027_003.htm#Xxx999721">
+              [1]
+            </a></dt>
+<dt>– Daten hinzuf&uuml;gen  <a href="./c_027_003.htm#Xxx999608">
+              [1]
+            </a>, <a href="./c_027_004.htm#Xxx999346">
+              [2]
+            </a></dt>
+<dt>– Daten l&ouml;schen  <a href="./c_027_003.htm#Xxx999617">
+              [1]
+            </a></dt>
+<dt>– Daten suchen  <a href="./c_027_003.htm#Xxx999662">
+              [1]
+            </a>, <a href="./c_027_004.htm#Xxx999350">
+              [2]
+            </a></dt>
+<dt>– Daten ver&auml;ndern  <a href="./c_027_003.htm#Xxx999628">
+              [1]
+            </a></dt>
+<dt>– Daten vom Server holen  <a href="./c_027_003.htm#Xxx999634">
+              [1]
+            </a></dt>
+<dt>– Datenbank ausw&auml;hlen  <a href="./c_027_003.htm#Xxx999602">
+              [1]
+            </a></dt>
+<dt>– Datentypen  <a href="./c_027_006.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– Fehler&uuml;berpr&uuml;fung  <a href="./c_027_003.htm#Xxx999461">
+              [1]
+            </a></dt>
+<dt>– Feldwert ermitteln  <a href="./c_027_003.htm#Xxx999665">
+              [1]
+            </a></dt>
+<dt>– Funktions&uuml;bersicht  <a href="./c_027_005.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– Kommandozeilen-Argumente  <a href="./c_027_003.htm#Xxx999491">
+              [1]
+            </a></dt>
+<dt>– MYSQL_FIELD-Struktur  <a href="./c_027_003.htm#Xxx999668">
+              [1]
+            </a></dt>
+<dt>– MYSQL_RES-Struktur  <a href="./c_027_003.htm#Xxx999637">
+              [1]
+            </a></dt>
+<dt>– MYSQL-Handle  <a href="./c_027_003.htm#Xxx999402">
+              [1]
+            </a></dt>
+<dt>– Serverantwort auswerten  <a href="./c_027_003.htm#Xxx999620">
+              [1]
+            </a></dt>
+<dt>– Verbindung herstellen  <a href="./c_027_003.htm#Xxx999398">
+              [1]
+            </a></dt>
+<dt>– Verbindung schlie&szlig;en  <a href="./c_027_003.htm#Xxx999485">
+              [1]
+            </a></dt>
+<dt>mysql_affected_rows()  <a href="./c_027_003.htm#Xxx999621">
+              [1]
+            </a>, <a href="./c_027_005.htm#Xxx999337">
+              [2]
+            </a></dt>
+<dt>mysql_change_user()  <a href="./c_027_005.htm#Xxx999352">
+              [1]
+            </a></dt>
+<dt>mysql_character_set_name()  <a href="./c_027_005.htm#Xxx999357">
+              [1]
+            </a></dt>
+<dt>mysql_close()  <a href="./c_027_003.htm#Xxx999486">
+              [1]
+            </a>, <a href="./c_027_005.htm#Xxx999342">
+              [2]
+            </a></dt>
+<dt>mysql_connect()  <a href="./c_027_005.htm#Xxx999347">
+              [1]
+            </a></dt>
+<dt>mysql_create_db()  <a href="./c_027_005.htm#Xxx999362">
+              [1]
+            </a></dt>
+<dt>mysql_data_seek()  <a href="./c_027_005.htm#Xxx999367">
+              [1]
+            </a></dt>
+<dt>mysql_debug()  <a href="./c_027_005.htm#Xxx999372">
+              [1]
+            </a></dt>
+<dt>mysql_drop_db()  <a href="./c_027_005.htm#Xxx999377">
+              [1]
+            </a></dt>
+<dt>mysql_dump_debug_info()  <a href="./c_027_005.htm#Xxx999382">
+              [1]
+            </a></dt>
+<dt>mysql_eof()  <a href="./c_027_005.htm#Xxx999387">
+              [1]
+            </a></dt>
+<dt>mysql_errno()  <a href="./c_027_003.htm#Xxx999464">
+              [1]
+            </a>, <a href="./c_027_005.htm#Xxx999392">
+              [2]
+            </a></dt>
+<dt>mysql_error()  <a href="./c_027_003.htm#Xxx999474">
+              [1]
+            </a>, <a href="./c_027_005.htm#Xxx999397">
+              [2]
+            </a></dt>
+<dt>mysql_escape_string()  <a href="./c_027_005.htm#Xxx999407">
+              [1]
+            </a></dt>
+<dt>mysql_fetch_field()  <a href="./c_027_003.htm#Xxx999666">
+              [1]
+            </a>, <a href="./c_027_005.htm#Xxx999412">
+              [2]
+            </a></dt>
+<dt>mysql_fetch_field_direct()  <a href="./c_027_005.htm#Xxx999417">
+              [1]
+            </a></dt>
+<dt>mysql_fetch_fields()  <a href="./c_027_005.htm#Xxx999422">
+              [1]
+            </a></dt>
+<dt>mysql_fetch_lengths()  <a href="./c_027_005.htm#Xxx999427">
+              [1]
+            </a></dt>
+<dt>mysql_fetch_row()  <a href="./c_027_003.htm#Xxx999645">
+              [1]
+            </a>, <a href="./c_027_005.htm#Xxx999432">
+              [2]
+            </a></dt>
+<dt>mysql_field_count()  <a href="./c_027_005.htm#Xxx999442">
+              [1]
+            </a></dt>
+<dt>mysql_field_seek()  <a href="./c_027_003.htm#Xxx999725">
+              [1]
+            </a>, <a href="./c_027_005.htm#Xxx999437">
+              [2]
+            </a></dt>
+<dt>mysql_field_tell()  <a href="./c_027_003.htm#Xxx999724">
+              [1]
+            </a>, <a href="./c_027_005.htm#Xxx999447">
+              [2]
+            </a></dt>
+<dt>mysql_free_result()  <a href="./c_027_003.htm#Xxx999652">
+              [1]
+            </a>, <a href="./c_027_005.htm#Xxx999452">
+              [2]
+            </a></dt>
+<dt>mysql_get_client_info()  <a href="./c_027_005.htm#Xxx999457">
+              [1]
+            </a></dt>
+<dt>mysql_get_host_info()  <a href="./c_027_005.htm#Xxx999462">
+              [1]
+            </a></dt>
+<dt>mysql_get_proto_info()  <a href="./c_027_005.htm#Xxx999467">
+              [1]
+            </a></dt>
+<dt>mysql_get_server_info()  <a href="./c_027_005.htm#Xxx999472">
+              [1]
+            </a></dt>
+<dt>mysql_info()  <a href="./c_027_005.htm#Xxx999477">
+              [1]
+            </a></dt>
+<dt>mysql_init()  <a href="./c_027_003.htm#Xxx999406">
+              [1]
+            </a>, <a href="./c_027_005.htm#Xxx999482">
+              [2]
+            </a></dt>
+<dt>mysql_insert_id()  <a href="./c_027_005.htm#Xxx999487">
+              [1]
+            </a></dt>
+<dt>mysql_kill()  <a href="./c_027_005.htm#Xxx999492">
+              [1]
+            </a></dt>
+<dt>mysql_list_dbs()  <a href="./c_027_005.htm#Xxx999497">
+              [1]
+            </a></dt>
+<dt>mysql_list_fields()  <a href="./c_027_005.htm#Xxx999502">
+              [1]
+            </a></dt>
+<dt>mysql_list_processes()  <a href="./c_027_005.htm#Xxx999507">
+              [1]
+            </a></dt>
+<dt>mysql_list_tables()  <a href="./c_027_005.htm#Xxx999512">
+              [1]
+            </a></dt>
+<dt>mysql_num_fields()  <a href="./c_027_003.htm#Xxx999649">
+              [1]
+            </a>, <a href="./c_027_005.htm#Xxx999517">
+              [2]
+            </a></dt>
+<dt>mysql_num_rows()  <a href="./c_027_003.htm#Xxx999641">
+              [1]
+            </a>, <a href="./c_027_005.htm#Xxx999522">
+              [2]
+            </a></dt>
+<dt>mysql_options()  <a href="./c_027_005.htm#Xxx999527">
+              [1]
+            </a></dt>
+<dt>mysql_ping()  <a href="./c_027_005.htm#Xxx999532">
+              [1]
+            </a></dt>
+<dt>mysql_query()  <a href="./c_027_003.htm#Xxx999575">
+              [1]
+            </a>, <a href="./c_027_005.htm#Xxx999537">
+              [2]
+            </a></dt>
+<dt>mysql_real_connect()  <a href="./c_027_003.htm#Xxx999411">
+              [1]
+            </a>, <a href="./c_027_005.htm#Xxx999542">
+              [2]
+            </a></dt>
+<dt>mysql_real_escape_string()  <a href="./c_027_005.htm#Xxx999402">
+              [1]
+            </a></dt>
+<dt>mysql_real_query()  <a href="./c_027_003.htm#Xxx999576">
+              [1]
+            </a>, <a href="./c_027_005.htm#Xxx999547">
+              [2]
+            </a></dt>
+<dt>mysql_reload()  <a href="./c_027_005.htm#Xxx999552">
+              [1]
+            </a></dt>
+<dt>mysql_row_seek()  <a href="./c_027_005.htm#Xxx999557">
+              [1]
+            </a></dt>
+<dt>mysql_row_tell()  <a href="./c_027_005.htm#Xxx999562">
+              [1]
+            </a></dt>
+<dt>mysql_select_db()  <a href="./c_027_003.htm#Xxx999603">
+              [1]
+            </a>, <a href="./c_027_005.htm#Xxx999567">
+              [2]
+            </a></dt>
+<dt>mysql_shutdown()  <a href="./c_027_005.htm#Xxx999572">
+              [1]
+            </a></dt>
+<dt>mysql_stat()  <a href="./c_027_005.htm#Xxx999577">
+              [1]
+            </a></dt>
+<dt>mysql_store_result()  <a href="./c_027_003.htm#Xxx999635">
+              [1]
+            </a>, <a href="./c_027_005.htm#Xxx999582">
+              [2]
+            </a></dt>
+<dt>MYSQL_TCP_PORT  <a href="./c_027_003.htm#Xxx999558">
+              [1]
+            </a></dt>
+<dt>mysql_thread_id()  <a href="./c_027_005.htm#Xxx999587">
+              [1]
+            </a></dt>
+<dt>mysql_thread_safe()  <a href="./c_027_005.htm#Xxx999592">
+              [1]
+            </a></dt>
+<dt>mysql_use_result()  <a href="./c_027_005.htm#Xxx999597">
+              [1]
+            </a></dt>
+<dt>MySQL-Clientprogramme</dt>
+<dt>– mit Borland-Compiler  <a href="./c_027_003.htm#Xxx999380">
+              [1]
+            </a></dt>
+<dt>– mit gcc  <a href="./c_027_003.htm#Xxx999353">
+              [1]
+            </a></dt>
+<dt>– mit Visual C++  <a href="./c_027_003.htm#Xxx999366">
+              [1]
+            </a></dt>
+<dt>– Probleme beim Erstellen  <a href="./c_027_003.htm#Xxx999389">
+              [1]
+            </a></dt>
+<br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp14"></a>N  
+          <a href="#grp15"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp13"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<dt>Nameserver  <a href="./c_028_000.htm#Xxx999374">
+              [1]
+            </a></dt>
+<dt>NDEBUG  <a href="./c_022_000.htm#Xxx999346">
+              [1]
+            </a></dt>
+<dt>Netzwerkprogrammierung  <a href="./c_028_000.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>– Client-/Server-Prinzip  <a href="./c_028_002.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– Linux  <a href="./c_028_001.htm#Xxx999333">
+              [1]
+            </a></dt>
+<dt>– Windows  <a href="./c_028_001.htm#Xxx999342">
+              [1]
+            </a></dt>
+<dt>Netzwerktechnik  <a href="./c_028_000.htm#Xxx999337">
+              [1]
+            </a></dt>
+<dt>– Domainname  <a href="./c_028_000.htm#Xxx999366">
+              [1]
+            </a></dt>
+<dt>– Hostname  <a href="./c_028_000.htm#Xxx999365">
+              [1]
+            </a></dt>
+<dt>– IP-Nummer  <a href="./c_028_000.htm#Xxx999341">
+              [1]
+            </a></dt>
+<dt>– IP-Protokoll  <a href="./c_028_000.htm#Xxx999377">
+              [1]
+            </a></dt>
+<dt>– IPv4  <a href="./c_028_000.htm#Xxx999350">
+              [1]
+            </a></dt>
+<dt>– IPv6  <a href="./c_028_000.htm#Xxx999351">
+              [1]
+            </a></dt>
+<dt>– Loopback-Interface  <a href="./c_028_002.htm#Xxx999335">
+              [1]
+            </a></dt>
+<dt>– Nameserver  <a href="./c_028_000.htm#Xxx999373">
+              [1]
+            </a></dt>
+<dt>– OSI-Schichtmodell  <a href="./c_026_007.htm#Xxx999340">
+              [1]
+            </a></dt>
+<dt>– Portnummer  <a href="./c_028_000.htm#Xxx999359">
+              [1]
+            </a></dt>
+<dt>– Sockets  <a href="./c_028_000.htm#Xxx999398">
+              [1]
+            </a></dt>
+<dt>– TCP  <a href="./c_028_000.htm#Xxx999386">
+              [1]
+            </a></dt>
+<dt>– UDP  <a href="./c_028_000.htm#Xxx999387">
+              [1]
+            </a></dt>
+<dt>Notationsstil  <a href="./c_010_012.htm#Xxx999328">
+              [1]
+            </a></dt>
+<dt>ntohl()  <a href="./c_028_003.htm#Xxx999413">
+              [1]
+            </a></dt>
+<dt>ntohs()  <a href="./c_028_003.htm#Xxx999412">
+              [1]
+            </a></dt>
+<dt>NULL  <a href="./c_014_001.htm#Xxx999434">
+              [1]
+            </a>, <a href="./c_016_001.htm#Xxx999338">
+              [2]
+            </a>, <a href="./c_016_002.htm#Xxx999329">
+              [3]
+            </a>, <a href="./c_021_000.htm#Xxx999434">
+              [4]
+            </a></dt>
+<br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp15"></a>O  
+          <a href="#grp16"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp14"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<dt>O_APPEND  <a href="./c_018_025.htm#Xxx999384">
+              [1]
+            </a></dt>
+<dt>O_BINARY  <a href="./c_018_025.htm#Xxx999444">
+              [1]
+            </a></dt>
+<dt>O_CREAT  <a href="./c_018_025.htm#Xxx999379">
+              [1]
+            </a></dt>
+<dt>O_EXCL  <a href="./c_018_025.htm#Xxx999389">
+              [1]
+            </a></dt>
+<dt>O_NOCTTY  <a href="./c_018_025.htm#Xxx999415">
+              [1]
+            </a></dt>
+<dt>O_NONBLOCK  <a href="./c_018_025.htm#Xxx999420">
+              [1]
+            </a></dt>
+<dt>O_RDONLY  <a href="./c_018_025.htm#Xxx999353">
+              [1]
+            </a></dt>
+<dt>O_RDWR  <a href="./c_018_025.htm#Xxx999348">
+              [1]
+            </a></dt>
+<dt>O_SYNC  <a href="./c_018_025.htm#Xxx999425">
+              [1]
+            </a></dt>
+<dt>O_TEXT  <a href="./c_018_025.htm#Xxx999449">
+              [1]
+            </a></dt>
+<dt>O_TRUNC  <a href="./c_018_025.htm#Xxx999394">
+              [1]
+            </a></dt>
+<dt>O_WRONLY  <a href="./c_018_025.htm#Xxx999343">
+              [1]
+            </a></dt>
+<dt>objdump  <a href="./c_025_000.htm#Xxx999384">
+              [1]
+            </a></dt>
+<dt>ODBC-Schnittstelle  <a href="./c_027_000.htm#Xxx999407">
+              [1]
+            </a></dt>
+<dt>offsetof-Makro  <a href="./c_017_013.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>Opcode  <a href="./c_025_000.htm#Xxx999394">
+              [1]
+            </a></dt>
+<dt>open()  <a href="./c_018_025.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>OPEN_MAX  <a href="./c_018_026.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>opendir()  <a href="./c_019_002.htm#Xxx999396">
+              [1]
+            </a></dt>
+<dt>Operatoren</dt>
+<dt>– arithmetische  <a href="./c_008_001.htm#Xxx999328">
+              [1]
+            </a></dt>
+<dt>– bitweise  <a href="./c_008_004.htm#Xxx999328">
+              [1]
+            </a></dt>
+<dt>– Dekrement  <a href="./c_008_003.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– Inkrement  <a href="./c_008_003.htm#Xxx999328">
+              [1]
+            </a></dt>
+<dt>– logische  <a href="./c_010_003.htm#Xxx999328">
+              [1]
+            </a></dt>
+<dt>– Zuweisungs-  <a href="./c_008_002.htm#Xxx999370">
+              [1]
+            </a></dt>
+<br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp16"></a>P  
+          <a href="#grp17"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp15"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<dt>Paging  <a href="./c_016_005.htm#Xxx999340">
+              [1]
+            </a></dt>
+<dt>Parameter</dt>
+<dt>– von main()  <a href="./c_015_000.htm#Xxx999341">
+              [1]
+            </a></dt>
+<dt>Pattern Matching  <a href="./c_024_006.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>perror()  <a href="./c_018_021.htm#Xxx999480">
+              [1]
+            </a></dt>
+<dt>Portabel</dt>
+<dt>– getch()  <a href="./c_018_005.htm#Xxx999356">
+              [1]
+            </a></dt>
+<dt>– Verzeichnis ausgeben  <a href="./c_019_002.htm#Xxx999435">
+              [1]
+            </a></dt>
+<dt>Portnummer  <a href="./c_028_000.htm#Xxx999360">
+              [1]
+            </a></dt>
+<dt>pow()  <a href="./c_022_002.htm#Xxx999447">
+              [1]
+            </a></dt>
+<dt>Pr&auml;prozessor  <a href="./c_012_000.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>Pr&auml;prozessor-Direktiven</dt>
+<dt>– define  <a href="./c_012_001.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– elif  <a href="./c_012_002.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>– else  <a href="./c_012_002.htm#Xxx999332">
+              [1]
+            </a></dt>
+<dt>– endif  <a href="./c_012_002.htm#Xxx999333">
+              [1]
+            </a></dt>
+<dt>– error  <a href="./c_012_006.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– ifdef  <a href="./c_012_002.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>– include  <a href="./c_012_000.htm#Xxx999346">
+              [1]
+            </a></dt>
+<dt>– line  <a href="./c_012_003.htm#Xxx999376">
+              [1]
+            </a></dt>
+<dt>– pragma  <a href="./c_012_007.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– undef  <a href="./c_012_005.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>printf()  <a href="./c_006_000.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>Profiler  <a href="./c_021_001.htm#Xxx999332">
+              [1]
+            </a></dt>
+<dt>– gprof  <a href="./c_021_001.htm#Xxx999335">
+              [1]
+            </a></dt>
+<dt>Programmbeendigung  <a href="./c_022_003.htm#Xxx999332">
+              [1]
+            </a></dt>
+<dt>– _exit()  <a href="./c_022_003.htm#Xxx999340">
+              [1]
+            </a></dt>
+<dt>– abort()  <a href="./c_022_003.htm#Xxx999353">
+              [1]
+            </a></dt>
+<dt>– atexit()  <a href="./c_022_003.htm#Xxx999345">
+              [1]
+            </a></dt>
+<dt>– exit()  <a href="./c_022_003.htm#Xxx999334">
+              [1]
+            </a></dt>
+<dt>Prozess  <a href="./c_011_015.htm#Xxx999355">
+              [1]
+            </a></dt>
+<dt>ptrdiff_t  <a href="./c_014_003.htm#Xxx999348">
+              [1]
+            </a></dt>
+<dt>Puffer&uuml;berlauf  <a href="./c_025_000.htm#Xxx999342">
+              [1]
+            </a></dt>
+<dt>Pufferung  <a href="./c_018_012.htm#Xxx999340">
+              [1]
+            </a></dt>
+<dt>– einstellen  <a href="./c_018_019.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>Punktoperator  <a href="./c_017_001.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>putc()  <a href="./c_018_006.htm#Xxx999347">
+              [1]
+            </a></dt>
+<dt>putchar()  <a href="./c_018_005.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>puts()  <a href="./c_018_015.htm#Xxx999356">
+              [1]
+            </a></dt>
+<br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp17"></a>Q  
+          <a href="#grp18"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp16"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<dt>qsort()  <a href="./c_022_003.htm#Xxx999452">
+              [1]
+            </a>, <a href="./c_024_002.htm#Xxx999493">
+              [2]
+            </a></dt>
+<dt>Quadratwurzel  <a href="./c_022_002.htm#Xxx999418">
+              [1]
+            </a></dt>
+<dt>Queues  <a href="./c_023_003.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– get()  <a href="./c_023_003.htm#Xxx999335">
+              [1]
+            </a></dt>
+<dt>– put()  <a href="./c_023_003.htm#Xxx999336">
+              [1]
+            </a></dt>
+<dt>Quicksort  <a href="./c_024_002.htm#Xxx999407">
+              [1]
+            </a></dt>
+<br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp18"></a>R  
+          <a href="#grp19"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp17"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<dt>raise()  <a href="./c_022_006.htm#Xxx999413">
+              [1]
+            </a></dt>
+<dt>rand()  <a href="./c_022_003.htm#Xxx999412">
+              [1]
+            </a></dt>
+<dt>RAND_MAX  <a href="./c_022_003.htm#Xxx999418">
+              [1]
+            </a></dt>
+<dt>read()  <a href="./c_018_028.htm#Xxx999348">
+              [1]
+            </a></dt>
+<dt>readdir()  <a href="./c_019_002.htm#Xxx999403">
+              [1]
+            </a></dt>
+<dt>Read-only-Zeiger  <a href="./c_014_007.htm#Xxx999337">
+              [1]
+            </a></dt>
+<dt>realloc()  <a href="./c_016_007.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>Rechtsassoziativit&auml;t  <a href="./c_008_000.htm#Xxx999342">
+              [1]
+            </a></dt>
+<dt>recv()  <a href="./c_028_003.htm#Xxx999464">
+              [1]
+            </a></dt>
+<dt>recvfrom()  <a href="./c_028_003.htm#Xxx999482">
+              [1]
+            </a></dt>
+<dt>register  <a href="./c_011_008.htm#Xxx999346">
+              [1]
+            </a></dt>
+<dt>regul&auml;re Ausdr&uuml;cke  <a href="./c_024_006.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>Rekursion  <a href="./c_011_019.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>relationale Beziehung  <a href="./c_027_000.htm#Xxx999378">
+              [1]
+            </a></dt>
+<dt>remove()  <a href="./c_018_018.htm#Xxx999333">
+              [1]
+            </a></dt>
+<dt>rename()  <a href="./c_018_018.htm#Xxx999347">
+              [1]
+            </a></dt>
+<dt>return  <a href="./c_011_014.htm#Xxx999336">
+              [1]
+            </a></dt>
+<dt>rewind()  <a href="./c_018_013.htm#Xxx999398">
+              [1]
+            </a></dt>
+<dt>rewinddir()  <a href="./c_019_002.htm#Xxx999413">
+              [1]
+            </a></dt>
+<dt>rmdir()  <a href="./c_019_002.htm#Xxx999356">
+              [1]
+            </a></dt>
+<dt>R&uuml;ckgabewert beim Beenden  <a href="./c_011_016.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>R&uuml;ckgabewert von Funktionen  <a href="./c_011_014.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>R&uuml;ckgabewert von main()  <a href="./c_011_015.htm#Xxx999332">
+              [1]
+            </a></dt>
+<dt>R&uuml;cksprungadresse manipulieren  <a href="./c_025_000.htm#Xxx999380">
+              [1]
+            </a></dt>
+<br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp19"></a>S  
+          <a href="#grp20"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp18"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<dt>S_IEXEC  <a href="./c_019_000.htm#Xxx999575">
+              [1]
+            </a></dt>
+<dt>S_IREAD  <a href="./c_018_025.htm#Xxx999474">
+              [1]
+            </a>, <a href="./c_019_000.htm#Xxx999570">
+              [2]
+            </a></dt>
+<dt>S_IRGRP  <a href="./c_018_025.htm#Xxx999538">
+              [1]
+            </a>, <a href="./c_019_000.htm#Xxx999507">
+              [2]
+            </a></dt>
+<dt>S_IROTH  <a href="./c_018_025.htm#Xxx999558">
+              [1]
+            </a>, <a href="./c_019_000.htm#Xxx999528">
+              [2]
+            </a></dt>
+<dt>S_IRUSR  <a href="./c_018_025.htm#Xxx999518">
+              [1]
+            </a>, <a href="./c_019_000.htm#Xxx999486">
+              [2]
+            </a></dt>
+<dt>S_IRWXG  <a href="./c_018_025.htm#Xxx999553">
+              [1]
+            </a></dt>
+<dt>S_IRWXO  <a href="./c_018_025.htm#Xxx999573">
+              [1]
+            </a></dt>
+<dt>S_IRWXU  <a href="./c_018_025.htm#Xxx999533">
+              [1]
+            </a></dt>
+<dt>S_ISGID  <a href="./c_018_025.htm#Xxx999508">
+              [1]
+            </a></dt>
+<dt>S_ISUID  <a href="./c_018_025.htm#Xxx999503">
+              [1]
+            </a></dt>
+<dt>S_ISVTX  <a href="./c_018_025.htm#Xxx999513">
+              [1]
+            </a></dt>
+<dt>S_IWGRP  <a href="./c_018_025.htm#Xxx999543">
+              [1]
+            </a>, <a href="./c_019_000.htm#Xxx999514">
+              [2]
+            </a></dt>
+<dt>S_IWOTH  <a href="./c_018_025.htm#Xxx999563">
+              [1]
+            </a>, <a href="./c_019_000.htm#Xxx999535">
+              [2]
+            </a></dt>
+<dt>S_IWRITE  <a href="./c_018_025.htm#Xxx999469">
+              [1]
+            </a>, <a href="./c_019_000.htm#Xxx999565">
+              [2]
+            </a></dt>
+<dt>S_IWUSR  <a href="./c_018_025.htm#Xxx999523">
+              [1]
+            </a>, <a href="./c_019_000.htm#Xxx999493">
+              [2]
+            </a></dt>
+<dt>S_IXGRP  <a href="./c_018_025.htm#Xxx999548">
+              [1]
+            </a>, <a href="./c_019_000.htm#Xxx999521">
+              [2]
+            </a></dt>
+<dt>S_IXOTH  <a href="./c_018_025.htm#Xxx999568">
+              [1]
+            </a>, <a href="./c_019_000.htm#Xxx999542">
+              [2]
+            </a></dt>
+<dt>S_IXUSR  <a href="./c_018_025.htm#Xxx999528">
+              [1]
+            </a>, <a href="./c_019_000.htm#Xxx999500">
+              [2]
+            </a></dt>
+<dt>scanf()  <a href="./c_005_000.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>SCHAR_MAX  <a href="./c_007_010.htm#Xxx999356">
+              [1]
+            </a></dt>
+<dt>SCHAR_MIN  <a href="./c_007_010.htm#Xxx999349">
+              [1]
+            </a></dt>
+<dt>Schleife</dt>
+<dt>– do while  <a href="./c_010_008.htm#Xxx999328">
+              [1]
+            </a></dt>
+<dt>– Endlosschleife  <a href="./c_010_007.htm#Xxx999351">
+              [1]
+            </a></dt>
+<dt>– for  <a href="./c_010_009.htm#Xxx999328">
+              [1]
+            </a></dt>
+<dt>– while  <a href="./c_010_007.htm#Xxx999328">
+              [1]
+            </a></dt>
+<dt>Schl&uuml;sselw&ouml;rter in C  <a href="./c_007_001.htm#Xxx999367">
+              [1]
+            </a></dt>
+<dt>SEEK_CUR  <a href="./c_018_013.htm#Xxx999349">
+              [1]
+            </a>, <a href="./c_018_029.htm#Xxx999345">
+              [2]
+            </a></dt>
+<dt>SEEK_END  <a href="./c_018_013.htm#Xxx999356">
+              [1]
+            </a>, <a href="./c_018_029.htm#Xxx999350">
+              [2]
+            </a></dt>
+<dt>SEEK_SET  <a href="./c_018_013.htm#Xxx999342">
+              [1]
+            </a>, <a href="./c_018_029.htm#Xxx999340">
+              [2]
+            </a></dt>
+<dt>seekdir()  <a href="./c_019_002.htm#Xxx999426">
+              [1]
+            </a></dt>
+<dt>SELECT ... FROM  <a href="./c_027_002.htm#Xxx999639">
+              [1]
+            </a></dt>
+<dt>select()  <a href="./c_028_006.htm#Xxx999413">
+              [1]
+            </a></dt>
+<dt>– FD_CLR()  <a href="./c_028_006.htm#Xxx999437">
+              [1]
+            </a></dt>
+<dt>– FD_ISSET()  <a href="./c_028_006.htm#Xxx999438">
+              [1]
+            </a></dt>
+<dt>– FD_SET()  <a href="./c_028_006.htm#Xxx999436">
+              [1]
+            </a></dt>
+<dt>– FD_ZERO()  <a href="./c_028_006.htm#Xxx999435">
+              [1]
+            </a></dt>
+<dt>Selektion Sort  <a href="./c_024_002.htm#Xxx999339">
+              [1]
+            </a></dt>
+<dt>send()  <a href="./c_028_003.htm#Xxx999463">
+              [1]
+            </a></dt>
+<dt>sendto()  <a href="./c_028_003.htm#Xxx999481">
+              [1]
+            </a></dt>
+<dt>setbuf()  <a href="./c_018_019.htm#Xxx999332">
+              [1]
+            </a></dt>
+<dt>setjmp()  <a href="./c_022_005.htm#Xxx999341">
+              [1]
+            </a></dt>
+<dt>setlocale()  <a href="./c_022_004.htm#Xxx999334">
+              [1]
+            </a></dt>
+<dt>setvbuf()  <a href="./c_018_019.htm#Xxx999361">
+              [1]
+            </a></dt>
+<dt>Shellsort  <a href="./c_024_002.htm#Xxx999388">
+              [1]
+            </a></dt>
+<dt>– Distanzfolgen  <a href="./c_024_002.htm#Xxx999390">
+              [1]
+            </a></dt>
+<dt>short  <a href="./c_007_004.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>SHOW DATABASE  <a href="./c_027_002.htm#Xxx999557">
+              [1]
+            </a></dt>
+<dt>SHOW TABLES  <a href="./c_027_002.htm#Xxx999590">
+              [1]
+            </a></dt>
+<dt>SHRT_MAX  <a href="./c_007_010.htm#Xxx999398">
+              [1]
+            </a></dt>
+<dt>SHRT_MIN  <a href="./c_007_010.htm#Xxx999391">
+              [1]
+            </a></dt>
+<dt>sicheres Programmieren  <a href="./c_025_000.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>– Buffer Overflow  <a href="./c_025_000.htm#Xxx999340">
+              [1]
+            </a></dt>
+<dt>– Memory Leak  <a href="./c_025_001.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>Sicherheitsprobleme vermeiden  <a href="./c_025_002.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>Signal</dt>
+<dt>– SIG_DFL  <a href="./c_022_006.htm#Xxx999390">
+              [1]
+            </a></dt>
+<dt>– SIG_ERR  <a href="./c_022_006.htm#Xxx999410">
+              [1]
+            </a></dt>
+<dt>– SIG_IGN  <a href="./c_022_006.htm#Xxx999391">
+              [1]
+            </a></dt>
+<dt>– SIGABRT  <a href="./c_022_006.htm#Xxx999337">
+              [1]
+            </a>, <a href="./c_022_006.htm#Xxx999406">
+              [2]
+            </a></dt>
+<dt>– SIGFPE  <a href="./c_022_006.htm#Xxx999342">
+              [1]
+            </a></dt>
+<dt>– SIGILL  <a href="./c_022_006.htm#Xxx999347">
+              [1]
+            </a></dt>
+<dt>– SIGINT  <a href="./c_022_006.htm#Xxx999352">
+              [1]
+            </a>–<a href="./c_022_006.htm#Xxx999394">
+              [2]
+            </a></dt>
+<dt>– SIGSEGV  <a href="./c_022_006.htm#Xxx999357">
+              [1]
+            </a></dt>
+<dt>– SIGTERM  <a href="./c_022_006.htm#Xxx999362">
+              [1]
+            </a></dt>
+<dt>signal()  <a href="./c_022_006.htm#Xxx999382">
+              [1]
+            </a></dt>
+<dt>Signalkonzept  <a href="./c_022_006.htm#Xxx999380">
+              [1]
+            </a></dt>
+<dt>signed  <a href="./c_007_009.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>sin()  <a href="./c_022_002.htm#Xxx999372">
+              [1]
+            </a></dt>
+<dt>sinh()  <a href="./c_022_002.htm#Xxx999389">
+              [1]
+            </a></dt>
+<dt>Sinus  <a href="./c_022_002.htm#Xxx999375">
+              [1]
+            </a></dt>
+<dt>size_t  <a href="./c_021_000.htm#Xxx999341">
+              [1]
+            </a></dt>
+<dt>sizeof-Operator  <a href="./c_008_005.htm#Xxx999328">
+              [1]
+            </a>, <a href="./c_013_003.htm#Xxx999330">
+              [2]
+            </a>, <a href="./c_017_000.htm#Xxx999354">
+              [3]
+            </a></dt>
+<dt>socket()  <a href="./c_028_003.htm#Xxx999332">
+              [1]
+            </a></dt>
+<dt>Socketprogrammierung  <a href="./c_028_001.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– accept()  <a href="./c_028_004.htm#Xxx999360">
+              [1]
+            </a></dt>
+<dt>– Adresse festlegen (binden)  <a href="./c_028_004.htm#Xxx999332">
+              [1]
+            </a></dt>
+<dt>– bind()  <a href="./c_028_004.htm#Xxx999334">
+              [1]
+            </a></dt>
+<dt>– Client-/Server-Anwendung  <a href="./c_028_006.htm#Xxx999383">
+              [1]
+            </a></dt>
+<dt>– Client-/Server-Prinzip  <a href="./c_028_002.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>– Client-Anwendung  <a href="./c_028_003.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– close()  <a href="./c_028_003.htm#Xxx999495">
+              [1]
+            </a></dt>
+<dt>– closesocket()  <a href="./c_028_003.htm#Xxx999496">
+              [1]
+            </a></dt>
+<dt>– connect()  <a href="./c_028_003.htm#Xxx999392">
+              [1]
+            </a></dt>
+<dt>– Daten empfangen  <a href="./c_028_003.htm#Xxx999456">
+              [1]
+            </a></dt>
+<dt>– Daten senden  <a href="./c_028_003.htm#Xxx999455">
+              [1]
+            </a></dt>
+<dt>– Datenformate  <a href="./c_028_007.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>– gethostbyname()  <a href="./c_028_003.htm#Xxx999434">
+              [1]
+            </a></dt>
+<dt>– hostent  <a href="./c_028_003.htm#Xxx999437">
+              [1]
+            </a></dt>
+<dt>– htonl()  <a href="./c_028_003.htm#Xxx999415">
+              [1]
+            </a></dt>
+<dt>– htons()  <a href="./c_028_003.htm#Xxx999414">
+              [1]
+            </a></dt>
+<dt>– IPv4 nach IPv6 &auml;ndern  <a href="./c_028_007.htm#Xxx999349">
+              [1]
+            </a></dt>
+<dt>– Linux  <a href="./c_028_001.htm#Xxx999332">
+              [1]
+            </a></dt>
+<dt>– listen()  <a href="./c_028_004.htm#Xxx999349">
+              [1]
+            </a></dt>
+<dt>– Mehrere Clients gleichzeitig  <a href="./c_028_006.htm#Xxx999401">
+              [1]
+            </a></dt>
+<dt>– ntohl()  <a href="./c_028_003.htm#Xxx999417">
+              [1]
+            </a></dt>
+<dt>– ntohs()  <a href="./c_028_003.htm#Xxx999416">
+              [1]
+            </a></dt>
+<dt>– Portabilit&auml;t  <a href="./c_028_007.htm#Xxx999346">
+              [1]
+            </a></dt>
+<dt>– Puffer  <a href="./c_028_007.htm#Xxx999337">
+              [1]
+            </a></dt>
+<dt>– recv()  <a href="./c_028_003.htm#Xxx999466">
+              [1]
+            </a></dt>
+<dt>– recvfrom()  <a href="./c_028_003.htm#Xxx999484">
+              [1]
+            </a></dt>
+<dt>– RFC-Dokumente  <a href="./c_028_007.htm#Xxx999367">
+              [1]
+            </a></dt>
+<dt>– select()  <a href="./c_028_006.htm#Xxx999412">
+              [1]
+            </a></dt>
+<dt>– send()  <a href="./c_028_003.htm#Xxx999465">
+              [1]
+            </a></dt>
+<dt>– sendto()  <a href="./c_028_003.htm#Xxx999483">
+              [1]
+            </a></dt>
+<dt>– servent  <a href="./c_028_003.htm#Xxx999421">
+              [1]
+            </a></dt>
+<dt>– Server-Anwendung  <a href="./c_028_004.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– Serverhauptschleife  <a href="./c_028_004.htm#Xxx999362">
+              [1]
+            </a></dt>
+<dt>– Sicherheit  <a href="./c_028_007.htm#Xxx999370">
+              [1]
+            </a></dt>
+<dt>– sockaddr_in  <a href="./c_028_003.htm#Xxx999405">
+              [1]
+            </a></dt>
+<dt>– Socket anlegen  <a href="./c_028_003.htm#Xxx999333">
+              [1]
+            </a></dt>
+<dt>– Socket freigeben  <a href="./c_028_003.htm#Xxx999492">
+              [1]
+            </a></dt>
+<dt>– socket()  <a href="./c_028_003.htm#Xxx999334">
+              [1]
+            </a></dt>
+<dt>– TCP-Echo-Server  <a href="./c_028_005.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>– Verbindung annehmen  <a href="./c_028_004.htm#Xxx999359">
+              [1]
+            </a></dt>
+<dt>– Verbindung herstellen  <a href="./c_028_003.htm#Xxx999390">
+              [1]
+            </a></dt>
+<dt>– Warteschlange einrichten  <a href="./c_028_004.htm#Xxx999347">
+              [1]
+            </a></dt>
+<dt>– Windows  <a href="./c_028_001.htm#Xxx999341">
+              [1]
+            </a></dt>
+<dt>Sockets  <a href="./c_028_000.htm#Xxx999399">
+              [1]
+            </a></dt>
+<dt>Sortieralgorithmus  <a href="./c_024_002.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– analysieren  <a href="./c_024_002.htm#Xxx999499">
+              [1]
+            </a></dt>
+<dt>– Bubble Sort  <a href="./c_024_002.htm#Xxx999372">
+              [1]
+            </a></dt>
+<dt>– Insertion Sort  <a href="./c_024_002.htm#Xxx999353">
+              [1]
+            </a></dt>
+<dt>– qsort()  <a href="./c_024_002.htm#Xxx999492">
+              [1]
+            </a></dt>
+<dt>– Quicksort  <a href="./c_024_002.htm#Xxx999406">
+              [1]
+            </a></dt>
+<dt>– Selektion Sort  <a href="./c_024_002.htm#Xxx999338">
+              [1]
+            </a></dt>
+<dt>– Shellsort  <a href="./c_024_002.htm#Xxx999387">
+              [1]
+            </a></dt>
+<dt>Sortieren  <a href="./c_024_002.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>– qsort()  <a href="./c_022_003.htm#Xxx999450">
+              [1]
+            </a></dt>
+<dt>Speicher allozieren</dt>
+<dt>– alloca()  <a href="./c_016_008.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– calloc()  <a href="./c_016_007.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>– malloc()  <a href="./c_016_001.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– realloc()  <a href="./c_016_007.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>Speicher freigeben</dt>
+<dt>– free()  <a href="./c_016_004.htm#Xxx999329">
+              [1]
+            </a>, <a href="./c_016_009.htm#Xxx999329">
+              [2]
+            </a></dt>
+<dt>Speicherhirachie  <a href="./c_016_005.htm#Xxx999332">
+              [1]
+            </a></dt>
+<dt>Speicherleck  <a href="./c_025_001.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>Speicherverwaltung  <a href="./c_025_000.htm#Xxx999357">
+              [1]
+            </a></dt>
+<dt>sprintf()  <a href="./c_018_022.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>Sprung</dt>
+<dt>– longjmp()  <a href="./c_022_005.htm#Xxx999340">
+              [1]
+            </a></dt>
+<dt>– setjmp()  <a href="./c_022_005.htm#Xxx999339">
+              [1]
+            </a></dt>
+<dt>Sprunganweisung</dt>
+<dt>– break  <a href="./c_010_010.htm#Xxx999346">
+              [1]
+            </a></dt>
+<dt>– continue  <a href="./c_010_010.htm#Xxx999335">
+              [1]
+            </a></dt>
+<dt>SQL  <a href="./c_027_000.htm#Xxx999336">
+              [1]
+            </a></dt>
+<dt>– Befehle  <a href="./c_027_002.htm#Xxx999533">
+              [1]
+            </a></dt>
+<dt>– Crashkurs  <a href="./c_027_002.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– Daten abfragen  <a href="./c_027_002.htm#Xxx999638">
+              [1]
+            </a></dt>
+<dt>– Daten eingeben  <a href="./c_027_002.htm#Xxx999628">
+              [1]
+            </a></dt>
+<dt>– Daten l&ouml;schen  <a href="./c_027_002.htm#Xxx999675">
+              [1]
+            </a></dt>
+<dt>– Daten ver&auml;ndern  <a href="./c_027_002.htm#Xxx999680">
+              [1]
+            </a></dt>
+<dt>– Datenbank anlegen  <a href="./c_027_002.htm#Xxx999532">
+              [1]
+            </a></dt>
+<dt>– Datenbank ausgeben  <a href="./c_027_002.htm#Xxx999558">
+              [1]
+            </a></dt>
+<dt>– Datenbank ausw&auml;hlen  <a href="./c_027_002.htm#Xxx999572">
+              [1]
+            </a></dt>
+<dt>– Datenbank l&ouml;schen  <a href="./c_027_002.htm#Xxx999555">
+              [1]
+            </a></dt>
+<dt>– Datensatz  <a href="./c_027_000.htm#Xxx999373">
+              [1]
+            </a></dt>
+<dt>– Datentypen  <a href="./c_027_002.htm#Xxx999339">
+              [1]
+            </a></dt>
+<dt>– DDL-Anweisungen  <a href="./c_027_002.htm#Xxx999333">
+              [1]
+            </a></dt>
+<dt>– DML-Anweisungen  <a href="./c_027_002.htm#Xxx999335">
+              [1]
+            </a></dt>
+<dt>– SQL-Kommandos  <a href="./c_027_002.htm#Xxx999741">
+              [1]
+            </a></dt>
+<dt>– Tabelle anlegen  <a href="./c_027_002.htm#Xxx999577">
+              [1]
+            </a></dt>
+<dt>– Tabelle anzeigen  <a href="./c_027_002.htm#Xxx999588">
+              [1]
+            </a></dt>
+<dt>– Tabelle l&ouml;schen  <a href="./c_027_002.htm#Xxx999607">
+              [1]
+            </a></dt>
+<dt>– Tabelle ver&auml;ndern  <a href="./c_027_002.htm#Xxx999616">
+              [1]
+            </a></dt>
+<dt>– Tabellen-Details  <a href="./c_027_002.htm#Xxx999593">
+              [1]
+            </a></dt>
+<dt>sqrt()  <a href="./c_022_002.htm#Xxx999415">
+              [1]
+            </a></dt>
+<dt>srand()  <a href="./c_022_003.htm#Xxx999420">
+              [1]
+            </a></dt>
+<dt>sscanf()  <a href="./c_018_022.htm#Xxx999343">
+              [1]
+            </a></dt>
+<dt>Stack  <a href="./c_011_019.htm#Xxx999333">
+              [1]
+            </a>, <a href="./c_022_005.htm#Xxx999347">
+              [2]
+            </a>, <a href="./c_023_002.htm#Xxx999329">
+              [3]
+            </a>, <a href="./c_025_000.htm#Xxx999369">
+              [4]
+            </a></dt>
+<dt>– debuggen  <a href="./c_023_002.htm#Xxx999414">
+              [1]
+            </a></dt>
+<dt>– pop()  <a href="./c_023_002.htm#Xxx999335">
+              [1]
+            </a></dt>
+<dt>– push()  <a href="./c_023_002.htm#Xxx999334">
+              [1]
+            </a></dt>
+<dt>Stack-Frame  <a href="./c_025_000.htm#Xxx999370">
+              [1]
+            </a></dt>
+<dt>Stackrahmen  <a href="./c_011_013.htm#Xxx999340">
+              [1]
+            </a></dt>
+<dt>Standard-Headerdateien  <a href="./c_012_000.htm#Xxx999365">
+              [1]
+            </a></dt>
+<dt>Standard-Streams  <a href="./c_018_009.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– umleiten  <a href="./c_018_009.htm#Xxx999348">
+              [1]
+            </a></dt>
+<dt>Startup-Code  <a href="./c_011_015.htm#Xxx999342">
+              [1]
+            </a></dt>
+<dt>stat()  <a href="./c_019_000.htm#Xxx999332">
+              [1]
+            </a></dt>
+<dt>static  <a href="./c_011_008.htm#Xxx999349">
+              [1]
+            </a>, <a href="./c_011_011.htm#Xxx999334">
+              [2]
+            </a></dt>
+<dt>stat-Struktur  <a href="./c_019_000.htm#Xxx999341">
+              [1]
+            </a></dt>
+<dt>– st_atime  <a href="./c_019_000.htm#Xxx999617">
+              [1]
+            </a></dt>
+<dt>– st_ctime  <a href="./c_019_000.htm#Xxx999619">
+              [1]
+            </a></dt>
+<dt>– st_dev  <a href="./c_019_000.htm#Xxx999656">
+              [1]
+            </a></dt>
+<dt>– st_gid  <a href="./c_019_000.htm#Xxx999646">
+              [1]
+            </a></dt>
+<dt>– st_ino  <a href="./c_019_000.htm#Xxx999652">
+              [1]
+            </a></dt>
+<dt>– st_mode  <a href="./c_019_000.htm#Xxx999409">
+              [1]
+            </a></dt>
+<dt>– st_mtime  <a href="./c_019_000.htm#Xxx999618">
+              [1]
+            </a></dt>
+<dt>– st_nlink  <a href="./c_019_000.htm#Xxx999651">
+              [1]
+            </a></dt>
+<dt>– st_rdev  <a href="./c_019_000.htm#Xxx999657">
+              [1]
+            </a></dt>
+<dt>– st_size  <a href="./c_019_000.htm#Xxx999601">
+              [1]
+            </a></dt>
+<dt>– st_uid  <a href="./c_019_000.htm#Xxx999647">
+              [1]
+            </a></dt>
+<dt>stderr  <a href="./c_018_009.htm#Xxx999335">
+              [1]
+            </a></dt>
+<dt>STDERR_FILENO  <a href="./c_018_009.htm#Xxx999379">
+              [1]
+            </a></dt>
+<dt>stdin  <a href="./c_018_009.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>STDIN_FILENO  <a href="./c_018_009.htm#Xxx999375">
+              [1]
+            </a></dt>
+<dt>stdout  <a href="./c_018_009.htm#Xxx999333">
+              [1]
+            </a></dt>
+<dt>STDOUT_FILENO  <a href="./c_018_009.htm#Xxx999377">
+              [1]
+            </a></dt>
+<dt>Steuerzeichen  <a href="./c_003_001.htm#Xxx999328">
+              [1]
+            </a></dt>
+<dt>strcat()  <a href="./c_013_014.htm#Xxx999336">
+              [1]
+            </a></dt>
+<dt>strchr()  <a href="./c_013_014.htm#Xxx999354">
+              [1]
+            </a></dt>
+<dt>strcmp()  <a href="./c_013_014.htm#Xxx999362">
+              [1]
+            </a></dt>
+<dt>strcpy()  <a href="./c_013_014.htm#Xxx999368">
+              [1]
+            </a></dt>
+<dt>strcspn()  <a href="./c_013_014.htm#Xxx999379">
+              [1]
+            </a></dt>
+<dt>Stream  <a href="./c_018_000.htm#Xxx999333">
+              [1]
+            </a>, <a href="./c_018_002.htm#Xxx999329">
+              [2]
+            </a>, <a href="./c_018_004.htm#Xxx999338">
+              [3]
+            </a></dt>
+<dt>strerror()  <a href="./c_018_021.htm#Xxx999492">
+              [1]
+            </a></dt>
+<dt>strftime()  <a href="./c_021_000.htm#Xxx999499">
+              [1]
+            </a></dt>
+<dt>String</dt>
+<dt>– einlesen  <a href="./c_013_013.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– lesen (formatiert)  <a href="./c_018_022.htm#Xxx999345">
+              [1]
+            </a></dt>
+<dt>– regul&auml;re Ausdr&uuml;cke  <a href="./c_024_006.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– schreiben (formatiert)  <a href="./c_018_022.htm#Xxx999332">
+              [1]
+            </a></dt>
+<dt>– Stringmatching  <a href="./c_024_005.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– umwandeln in numerischen Wert  <a href="./c_022_003.htm#Xxx999364">
+              [1]
+            </a></dt>
+<dt>Stringende-Zeichen  <a href="./c_013_012.htm#Xxx999351">
+              [1]
+            </a></dt>
+<dt>Stringkonstante  <a href="./c_007_011.htm#Xxx999432">
+              [1]
+            </a>, <a href="./c_013_012.htm#Xxx999334">
+              [2]
+            </a></dt>
+<dt>Stringmatching-Algorithmus  <a href="./c_024_005.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>– Boyer-Moore-Algorithmus  <a href="./c_024_005.htm#Xxx999410">
+              [1]
+            </a></dt>
+<dt>– Brute Force  <a href="./c_024_005.htm#Xxx999343">
+              [1]
+            </a></dt>
+<dt>– Karp-Rabin-Algorithmus  <a href="./c_024_005.htm#Xxx999416">
+              [1]
+            </a></dt>
+<dt>– Knuth/Morris/Pratt-Algorithmus  <a href="./c_024_005.htm#Xxx999355">
+              [1]
+            </a></dt>
+<dt>– naiver Algorithmus  <a href="./c_024_005.htm#Xxx999344">
+              [1]
+            </a></dt>
+<dt>– regul&auml;re Ausdr&uuml;cke  <a href="./c_024_006.htm#Xxx999332">
+              [1]
+            </a></dt>
+<dt>Strings  <a href="./c_013_012.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>Strings aneinander h&auml;ngen</dt>
+<dt>– strcat()  <a href="./c_013_014.htm#Xxx999337">
+              [1]
+            </a></dt>
+<dt>– strncat()  <a href="./c_013_014.htm#Xxx999395">
+              [1]
+            </a></dt>
+<dt>Stringtabelle  <a href="./c_014_008.htm#Xxx999330">
+              [1]
+            </a>, <a href="./c_014_008.htm#Xxx999343">
+              [2]
+            </a></dt>
+<dt>strlen()  <a href="./c_013_014.htm#Xxx999385">
+              [1]
+            </a></dt>
+<dt>strncmp()  <a href="./c_013_014.htm#Xxx999406">
+              [1]
+            </a></dt>
+<dt>strncpy()  <a href="./c_013_014.htm#Xxx999412">
+              [1]
+            </a></dt>
+<dt>strpbrk()  <a href="./c_013_014.htm#Xxx999419">
+              [1]
+            </a></dt>
+<dt>strrchr()  <a href="./c_013_014.htm#Xxx999426">
+              [1]
+            </a></dt>
+<dt>strspn()  <a href="./c_013_014.htm#Xxx999433">
+              [1]
+            </a></dt>
+<dt>strstr()  <a href="./c_013_014.htm#Xxx999441">
+              [1]
+            </a></dt>
+<dt>strtod()  <a href="./c_022_003.htm#Xxx999387">
+              [1]
+            </a></dt>
+<dt>strtok()  <a href="./c_013_014.htm#Xxx999447">
+              [1]
+            </a></dt>
+<dt>strtol()  <a href="./c_022_003.htm#Xxx999390">
+              [1]
+            </a></dt>
+<dt>strtoul()  <a href="./c_022_003.htm#Xxx999393">
+              [1]
+            </a></dt>
+<dt>struct  <a href="./c_017_000.htm#Xxx999337">
+              [1]
+            </a></dt>
+<dt>Struktur</dt>
+<dt>– an Funktion &uuml;bergeben  <a href="./c_017_002.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– Array  <a href="./c_017_005.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– Attribute ver&auml;ndern  <a href="./c_017_011.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– Bitfelder  <a href="./c_017_012.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– Deklarieren  <a href="./c_017_000.htm#Xxx999332">
+              [1]
+            </a></dt>
+<dt>– in Struktur  <a href="./c_017_006.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– Initialisierung und Zugriff  <a href="./c_017_001.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– Lebensdauer  <a href="./c_017_000.htm#Xxx999339">
+              [1]
+            </a></dt>
+<dt>– offsetof-Makro  <a href="./c_017_013.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– R&uuml;ckgabewert von Funktion  <a href="./c_017_003.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– Union  <a href="./c_017_008.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– vergleichen  <a href="./c_017_004.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>Strukturelemente  <a href="./c_017_000.htm#Xxx999342">
+              [1]
+            </a></dt>
+<dt>Strukturen  <a href="./c_017_000.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>Suchalgorithmus  <a href="./c_024_003.htm#Xxx999329">
+              [1]
+            </a>, <a href="./c_024_005.htm#Xxx999331">
+              [2]
+            </a></dt>
+<dt>– bin&auml;re Suche  <a href="./c_024_003.htm#Xxx999354">
+              [1]
+            </a>, <a href="./c_024_003.htm#Xxx999365">
+              [2]
+            </a></dt>
+<dt>– bin&auml;rer Suchbaum  <a href="./c_024_003.htm#Xxx999363">
+              [1]
+            </a></dt>
+<dt>– Hashing  <a href="./c_024_004.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>– lineare Suche  <a href="./c_024_003.htm#Xxx999342">
+              [1]
+            </a></dt>
+<dt>suchen  <a href="./c_024_003.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>– bsearch()  <a href="./c_022_003.htm#Xxx999457">
+              [1]
+            </a></dt>
+<dt>suchen in einem String</dt>
+<dt>– strchr()  <a href="./c_013_014.htm#Xxx999355">
+              [1]
+            </a></dt>
+<dt>– strcspn()  <a href="./c_013_014.htm#Xxx999378">
+              [1]
+            </a></dt>
+<dt>– strpbrk()  <a href="./c_013_014.htm#Xxx999418">
+              [1]
+            </a></dt>
+<dt>– strrchr()  <a href="./c_013_014.htm#Xxx999425">
+              [1]
+            </a></dt>
+<dt>– strspn()  <a href="./c_013_014.htm#Xxx999432">
+              [1]
+            </a></dt>
+<dt>– strstr()  <a href="./c_013_014.htm#Xxx999440">
+              [1]
+            </a></dt>
+<dt>switch-Anweisung  <a href="./c_010_006.htm#Xxx999328">
+              [1]
+            </a></dt>
+<dt>symbolische Konstante  <a href="./c_012_001.htm#Xxx999335">
+              [1]
+            </a></dt>
+<dt>system()  <a href="./c_022_003.htm#Xxx999465">
+              [1]
+            </a></dt>
+<dt>Systemprogrammierung  <a href="./c_029_000.htm#Xxx999336">
+              [1]
+            </a></dt>
+<br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp20"></a>T  
+          <a href="#grp21"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp19"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<dt>tan()  <a href="./c_022_002.htm#Xxx999378">
+              [1]
+            </a></dt>
+<dt>Tangens  <a href="./c_022_002.htm#Xxx999381">
+              [1]
+            </a></dt>
+<dt>tanh()  <a href="./c_022_002.htm#Xxx999394">
+              [1]
+            </a></dt>
+<dt>Tastatur Puffer leeren  <a href="./c_018_012.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>TCP  <a href="./c_028_000.htm#Xxx999388">
+              [1]
+            </a></dt>
+<dt>TCP-Echo-Server  <a href="./c_028_005.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>– Client  <a href="./c_028_005.htm#Xxx999333">
+              [1]
+            </a></dt>
+<dt>– Server  <a href="./c_028_005.htm#Xxx999338">
+              [1]
+            </a></dt>
+<dt>telldir()  <a href="./c_019_002.htm#Xxx999425">
+              [1]
+            </a></dt>
+<dt>tempor&auml;re Datei</dt>
+<dt>– mkstemp()  <a href="./c_018_020.htm#Xxx999361">
+              [1]
+            </a></dt>
+<dt>– tmpfile()  <a href="./c_018_020.htm#Xxx999343">
+              [1]
+            </a></dt>
+<dt>– tmpnam()  <a href="./c_018_020.htm#Xxx999332">
+              [1]
+            </a></dt>
+<dt>Tic Tac Toe  <a href="./c_013_009.htm#Xxx999369">
+              [1]
+            </a></dt>
+<dt>time()  <a href="./c_021_000.htm#Xxx999438">
+              [1]
+            </a></dt>
+<dt>time_t  <a href="./c_021_000.htm#Xxx999351">
+              [1]
+            </a></dt>
+<dt>TMP_MAX  <a href="./c_018_020.htm#Xxx999336">
+              [1]
+            </a></dt>
+<dt>tmpfile()  <a href="./c_018_020.htm#Xxx999344">
+              [1]
+            </a></dt>
+<dt>tmpnam()  <a href="./c_018_020.htm#Xxx999333">
+              [1]
+            </a></dt>
+<dt>tm-Struktur  <a href="./c_021_000.htm#Xxx999356">
+              [1]
+            </a></dt>
+<dt>toascii()  <a href="./c_022_001.htm#Xxx999415">
+              [1]
+            </a></dt>
+<dt>tolower()  <a href="./c_022_001.htm#Xxx999403">
+              [1]
+            </a></dt>
+<dt>toupper()  <a href="./c_022_001.htm#Xxx999409">
+              [1]
+            </a></dt>
+<dt>Trial-and-Error-Prinzip  <a href="./c_024_007.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>Typendefinition</dt>
+<dt>– typedef  <a href="./c_017_010.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>Typenumwandlung</dt>
+<dt>– explizit  <a href="./c_009_000.htm#Xxx999335">
+              [1]
+            </a></dt>
+<dt>– implizit  <a href="./c_009_000.htm#Xxx999333">
+              [1]
+            </a></dt>
+<br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp21"></a>U  
+          <a href="#grp22"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp20"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<dt>UCHAR_MAX  <a href="./c_007_010.htm#Xxx999363">
+              [1]
+            </a></dt>
+<dt>UDP  <a href="./c_028_000.htm#Xxx999389">
+              [1]
+            </a></dt>
+<dt>UDP-Anwendung</dt>
+<dt>– Client  <a href="./c_028_006.htm#Xxx999386">
+              [1]
+            </a></dt>
+<dt>– Server  <a href="./c_028_006.htm#Xxx999382">
+              [1]
+            </a></dt>
+<dt>UINT_MAX  <a href="./c_007_010.htm#Xxx999426">
+              [1]
+            </a></dt>
+<dt>ULONG_MAX  <a href="./c_007_010.htm#Xxx999447">
+              [1]
+            </a></dt>
+<dt>Umgebungsvariablen</dt>
+<dt>– getenv()  <a href="./c_026_008.htm#Xxx999475">
+              [1]
+            </a></dt>
+<dt>Ungenauigkeit bei Gleitpunktzahlen  <a href="./c_007_006.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>ungetc()  <a href="./c_018_011.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>union  <a href="./c_017_008.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>UNIX  <a href="./c_001_001.htm#Xxx999333">
+              [1]
+            </a></dt>
+<dt>unsigned  <a href="./c_007_009.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>UPDATE  <a href="./c_027_002.htm#Xxx999682">
+              [1]
+            </a></dt>
+<dt>URL  <a href="./c_026_007.htm#Xxx999353">
+              [1]
+            </a></dt>
+<dt>USE  <a href="./c_027_002.htm#Xxx999573">
+              [1]
+            </a></dt>
+<dt>USHRT_MAX  <a href="./c_007_010.htm#Xxx999405">
+              [1]
+            </a></dt>
+<br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp22"></a>V  
+          <a href="#grp23"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp21"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<dt>va_arg  <a href="./c_020_000.htm#Xxx999363">
+              [1]
+            </a></dt>
+<dt>va_end  <a href="./c_020_000.htm#Xxx999370">
+              [1]
+            </a></dt>
+<dt>va_list  <a href="./c_020_000.htm#Xxx999349">
+              [1]
+            </a></dt>
+<dt>va_start  <a href="./c_020_000.htm#Xxx999356">
+              [1]
+            </a></dt>
+<dt>variable Argumentliste bei Funktionen  <a href="./c_020_000.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>Variablen</dt>
+<dt>– global  <a href="./c_011_006.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– Lebensdauer  <a href="./c_011_008.htm#Xxx999331">
+              [1]
+            </a>, <a href="./c_011_010.htm#Xxx999330">
+              [2]
+            </a></dt>
+<dt>– lokal  <a href="./c_011_005.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– Speicherklassen  <a href="./c_011_008.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– statisch  <a href="./c_011_007.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– Typ-Qualifizierer  <a href="./c_011_009.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>Variablen deklarieren  <a href="./c_007_001.htm#Xxx999328">
+              [1]
+            </a></dt>
+<dt>Vergleichsoperatoren  <a href="./c_010_000.htm#Xxx999360">
+              [1]
+            </a></dt>
+<dt>verkettete Listen</dt>
+<dt>– doppelt  <a href="./c_023_001.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– einfach  <a href="./c_023_000.htm#Xxx999332">
+              [1]
+            </a></dt>
+<dt>– Queues  <a href="./c_023_003.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>– Stack  <a href="./c_023_002.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>Verzeichnis</dt>
+<dt>– Arbeits-  <a href="./c_019_002.htm#Xxx999365">
+              [1]
+            </a></dt>
+<dt>– erstellen  <a href="./c_019_002.htm#Xxx999333">
+              [1]
+            </a></dt>
+<dt>– Funktionen  <a href="./c_019_002.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– lesen  <a href="./c_019_002.htm#Xxx999402">
+              [1]
+            </a></dt>
+<dt>– l&ouml;schen  <a href="./c_019_002.htm#Xxx999354">
+              [1]
+            </a></dt>
+<dt>– positionieren  <a href="./c_019_002.htm#Xxx999424">
+              [1]
+            </a></dt>
+<dt>– wechseln  <a href="./c_019_002.htm#Xxx999346">
+              [1]
+            </a></dt>
+<dt>– zum Lesen &ouml;ffnen  <a href="./c_019_002.htm#Xxx999395">
+              [1]
+            </a></dt>
+<dt>vfprintf()  <a href="./c_020_002.htm#Xxx999340">
+              [1]
+            </a></dt>
+<dt>void-Zeiger  <a href="./c_014_010.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>volatile  <a href="./c_011_009.htm#Xxx999331">
+              [1]
+            </a>, <a href="./c_011_011.htm#Xxx999337">
+              [2]
+            </a></dt>
+<dt>vprintf()  <a href="./c_020_002.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>vsprintf()  <a href="./c_020_002.htm#Xxx999347">
+              [1]
+            </a></dt>
+<br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp23"></a>W  
+          <a href="#grp24"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp22"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<dt>Warteschlange  <a href="./c_023_003.htm#Xxx999331">
+              [1]
+            </a></dt>
+<dt>Webprogrammierung</dt>
+<dt>– clientseitig  <a href="./c_026_004.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– serverseitig  <a href="./c_026_005.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>Webserver</dt>
+<dt>– Apache  <a href="./c_026_006.htm#Xxx999365">
+              [1]
+            </a></dt>
+<dt>– HTTPD  <a href="./c_026_006.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>while–Schleife  <a href="./c_010_007.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>Whitespace  <a href="./c_005_003.htm#Xxx999336">
+              [1]
+            </a></dt>
+<dt>Win32-Konsole  <a href="./c_001_004.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>Winsock  <a href="./c_028_001.htm#Xxx999343">
+              [1]
+            </a></dt>
+<dt>– initialisieren  <a href="./c_028_001.htm#Xxx999364">
+              [1]
+            </a></dt>
+<dt>Wrapper-Funktion  <a href="./c_025_000.htm#Xxx999605">
+              [1]
+            </a></dt>
+<dt>write()  <a href="./c_018_028.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>WSACleanup()  <a href="./c_028_001.htm#Xxx999374">
+              [1]
+            </a></dt>
+<dt>WSAStartup()  <a href="./c_028_001.htm#Xxx999366">
+              [1]
+            </a></dt>
+<br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp24"></a>Z  
+          <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#grp23"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<dt>Zeichen</dt>
+<dt>– lesen  <a href="./c_018_005.htm#Xxx999332">
+              [1]
+            </a>, <a href="./c_018_005.htm#Xxx999357">
+              [2]
+            </a>, <a href="./c_018_006.htm#Xxx999329">
+              [3]
+            </a></dt>
+<dt>– schreiben  <a href="./c_018_005.htm#Xxx999333">
+              [1]
+            </a>, <a href="./c_018_006.htm#Xxx999330">
+              [2]
+            </a></dt>
+<dt>– umwandeln in Gro&szlig;buchstaben  <a href="./c_022_001.htm#Xxx999412">
+              [1]
+            </a></dt>
+<dt>– umwandeln in Kleinbuchstaben  <a href="./c_022_001.htm#Xxx999406">
+              [1]
+            </a></dt>
+<dt>– zur&uuml;ckschieben  <a href="./c_018_011.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>Zeichenkette  <a href="./c_013_012.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>Zeichenklassifizierung  <a href="./c_022_001.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>Zeichenkonstanten  <a href="./c_007_011.htm#Xxx999425">
+              [1]
+            </a></dt>
+<dt>Zeichensatz</dt>
+<dt>– international  <a href="./c_007_008.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>– national  <a href="./c_007_008.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– OEM  <a href="./c_007_008.htm#Xxx999340">
+              [1]
+            </a></dt>
+<dt>Zeichens&auml;tze</dt>
+<dt>– Basic-Zeichensatz  <a href="./c_003_000.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>– Steuerzeichen  <a href="./c_003_001.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>Zeiger  <a href="./c_014_000.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>– als R&uuml;ckgabewert  <a href="./c_014_005.htm#Xxx999364">
+              [1]
+            </a></dt>
+<dt>– auf Funktionen  <a href="./c_014_009.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– call by reference  <a href="./c_014_005.htm#Xxx999330">
+              [1]
+            </a></dt>
+<dt>– deklarieren  <a href="./c_014_000.htm#Xxx999340">
+              [1]
+            </a></dt>
+<dt>– Dereferenzierung  <a href="./c_014_001.htm#Xxx999381">
+              [1]
+            </a></dt>
+<dt>– die auf andere Zeiger verweisen  <a href="./c_014_003.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– dynamisches Zeigerarray  <a href="./c_016_010.htm#Xxx999332">
+              [1]
+            </a></dt>
+<dt>– initialisieren  <a href="./c_014_001.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– NULL  <a href="./c_014_001.htm#Xxx999433">
+              [1]
+            </a></dt>
+<dt>– ptrdiff_t  <a href="./c_014_003.htm#Xxx999346">
+              [1]
+            </a></dt>
+<dt>– read-only  <a href="./c_014_007.htm#Xxx999336">
+              [1]
+            </a></dt>
+<dt>– Speichergr&ouml;&szlig;e  <a href="./c_014_001.htm#Xxx999463">
+              [1]
+            </a>, <a href="./c_014_010.htm#Xxx999346">
+              [2]
+            </a></dt>
+<dt>– void  <a href="./c_014_010.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>Zeiger auf Strings  <a href="./c_014_007.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>Zeiger auf Zeiger  <a href="./c_014_008.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>Zeiger und Array  <a href="./c_014_006.htm#Xxx999330">
+              [1]
+            </a>, <a href="./c_014_011.htm#Xxx999329">
+              [2]
+            </a>, <a href="./c_016_010.htm#Xxx999355">
+              [3]
+            </a></dt>
+<dt>Zeigerarithmetik  <a href="./c_014_002.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>zeilenweise Lesen  <a href="./c_018_015.htm#Xxx999329">
+              [1]
+            </a></dt>
+<dt>– bestimmte Zeile auslesen  <a href="./c_018_015.htm#Xxx999381">
+              [1]
+            </a></dt>
+<dt>– newline entfernen  <a href="./c_018_015.htm#Xxx999345">
+              [1]
+            </a></dt>
+<dt>– suchen nach Stringfolge  <a href="./c_018_015.htm#Xxx999388">
+              [1]
+            </a></dt>
+<dt>– suchen nach W&ouml;rter  <a href="./c_018_015.htm#Xxx999392">
+              [1]
+            </a></dt>
+<dt>– suchen und Ersetzen  <a href="./c_018_015.htm#Xxx999395">
+              [1]
+            </a></dt>
+<dt>– von Zeile x bis y lesen  <a href="./c_018_015.htm#Xxx999384">
+              [1]
+            </a></dt>
+<dt>zeilenweise Schreiben  <a href="./c_018_015.htm#Xxx999352">
+              [1]
+            </a></dt>
+<dt>Zeit  <a href="./c_021_000.htm#Xxx999333">
+              [1]
+            </a></dt>
+<dt>– tm-Struktur  <a href="./c_021_000.htm#Xxx999370">
+              [1]
+            </a></dt>
+<dt>– Zeitraum berechnen  <a href="./c_021_000.htm#Xxx999475">
+              [1]
+            </a></dt>
+<dt>Zeiten einer Datei</dt>
+<dt>– &Auml;nderungszeit  <a href="./c_019_000.htm#Xxx999615">
+              [1]
+            </a></dt>
+<dt>– Inode-&Auml;nderung  <a href="./c_019_000.htm#Xxx999616">
+              [1]
+            </a></dt>
+<dt>– Zugriffszeit  <a href="./c_019_000.htm#Xxx999614">
+              [1]
+            </a></dt>
+<dt>Zufallszahlen</dt>
+<dt>– rand()  <a href="./c_022_003.htm#Xxx999411">
+              [1]
+            </a></dt>
+<dt>– srand()  <a href="./c_022_003.htm#Xxx999419">
+              [1]
+            </a></dt>
+<dt>Zugriffsrechte  <a href="./c_019_000.htm#Xxx999477">
+              [1]
+            </a>, <a href="./c_019_001.htm#Xxx999330">
+              [2]
+            </a></dt>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_030Anhang_005.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a class="navs" href="#"> &lt;top&gt;</a></div>
+</td>
+<td align="right" width="25%"> </td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td width="10" valign="top">&nbsp;&nbsp;</td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/899?GPP=opc">
+                                        <img src="common/643_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C von A bis Z" title="Zum Katalog: C von A bis Z">
+                                        <br /><strong>C von A bis Z</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Ihre Meinung?</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1007?GPP=opc">
+                        <img src="common/683_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Shell-Programmierung" title="Zum Katalog: Shell-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Shell-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1137?GPP=opc">
+                        <img src="common/749_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux-UNIX-Programmierung" title="Zum Katalog: Linux-UNIX-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux-UNIX-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1004?GPP=opc">
+                        <img src="common/644_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C/C++" title="Zum Katalog: C/C++"><br /><br /><br /><br /><br /><br /><br />&nbsp;C/C++</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/880?GPP=opc">
+                        <img src="common/573_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/967?GPP=opc">
+                        <img src="common/626_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Reguläre Ausdrücke" title="Zum Katalog: Reguläre Ausdrücke"><br /><br /><br /><br /><br /><br /><br />&nbsp;Reguläre Ausdrücke</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/941?GPP=opc">
+                        <img src="common/677_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Shopping</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opc"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table>
+<br /><br />
+<hr width="70%" align="center"><br />
+<div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2006</b><br>F&uuml;r Ihren privaten Gebrauch d&uuml;rfen Sie die Online-Version nat&uuml;rlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschlie&szlig;lich aller seiner Teile ist urheberrechtlich gesch&uuml;tzt. Alle Rechte vorbehalten einschlie&szlig;lich der Vervielf&auml;ltigung, &Uuml;bersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

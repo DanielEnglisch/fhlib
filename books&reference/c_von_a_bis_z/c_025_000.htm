@@ -1,0 +1,1036 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: C von A bis Z – 25 Sicheres Programmieren</title>
+<meta name="title" content="Galileo Computing :: C von A bis Z">
+<meta name="author" content="J&uuml;rgen Wolf">
+<meta name="publisher" content="Galileo Press 2006">
+<meta name="copyright" content="Galileo Press 2006">
+<meta name="description" content="C von A bis Z - Das umfassende Handbuch f&uuml;r Linux, Unix und Windows – 2., aktualisierte und erweiterte Auflage 2006, geb., mit CD und Referenzkarte – ISBN 3-89842-643-2">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="c_024_007.htm">
+<link rel="next" href="c_025_001.htm"><script type="text/javascript" language="JavaScript"><!--
+function OpenWin(url,name,height,width)
+{
+  var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+  InfoWin.focus();
+}
+//--></script></head>
+<body vlink="#000099" link="#000099" alink="#000099">
+    <table width="100%" height="74" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+        <tr>
+            <td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+            <td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opc"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger." title="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger."></a></td>
+        </tr>
+    </table>
+    <div align="right"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger.</a></div>
+    <br />
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td width="156" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
+        <tr>
+            <td colspan="2" class="nav1" align="left" valign="top" height="150">
+                <table class="tbl1" width="150" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td class="tbl2" height="25"><a class="nav" href="./index.htm">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000Vorwort_000.htm#Xxx999266">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000VorwortGutachter_000.htm#Xxx999275">Vorwort des Gutachters</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_001_000.htm#Xxx999328">1 Einstieg in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_002_000.htm#Xxx999328">2 Das erste Programm</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_003_000.htm#Xxx999328">3 Zeichens&auml;tze</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_004_000.htm#Xxx999329">4 Kommentare in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_005_000.htm#Xxx999330">5 Formatierte Eingabe mit scanf()</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_006_000.htm#Xxx999330">6 Formatierte Ausgabe mit printf</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_007_000.htm#Xxx999329">7 Elementare Datentypen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_008_000.htm#Xxx999328">8 Operatoren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_009_000.htm#Xxx999328">9 Typenumwandlung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_010_000.htm#Xxx999328">10 Kontrollstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_011_000.htm#Xxx999328">11 Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_012_000.htm#Xxx999328">12 Pr&auml;prozessor-Direktiven</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_013_000.htm#Xxx999328">13 Arrays</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_014_000.htm#Xxx999328">14 Zeiger (Pointer)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_015_000.htm#Xxx999328">15 Kommandozeilenargumente</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_016_000.htm#Xxx999328">16 Dynamische Speicherverwaltung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_017_000.htm#Xxx999328">17 Strukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_018_000.htm#Xxx999328">18 Ein-/Ausgabe-Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_019_000.htm#Xxx999328">19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_020_000.htm#Xxx999328">20 Arbeiten mit variablen langen Argumentlisten – &lt;stdarg.h&gt;</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_021_000.htm#Xxx999328">21 Zeitroutinen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_022_000.htm#Xxx999328">22 Weitere Headerdateien und ihre Funktionen (ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_023_000.htm#Xxx999328">23 Dynamische Datenstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_024_000.htm#Xxx999328">24 Algorithmen</A></td>
+</tr>
+<tr>
+<td><A class="navh" href="./c_025_000.htm#Xxx999328">25 Sicheres Programmieren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_026_000.htm#Xxx999328">26 CGI mit C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_027_000.htm#Xxx999328">27 MySQL und C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_028_000.htm#Xxx999328">28 Netzwerkprogrammierung und Cross-Plattform-Entwicklung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_029_000.htm#Xxx999328">29 Wie geht’s jetzt weiter?</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_030Anhang_000.htm#Xxx999266">A Anhang</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./stichwort.htm#Xxx512322">Index</a></td>
+</tr>
+<tr><td><br /><a class="navnav" href="http://download.galileo-press.de/openbook/c_von_a_bis_z/galileocomputing_c_von_a_bis_z.zip"><strong>Download:</strong><br />- ZIP, ca. 8,5 MB</a></td></tr>
+<tr><td><a class="navnav" href="http://www.galileocomputing.de/899?GPP=opc">Buch bestellen</a></td></tr>
+<tr><td><a class="navnav" href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)">Ihre Meinung?</a><br /><br /></td></tr>
+</table></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10"></td>
+<td width="85%" valign="top" align="center">
+    <div align="center">
+        <table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+            <tr>
+                <td width="100%" class="start" colspan="1" height="22" align="center">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_024_007.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Galileo Computing /</a><a class="navnav" href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"> &lt;openbook&gt; /</a><a href="./index.htm" class="navnav"> C von A bis Z</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_025_001.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" valign="top">
+    <table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+        <tr>
+            <td colspan="2"><a href="http://www.galileocomputing.de/899?GPP=opc" class="buchtitel">C von A bis Z</a><span class="autor"> von J&uuml;rgen Wolf</span><br><span class="untertitel">Das umfassende Handbuch f&uuml;r Linux, Unix und Windows <br />– 2., aktualisierte und erweiterte Auflage 2006</span></td>
+        </tr>
+        <tr>
+            <td valign="top" width="90"><a href="http://www.galileocomputing.de/899?GPP=opc"><img src="common/643.gif" border="0" alt="Buch: C von A bis Z" title="Buch: C von A bis Z" align="left"><br /><br /><span class="autor"><strong>C von A bis Z</strong><br />1.116 S., mit CD, Referenzkarte, 39,90 Euro<br />Galileo Computing<br />ISBN 3-89842-643-2</span></a></a></td>
+            <td width="80%">
+<table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="3" class="kap"><b>Kapitel <a class="navh" href="#RxxobKap02500004002C271F04F18C">25 Sicheres Programmieren</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a class="navh" href="#RxxobKap02500004002C271F04F196">25.1 Buffer Overflow (Speicher&uuml;berlauf)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02500004002C271F04F1A0">25.1.1 Speicherverwaltung von Programmen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02500004002C271F04F1A8">25.1.2 Der Stack-Frame</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02500004002C271F04F1B1">25.1.3 R&uuml;cksprungadresse manipulieren</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02500004002C271F04F1DE">25.1.4 Gegenma&szlig;nahmen zum Buffer Overflow w&auml;hrend der Programmerstellung</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02500004002C271F04F229">25.1.5 Gegenma&szlig;nahmen zum Buffer Overflow, wenn das Programm fertig ist</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02500004002C271F04F233">25.1.6 Programme und Tools zum Buffer Overflow</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a class="navh" href="#RxxobKap02500004002C271F04F240">25.1.7 Ausblick</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_025_001.htm#RxxobKap02500104002C421F04F18C">25.2 Memory Leaks (Speicherlecks)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_025_001.htm#RxxobKap02500104002C421F04F1A1">25.2.1 Bibliotheken und Tools zu Memory Leaks</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_025_002.htm#RxxobKap02500204002C431F02818C">25.3 Tipps zu Sicherheitsproblemen</a></b></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td>
+<h1 class="t1">Kapitel 25 Sicheres Programmieren<a id="RxxobKap02500004002C271F04F18C" name="RxxobKap02500004002C271F04F18C"></a></h1>
+<p class="anleser"><i>In diesem Kapitel werden zwei Themen angesprochen, die vielleicht auf den ersten Blick nicht allzu interessant erscheinen: Buffer Overflow und Memory Leaks. Da diese beiden Probleme jedoch leider h&auml;ufiger in Erscheinung treten, sollte sich jeder ernsthafte Programmierer mit ihnen auseinander setzen.</i></p>
+<p><a id="Xxx999330" name="Xxx999330"></a>Ein gern &uuml;bersehener Aspekt ist die sicherheitsbezogene Programmierung. Programmierer setzen dabei Funktionen ein, von denen sie zwar wissen, dass diese nicht ganz sicher sind, aber sie wissen nicht, was diese unsicheren Funktionen bewirken k&ouml;nnen. Sie haben nach langj&auml;hriger Programmiererfahrung dann zwar jeden Algorithmus im Kopf, und ihnen kann keiner etwas vormachen, Sie verwenden aber trotzdem weiter diese Funktionen, weil Sie sie eben immer verwenden und dabei immer noch nicht genau wissen, was daran so schlimm sein soll. Denn das Programm l&auml;uft doch. Richtig? – Nein, falsch!</p>
+<p>Auch wenn der Konkurrenzkampf und der Zeitdruck bei der Fertigstellung eines Projekts heutzutage enorm ist, sollten Sie diese Einstellung &uuml;berdenken und sich ernsthaft mit diesem Thema befassen.</p>
+<p>Diese zun&auml;chst unscheinbaren Unsicherheiten von Beginn an zu ber&uuml;cksichtigen ist ein Bestandteil von vorausschauender Programmentwicklung und tr&auml;gt wesentlich zur Qualit&auml;tssicherung Ihrer Programme bei. Auf diese Weise begegnen Sie unvorhersehbarem &Auml;rger und nachtr&auml;glich entstehenden hohen Kosten schon im Vorfeld.</p>
+<p>Ein Szenario: Sie haben f&uuml;r eine Firma ein Programm zur Verwaltung von Daten geschrieben. In der Firma finden sich einige gewiefte Mitarbeiter, die einen Weg gefunden haben, mithilfe Ihres Programms aus dem Verwaltungsprogramm zu springen, somit ins System gelangen und allerlei Unfug anrichten. Der Kunde wird mit Sicherheit kein Programm mehr von Ihnen entwickeln lassen. Also haben Sie auf jeden Fall schon einen Imageschaden. Da Sie aber versprochen haben, sich um das Problem zu k&uuml;mmern, m&uuml;ssen Sie alles andere erst einmal stehen und liegen lassen. Damit haben Sie schon kostbare Zeit verloren, die Sie f&uuml;r andere Projekten h&auml;tten nutzen k&ouml;nnen. Da noch weitere Kunden dieses Produkt verwenden, m&uuml;ssen Sie auch diese informieren.</p>
+<p>Jetzt ist es an der Zeit, ein Bugfix (Patch) zu schreiben, den der Kunde einspielen muss, um den Fehler zu beheben. Wenn Sie Gl&uuml;ck haben, kann der Kunde das Programm unterbrechen und den Patch einspielen. Sollte der Kunde aber rund um die Uhr auf das Programm angewiesen sein, entstehen diesem Ausfallkosten.</p>
+<p>Nachdem Sie den Patch aufgespielt haben, treten andere unerwartete Probleme mit dem Programm auf. Somit folgt dem Patch ein weiterer, womit wieder Zeit, Geld und Image verloren gehen. Ich denke, dass jedem schon einmal ein &auml;hnliches Szenario mit einem Programm widerfahren ist.</p>
+<p>Die meisten solcher Sicherheitsprobleme treten mit Programmen auf, die in C geschrieben wurden. Dies hei&szlig;t allerdings nicht, dass C eine unsichere Sprache ist, sondern es bedeutet nur, dass sie eine der am h&auml;ufigsten eingesetzten ist. Viele Systemtools, Server, Datenbanken, aber auch grafische Oberfl&auml;chen sind in C geschrieben.</p>
+<p>Sie sehen also, dass es sich durchaus lohnt, diese Themen aufzugreifen und bei der Entwicklung von Programmen zu ber&uuml;cksichtigen.</p>
+<a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2">25.1 Buffer Overflow (Speicher&uuml;berlauf)<a id="RxxobKap02500004002C271F04F196" name="RxxobKap02500004002C271F04F196"></a> 
+      <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"></h2>
+<p><a id="Xxx999340" name="Xxx999340"></a><a id="Xxx999341" name="Xxx999341"></a><a id="Xxx999342" name="Xxx999342"></a>Eines der bekanntesten und am h&auml;ufigsten auftretenden Sicherheitsprobleme ist der Buffer Overflow (dt.: Speicher&uuml;berlauf, Puffer&uuml;berlauf), h&auml;ufig auch als »Buffer Overrun« bezeichnet. Geben Sie einmal in einer Internet-Suchmaschine den Begriff »Buffer Overflow« ein, und Sie werden &uuml;berrascht sein, angesichts der enormen Anzahl von Ergebnissen. Es gibt unz&auml;hlige Programme, welche f&uuml;r einen Buffer Overflow anf&auml;llig sind. Das Ziel des Angreifers ist es dabei, den Buffer Overflow auszunutzen, um in das System einzubrechen.</p>
+<p>Aufgabe dieses Kapitels ist es nicht, Ihnen beizubringen, wie Sie Programme hacken k&ouml;nnen, sondern zu erkl&auml;ren, was ein Buffer Overflow ist, wie dieser ausgel&ouml;st wird und was Sie als Programmierer beachten m&uuml;ssen, damit Ihr Programm nicht anf&auml;llig daf&uuml;r ist.</p>
+<p>F&uuml;r den Buffer Overflow ist immer der Programmierer selbst verantwortlich. Der Overflow kann &uuml;berall dort auftreten, wo Daten von der Tastatur, dem Netzwerk oder einer anderen Quelle aus in einen Speicherbereich mit statischer Gr&ouml;&szlig;e ohne eine L&auml;ngen&uuml;berpr&uuml;fung geschrieben werden. Hier ein solches Negativbeispiel:</p>
+<pre>/* bufferoverflow1.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+int main(void) {
+   char *str = "0123456789012";
+   char buf[10];
+   strcpy(buf, str);
+   printf("%s",buf);
+   return EXIT_SUCCESS;
+}</pre>
+<p><a id="Xxx999347" name="Xxx999347"></a>Hier wurde ein Buffer Overflow mit der Funktion <span class="listing">strcpy()</span> erzeugt. Es wird dabei versucht, in den <span class="listing">char</span>-Vektor, der Platz f&uuml;r 10 Zeichen reserviert hat, mehr als diese 10 Zeichen zu kopieren.</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/25_01.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein25_01.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 25.1   
+    </b>Puffer&uuml;berlauf mit der Funktion strcpy()</p>
+<p>Die Auswirkungen eines Buffer Overflows sind stark vom Betriebssystem abh&auml;ngig. H&auml;ufig st&uuml;rzt dabei das Programm ab, weil Variablen mit irgendwelchen Werten &uuml;berschrieben wurden. Manches Mal bekommen Sie aber auch nach Beendigung des Programms eine Fehlermeldung zur&uuml;ck, etwa Speicherzugriffsfehler. Dies wird ausgegeben, wenn z.B. die R&uuml;cksprungadresse des Programms &uuml;berschrieben wurde, und das Programm irgendwo in eine unerlaubte Speicheradresse springt.</p>
+<p>Wird aber bewusst diese R&uuml;cksprungadresse manipuliert und auf einen speziell von Ihnen erstellen Speicherbereich verwiesen bzw. gesprungen, welcher echten Code enth&auml;lt, haben Sie einen so genannten Exploit erstellt.</p>
+<a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3">25.1.1 Speicherverwaltung von Programmen<a id="RxxobKap02500004002C271F04F1A0" name="RxxobKap02500004002C271F04F1A0"></a> 
+      <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999357" name="Xxx999357"></a>Ein Programm besteht aus drei Speicher-Segmenten, die im Arbeitsspeicher liegen. Der Prozessor (CPU) holt sich die Daten und Anweisungen aus diesem Arbeitsspeicher. Damit der Prozessor unterscheiden kann, ob es sich bei den Daten um Maschinenbefehle oder den Datenteil mit den Variablen handelt, werden diese Speicherbereiche in einzelne Segmente aufgeteilt. Hier die grafische Darstellung der einzelnen Segmente:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/25_02.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein25_02.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 25.2   
+    </b>Speicherverwaltung – Die einzelnen Segmente</p>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Code-Segment (Text-Segment) – Hier befinden sich die Maschinenbefehle, die vom Prozessor beim <span class="listing">HOLEN</span>-Zyklus eingelesen werden. Oder einfacher: der Programmcode selbst. Das Code-Segment l&auml;sst sich nicht manipulieren, hat eine feste Gr&ouml;&szlig;e und ist gegen &Uuml;berschreiben gesch&uuml;tzt.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Heap-Segment (Daten-Segment) – Hier liegen die Variablen (<span class="listing">extern</span>, <span class="listing">static</span>), Felder (Arrays) und Tabellen des Programms. Der Maschinenbefehl, der diese Daten ben&ouml;tigt, greift auf dieses Segment zu.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Stack-Segment – Hier befinden sich dynamische Variablen und R&uuml;cksprungadressen von Funktionen. Dieser Bereich dient auch dem schnellen Zwischenspeichern von Daten und Parameter&uuml;bergaben.</td>
+</tr>
+</table>
+<p>Es sei hierbei noch erw&auml;hnt, dass der Stack-Bereich nach unten und der Heap nach oben anw&auml;chst. Der Stack ist auch das Angriffsziel f&uuml;r einen Buffer Overflow.</p>
+<a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3">25.1.2 Der Stack-Frame<a id="RxxobKap02500004002C271F04F1A8" name="RxxobKap02500004002C271F04F1A8"></a> 
+      <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999369" name="Xxx999369"></a><a id="Xxx999370" name="Xxx999370"></a>F&uuml;r jede Funktion steht ein so genannter Stack-Frame im Stack zur Verf&uuml;gung, worin die lokalen Variablen gespeichert werden. Wichtiger noch, im Stack befinden sich Registerinhalte des Prozessors, die vor dem Funktionsaufruf gesichert wurden, welche n&ouml;tig sind, um bei Beendigung der Funktion auf die aufrufende Funktion zur&uuml;ckspringen zu k&ouml;nnen.</p>
+<p>Beispielsweise wird in der <span class="listing">main()</span>-Funktion die Funktion mit den Parametern <span class="listing">my_func(wert1,</span> <span class="listing">wert2)</span> aufgerufen:</p>
+<pre>/* stackframe.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+void my_func(int wert1, int wert2) {
+   int summe;
+   summe = wert1+wert2;
+   printf("Summe: %d \n",summe);
+}
+int main(void) {
+   my_func(10,29);
+   return 0;
+}</pre>
+<p>Dies geschieht jetzt – ohne zu sehr ins Detail zu gehen – in folgenden Schritten auf dem Stack:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Mit dem Assemblerbefehl <span class="listing">PUSH</span> werden die Parameter <span class="listing">wert1</span> und <span class="listing">wert2</span> auf den Stack geschrieben.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Mit dem Assemblerbefehl <span class="listing">CALL</span> wird die Position des Maschinencodes gesichert, damit bei Beendigung der Funktion <span class="listing">my_func()</span> wieder in die <span class="listing">main()</span>-Funktion zur&uuml;ckgesprungen werden kann. Dies wird mithilfe des Befehlszeigers (Instruktion Pointer, kurz IP) realisiert. Genau genommen wird diese Adresse mithilfe des Befehlszeigers, des Code-Segments (CS) (CS:IP) und des Basis-Pointers (BP) erzeugt. Dies ist die R&uuml;cksprungadresse, welche mit CS:IP und BP dargestellt wird.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Jetzt werden die lokalen Variablen der Funktion <span class="listing">my_func()</span> eingerichtet, und die Funktion arbeitet die einzelnen Befehle ab.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Am Schluss, wenn diese Funktion beendet ist, springt sie wieder zur <span class="listing">main()</span>-Funktion zur&uuml;ck. Dies geschieht mit dem Assemblerbefehl <span class="listing">RET</span>, welcher auf die vom Stack gesicherte Adresse, gebildet aus CS:IP und BP, zur&uuml;ckspringt.</td>
+</tr>
+</table>
+<a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3">25.1.3 R&uuml;cksprungadresse manipulieren<a id="RxxobKap02500004002C271F04F1B1" name="RxxobKap02500004002C271F04F1B1"></a> 
+      <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999380" name="Xxx999380"></a>In diesem Abschnitt folgt ein Beispiel, das zeigt, wie die R&uuml;cksprungadresse manipuliert werden kann.</p>
+<p>Es ist hierbei nicht Ziel und Zweck, Ihnen eine Schritt-f&uuml;r-Schritt-Anleitung zur Programmierung eines Exploits an die Hand zu geben und bewusst einen Buffer Overflow zu erzeugen, sondern eher soll Ihnen vor Augen gef&uuml;hrt werden, wie schnell und unbewusst kleine Unstimmigkeiten im Quellcode Hackern T&uuml;r und Tor &ouml;ffnen k&ouml;nnen – einige Kenntnisse der Funktionsweise von Assemblern vorausgesetzt.</p>
+<p>Zur Demonstration des folgenden Beispiels werden der Compiler <span class="listing">gcc</span> und der Diassembler <span class="listing">objdump<a id="Xxx999384" name="Xxx999384"></a></span> verwendet. Das Funktionieren dieses Beispiels ist nicht auf allen Systemen garantiert, da bei den verschiedenen Betriebssystemen zum Teil unterschiedlich auf den Stack zugegriffen wird.</p>
+<p>Folgendes Listing sei gegeben:</p>
+<pre>/* bufferoverflow2.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+void overflow(void) {
+   char zeichen[5];
+   strcpy(zeichen, "1234567"); /*&Uuml;berlauf*/
+}
+int main(void) {
+   printf("Mein 1.Buffer Overflow\n");
+   overflow();
+   return EXIT_SUCCESS;
+}</pre>
+<p>&Uuml;bersetzen Sie das Programm und verwenden Sie anschlie&szlig;end den Diassembler, um sich den Maschinencode und den Assemblercode des Programms anzusehen. Hierf&uuml;r wird der Diassembler <span class="listing">objdump</span> verwendet, welcher auf fast jedem System vorhanden sein d&uuml;rfte. Rufen Sie den Diassembler mit folgender Option in der Kommandozeile auf:</p>
+<pre>objdump -d bufferoverflow2</pre>
+<p>Jetzt sollte in etwa folgende Ausgabe auf dem Bildschirm erscheinen (gek&uuml;rzt):</p>
+<pre>...
+08048490 &lt;overflow&gt;:
+ 8048490:        55               push   %ebp
+ 8048491:        89 e5            mov    %esp,%ebp
+ 8048493:        83 ec 18         sub    $0x18,%esp
+ 8048496:        83 ec 08         sub    $0x8,%esp
+ 8048499:        68 44 85 04 08   push   $0x8048544
+ 804849e:        8d 45 e8         lea    0xffffffe8(%ebp),%eax
+ 80484a1:        50               push   %eax
+ 80484a2:        e8 d9 fe ff ff   call   8048380 &lt;_init+0x78&gt;
+ 80484a7:        83 c4 10         add    $0x10,%esp
+ 80484aa:        89 ec            mov    %ebp,%esp
+ 80484ac:        5d               pop    %ebp
+ 80484ad:        c3               ret
+ 80484ae:        89 f6            mov    %esi,%esi
+...</pre>
+<p>In der linken Spalte befindet sich der Adressspeicher. In der Adresse »08048490« f&auml;ngt in diesem Beispiel die Funktion <span class="listing">overflow()</span> an. Diese Adresse wurde zuvor etwa von der <span class="listing">main()</span>-Funktion mit</p>
+<pre>80484c6:        e8 c5 ff ff ff  call   8048490 &lt;overflow&gt;</pre>
+<p>aufgerufen. In der zweiten Spalte befindet sich der Maschinencode<a id="Xxx999393" name="Xxx999393"></a> (Opcode<a id="Xxx999394" name="Xxx999394"></a>). Dieser Code ist schwer f&uuml;r den Menschen nachvollziehbar. Aber alle Zahlen haben ihre Bedeutung. So steht z.B. die Zahl »55« f&uuml;r <span class="listing">push</span> <span class="listing">%ebp</span> als das Sichern des Basis-Pointers auf dem Stack, »5d« entfernt den Basis-Pointer wieder vom Stack. »c3« bedeutet <span class="listing">ret</span>, also <span class="listing">return</span>. Mit »c3« wird also wieder in die R&uuml;cksprungadresse gesprungen, die in der <span class="listing">main()-</span>Funktion ebenfalls auf dem Stack gepusht wurde. H&auml;ufig finden Sie den Maschinencode »90« (nop), der nichts anderes macht, als Zeit des Prozessors zu vertr&ouml;deln. In der dritten Spalte befindet sich der Assmblercode, beispielsweise:</p>
+<pre>add $0x10,%esp
+mov %ebp,%esp</pre>
+<p>Es ist wichtig, zu verstehen, wie oder besser gesagt woraus ein Programm eigentlich besteht. Ein einfaches C-Konstrukt wie die <span class="listing">for</span>-Schleife wird z.B. in hunderte kleine Maschinencodes (Opcodes) zerlegt. Vielleicht wissen Sie nun, wenn Sie das n&auml;chste Mal mit einem Hexeditor ein Programm &ouml;ffnen, ein bisschen mehr dar&uuml;ber, was diese Zahlen (Maschinencode) und Zeilen (Adressen) bedeuten.</p>
+<p>Um es gleich vorwegzunehmen. Dies hier wird kein Assembler-Kurs oder &Auml;hnliches. Das Thema ist recht komplex. M&ouml;chten Sie dennoch etwas mehr &uuml;ber Assembler erfahren, ohne aber gleich professionell programmieren zu wollen, so finden Sie im Anhang weiterf&uuml;hrende Links und Literatur dazu.</p>
+<p>&Uuml;bersetzen Sie das Programm von eben nochmals mit</p>
+<pre>gcc -S -o bufferoverflow2.s bufferoverflow2.c</pre>
+<p>Jetzt befindet sich im Verzeichnis eine Assemblerdatei (<span class="listing">*.s</span> oder <span class="listing">*.asm</span>) des Programms. Wir wollen uns diese in gek&uuml;rzter Fassung ansehen:</p>
+<pre>main:
+pushl %ebp       ;Framepointer auf dem Stack
+movl  %esp, %ebp ;Stackpointer(esp) in Framepointer(ebp) kopieren
+subl  $8, %esp   ;Stackpointer um 8 Bytes verringern
+subl  $12, %esp  ;Stackpointer um 12 Bytes verringern f&uuml;r ausgabe printf
+pushl $.LC1      ;Den String "Mein 1.Buffer Overflow\n"
+call  printf     ;Funktion printf aufrufen
+addl  $16, %esp  ;Stackpointer um 16 Bytes erh&ouml;hen
+call  overflow   ;overflow aufrufen, R&uuml;cksprungadresse auf dem 
+                 ;Stack
+movl  $0, %eax
+movl  %ebp, %esp
+popl  %ebp
+ret
+overflow:
+pushl  %ebp            ;Wieder ein Framepointer auf dem Stack
+movl   %esp, %ebp      ;Stackpointer(esp) in Framepointer(ebp)
+                       ;kopieren
+subl   $24, %esp       ;Stackpointer-24Bytes
+subl   $8, %esp        ;Stackpointer-8Bytes
+pushl  $.LC0           ;Den String "1234567" auf dem Stack
+leal   –24(%ebp), %eax ;Laden des Offsets zu eax
+pushl  %eax            ;eax auf dem Stack
+call   strcpy          ;Funktion strcpy aufrufen
+addl   $16, %esp       ;16 Bytes vom Stack freigeben
+movl   %ebp, %esp      ;Stackpointer in Framepointer kopieren
+popl   %ebp            ;Framepointer wieder vom Stack
+ret                    ;Zur&uuml;ck zur main-Funktion</pre>
+<p>Dies ist ein kleiner &Uuml;berblick &uuml;ber die Assembler-Schreibweise des Programms. Hier ist ja nur die R&uuml;cksprungadresse des Aufrufs <span class="listing">call</span> <span class="listing">overflow</span> von Interesse.</p>
+<p>Da Sie jetzt wissen, wie Sie an die R&uuml;cksprungadresse eines Programms herankommen, k&ouml;nnen Sie nun ein Programm schreiben, bei dem der Buffer Overflow, welcher ja hier durch die Funktion <span class="listing">strcpy()</span> ausgel&ouml;st wird, zum &Auml;ndern der R&uuml;cksprungadresse genutzt wird. Es wird dabei im Fachjargon von Buffer overflow exploit gesprochen. Bei dem folgenden Beispiel soll die R&uuml;cksprungadresse manipuliert werden:</p>
+<pre>/* bufferoverflow3.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+void funktion(int temp,char *array) {
+   char puffer[5];
+   strcpy(puffer, array);
+   printf("%s\n",puffer);
+}
+int main(void) {
+   int wert;
+   wert=0;
+   funktion(7,"hallo");
+   wert=1;
+   printf("%d\n",wert);
+}</pre>
+<p>Das Ziel soll es nun sein, die Funktion <span class="listing">funktion()</span> aufzurufen und die R&uuml;cksprungadresse zu <span class="listing">wert=1;</span> zu &uuml;berspringen, sodass <span class="listing">printf()</span> als Wert 0 anstatt 1 ausgibt. Nach dem Funktionsaufruf sieht der Stack so aus:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/25_03.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein25_03.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 25.3   
+    </b>Der aktuelle Zustand des Stacks</p>
+<p>Wie kommen Sie nun am einfachsten zur R&uuml;cksprungadresse? Mit einem Zeiger. Also ben&ouml;tigen Sie zuerst einen Zeiger, der auf diese R&uuml;cksprungadresse verweist. Anschlie&szlig;end manipulieren Sie die Adresse der R&uuml;cksprungadresse, auf die der Pointer zeigt, und zwar so, dass die Wertzuweisung <span class="listing">wert=1</span> &uuml;bersprungen wird:</p>
+<pre>/* bufferoverflow4.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+void funktion(int tmp,char *array) {
+   char puffer[5];
+   int *pointer;
+   strcpy(puffer, array);
+   printf("%s\n",puffer);
+   /* pointer auf dem Stack 4 Bytes zur&uuml;ck
+      Sollte jetzt auf die R&uuml;cksprungadresse zeigen */
+   pointer=&amp;tmp-1;
+   /*R&uuml;cksprungadresse, auf die Pointer zeigt, 10 Bytes weiter*/
+   *pointer=*pointer+10;
+}
+int main(void) {
+   int a;
+   a=0;
+   funktion(7,"hallo");
+   a=1;
+   printf("wert = %d\n",a);
+   return EXIT_SUCCESS;
+}</pre>
+<p>Die einfachste M&ouml;glichkeit, auf die R&uuml;cksprungadresse zur&uuml;ckzugreifen, besteht darin, um die Speichergr&ouml;&szlig;e der Variablen <span class="listing">temp</span> in der Funktion r&uuml;ckw&auml;rts zu springen.</p>
+<pre>pointer=&amp;tmp-1;</pre>
+<p>Jetzt k&ouml;nnen Sie die R&uuml;cksprungadresse manipulieren, auf die der <span class="listing">pointer</span> zeigt:</p>
+<pre>*pointer=*pointer+10;</pre>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/25_04.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein25_04.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 25.4   
+    </b>Der Zeiger verweist auf die R&uuml;cksprungadresse</p>
+<p>Warum habe ich hier die R&uuml;cksprungadresse um 10 Bytes erh&ouml;ht? Dazu m&uuml;ssen Sie wieder <span class="listing">objdump</span> einsetzen (ohne Opcodes im Beispiel):</p>
+<pre>objdump -d bufferoverflow4
+080484e0 &lt;main&gt;:
+...
+ 80484f7:   call   8048490 &lt;funktion&gt;    ;Aufruf funktion
+ 80484fc:   add    $0x10,%esp            ;Stack wieder freigeben
+ 80484ff:   movl   $0x1,0xfffffffc(%ebp) ;wert=1
+ 8048506:   sub    $0x8,%esp
+ 8048509:   pushl  0xfffffffc(%ebp)      ;printf vorbereiten
+ 804850c:   push   $0x804859e
+ 8048511:   call   8048360 &lt;_init+0x58&gt;  ;printf aufrufen
+...</pre>
+<p>Die zu &uuml;berspringende Adresse liegt in diesem Fall ja zwischen »80484ff« und »8048509«. Somit ergibt sich folgende Rechnung:</p>
+<pre>8048509 – 80484ff = A</pre>
+<p><span class="listing">A</span> ist der hexdezimale Wert f&uuml;r 10. Hiermit haben Sie die R&uuml;cksprungadresse Ihres eigenen Programms manipuliert. Ziel dieser Manipulation ist es aber selten (wie hier dargestellt), die R&uuml;cksprungadresse zu manipulieren, um den Programmcode an einer beliebigen Stelle weiter auszuf&uuml;hren, sondern meistens wird dabei die CPU mit einem eigenen Maschinencode gef&uuml;ttert. Dabei wird der Maschinencode in einer Variablen auf dem Stack geschrieben und die R&uuml;cksprungadresse auf die Startadresse eines fremden Programmcodes gesetzt. Hat der fremde Maschinencode keinen Platz in der Variablen, kann auch der Heap<a id="Xxx999428" name="Xxx999428"></a> verwendet werden.</p>
+<p>Beendet sich hierbei die Funktion, wird durch <span class="listing">RET</span> auf die R&uuml;cksprungadresse gesprungen, welche Sie bereits manipuliert haben, und der Hacker kann nun bestimmte Codesequenzen ausf&uuml;hren.</p>
+<p>Ihnen dies jetzt hier zu demonstrieren, w&uuml;rde zum einen den Umfang des Kapitels bei weitem sprengen und vor allem am Thema vorbeigehen. Zum anderen w&uuml;rde dies neben der gr&uuml;ndlichen Kenntnis von C auch gute Kenntnisse im Assembler-Bereich (und unter Linux u.a. auch der Shell-Programmierung) erfordern. Weiterf&uuml;hrende Links und Literaturempfehlungen zum Thema »Buffer Overflow« selbst finden Sie im Anhang.</p>
+<p>Zusammengefasst lassen sich Buffer Overflows f&uuml;r folgende Manipulationen ausnutzen:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Inhalte von Variablen, die auf dem Stack liegen, k&ouml;nnen ver&auml;ndert werden. Stellen Sie sich das einmal bei einer Funktion vor, die ein Passwort vom Anwender abfragt.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Die R&uuml;cksprungadresse wird manipuliert, sodass das Programm an einer beliebigen Stelle im Speicher mit der Maschinencodeausf&uuml;hrung fortf&auml;hrt. Meistens ist dies die Ausf&uuml;hrung des vom Angreifer pr&auml;parierten Codes. F&uuml;r die Ausf&uuml;hrung von fremdem Code werden wiederum die Variablen auf dem Stack, eventuell auch auf dem Heap verwendet.</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Dasselbe Schema l&auml;sst sich auch mit Zeigern auf Funktionen anwenden. Dabei ist theoretisch nicht einmal ein Buffer Overflow erforderlich, sondern es reicht die Speicheradresse, bei der sich diese Funktion befindet. Die Daten, die f&uuml;r die Ausf&uuml;hrung von fremdem Code n&ouml;tig sind, werden vorzugsweise wieder in einer Variablen gespeichert.</td>
+</tr>
+</table>
+<a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3">25.1.4 Gegenma&szlig;nahmen zum Buffer Overflow w&auml;hrend der Programmerstellung<a id="RxxobKap02500004002C271F04F1DE" name="RxxobKap02500004002C271F04F1DE"></a> 
+      <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999436" name="Xxx999436"></a>Steht Ihr Projekt in den Startl&ouml;chern, haben Sie Gl&uuml;ck. Wenn Sie diesen Abschnitt durchgelesen haben, ist das Gefahrenpotenzial recht gering, dass Sie w&auml;hrend der Programmerstellung eine unsichere Funktion implementieren.</p>
+<p>Die meisten Buffer Overflows werden mit den Funktionen der Standard-Bibliothek erzeugt. Das Hauptproblem dieser unsicheren Funktionen ist, dass keine L&auml;ngen&uuml;berpr&uuml;fung der Ein- bzw. Ausgabe vorhanden ist. Daher wird empfohlen, sofern diese Funktionen auf dem System vorhanden sind, alternative Funktionen zu verwenden, die diese L&auml;ngen&uuml;berpr&uuml;fung durchf&uuml;hren. Falls es in Ihrem Programm auf Performance ankommt, muss jedoch erw&auml;hnt werden, dass die Funktionen mit der n-Alternative (etwa <span class="listing">strcpy</span> -&gt; <span class="listing">strncpy</span>) langsamer sind als die ohne. Hierzu folgt ein &Uuml;berblick zu anf&auml;lligen Funktionen und geeigneten Gegenma&szlig;nahmen, die getroffen werden k&ouml;nnen.<a id="Xxx999439" name="Xxx999439"></a></p>
+<h4 class="t4">Unsicheres Einlesen von Eingabestreams</h4>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 25.1   
+    </b>Unsichere Funktion – gets()</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>Unsichere Funktion</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Gegenma&szlig;name</b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">gets(puffer);
+</td>
+<td class="tabellentext" bgcolor="#000000">fgets(puffer, MAX_PUFFER, stdin);
+</td>
+</tr>
+<tr>
+<td class="tabellentext" colspan="2" bgcolor="#000000"><a id="Xxx999451" name="Xxx999451"></a>Bemerkung: Auf Linux-Systemen gibt der Compiler bereits eine Warnmeldung aus, wenn die Funktion gets() verwendet wird. Mit gets() lesen Sie von der Standardeingabe bis zum n&auml;chsten ENTER einen String in einen statischen Puffer ein. Als Gegenma&szlig;nahme wird die Funktion fgets() empfohlen, da diese nicht mehr als den bzw. das im zweiten Argument angegebenen Wert bzw. Zeichen einliest.
+</td>
+</tr>
+</table><br>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 25.2   
+    </b>Unsichere Funktion – scanf()</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>Unsichere Funktion</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Gegenma&szlig;name</b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">scanf("%s",str);
+</td>
+<td class="tabellentext" bgcolor="#000000">scanf("%10s",str);
+</td>
+</tr>
+<tr>
+<td class="tabellentext" colspan="2" bgcolor="#000000"><a id="Xxx999473" name="Xxx999473"></a>Bemerkung: Auch scanf() nimmt keine L&auml;ngenpr&uuml;fung vor bei der Eingabe. Die Gegenma&szlig;name dazu ist recht simpel. Sie verwenden einfach eine Gr&ouml;&szlig;enbegrenzung bei der Formatangabe (%|SIZE|s). Selbiges gilt nat&uuml;rlich auch f&uuml;r fscanf().
+</td>
+</tr>
+</table><br>
+<h4 class="t4">Unsichere Funktionen zur Stringbearbeitung</h4>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 25.3   
+    </b>Unsichere Funktion – strcpy()</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>Unsichere Funktion</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Gegenma&szlig;name</b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">strcpy(buf1, buf2);
+</td>
+<td class="tabellentext" bgcolor="#000000">strncpy(buf1, buf2, SIZE);
+</td>
+</tr>
+<tr>
+<td class="tabellentext" colspan="2" bgcolor="#000000"><a id="Xxx999496" name="Xxx999496"></a>Bemerkung: Bei strcpy() wird nicht auf die Gr&ouml;&szlig;e des Zielpuffers geachtet, mit strncpy() hingegen schon. Trotzdem kann mit strncpy() bei falscher Verwendung ebenfalls ein Buffer Overflow ausgel&ouml;st werden:
+char buf1[100]=’\0’;
+char buf2[50];
+fgets(buf1, 100, stdin);
+/* buf2 hat nur Platz f&uuml;r 50 Zeichen */
+strncpy(buf2, buf1, sizeof(buf1)); 
+</td>
+</tr>
+</table><br>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 25.4   
+    </b>Unsichere Funktion – strcat()</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>Unsichere Funktion</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Gegenma&szlig;name</b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">strcat(buf1 , buf2);
+</td>
+<td class="tabellentext" bgcolor="#000000">strncat(buf1, buf2, SIZE);
+</td>
+</tr>
+<tr>
+<td class="tabellentext" colspan="2" bgcolor="#000000"><a id="Xxx999519" name="Xxx999519"></a>Bemerkung: Bei strcat() wird nicht auf die Gr&ouml;&szlig;e des Zielpuffers geachtet, mit strncat() hingegen schon. Trotzdem kann mit strncat() bei falscher Verwendung wie schon bei strncpy() ein Buffer Overflow ausgel&ouml;st werden.
+</td>
+</tr>
+</table><br>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 25.5   
+    </b>Unsichere Funktion – sprintf()</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>Unsichere Funktion</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Gegenma&szlig;name</b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">sprintf(buf, "%s", temp);
+</td>
+<td class="tabellentext" bgcolor="#000000">snprintf(buf, 100, "%s", temp);
+</td>
+</tr>
+<tr>
+<td class="tabellentext" colspan="2" bgcolor="#000000"><a id="Xxx999541" name="Xxx999541"></a>Bemerkung: Mit sprintf() ist es nicht m&ouml;glich, die Gr&ouml;&szlig;e des Zielpuffers anzugeben, daher empfiehlt sich auch hier die n-Variante snprintf(). Gleiches gilt &uuml;brigens auch f&uuml;r die Funktion vsprintf(). Auch hier k&ouml;nnen Sie sich zwischen der Gr&ouml;&szlig;enbegrenzung und vsnprintf() entscheiden.
+</td>
+</tr>
+</table><br>
+<h4 class="t4">Unsichere Funktionen zur Bildschirmausgabe</h4>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 25.6   
+    </b>Unsichere Funktion – printf()</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>Unsichere Funktion</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Gegenma&szlig;name</b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">printf("%s", argv[1]);
+</td>
+<td class="tabellentext" bgcolor="#000000">printf("%100s",argv[1]); 
+</td>
+</tr>
+<tr>
+<td class="tabellentext" colspan="2" bgcolor="#000000"><a id="Xxx999564" name="Xxx999564"></a>Bemerkung: Die L&auml;nge der Ausgabe von printf() ist nicht unbegrenzt. Auch hier w&uuml;rde sich eine Gr&ouml;&szlig;enbegrenzung gut eignen. Gleiches gilt auch f&uuml;r fprintf().
+</td>
+</tr>
+</table><br>
+<h4 class="t4">Weitere unsichere Funktionen im &Uuml;berblick</h4>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter">
+<p><span class="tabunter"><b>Tabelle 25.7   
+    </b>Unsichere Funktionen – getenv() und system()</span></p>
+</caption>
+<tr>
+<td class="tabellenkopf" bgcolor="#000000"><b>Unsichere Funktion</b>
+</td>
+<td class="tabellenkopf" bgcolor="#000000"><b>Bemerkung</b>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">getenv()
+</td>
+<td class="tabellentext" bgcolor="#000000">Funktion l&auml;sst sich ebenfalls f&uuml;r einen Buffer Overflow verwenden.
+</td>
+</tr>
+<tr>
+<td class="tabellentext" bgcolor="#000000">system()
+</td>
+<td class="tabellentext" bgcolor="#000000">Diese Funktion sollte m&ouml;glichst vermieden werden. Insbesondere, wenn der Anwender den String selbst festlegen darf.
+</td>
+</tr>
+</table><br>
+<p>Abh&auml;ngig von Betriebssystem und Compiler gibt es noch eine Menge mehr solcher unsicheren Funktionen. Die wichtigsten wurden aber hier erw&auml;hnt.</p>
+<p>Generell sollte man immer alle <span class="listing">printf()</span> und <span class="listing">scanf()</span> Funktionen mit Vorsicht und Bedacht verwenden. H&auml;ufig l&auml;sst es sich hier bspw. wesentlich sicherer mit <span class="listing">fwrite()</span> oder <span class="listing">fread()</span> arbeiten und die Konversion kann man dabei auch selbst machen. Wenigstens sollte man aber ein Frame um die »unsichereren« Funktionen bauen, welche entsprechende L&auml;ngen&uuml;berpr&uuml;fungen durchf&uuml;hren, wie bspw. folgendes Listings zeigen soll:</p>
+<pre>/* check_before_sprintf.c */
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+#define MAX 10
+void check_bevore_sprintf(char *quelle, int max) {
+   if(strlen(quelle) &lt; MAX)
+      return;
+   else
+      abort(); /* abort zum Debugger */
+}
+int main(void) {
+   char *ptr1 = "123456789";
+   char *ptr2 = "1234567890";
+   char string[MAX];
+   check_bevore_sprintf(ptr1, MAX);
+   sprintf(string, "%s", ptr1);
+   printf("string: %s\n", string);
+   /* Boom!!! */
+   check_bevore_sprintf(ptr2, MAX);
+   sprintf(string, "%s", ptr2);
+   printf("string: %s\n", string);
+   return EXIT_SUCCESS;
+}</pre>
+<p>Einige Programmierer gehen sogar so weit, dass Sie alle <span class="listing">printf</span>- und <span class="listing">scanf</span>-Funktionen aus Ihren fertigen Programmen verbannen. Diese Entwickler scheuen auch nicht die Arbeit und schreiben hierzu h&auml;ufig eigene Funktionen (bzw. eine Bibliothek), welche die Benutzereingaben oder Eingabedatei scannen.</p>
+<a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3">25.1.5 Gegenma&szlig;nahmen zum Buffer Overflow, wenn das Programm fertig ist<a id="RxxobKap02500004002C271F04F229" name="RxxobKap02500004002C271F04F229"></a> 
+      <a href="#t2t37"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Wenn das Programm bereits fertig ist, und Sie es noch nicht der &Ouml;ffentlichkeit zug&auml;nglich gemacht haben, k&ouml;nnen Sie sich die Suchen-Funktion des Compilers zu Nutze machen oder eine eigene Funktion schreiben. Hier ein solcher Ansatz. Das Listing gibt alle gef&auml;hrlichen Funktionen, welche in der Stringtabelle <span class="listing">danger</span> eingetragen sind, auf dem Bildschirm aus.</p>
+<pre>/* danger.c */
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+#define MAX 255
+char *danger[] = {
+   "scanf", "sscanf", "fscanf",
+   "gets", "strcat", "strcpy",
+   "printf", "fprintf", "sprintf",
+   "vsprintf", "system", NULL
+   /* u.s.w. */
+};
+int main(int argc, char **argv) {
+   FILE *fp;
+   char puffer[MAX];
+   int i, line=1;
+   if(argc &lt; 2) {
+      printf("Anwendung: %s &lt;datei.c&gt;\n\n", argv[0]);
+      return EXIT_FAILURE;
+   }
+   if ( (fp=fopen(argv[1], "r+")) == NULL) {
+      printf("Konnte Datei nicht zum Lesen &ouml;ffnen\n");
+      return EXIT_FAILURE;
+   }
+   while( (fgets(puffer, MAX, fp)) != NULL) {
+      i=0;
+      while(danger[i] != NULL) {
+         if( (strstr(puffer,danger[i])) !=0 )
+            printf("%s gefunden in Zeile %d\n",
+               danger[i],line);
+         i++;
+      }
+      line++;
+   }
+   fclose(fp);
+   return EXIT_SUCCESS;
+}</pre>
+<p><a id="Xxx999605" name="Xxx999605"></a><a id="Xxx999606" name="Xxx999606"></a>Eine weitere M&ouml;glichkeit ist es, eine so genannte Wrapper-Funktion zu schreiben. Eine Wrapper-Funktion k&ouml;nnen Sie sich als Strumpf vorstellen, den Sie einer anf&auml;lligen Funktion &uuml;berziehen. Als Beispiel dient hier die Funktion <span class="listing">gets()</span>:</p>
+<pre>/* wrap_gets.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#define MAX  10
+/*Damit es keine Kollision mit gets aus stdio.h gibt */
+#define gets(c) Gets(c)
+void Gets(char *z) {
+   int ch;
+   int counter=0;
+   while((ch=getchar()) != '\n') {
+      z[counter++]=ch;
+      if(counter &gt;= MAX)
+         break;
+   }
+   z[counter] = '\0';     /* Terminieren */
+}
+int main(int argc, char **argv) {
+   char puffer[MAX];
+   printf("Eingabe : ");
+   gets(puffer);
+   printf("puffer = %s\n",puffer);
+   return EXIT_SUCCESS;
+}</pre>
+<p>Zuerst musste vor dem Compilerlauf die Funktion <span class="listing">gets()</span> mit</p>
+<pre>#define gets(c) Gets(c)</pre>
+<p>ausgeschalten werden. Jetzt kann statt der echten <span class="listing">gets()</span>-Version die Wrapper-Funktion <span class="listing">Gets()</span> verwendet werden. Genauso kann dies bei den anderen gef&auml;hrlichen Funktionen vorgenommen werden. Beispielsweise mit der Funktion <span class="listing">strcpy()</span>:</p>
+<pre>/* wrap_strcpy.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#define MAX  10
+ /* Damit es keine Kollision mit strcpy in string.h gibt */
+#define strcpy Strcpy
+#define DEBUG
+/* #undef DEBUG */
+void Strcpy(char *ziel, char *quelle) {
+   int counter;
+#ifdef DEBUG
+   /* DEBUG-INFO */
+   size_t size = strlen(quelle)+1;
+   if( size &gt; MAX )
+      printf("DEBUG-INFO: Puffer&uuml;berlaufversuch\n");
+   /* DEBUG-INFO Ende */
+#endif
+   for(counter=0; quelle[counter] != '\0' &amp;&amp; counter &lt; MAX-1;
+     counter++)
+      ziel[counter]=quelle[counter];
+   /* Terminieren */
+   ziel[counter] = '\0';
+}
+int main(int argc, char **argv) {
+   char puffer[MAX];
+   strcpy(puffer, "0123456789012345678");
+   printf("puffer = %s\n",puffer);
+   return EXIT_SUCCESS;
+}</pre>
+<p>Hier wird zum Beispiel noch eine DEBUG-Info mit ausgegeben, falls dies erw&uuml;nscht ist. Ansonsten muss einfach die Direktive <span class="listing">undef</span> auskommentiert werden.</p>
+<a name="t36"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t37"></a><h3 class="t3">25.1.6 Programme und Tools zum Buffer Overflow<a id="RxxobKap02500004002C271F04F233" name="RxxobKap02500004002C271F04F233"></a> 
+      <a href="#t2t38"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#t2t36"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p><a id="Xxx999615" name="Xxx999615"></a>Es gibt z.B. auf dem Linux-Sektor zwei gute Bibliotheken, StackShield und StackGuard. Beide Bibliotheken arbeiten etwa nach demselben Prinzip. Beim Aufruf einer Funktion greifen diese Bibliotheken ein und sichern die R&uuml;cksprungadresse. Daf&uuml;r wird nat&uuml;rlich ein extra Code am Anfang und Ende des Funktionsaufrufs eingef&uuml;gt. Wird hierbei versucht, die R&uuml;cksprungadresse zu manipulieren, schreibt das Programm eine Warnung in das Syslog des Systems und beendet sich.</p>
+<p>Voraussetzung daf&uuml;r, dass Sie eine der beiden Bibliotheken verwenden k&ouml;nnen, ist, dass Sie im Besitz des Quellcodes des Programms sind, das Sie vor einem Buffer Overflow sch&uuml;tzen wollen. Denn das Programm muss mit den Bibliotheken von StackShield und StackGuard neu &uuml;bersetzt werden.</p>
+<p>Einen anderen Weg geht die Bibliothek libsafe. Diese entfernt gef&auml;hrliche Funktionsaufrufe und ersetzt sie durch sichere Versionen der Bibliothek. Diese besitzen zus&auml;tzlich noch einen Schutz vor &Uuml;berschreiben des Stack-Frames.</p>
+<p>Firmen mit einem etwas gr&ouml;&szlig;eren Geldbeutel sei das Programm Insure++ von Parasoft ans Herz gelegt. Das Programm l&auml;sst sich als Testversion einige Zeit kostenlos ausprobieren. Der Anschaffungspreis rechnet sich &uuml;ber die Zeit allemal. Das Programm ist f&uuml;r alle g&auml;ngigen Systeme erh&auml;ltlich und kann au&szlig;er dem Buffer Overflow noch eine Menge weiterer Fehler aufdecken. Einige davon sind:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Speicherfehler</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Speicherlecks</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Speicherreservierungsfehler</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Verwendung uninitialisierter Variablen</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Falsche Variablendefinitionen</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Zeigerfehler</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Bibliothekenfehler</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"> Logische Fehler</td>
+</tr>
+</table>
+<a name="t37"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t38"></a><h3 class="t3">25.1.7 Ausblick<a id="RxxobKap02500004002C271F04F240" name="RxxobKap02500004002C271F04F240"></a> 
+      <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t37"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+<p>Buffer Overflows werden wohl in Zukunft noch vielen Programmierern Probleme bereiten und noch l&auml;nger eines der h&auml;ufigsten Angriffsziele von Hackern darstellen. Daher lohnt es, sich mit diesem Thema zu befassen.</p>
+<p>Es wird wohl noch eine Generation vorbeiziehen, bis Betriebssysteme auf den Markt kommen, welche solche Probleme von selbst erkennen und ausgrenzen. Erste Ans&auml;tze dazu gibt es zwar schon (Solaris), aber clevere Programmierer haben bereits einen Weg gefunden, auch dies auszuhebeln.</p>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" bgcolor="#000000">
+<p class="BStandard"><b>Hinweis   </b>Um es richtig zu stellen: Der Hacker findet Fehler in einem System heraus und meldet diese dem Hersteller des Programms. Entgegen der in den Medien verbreiteten Meinung ist ein Hacker kein B&ouml;sewicht. Die B&ouml;sewichte werden Cracker genannt.</p>
+</td>
+</tr>
+</table><br>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_024_007.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_025_001.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td width="10" valign="top">&nbsp;&nbsp;</td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/899?GPP=opc">
+                                        <img src="common/643_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C von A bis Z" title="Zum Katalog: C von A bis Z">
+                                        <br /><strong>C von A bis Z</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Ihre Meinung?</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1007?GPP=opc">
+                        <img src="common/683_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Shell-Programmierung" title="Zum Katalog: Shell-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Shell-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1137?GPP=opc">
+                        <img src="common/749_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux-UNIX-Programmierung" title="Zum Katalog: Linux-UNIX-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux-UNIX-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1004?GPP=opc">
+                        <img src="common/644_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C/C++" title="Zum Katalog: C/C++"><br /><br /><br /><br /><br /><br /><br />&nbsp;C/C++</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/880?GPP=opc">
+                        <img src="common/573_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/967?GPP=opc">
+                        <img src="common/626_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Reguläre Ausdrücke" title="Zum Katalog: Reguläre Ausdrücke"><br /><br /><br /><br /><br /><br /><br />&nbsp;Reguläre Ausdrücke</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/941?GPP=opc">
+                        <img src="common/677_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Shopping</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opc"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table>
+<br /><br />
+<hr width="70%" align="center"><br />
+<div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2006</b><br>F&uuml;r Ihren privaten Gebrauch d&uuml;rfen Sie die Online-Version nat&uuml;rlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschlie&szlig;lich aller seiner Teile ist urheberrechtlich gesch&uuml;tzt. Alle Rechte vorbehalten einschlie&szlig;lich der Vervielf&auml;ltigung, &Uuml;bersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

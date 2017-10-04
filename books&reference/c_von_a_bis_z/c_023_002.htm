@@ -1,0 +1,1112 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: C von A bis Z – 23.3 Stacks nach dem LIFO (Last-in-First-out)-Prinzip</title>
+<meta name="title" content="Galileo Computing :: C von A bis Z">
+<meta name="author" content="J&uuml;rgen Wolf">
+<meta name="publisher" content="Galileo Press 2006">
+<meta name="copyright" content="Galileo Press 2006">
+<meta name="description" content="C von A bis Z - Das umfassende Handbuch f&uuml;r Linux, Unix und Windows – 2., aktualisierte und erweiterte Auflage 2006, geb., mit CD und Referenzkarte – ISBN 3-89842-643-2">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="c_023_001.htm">
+<link rel="next" href="c_023_003.htm"><script type="text/javascript" language="JavaScript"><!--
+function OpenWin(url,name,height,width)
+{
+  var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+  InfoWin.focus();
+}
+//--></script></head>
+<body vlink="#000099" link="#000099" alink="#000099">
+    <table width="100%" height="74" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+        <tr>
+            <td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+            <td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opc"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger." title="Galileo Computing - Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger."></a></td>
+        </tr>
+    </table>
+    <div align="right"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Professionelle B&uuml;cher. Auch f&uuml;r Einsteiger.</a></div>
+    <br />
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td width="156" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
+        <tr>
+            <td colspan="2" class="nav1" align="left" valign="top" height="150">
+                <table class="tbl1" width="150" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td class="tbl2" height="25"><a class="nav" href="./index.htm">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000Vorwort_000.htm#Xxx999266">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_000VorwortGutachter_000.htm#Xxx999275">Vorwort des Gutachters</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_001_000.htm#Xxx999328">1 Einstieg in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_002_000.htm#Xxx999328">2 Das erste Programm</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_003_000.htm#Xxx999328">3 Zeichens&auml;tze</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_004_000.htm#Xxx999329">4 Kommentare in C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_005_000.htm#Xxx999330">5 Formatierte Eingabe mit scanf()</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_006_000.htm#Xxx999330">6 Formatierte Ausgabe mit printf</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_007_000.htm#Xxx999329">7 Elementare Datentypen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_008_000.htm#Xxx999328">8 Operatoren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_009_000.htm#Xxx999328">9 Typenumwandlung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_010_000.htm#Xxx999328">10 Kontrollstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_011_000.htm#Xxx999328">11 Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_012_000.htm#Xxx999328">12 Pr&auml;prozessor-Direktiven</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_013_000.htm#Xxx999328">13 Arrays</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_014_000.htm#Xxx999328">14 Zeiger (Pointer)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_015_000.htm#Xxx999328">15 Kommandozeilenargumente</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_016_000.htm#Xxx999328">16 Dynamische Speicherverwaltung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_017_000.htm#Xxx999328">17 Strukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_018_000.htm#Xxx999328">18 Ein-/Ausgabe-Funktionen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_019_000.htm#Xxx999328">19 Attribute von Dateien und Arbeiten mit Verzeichnissen (nicht ANSI C)</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_020_000.htm#Xxx999328">20 Arbeiten mit variablen langen Argumentlisten – &lt;stdarg.h&gt;</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_021_000.htm#Xxx999328">21 Zeitroutinen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_022_000.htm#Xxx999328">22 Weitere Headerdateien und ihre Funktionen (ANSI C)</A></td>
+</tr>
+<tr>
+<td><A class="navh" href="./c_023_000.htm#Xxx999328">23 Dynamische Datenstrukturen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_024_000.htm#Xxx999328">24 Algorithmen</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_025_000.htm#Xxx999328">25 Sicheres Programmieren</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_026_000.htm#Xxx999328">26 CGI mit C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_027_000.htm#Xxx999328">27 MySQL und C</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_028_000.htm#Xxx999328">28 Netzwerkprogrammierung und Cross-Plattform-Entwicklung</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_029_000.htm#Xxx999328">29 Wie geht’s jetzt weiter?</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./c_030Anhang_000.htm#Xxx999266">A Anhang</A></td>
+</tr>
+<tr>
+<td><a class="navnav" href="./stichwort.htm#Xxx512322">Index</a></td>
+</tr>
+<tr><td><br /><a class="navnav" href="http://download.galileo-press.de/openbook/c_von_a_bis_z/galileocomputing_c_von_a_bis_z.zip"><strong>Download:</strong><br />- ZIP, ca. 8,5 MB</a></td></tr>
+<tr><td><a class="navnav" href="http://www.galileocomputing.de/899?GPP=opc">Buch bestellen</a></td></tr>
+<tr><td><a class="navnav" href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)">Ihre Meinung?</a><br /><br /></td></tr>
+</table></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10"></td>
+<td width="85%" valign="top" align="center">
+    <div align="center">
+        <table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+            <tr>
+                <td width="100%" class="start" colspan="1" height="22" align="center">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_023_001.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a href="http://www.galileocomputing.de/?GPP=opc" class="navnav">Galileo Computing /</a><a class="navnav" href="http://www.galileocomputing.de/katalog/openbook/?GPP=opc"> &lt;openbook&gt; /</a><a href="./index.htm" class="navnav"> C von A bis Z</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_023_003.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" valign="top">
+    <table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+        <tr>
+            <td colspan="2"><a href="http://www.galileocomputing.de/899?GPP=opc" class="buchtitel">C von A bis Z</a><span class="autor"> von J&uuml;rgen Wolf</span><br><span class="untertitel">Das umfassende Handbuch f&uuml;r Linux, Unix und Windows <br />– 2., aktualisierte und erweiterte Auflage 2006</span></td>
+        </tr>
+        <tr>
+            <td valign="top" width="90"><a href="http://www.galileocomputing.de/899?GPP=opc"><img src="common/643.gif" border="0" alt="Buch: C von A bis Z" title="Buch: C von A bis Z" align="left"><br /><br /><span class="autor"><strong>C von A bis Z</strong><br />1.116 S., mit CD, Referenzkarte, 39,90 Euro<br />Galileo Computing<br />ISBN 3-89842-643-2</span></a></a></td>
+            <td width="80%">
+<table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="3" class="kap"><b>Kapitel <a href="./c_023_000.htm#RxxobKap02300004002BA91F01018C">23 Dynamische Datenstrukturen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_023_000.htm#RxxobKap02300004002BA91F01018E">23.1 Lineare Listen (einfach verkettete Listen)</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_023_000.htm#RxxobKap02300004002BA91F0101B8">23.1.1 Erstes Element der Liste l&ouml;schen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_023_000.htm#RxxobKap02300004002BA91F0101C8">23.1.2 Beliebiges Element in der Liste l&ouml;schen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_023_000.htm#RxxobKap02300004002BA91F0101DF">23.1.3 Elemente der Liste ausgeben</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_023_000.htm#RxxobKap02300004002BA91F0101E7">23.1.4 Eine vollst&auml;ndige Liste auf einmal l&ouml;schen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><b><a href="./c_023_000.htm#RxxobKap02300004002BA91F0101FD">23.1.5 Element in die Liste einf&uuml;gen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_023_001.htm#RxxobKap02300104002BC41F03518C">23.2 Doppelt verkettete Listen</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a class="navh" href="#RxxobKap02300204002BC51F03B18C">23.3 Stacks nach dem LIFO (Last-in-First-out)-Prinzip</a></b></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline" colspan="2"><b><a href="./c_023_003.htm#RxxobKap02300304002BC61F02B18C">23.4 Queues nach dem FIFO-Prinzip</a></b></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td>
+<a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang" title="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2">23.3 Stacks nach dem LIFO (Last-in-First-out)-Prinzip<a id="RxxobKap02300204002BC51F03B18C" name="RxxobKap02300204002BC51F03B18C"></a> 
+      <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"></h2>
+<p>Der Stack<a id="Xxx999329" name="Xxx999329"></a><a id="Xxx999330" name="Xxx999330"></a> ist ebenfalls eine Datenstruktur von verketteten Listen. Nur, dass hierbei die Anordnung der einzelnen Elemente ein wenig anders ist. Der Stack funktioniert nach dem LIFO-Prinzip<a id="Xxx999332" name="Xxx999332"></a> (Last-in-First-out), was bedeutet, dass die Daten, welche als letzte eingef&uuml;gt wurden, als erste wieder vom Stack genommen werden – etwa wie bei einem Stapel schmutziger Teller, die es gilt, abzuwaschen.</p>
+<p>Sie haben bei einem Stack also immer nur Zugriff auf das oberste Element. Verwenden k&ouml;nnten Sie das Prinzip beispielsweise zum r&uuml;ckg&auml;ngigen L&ouml;schen einer Operation.<a id="Xxx999334" name="Xxx999334"></a><a id="Xxx999335" name="Xxx999335"></a> Im Prinzip besteht ein Stack aus zwei grundlegenden Funktionen:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"><span class="listing"> push()</span> – ein neues Element auf dem Stack ablegen</td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="baseline" width="16"><img src="common/gp.gif" width="8" height="9" border="0" alt="gp"> 
+        </td>
+<td valign="top" width="100%" align="left"><span class="listing"> pop()</span> – holt das oberste Element wieder vom Stack herunter</td>
+</tr>
+</table>
+<br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" rowspan="2" bgcolor="#000000">
+<p class="BStandard"><b>Hinweis   </b>Die Datenstruktur des Stacks wird als abstrakte Datenstruktur (ADT) bezeichnet. Es wird auch von einer abstrakten Datenstruktur gesprochen, wenn die konkrete Umsetzung der Datenstrukturen verborgen bleibt, und der Anwender des Stacks nur die Stack-Operationen zur Verf&uuml;gung hat.</p>
+</td>
+</tr>
+<tr>
+</tr>
+</table><br>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/23_40.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein23_40.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 23.40   
+    </b>Der Stack und seine grundlegende Funktion</p>
+<p>Als Beispiel dient wieder das Programm, das Sie schon im Abschnitt zuvor entwickelt haben. Hierzu soll eine Funktion erstellt werden, welche gel&ouml;schte Datens&auml;tze auf einen Stack ablegt und bei Bedarf diese Aktion wieder r&uuml;ckg&auml;ngig machen kann. Bei der Struktur selbst &auml;ndert sich nichts. Hier nochmals die Struktur zur Erinnerung:</p>
+<pre>struct angestellt  {
+   char name[20];
+   char vorname[20];
+   struct datum alter;
+   struct datum eingest;
+   long gehalt;
+   struct angestellt *next;      // Nachfolger
+   struct angestellt *previous;  // Vorg&auml;nger
+};</pre>
+<p>Hinzu kommen zwei neue globale Strukturzeiger vom Typ <span class="listing">angestellt</span>.</p>
+<pre>struct angestellt *stack_ptr, *stack_help;</pre>
+<p>F&uuml;r den Stack soll hier eine Unterlage erstellt werden, worauf alle anderen Elemente abgeladen werden. Daf&uuml;r wird eine Funktion erstellt, welche eine Auflage erstellt und den Stack initialisiert.</p>
+<pre>int stackinit(void) {
+   if((stack_ptr=(struct angestellt *)
+     malloc(sizeof(struct angestellt))) != NULL) {
+      stack_ptr-&gt;next = NULL;
+      strcpy(stack_ptr-&gt;name,"dummy");
+      strcpy(stack_ptr-&gt;vorname,"dummy");
+      stack_ptr-&gt;alter.tag=0;
+      stack_ptr-&gt;alter.monat=0;
+      stack_ptr-&gt;alter.jahr=0;
+      stack_ptr-&gt;eingest.tag=0;
+      stack_ptr-&gt;eingest.monat=0;
+      stack_ptr-&gt;eingest.jahr=0;
+      stack_ptr-&gt;gehalt=0;
+      return 1;
+   }
+   else
+      return 0;
+}</pre>
+<p>Zuerst wird Speicherplatz f&uuml;r die »Auflagefl&auml;che« der weiteren Elemente, die noch folgen werden, reserviert. Als Inhalt f&uuml;r die Auflagefl&auml;che werden einfach irgendwelche Werte verwendet. Der Zeiger <span class="listing">stack_ptr</span> verweist jetzt auf diese Auflagefl&auml;che.</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/23_41.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein23_41.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 23.41   
+    </b>Ein »leerer« Stack</p>
+<p>Danach folgt die Funktion <span class="listing">push()</span>, mit der ein Element auf den Stack geladen werden kann. Die Funktion <span class="listing">push()</span> soll im Programm dann aufgerufen werden, wenn der User einen Datensatz aus der Liste l&ouml;scht. Praktisch bedeutet dies, dass &uuml;berall im Programm, wo Sie mit <span class="listing">free()</span> einen Speicherplatz freigeben w&uuml;rden, die Funktion <span class="listing">push()</span> platziert wird.</p>
+<pre>int push(struct angestellt *neu) {
+   neu-&gt;next = stack_ptr-&gt;next;
+   stack_ptr-&gt;next=neu;
+   return 1;
+}</pre>
+<p>Der Speicherplatz f&uuml;r die Elemente, die auf dem Stack abgelegt werden, muss nicht mehr reserviert werden, da dies ja schon beim Einf&uuml;gen des Elements in der verketteten Liste vorgenommen wurde. Nat&uuml;rlich m&uuml;ssen Sie dabei auch die Funktion <span class="listing">loesche()</span> ab&auml;ndern, damit diese wirklich den Speicherplatz nicht mehr mittels <span class="listing">free()</span> hergibt. Der Funktion <span class="listing">push()</span> wird einfach diese Adresse als Argument (<span class="listing">struct</span> <span class="listing">angestellt</span> <span class="listing">*neu</span>) &uuml;bergeben. Beachten Sie bitte, falls Sie vorhaben, den Stack in ein anderes Programm implementieren zu wollen, dass Sie f&uuml;r die Speicherverwaltung der Daten selbst verantwortlich sind. Die erste Zeile in der Funktion:</p>
+<pre>neu-&gt;next = stack_ptr-&gt;next;</pre>
+<p>Damit verweist der <span class="listing">next</span>-Zeiger des neuen Elements auf die Adresse von <span class="listing">stack_ptr-&gt;next</span>. Was zun&auml;chst der <span class="listing">NULL</span>-Zeiger ist, wie Sie hier erkennen k&ouml;nnen:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/23_42.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein23_42.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 23.42   
+    </b>Ein neues Element auf den Stack legen</p>
+<p>Anschlie&szlig;end bekommt die »Auflagefl&auml;che« die Adresse des neuen Elements:</p>
+<pre>stack_ptr-&gt;next=neu;</pre>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/23_43.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein23_43.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 23.43   
+    </b>Der Stack nach dem Funktionsaufruf push()</p>
+<p>Bei einem erneuten Aufruf der Funktion <span class="listing">push()</span> w&uuml;rde der Stack folgenderma&szlig;en aussehen:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/23_44.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein23_44.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 23.44   
+    </b>Der Stack nach einem weiteren »push«</p>
+<p>Das erste Element im Stapel, vom <span class="listing">DUMMY</span>-Element abgesehen, zeigt immer auf <span class="listing">NULL</span>, da es auch das letzte ist, das wieder vom Stapel entfernt wird.</p>
+<p>Als N&auml;chstes folgt die Funktion zum r&uuml;ckg&auml;ngigen L&ouml;schen eines Datensatzes. Diese Funktion verwendet den Zeiger <span class="listing">stack_ptr-&gt;next</span>, um an die Daten heranzukommen, die oben auf dem Stack liegen. Sind die Daten ausgelesen, werden Sie wieder in die verkettete Liste eingef&uuml;gt.</p>
+<pre>void rueckgaengig_loeschen(void) {
+   char n[20],vn[20];
+   int at,am,aj,et,em,ej;
+   long geh;
+   if(stack_ptr-&gt;next != NULL) {
+      strcpy(n,stack_ptr-&gt;next-&gt;name);
+      strcpy(vn,stack_ptr-&gt;next-&gt;vorname);
+      at=stack_ptr-&gt;next-&gt;alter.tag;
+      am=stack_ptr-&gt;next-&gt;alter.monat;
+      aj=stack_ptr-&gt;next-&gt;alter.jahr;
+      et=stack_ptr-&gt;next-&gt;eingest.tag;
+      em=stack_ptr-&gt;next-&gt;eingest.monat;
+      ej=stack_ptr-&gt;next-&gt;eingest.jahr;
+      geh=stack_ptr-&gt;next-&gt;gehalt;
+      sortiert_eingeben(n,vn,at,am,aj,et,em,ej,geh);
+      /* Jetzt runter damit vom Stack */
+      pop();
+   }
+   else {
+      printf("Kein Element mehr vorhanden zu \"R&uuml;ckg&auml;ngig"
+             " L&ouml;schen\"\n");
+      printf("&lt;ENTER&gt;");
+      getchar();
+   }
+}</pre>
+<p>Am Ende kann das oberste Element vom Stack wieder entfernt werden, wie dies hier bei der Funktion <span class="listing">rueckgaengig_loeschen()</span> mit der Funktion <span class="listing">pop()</span> geschieht. Jetzt m&uuml;ssen Sie noch die Funktion <span class="listing">pop()</span> schreiben:</p>
+<pre>void pop(void) {
+   stack_help = stack_ptr-&gt;next;
+   stack_ptr-&gt;next=stack_help-&gt;next;
+   printf("%s\n",stack_help-&gt;vorname);
+   free(stack_help);
+}</pre>
+<p>Zuerst bekommt der Zeiger <span class="listing">stack_help</span> die Adresse des obersten Elements (<span class="listing">stack_ptr-&gt;next</span>) auf dem Stapel:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/23_45.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein23_45.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 23.45   
+    </b>Das oberste Element soll vom Stack entfernt werden</p>
+<p>Danach folgt eine kleine Stolperstelle, welche h&auml;ufig f&uuml;r Verwirrung sorgt:</p>
+<pre>stack_ptr-&gt;next=stack_help-&gt;next;</pre>
+<p>Aber daf&uuml;r ist es nun mal ein Stapel. Wird das oberste Element entfernt, welches ist dann das n&auml;chste Element, das oben liegt? Richtig, eines darunter. Und so sieht es nach dieser Zeile aus:</p>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/23_46.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein23_46.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 23.46   
+    </b>Das oberste Element vom Stack »aush&auml;ngen«</p>
+<p>Jetzt kann der Speicherplatz, auf den der Zeiger <span class="listing">stack_help</span> verweist, freigegeben werden:</p>
+<pre>free(stack_help);</pre>
+<p><a name="bild"></a><a href="#bild" onClick="OpenWin('bilder/23_47.gif','Abbildung',600,600)"><img border="0" src="bilderklein/klein23_47.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu Vergr&ouml;&szlig;ern</span></a></p>
+<p class="tabunter"><b>Abbildung 23.47   
+    </b>Den Speicherplatz des obersten Elements freigegeben</p>
+<p>Hierzu jetzt das vollst&auml;ndige finale Listing von Kapitel 23 mit allen hier geschriebenen Funktionen:</p>
+<pre>/* datenstruktur_final.c */
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+#define MAX 20
+struct datum{
+   int tag;
+   int monat;
+   int jahr;
+};
+struct angestellt{
+   char name[MAX];
+   char vorname[MAX];
+   struct datum alter;
+   struct datum eingest;
+   long gehalt;
+   struct angestellt *next;
+   struct angestellt *previous;
+};
+/* Globale Variablen */
+struct angestellt *next, *anfang, *ende, *stack_ptr, *stack_help;
+static int counter=0;
+static char datname[] = "personal.dat";
+/*Prototypen der Funktionen*/
+void start(void);
+void anhaengen(char *,char *,int,int,int,int,int,int,long);
+void loesche(char *);
+void ausgabe(void);
+void eingabe(void);
+void loesche_alles(void);
+void sortiert_eingeben(char *,char *,
+                       int,int,int,int,int,int,long);
+int vergleiche(struct angestellt *, struct angestellt *);
+int laden(FILE *);
+void speichern(FILE *);
+int datei_oeffnen_lesen(FILE **);
+int datei_oeffnen_erstellen(FILE **);
+int datei_oeffnen_lesen_schreiben(FILE **);
+int stackinit(void);
+int push(struct angestellt *);
+void pop(void);
+/* Startadressen f&uuml;r die Zeiger next, anfang und ende */
+void start(void) {
+   next=anfang=ende=NULL;
+   if((ende=(struct angestellt *)
+     malloc(sizeof(struct angestellt))) == NULL) {
+      printf("Konnte keinen Speicherplatz f&uuml;r ende "
+             "reservieren\n");
+      exit(EXIT_FAILURE);
+   }
+}
+/* "Auflagefl&auml;che" f&uuml;r stack_ptr. Wir benutzen
+ * einen Stack, um loeschen() r&uuml;ckg&auml;ngig zu machen. */
+int stackinit(void) {
+    if((stack_ptr=(struct angestellt *)
+      malloc(sizeof(struct angestellt))) != NULL) {
+       stack_ptr-&gt;next = NULL;
+       strcpy(stack_ptr-&gt;name,"dummy");
+       strcpy(stack_ptr-&gt;vorname,"dummy");
+       stack_ptr-&gt;alter.tag=0;
+       stack_ptr-&gt;alter.monat=0;
+       stack_ptr-&gt;alter.jahr=0;
+       stack_ptr-&gt;eingest.tag=0;
+       stack_ptr-&gt;eingest.monat=0;
+       stack_ptr-&gt;eingest.jahr=0;
+       stack_ptr-&gt;gehalt=0;
+       return 1;
+    }
+    else
+       return 0;
+}
+/* Funktion zum Ablegen von gel&ouml;schten Dateien, um sie bei Bedarf
+ * "R&uuml;ckg&auml;ngig machen" */
+int push(struct angestellt *neu) {
+   neu-&gt;next = stack_ptr-&gt;next;
+   stack_ptr-&gt;next=neu;
+   return 1;
+}
+/* Funktion zum Freigeben eines Elements vom Stack */
+void pop(void) {
+   stack_help = stack_ptr-&gt;next;
+   stack_ptr-&gt;next=stack_help-&gt;next;
+   free(stack_help);
+}
+/* Wir h&auml;ngen einen Datensatz an oder geben einen neuen ein
+ * n=name,v=vornam,at=alter.tage,am=alter.monat,aj=alter.jahr
+ * eint=eigestellt tag,einm=eingestellt monat,einj=eingest. jahr
+ * g=gehalt */
+void anhaengen(char *n, char *v, int at, int am, int aj,
+               int eint, int einm, int einj, long g) {
+   /* Zeiger f&uuml;r den Zugriff auf die einzelnen
+    * Elemente der Struktur */
+   struct angestellt *zeiger, *zeiger1;
+   /* Wurde schon Speicher f&uuml;r den ende-Zeiger bereitgestellt? */
+   if(ende == NULL) {
+      if((ende=(struct angestellt *)
+        malloc(sizeof(struct angestellt))) == NULL) {
+          printf("Konnte keinen Speicherplatz f&uuml;r ende "
+                 "reservieren\n");
+          exit(EXIT_FAILURE);
+      }
+   }
+   /* Wir fragen ab, ob es schon ein Element in der Liste gibt.
+    * Wir suchen das Element, auf das unser Zeiger *anfang zeigt.
+    * Falls *anfang immer noch auf NULL zeigt, bekommt *anfang
+    * die Adresse unseres 1. Elements und ist somit der Kopf
+    * (Anfang) unserer Liste */
+   if(anfang == NULL) {
+      /* Wir reservieren Speicherplatz f&uuml;r unsere Struktur
+       * f&uuml;r das erste Element der Liste */
+      if((anfang =(struct angestellt *)
+        malloc(sizeof(struct angestellt))) == NULL) {
+         fprintf(stderr,"Kein Speicherplatz vorhanden "
+                        "f&uuml;r anfang\n");
+         return;
+      }
+      counter++;
+      strcpy(anfang-&gt;name,strtok(n, "\n") );
+      strcpy(anfang-&gt;vorname,strtok(v, "\n") );
+      anfang-&gt;alter.tag=at;
+      anfang-&gt;alter.monat=am;
+      anfang-&gt;alter.jahr=aj;
+      anfang-&gt;eingest.tag=eint;
+      anfang-&gt;eingest.monat=einm;
+      anfang-&gt;eingest.jahr=einj;
+      anfang-&gt;gehalt=g;
+      /* Somit haben wir unseren Anfang der Liste. Von nun
+       * an zeigt der Zeiger anfang immer auf das Element
+       * vor ihm. Da dies aber jetzt das 1. Element der Liste
+       * war, zeigt der Zeiger anfang auf den Zeiger next.
+       * next zeigt am Ende immer wieder NULL. Da es das erste
+       * Element der Liste ist, zeigt somit ende auf
+       * dasselbe Element wie anfang. Und das Element vor dem
+       * 1. Element ist somit NULL */
+      anfang-&gt;next=NULL;
+      ende=anfang;
+      ende-&gt;previous=NULL;
+   }
+   /* Es scheint schon mindestens ein Element in der Liste
+    * vorhanden zu sein, da der Anfang nicht == NULL ist.
+    * Jetzt suchen wir so lange nach dem n&auml;chsten Element,
+    * bis der *next-Zeiger auf NULL zeigt. Somit haben
+    * wir das Ende der Liste gefunden und k&ouml;nnen einen
+    * neuen Datensatz anh&auml;ngen */
+   else {
+      zeiger=anfang;    /* Wir zeigen auf das 1. Element */
+      while(zeiger-&gt;next != NULL)
+         zeiger=zeiger-&gt;next;
+      /* Wir reservieren einen Speicherplatz f&uuml;r das
+       * letzte Element der Liste und h&auml;ngen es an. */
+      if((zeiger-&gt;next =(struct angestellt *)
+       malloc(sizeof(struct angestellt))) == NULL) {
+         fprintf(stderr, "Kein Speicherplatz f&uuml;r "
+                         "letztes Element\n");
+         return;
+      }
+      zeiger1=zeiger;
+      zeiger=zeiger-&gt;next; /* zeiger auf neuen Speicherplatz */
+      counter++;
+      strcpy(zeiger-&gt;name, strtok(n, "\n") );
+      strcpy(zeiger-&gt;vorname,strtok(v, "\n") );
+      zeiger-&gt;alter.tag=at;
+      zeiger-&gt;alter.monat=am;
+      zeiger-&gt;alter.jahr=aj;
+      zeiger-&gt;eingest.tag=eint;
+      zeiger-&gt;eingest.monat=einm;
+      zeiger-&gt;eingest.jahr=einj;
+      zeiger-&gt;gehalt=g;
+      zeiger-&gt;next=NULL;
+      ende=zeiger;
+      zeiger-&gt;previous=zeiger1;
+      zeiger1-&gt;next=zeiger;
+   }
+}
+/* Funktion zum L&ouml;schen einer Datei */
+void loesche(char *wen) {
+   struct angestellt *zeiger ,*zeiger1, *zeiger2;
+   /* Ist &uuml;berhaupt ein Element vorhanden? */
+   if(anfang != NULL) {
+      /* Ist unser 1. Element das von uns gesuchte (wen[])? */
+      if(strcmp(anfang-&gt;name,wen) == 0) {
+         zeiger=anfang-&gt;next;
+         if(zeiger == NULL) {
+            push(anfang);
+            anfang=NULL;
+            ende=NULL;
+            counter--;
+            return;
+         }
+         push(anfang);
+         zeiger-&gt;previous=NULL;
+         /* free(anfang); */
+         counter--;
+         anfang=zeiger;
+      }
+      /* Ist das letzte Element das von uns gesuchte? */
+      else if(strcmp(ende-&gt;name, wen) == 0) {
+         zeiger=ende-&gt;previous;
+         zeiger-&gt;next=NULL;
+         zeiger1=ende;
+         ende=zeiger;
+         push(zeiger1);
+         /* free(zeiger1); */
+         counter--;
+      }
+      else {
+         /* Es ist nicht das 1. Element zu l&ouml;schen.
+          * Wir suchen in der weiteren Kette, ob das zu
+          * l&ouml;schende Element vorhanden ist */
+         zeiger=anfang;
+         while(zeiger-&gt;next != NULL) {
+            zeiger1=zeiger-&gt;next;
+            /* Ist die Adresse von zeiger1 der
+               gesuchte Name? */
+            if(strcmp(zeiger1-&gt;name,wen) == 0) {
+               /* Falls ja, dann ... */
+               zeiger-&gt;next=zeiger1-&gt;next;
+               zeiger2=zeiger1-&gt;next;
+               zeiger2-&gt;previous=zeiger;
+               push(zeiger1);
+               counter--;
+               break;
+            }
+            zeiger=zeiger1;
+         }
+      }
+   }
+   else
+      printf("Es sind keine Daten zum L&ouml;schen vorhanden\n");
+}
+/* Funktion zum Ausgeben der Dateien */
+void ausgabe(void) {
+   struct angestellt *zeiger = anfang;
+   printf("||==================================================="
+          "====||\n");
+   printf("|%10cName%10c |Geburtsdatum|Eingestellt|Gehalt|\n"
+                                                      ,' ',' ');
+   printf("||==================================================="
+          "====||\n");
+   while(zeiger != NULL) {
+      printf("|%12s,%-12s|  %02d.%02d.%04d| %02d.%02d.%04d|"
+             "%06ld|\n", zeiger-&gt;name,zeiger-&gt;vorname,
+         zeiger-&gt;alter.tag, zeiger-&gt;alter.monat,
+         zeiger-&gt;alter.jahr,zeiger-&gt;eingest.tag,
+         zeiger-&gt;eingest.monat,zeiger-&gt;eingest.jahr,
+         zeiger-&gt;gehalt);
+         printf("|---------------------------------------------"
+                "------------|\n");
+         zeiger=zeiger-&gt;next;
+   }
+   printf("\n\nWeiter mit &lt;ENTER&gt;\n");
+   getchar();
+}
+/* Funktion zur Eingabe der Daten */
+void eingabe(void) {
+   char nam[MAX],vorn[MAX];
+   int atag,amon,ajahr,eintag,einmon,einjahr;
+   long gehalt;
+   char *ptr;
+   printf("Name........................: ");
+   fgets(nam, MAX, stdin);
+   ptr = strrchr(nam, '\n');
+   *ptr = '\0';
+   printf("Vorname.....................: ");
+   fgets(vorn, MAX, stdin);
+   ptr = strrchr(vorn, '\n');
+   *ptr = '\0';
+   printf("Alter...........(tt.mm.jjjj): ");
+   scanf("%2d.%2d.%4d",&amp;atag,&amp;amon,&amp;ajahr);
+   printf("Eingestellt am..(tt.mm.jjjj): ");
+   scanf("%2d.%2d.%4d",&amp;eintag,&amp;einmon,&amp;einjahr);
+   printf("Monatsgehalt................: ");
+   scanf("%ld",&amp;gehalt);
+   getchar();
+   anhaengen(nam, vorn, atag, amon, ajahr, eintag,
+      einmon, einjahr, gehalt);
+}
+/* Funktion zum L&ouml;schen der gesamten Liste */
+void loesche_alles(void) {
+   struct angestellt *zeiger, *zeiger1;
+   /* Ist &uuml;berhaupt eine Liste zum L&ouml;schen vorhanden? */
+   if(anfang != NULL) {
+      /* Es ist eine vorhanden ... */
+      zeiger=anfang-&gt;next;
+      while(zeiger != NULL) {
+         zeiger1=anfang-&gt;next-&gt;next;
+         if(zeiger1 == NULL)
+            break;
+         anfang-&gt;next=zeiger1;
+         zeiger1-&gt;previous=anfang;
+         push(zeiger);
+         zeiger=zeiger1;
+      }
+      /* Jetzt l&ouml;schen wir erst den Anfang der Liste
+       * und das Ende der Liste */
+      push(anfang);
+      push(ende);
+      anfang=NULL;
+      ende=NULL;
+      counter=0;
+      printf("Liste erfolgreich gel&ouml;scht!!\n");
+   }
+   else
+      fprintf(stderr,"Keine Liste zum L&ouml;schen vorhanden!!\n");
+}
+void sortiert_eingeben(char *n, char *v, int at, int am, int aj,
+                       int et, int em, int ej, long geh ) {
+   struct angestellt *zeiger, *zeiger1, *zeiger2;
+   zeiger2=(struct angestellt *)
+      malloc(sizeof(struct angestellt));
+   if(NULL == zeiger2) {
+      fprintf(stderr, "Speicherplatzmangel\n");
+      return;
+   }
+   strcpy(zeiger2-&gt;name,strtok(n, "\n") );
+   strcpy(zeiger2-&gt;vorname,strtok(v, "\n") );
+   zeiger2-&gt;alter.tag=at;
+   zeiger2-&gt;alter.monat=am;
+   zeiger2-&gt;alter.jahr=aj;
+   zeiger2-&gt;eingest.tag=et;
+   zeiger2-&gt;eingest.monat=em;
+   zeiger2-&gt;eingest.jahr=ej;
+   zeiger2-&gt;gehalt=geh;
+   /* Ist es das 1. Element der Liste? */
+   if(anfang==NULL)
+      anhaengen(n,v,at,am,aj,et,em,ej,geh);
+   /* Es ist nicht das 1. Element. Wir suchen nun so lange,
+    * bis das gesuchte Element gefunden wird oder wir auf
+    * NULL sto&szlig;en */
+   else {
+      zeiger=anfang;
+      while(zeiger != NULL &amp;&amp; (vergleiche(zeiger,zeiger2)&lt;0))
+         zeiger=zeiger-&gt;next;
+      /* Falls der Zeiger auf NULL zeigt, k&ouml;nnen wir unser
+       * Element hinten anh&auml;ngen, da unser neues Element das
+       * "gr&ouml;sste" zu sein scheint */
+      if(zeiger==NULL)
+         anhaengen(n,v,at,am,aj,et,em,ej,geh);
+      /* Ist unser neues Element das kleinste und somit
+       * kleiner als das 1. Element, so m&uuml;ssen wir es an
+       * den Anfang h&auml;ngen */
+      else if(zeiger==anfang &amp;&amp; (vergleiche(zeiger,zeiger2))) {
+         anfang=(struct angestellt *)
+           malloc(sizeof(struct angestellt));
+         if(NULL == anfang) {
+            fprintf(stderr, "Speicherplatzmangel\n");
+            return;
+         }
+         counter++;
+         strcpy(anfang-&gt;name, strtok(n, "\n") );
+         strcpy(anfang-&gt;vorname, strtok(v, "\n") );
+         anfang-&gt;alter.tag=at;
+         anfang-&gt;alter.monat=am;
+         anfang-&gt;alter.jahr=aj;
+         anfang-&gt;eingest.tag=et;
+         anfang-&gt;eingest.monat=em;
+         anfang-&gt;eingest.jahr=ej;
+         anfang-&gt;gehalt=geh;
+         anfang-&gt;next=zeiger;
+         anfang-&gt;previous=NULL;
+      }
+      /* Die letzte M&ouml;glichkeit ist, dass wir das Element
+       * irgendwo in der Mitte einf&uuml;gen m&uuml;ssen */
+      else if(vergleiche(zeiger,zeiger2)) {
+         zeiger1=anfang;
+         /* Wir suchen das Element, das vor dem Zeiger
+          * zeiger steht */
+         while(zeiger1-&gt;next != zeiger)
+            zeiger1=zeiger1-&gt;next;
+         zeiger=(struct angestellt *)
+           malloc(sizeof(struct angestellt));
+         if(NULL == zeiger) {
+            fprintf(stderr, "Speicherplatzmangel\n");
+            return;
+         }
+         counter++;
+         strcpy(zeiger-&gt;name, strtok(n, "\n") );
+         strcpy(zeiger-&gt;vorname, strtok(v, "\n") );
+         zeiger-&gt;alter.tag=at;
+         zeiger-&gt;alter.monat=am;
+         zeiger-&gt;alter.jahr=aj;
+         zeiger-&gt;eingest.tag=et;
+         zeiger-&gt;eingest.monat=em;
+         zeiger-&gt;eingest.jahr=ej;
+         zeiger-&gt;gehalt=geh;
+         /* Wir f&uuml;gen das neue Element ein */
+         zeiger-&gt;next=zeiger1-&gt;next;
+         zeiger-&gt;previous=zeiger1;
+         zeiger1-&gt;next=zeiger;
+         zeiger1-&gt;next-&gt;previous=zeiger;
+      }
+      else {
+         printf("Name wurde nicht eingef&uuml;gt!!! "
+                "(Weiter mit &lt;ENTER&gt;");
+         getchar();
+      }
+   }
+}
+/* Funktion zum Vergleichen von Nachname und bei Gleichheit
+ * Vorname. Somit wird bei gleichem Nachnamen nach dem Anfangs-
+ * buchstaben des Vornamens sortiert. */
+int vergleiche(struct angestellt *n1, struct angestellt *n2) {
+   int z = strcmp(n1-&gt;name,n2-&gt;name);
+   /* Falls z einen Wert ungleich 0 hat, gibt es den Namen noch
+    * nicht. Somit k&ouml;nnen wir den Wert zur&uuml;ckgeben an die
+    * Funktion, den wir durch strcmp erhalten haben. */
+   if(z)
+      return z;
+   /* Wenn diese ausgef&uuml;hrt wird, so existiert dieser Name
+    * schon. Somit vergleichen wir die Vornamen */
+   return(strcmp(n1-&gt;vorname,n2-&gt;vorname));
+}
+/* Die gesamte Liste in der Datei "personal.dat" speichern */
+void speichern(FILE *datei) {
+   struct angestellt *zeiger;
+   /* Im "w+" – Modus oeffnen */
+   if(datei_oeffnen_lesen_schreiben(&amp;datei)) {
+      zeiger=anfang;
+      while(zeiger != NULL) {
+         fwrite(zeiger,sizeof(struct angestellt),1,datei);
+         zeiger=zeiger-&gt;next;
+      }
+   }
+   fclose(datei);
+}
+/* Beim Start des Programms alle Elemente aus der Datei
+ * "personal.dat" laden. Laden ist nicht ganz richtig.
+ * Wir lesen zuerst die einzelnen Elemente aus der Datei
+ * "personal.dat" und &uuml;bergeben jedes einzelne  Element
+ * an die Funktion sortiert_eingeben. */
+int laden(FILE *datei) {
+   struct angestellt zeiger;
+   if(datei_oeffnen_lesen(&amp;datei)) {
+      while(fread(&amp;zeiger,sizeof(struct angestellt),1,datei)) {
+         sortiert_eingeben(zeiger.name,zeiger.vorname,
+            zeiger.alter.tag,zeiger.alter.monat,
+            zeiger.alter.jahr,zeiger.eingest.tag,
+            zeiger.eingest.monat,zeiger.eingest.jahr,
+            zeiger.gehalt );
+      }
+      return 1;
+   }
+   return 0;
+}
+/* Funktion zum &Ouml;ffnen einer Datei im Nur-Lesen-Modus "r" */
+int datei_oeffnen_lesen(FILE **datei) {
+   if((*datei = fopen(datname,"r")) == NULL) {
+      fprintf(stderr,"Konnte \"personal.dat\" "
+                     "nicht oeffnen!\n");
+      printf("&lt;ENTER&gt;"); getchar();
+      return 0;
+   }
+   return 1;
+}
+/* Falls Datei "personal.dat" noch nicht existiert, wird diese
+ * erzeugt */
+int datei_oeffnen_erstellen(FILE **datei) {
+   if((*datei = fopen(datname,"w+")) == NULL) {
+      printf("Konnte \"personal.dat\" nicht erstellen\n");
+      return 0;
+   }
+   return 1;
+}
+/* Datei zum Lesen und Schreiben &ouml;ffnen. Der Inhalt der Datei
+ * wird dabei &uuml;berschrieben */
+int datei_oeffnen_lesen_schreiben(FILE **datei) {
+   if((*datei = fopen(datname,"w+")) == NULL) {
+      printf("Kann \"personal.dat\" nicht zum"
+             " beschreiben oeffnen!\n");
+      printf("&lt;ENTER&gt;"); getchar();
+      return 0;
+   }
+   return 1;
+}
+/* Funktion, um einen L&ouml;schvorgang r&uuml;ckg&auml;ngig zu machen */
+void rueckgaengig_loeschen(void) {
+   char n[MAX],vn[MAX];
+   int at,am,aj,et,em,ej;
+   long geh;
+   if(stack_ptr-&gt;next != NULL) {
+      strcpy(n, stack_ptr-&gt;next-&gt;name);
+      strcpy(vn,stack_ptr-&gt;next-&gt;vorname);
+      at=stack_ptr-&gt;next-&gt;alter.tag;
+      am=stack_ptr-&gt;next-&gt;alter.monat;
+      aj=stack_ptr-&gt;next-&gt;alter.jahr;
+      et=stack_ptr-&gt;next-&gt;eingest.tag;
+      em=stack_ptr-&gt;next-&gt;eingest.monat;
+      ej=stack_ptr-&gt;next-&gt;eingest.jahr;
+      geh=stack_ptr-&gt;next-&gt;gehalt;
+      sortiert_eingeben(n,vn,at,am,aj,et,em,ej,geh);
+      pop();
+   }
+   else {
+      printf("Kein Element mehr vorhanden zum"
+             " \"R&uuml;ckg&auml;ngig L&ouml;schen\"\n");
+      printf("&lt;ENTER&gt;");
+      getchar();
+   }
+}
+int main(void) {
+   int wahl;
+   char dname[MAX];
+   FILE *datei;
+   struct angestellt *emptystack;
+   /* Stack mit dummy initialisieren */
+   stackinit();
+   if(laden(datei))
+      ;
+   else if(datei_oeffnen_erstellen(&amp;datei)) {
+      start();
+      printf("\"personal.dat\" neu erstellt\n");
+      printf("&lt;ENTER&gt;"); getchar();
+      fclose(datei);
+   }
+   else {
+      fprintf(stderr,"Konnte \"personal.dat\" weder"
+                     " erstellen noch finden\n");
+      return EXIT_FAILURE;
+   }
+   do {
+      printf("Personaldaten – Verwaltung\n");
+      printf("==========================\n");
+      printf("1 : Eingabe\n");
+      printf("2 : Ausgabe\n");
+      printf("3 : Namen l&ouml;schen\n");
+      printf("4 : Alles l&ouml;schen\n");
+      printf("5 : Speichern\n");
+      printf("6 : R&uuml;ckg&auml;ngig L&ouml;schen\n");
+      printf("0 : Ende\n");
+      printf("Sie haben %d Leute an Personal\n",counter);
+      printf("Ihre Wahl : ");
+      scanf("%d",&amp;wahl);
+      getchar();
+      switch(wahl) {
+         case 1  : eingabe();
+                   break;
+         case 2  : ausgabe();
+                   break;
+         case 3  : printf("Welchen Namen : ");
+                   fgets(dname, MAX, stdin);
+                   loesche( strtok(dname, "\n") );
+                   break;
+         case 4  : loesche_alles();
+                   break;
+         case 5  : speichern(datei);
+                   break;
+         case 6  : rueckgaengig_loeschen();
+                   break;
+         case 0  : break;
+         default : printf("Falsche Eingabe!!!\n");
+      }
+   } while(wahl != 0);
+   /* Wir entleeren unseren stack_ptr */
+   while((emptystack=stack_ptr-&gt;next) != NULL)
+      pop();
+   free(stack_ptr);
+   return EXIT_SUCCESS;
+}</pre>
+<p>In diesem Listing ist der Einsatz der Funktionen <span class="listing">push()</span> und <span class="listing">pop()</span> noch einigerma&szlig;en &uuml;berschaubar. Bei umfangreichen Projekten passiert es aber schnell, dass man den &Uuml;berblick vor lauter <span class="listing">push()</span> und <span class="listing">pop()</span> verliert. Damit Sie dann im Fall der F&auml;lle beim Debuggen Ihres Quellcodes wenigstens beim Stack den &Uuml;berblick behalten, sollten Sie die Anzahl der Pushs und Pops mitz&auml;hlen und entsprechend reagieren. Ein m&ouml;gliches Beispiel k&ouml;nnte dabei so aussehen:<a id="Xxx999414" name="Xxx999414"></a></p>
+<pre>/* count_push_pop.c */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#define DEBUG 1
+#ifdef DEBUG
+   int push_cnt=0, pop_cnt=0;
+#endif
+void push(void) {
+   #ifdef DEBUG
+      push_cnt++;
+      printf("Anzahl push : %d\n", push_cnt);
+   #endif
+   /* Ausf&uuml;hrung von push */
+}
+void pop(void) {
+   #ifdef DEBUG
+      pop_cnt++;
+      printf("\t\tAnzahl pop : %d\n", pop_cnt);
+      if(pop_cnt &gt; push_cnt)
+         printf("Schwerer Fehler: pop_cnt darf nie gr&ouml;&szlig;er"
+                " als push_cnt sein\n");
+   #endif
+ /* Ausf&uuml;hrung von pop */
+}
+int main(void) {
+   push();
+   push();
+   pop();
+   push();
+   pop();
+   pop();
+   pop();    /* Fehler */
+   return EXIT_SUCCESS;
+}</pre>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a class="navnav" href="c_023_001.htm"> &lt;&lt; zur&uuml;ck</a></td>
+<td width="49%">
+<div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div>
+</td>
+<td align="right" width="25%">
+<div align="right"><a class="navnav" href="c_023_003.htm">vor &gt;&gt; </a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td width="10" valign="top">&nbsp;&nbsp;</td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/899?GPP=opc">
+                                        <img src="common/643_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C von A bis Z" title="Zum Katalog: C von A bis Z">
+                                        <br /><strong>C von A bis Z</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Ihre Meinung?</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="mailto:stefan.krumbiegel@galileo-press.de?subject=Meinung%20zu%20C%20von%20A%20bis%20Z%20(openbook)"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opc" class="navs"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1007?GPP=opc">
+                        <img src="common/683_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Shell-Programmierung" title="Zum Katalog: Shell-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Shell-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1137?GPP=opc">
+                        <img src="common/749_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux-UNIX-Programmierung" title="Zum Katalog: Linux-UNIX-Programmierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux-UNIX-Programmierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1004?GPP=opc">
+                        <img src="common/644_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C/C++" title="Zum Katalog: C/C++"><br /><br /><br /><br /><br /><br /><br />&nbsp;C/C++</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/880?GPP=opc">
+                        <img src="common/573_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/967?GPP=opc">
+                        <img src="common/626_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Reguläre Ausdrücke" title="Zum Katalog: Reguläre Ausdrücke"><br /><br /><br /><br /><br /><br /><br />&nbsp;Reguläre Ausdrücke</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/941?GPP=opc">
+                        <img src="common/677_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="tbl2" height="20" colspan="2"><strong>&nbsp;Shopping</strong></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl2" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opc"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table>
+<br /><br />
+<hr width="70%" align="center"><br />
+<div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2006</b><br>F&uuml;r Ihren privaten Gebrauch d&uuml;rfen Sie die Online-Version nat&uuml;rlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschlie&szlig;lich aller seiner Teile ist urheberrechtlich gesch&uuml;tzt. Alle Rechte vorbehalten einschlie&szlig;lich der Vervielf&auml;ltigung, &Uuml;bersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>
