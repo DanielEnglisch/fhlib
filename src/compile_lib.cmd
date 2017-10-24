@@ -1,6 +1,7 @@
 @echo off
 gcc -c Stopwatch\Stopwatch.c -o Stopwatch.o
-ar rvs fhlib.a Stopwatch.o
-del Stopwatch.o
-move fhlib.a ..\lib\fhlib.a
+gcc -c ArrayUtils\ArrayUtils.c -o ArrayUtils.o
+
+ar rvs fhlib.a Stopwatch.o ArrayUtils.o
+del Stopwatch.o ArrayUtils.o
 pause

@@ -2,6 +2,6 @@
 #define 		 fhlib_h
 
 #include "Stopwatch/Stopwatch.h"
-
+#include "ArrayUtils/ArrayUtils.h"
 
 #endif
