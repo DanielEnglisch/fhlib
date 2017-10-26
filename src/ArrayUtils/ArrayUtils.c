@@ -72,7 +72,7 @@ int** AllocateMultiarrayConvert(unsigned int RowNum, int arr[])
 // Free the allocated multi array
 void FreeMultiArray(int **a, unsigned int RowNum)
 {
-    for (int i = 0; i < RowNum; i++)
+    for (unsigned int i = 0; i < RowNum; i++)
     {
         free(a[i]);
     }
