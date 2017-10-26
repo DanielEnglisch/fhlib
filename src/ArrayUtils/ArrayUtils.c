@@ -3,35 +3,29 @@
 #include <stdio.h>
 
 // allocate mulit array with 0 as default value
-int** AllocateMultiarray(unsigned int RowNum)
+int **AllocateMultiarray(unsigned int RowNum)
 {
+
     int **a = malloc(sizeof(*a) * RowNum);
 
     if (a)
     {
-        for (unsigned int i = 0; i < RowNum; i++)
-        {
-            a[i] = malloc(sizeof(*(a[i])) * RowNum);
-        }
 
         for (unsigned int i = 0; i < RowNum; i++)
-        {
+            a[i] = malloc(sizeof(*(a[i])) * RowNum);
+
+        for (unsigned int i = 0; i < RowNum; i++)
             for (unsigned int j = 0; j < RowNum; j++)
-            {
                 a[i][j] = 0;
-            }
-        }
     }
     else
-    {
         printf("\n-ERROR-\nAllocateMultiArray: Failed to allocate ressources");
-    }
 
     return a;
 }
 
 // allocate multi array from existing one dimensional array
-int** AllocateMultiarrayConvert(unsigned int RowNum, int arr[])
+int **AllocateMultiarrayConvert(unsigned int RowNum, int arr[])
 {
     // only for static Arrays, not dynamic ones
     int length = sizeof(arr[0]);
