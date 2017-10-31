@@ -20,13 +20,13 @@
 // allocate mulit array with 0 as default value
 int** AllocateMultiarray(unsigned int RowNum)
 {
-    int **a = malloc(sizeof(*a) * RowNum);
+    int **a = (int**) malloc(sizeof(*a) * RowNum);
 
     if (a)
     {
         for (unsigned int i = 0; i < RowNum; i++)
         {
-            a[i] = malloc(sizeof(*(a[i])) * RowNum);
+            a[i] = (int*) malloc(sizeof(*(a[i])) * RowNum);
         }
 
         for (unsigned int i = 0; i < RowNum; i++)
@@ -48,13 +48,13 @@ int** AllocateMultiarray(unsigned int RowNum)
 int** AllocateMultiarrayConvert(unsigned int RowNum, int arr[])
 {
     int count = 0;
-    int **a = malloc(sizeof(*a) * RowNum);
+    int **a = (int**) malloc(sizeof(*a) * RowNum);
 
     if (a)
     {
         for (unsigned int i = 0; i < RowNum; i++)
         {
-            a[i] = malloc(sizeof(*(a[i])) * RowNum);
+            a[i] = (int*) malloc(sizeof(*(a[i])) * RowNum);
         }
 
         for (unsigned int i = 0; i < RowNum; i++)
