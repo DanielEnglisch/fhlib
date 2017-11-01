@@ -3,5 +3,6 @@
 
 #include "Stopwatch/Stopwatch.h"
 #include "ArrayUtils/ArrayUtils.h"
+#include "DataStructs/DataStructs.h"
 
 #endif
