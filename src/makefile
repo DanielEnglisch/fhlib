@@ -20,6 +20,7 @@ all: $(TARGET)
 
 $(TARGET): $(OFILES)
 	ar cr fhlib.a $(OFILES)
-	cp --parents -R **/*.h *.h ../include/
 	cp $(TARGET) ../lib/
+	rm -r ../include/*
+	cp --parents -R **/*.h *.h ../include/
 	$(RM) $(OFILES) $(TARGET)
