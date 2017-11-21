@@ -17,6 +17,8 @@ class rational final{
     rational& operator = (const int r);                     // r1 = 3
     std::ostream& print(std::ostream &s = std::cout)const;  // r1.print(std::cout) OR std::cout << r1.print()
 
+    void simplify();
+
     rational& operator *= (const rational &r);              // r1 *= r2
     rational& operator /= (const rational &r);              // r1 /= r2
     rational& operator += (const rational &r);              // r1 += r2
