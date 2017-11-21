@@ -12,5 +12,12 @@ int main(){
     rational r5 = r4; 
 
     cout << r1 << r2 << r3 << r4 << r5;
+    //     0/1   2/1   1/2   1/2    1/2
+
+    r1 += r2*2; // Implicit convertion from int to rational(int)
+    cout << r1; // 4/1
+
+    r2 = r2-r3;
+    cout << r2; // 3/2
 
 }
