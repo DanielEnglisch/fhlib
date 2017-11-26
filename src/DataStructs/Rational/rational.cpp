@@ -1,3 +1,19 @@
+/*CPP**********************************************************************
+* FILENAME :        rational.h
+*
+* DESCRIPTION :
+*       rational struct
+*
+* NOTES :
+*
+*
+*
+* AUTHOR :    Daniel Englisch        START DATE :    26.11.17
+*
+* CHANGES :
+*
+*CPP*/
+
 #include "rational.h"
 
 rational::rational(const int n)

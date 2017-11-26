@@ -1,3 +1,19 @@
+/*H**********************************************************************
+* FILENAME :        rational.h
+*
+* DESCRIPTION :
+*       rational struct
+*
+* NOTES :
+*
+*
+*
+* AUTHOR :    Daniel Englisch        START DATE :    26.11.17
+*
+* CHANGES :
+*
+*H*/
+
 #ifndef RATIONAL_H
 #define RATIONAL_H
 
