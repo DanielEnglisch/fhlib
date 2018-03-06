@@ -1,53 +1,97 @@
-/*H**********************************************************************
-* FILENAME :        rational.h
-*
-* DESCRIPTION :
-*       rational struct
-*
-* NOTES :
-*
-*
-*
-* AUTHOR :    Daniel Englisch        START DATE :    26.11.17
-*
-* CHANGES :
-*
-*H*/
-
 #ifndef RATIONAL_H
 #define RATIONAL_H
 
 #include <iostream>
 
 class rational final{
-  private:
-    int num {0};
-    int den {1};
-  public: 
-    rational() = default;                                   // r1
-    rational(const int n);                                  // r1{4}
-    rational(const int n, const int d);                     // r1{1,4}
-    rational(const rational &) = default;                   // r1{r2}
+    private:
+        int num {0};
+        int den {1};
+        int gcd(int a, int b){
+            while (b != 0){
+                int r = a % b;
+                a = b;
+                b = r;
+            }
+            return a;
+        };
+    public: 
+        rational() = default;
+        rational(const int n);
+        : rational {n, 1}
+        { };
+        rational(const int n, const int d)
+        : num {n}
+        , den {d}
+        {
+            simplify();
+        }
+        rational(const rational &) = default;
 
-    rational& operator = (const rational &r) = default;     // r1 = r2
-    rational& operator = (const int r);                     // r1 = 3
-    std::ostream& print(std::ostream &s = std::cout)const;  // r1.print(std::cout) OR std::cout << r1.print()
+        rational& operator = (const rational &r) = default;
+        rational& operator = (const int r){
+            rational {i};
+            simplify();
+            return this;
+        };
+        std::ostream& print(std::ostream &s = std::cout)const{
+            return s << "[ " << num << " / " << den;
+        };
 
-    void simplify();
+        void simplify(){
+            int g = gcd(num, den);
+            if(g != 0){
+                num /= g;
+                den /= g;
+            }
+        };
 
-    rational& operator *= (const rational &r);              // r1 *= r2
-    rational& operator /= (const rational &r);              // r1 /= r2
-    rational& operator += (const rational &r);              // r1 += r2
-    rational& operator -= (const rational &r);              // r1 -= r2
-
+        rational& operator *= (const rational &r){
+            num *= r.num;
+            den *= r.den;
+            simplify();
+            return *this;
+        };
+        rational& operator /= (const rational &r){
+            num *= r.den;
+            den *= r.num;
+            simplify();
+            return *this;
+        };
+        rational& operator += (const rational &r){
+            num = (num * r.den) + (r.num * den);
+            den *= r.den;
+            simplify();
+            return *this;
+        };
+        rational& operator -= (const rational &r){
+            num = (num * r.den) - (r.num * den);
+            den *= r.den;
+            simplify();
+            return *this;
+        };
 };
 
-std::ostream& operator << (std::ostream &s, const rational &r);   // std:cout << r1
+std::ostream& operator << (std::ostream &s, const rational &r){
+    r.print(s);
+    return s;
+}
 
-rational operator * (const rational &l,const rational &r);        // r1 = r2 * r3
-rational operator / (const rational &l,const rational &r);        // r1 = r2 / r3
-rational operator + (const rational &l,const rational &r);        // r1 = r2 + r3
-rational operator - (const rational &l,const rational &r);        // r1 = r2 - r3
-
+rational operator * (const rational &l,const rational &r){
+    auto res {l};
+    return res *= r;
+}
+rational operator / (const rational &l,const rational &r){
+    auto res {l};
+    return res /= r;
+}
+rational operator + (const rational &l,const rational &r){
+    auto res {l};
+    return res += r;
+}
+rational operator - (const rational &l,const rational &r){
+    auto res {l};
+    return res -= r;
+}
 
 #endif
