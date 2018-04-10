@@ -6,8 +6,6 @@
 #include <iostream>
 #include <limits>
 
-typedef std::bitset<8> BYTE;
-
 template<typename T>
 class HashTable{
     public:
@@ -37,20 +35,20 @@ class HashTable{
             return count;
         };
         int hashFunction(const T& val){
-            BYTE* byteArray = (BYTE*)(&val);
-            int size = sizeof(T);
-            int* intArray = (int*)byteArray;
-            int intSize = size / sizeof(int);
-            int extraBytes = size % sizeof(int);
-            int hash = std::numeric_limits<int>::max();
-            for(int i = 0; i < intSize; i++){
-                hash ^= intArray[i];//hash = hash XOR intArray[i]
+            int bytes {sizeof(T)};
+
+            int ints {bytes / sizeof(int)};
+            int* intArray {(int*)(&val)};
+
+            int extraBytes {size % sizeof(int)};
+            char* byteArray {(char*)(&val) + bytes - extraBytes};//char is defined with size of one byte
+
+            int hash {std::numeric_limits<int>::max()};
+            for(short int i {0}; i < ints; ++i){
+                hash ^= intArray[i]; //hash = hash XOR intArray[i]
             }
-            if(extraBytes > 0){
-                for(int i = 0; i < extraBytes; i++){
-                    BYTE* lastByteOfHash = ((BYTE*)(&(hash))) + sizeof(int) - 1;
-                    *lastByteOfHash = *lastByteOfHash ^ byteArray[intSize * sizeof(int) + i];
-                }
+            for(short int i{0}; i < extraBytes; ++i){//If i == 0 we won't go in anyways
+                hash ^= (int)byteArray[i];
             }
             return hash;
         };
